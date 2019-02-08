@@ -1,0 +1,32 @@
+﻿platformer = 
+    '<platformer name="Bomb Jack" myrecord="" arcaderecord="" release="1984" developer="Tehkan" players="2" link="https://en.wikipedia.org/wiki/Bomb_Jack"><column name="name">Bomb Jack</column></platformer>' +
+    '<platformer name="Bubble Bobble" myrecord="" arcaderecord="" release="August 1986" developer="Taito" players="2" link="https://en.wikipedia.org/wiki/Bubble_Bobble"><column name="name">Bubble Bobble</column></platformer>' +
+    '<platformer name="Burger Time" myrecord="" arcaderecord="" release="June 1982" developer="Data East" players="2" link="https://en.wikipedia.org/wiki/BurgerTime"><column name="name">Burger Time</column></platformer>' +
+    '<platformer name="Donkey Kong" myrecord="" arcaderecord="" release="July 1981" developer="Nintendo" players="2" link="https://en.wikipedia.org/wiki/Donkey_Kong_(video_game)"><column name="name">Donkey Kong</column></platformer>' +
+    '<platformer name="Crazy Kong" myrecord="" arcaderecord="" release="1981" developer="Falcon" players="2" link=""><column name="name">Crazy Kong</column></platformer>' +
+    '<platformer name="Donkey Kong Jr" myrecord="" arcaderecord="" release="1982" developer="Nintendo" players="2" link="https://en.wikipedia.org/wiki/Donkey_Kong_Jr."><column name="name">Donkey Kong Jr</column></platformer>' +    
+    '<platformer name="Donkey Kong 3" myrecord="" arcaderecord="" release="1983" developer="Nintendo" players="2" link="https://en.wikipedia.org/wiki/Donkey_Kong_3"><column name="name">Donkey Kong 3</column></platformer>' +
+    '<platformer name="Flicky" myrecord="" arcaderecord="" release="1984" developer="Sega" players="1" link="https://en.wikipedia.org/wiki/Flicky"><column name="name">Flicky</column></platformer>' +
+    '<platformer name="Frogger" myrecord="" arcaderecord="" release="June 1981" developer="Konami" players="2" link="https://en.wikipedia.org/wiki/Frogger"><column name="name">Frogger</column></platformer>' +
+    '<platformer name="Ghouls n Ghosts" myrecord="" arcaderecord="" release="December 1988" developer="Capcom" players="2" link="https://en.wikipedia.org/wiki/Ghouls_&apos;n_Ghosts"><column name="name">Ghouls n Ghosts</column></platformer>' +
+    '<platformer name="New Zealand Story" myrecord="" arcaderecord="" release="September 1988" developer="Taito" players="2" link="https://en.wikipedia.org/wiki/The_NewZealand_Story"><column name="name">New Zealand Story</column></platformer>' +
+    '<platformer name="Pac-Land" myrecord="" arcaderecord="" release="August 1984" developer="Namco" players="2" link="https://en.wikipedia.org/wiki/Pac-Land"><column name="name">Pac-Land</column></platformer>' +
+    '<platformer name="Popeye" myrecord="" arcaderecord="" release="1983" developer="Nintendo" players="2" link="https://en.wikipedia.org/wiki/Popeye_(video_game)"><column name="name">Popeye</column></platformer>' +
+    '<platformer name="Quartet" myrecord="" arcaderecord="" release="April 1986" developer="Sega" players="4" link="https://en.wikipedia.org/wiki/Quartet_(video_game)"><column name="name">Quartet</column></platformer>' +
+    '<platformer name="Rainbow Islands" myrecord="" arcaderecord="" release="1987" developer="Taito" players="2" link="https://en.wikipedia.org/wiki/Rainbow_Islands:_The_Story_of_Bubble_Bobble_2"><column name="name">Rainbow Islands</column></platformer>' +
+    '<platformer name="Hunchback" myrecord="" arcaderecord="" release="1983" developer="Century Electronics" players="2" link="https://en.wikipedia.org/wiki/Hunchback_(video_game)"><column name="name">Hunchback</column></platformer>' +
+    '<platformer name="Osman" myrecord="" arcaderecord="" release="1996" developer="Mitchell Corporation" players="1" link="https://en.wikipedia.org/wiki/Osman_(video_game)"><column name="name">Osman</column></platformer>' +
+    '<platformer name="Food Fight" myrecord="" arcaderecord="" release="March 1983" developer="Atari" players="2" link=""><column name="name">Food Fight</column></platformer>' +
+    '<platformer name="Monkey Ball" myrecord="" arcaderecord="" release="2000" developer="Sega" players="2" link=""><column name="name">Monkey Ball</column></platformer>' +
+    '<platformer name="Snow Bros" myrecord="" arcaderecord="" release="1990" developer="Toaplan" players="2" link=""><column name="name">Snow Bros</column></platformer>' +
+    '<platformer name="Joust" myrecord="" arcaderecord="" release="July 1982" developer="Williams Electronics" players="2" link="https://en.wikipedia.org/wiki/Joust_(video_game)"><column name="name">Joust</column></platformer>' +
+    '<platformer name="Joust 2" myrecord="" arcaderecord="" release="July 1986" developer="Williams Electronics" players="2" link="https://en.wikipedia.org/wiki/Joust_2:_Survival_of_the_Fittest"><column name="name">Joust 2</column></platformer>' +
+    '<platformer name="Mario-bros" myrecord="" arcaderecord="" release="June 1983" developer="Nintendo" players="2" link=""><column name="name">Mario-bros</column></platformer>' +
+    '<platformer name="Mighty Pang" myrecord="" arcaderecord="" release="2000" developer="Capcom" players="1" link=""><column name="name">Mighty Pang</column></platformer>' +
+    '<platformer name="Ninja Spirit" myrecord="" arcaderecord="" release="1988" developer="Irem" players="1" link=""><column name="name">Ninja Spirit</column></platformer>' +
+    '<platformer name="Strider" myrecord="" arcaderecord="" release="1989" developer="Capcom" players="2" link=""><column name="name">Strider</column></platformer>' +
+    '<platformer name="Splat" myrecord="" arcaderecord="" release="1982" developer="Williams" players="2" link=""><column name="name">Splat</column></platformer>' +
+    '<platformer name="Jungle Hunt" myrecord="" arcaderecord="" release="1982" developer="Atari" players="2" link=""><column name="name">Jungle Hunt</column></platformer>' +
+    '<platformer name="Mappy" myrecord="" arcaderecord="" release="March 1983" developer="Namco" players="2" link=""><column name="name">Mappy</column></platformer>' +
+    '<platformer name="Arabian" myrecord="" arcaderecord="" release="1983" developer="Atari" players="2" link=""><column name="name">Arabian</column></platformer>' +
+    '<platformer name="Wonderboy" myrecord="" arcaderecord="" release="April 1986" developer="Escape" players="1" link="https://en.wikipedia.org/wiki/Wonder_Boy_(video_game)"><column name="name">Wonderboy</column></platformer>';
