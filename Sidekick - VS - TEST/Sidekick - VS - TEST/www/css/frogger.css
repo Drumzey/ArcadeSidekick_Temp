@@ -121,6 +121,10 @@ body {
     background: url(../category_icons/news.png), url(themes/images/frogger_1_btn.png);
 }
 
+.custom {
+    background: url(../category_icons/customgames.png), url(themes/images/frogger_1_btn.png);
+}
+
 .tile {
     width: 40vw !important;
     height: 40vw !important;

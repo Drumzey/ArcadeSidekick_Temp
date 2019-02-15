@@ -121,6 +121,10 @@ body {
     background: url(../category_icons/news.png), url(themes/images/arkanoid_3_btn.png);
 }
 
+.custom {
+    background: url(../category_icons/customgames.png), url(themes/images/arkanoid_4_btn.png);
+}
+
 .tile {
     width: 40vw !important;
     height: 40vw !important;

@@ -45,9 +45,9 @@ var existingUserPopup =
 
 var successOnlinePopup =     
     '<div data-role="content" class="ui-corner-bottom ui-content" role="main"> \
-        <h3>Success!</h3> \
-        <h6>You are now ready to log games played, scores and challenge friends.</h6> \
-        <a onclick="ClosePopup();" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">OK</span></span></a> \
+        <h3>Welcome back!</h3> \
+        <h6>What are you waiting for? Go beat your friends records!.</h6> \
+        <a onclick="ClosePopup(); PostSignup()" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">OK</span></span></a> \
      </div>';
 
 //Used when creating a new user

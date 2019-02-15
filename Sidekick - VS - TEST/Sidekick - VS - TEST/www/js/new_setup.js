@@ -62,24 +62,6 @@ function Contact() {
     ShowPopup("#Contact");
 }
 
-function Backup() {
-    if (AllowedOnline()) {
-        UploadBulkDataAndPullDownStoredData();
-    }
-    else {
-        ShowPopup('#NoUser');
-    }
-}
-
-function Restore() {
-    if (AllowedOnline()) {
-        SynchOnlineAndOffline();
-    }
-    else {
-        ShowPopup('#NoUser');
-    }
-}
-
 function ShowTheme() {
     $('#70s').removeClass('ui-btn-active');
     $('#80s').removeClass('ui-btn-active');

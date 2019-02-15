@@ -6,8 +6,8 @@
         }
         else {
             var ratingresponse = JSON.parse(latestXHTTP.responseText);
-            var average = ratingresponse.Average;
-            var numberOfRatings = ratingresponse.NumberOfRatings;
+            var average = ratingresponse.Games[TransformedCurrentGameName()].Average;
+            var numberOfRatings = ratingresponse.Games[TransformedCurrentGameName()].NumberOfRatings;
 
             if (ratingresponse.ratings === 0 || ratingresponse.total === 0) {
                 document.getElementById("averagerating").innerText = "Game not yet rated. You can be the first";
@@ -32,47 +32,6 @@ function UnsuccessfulGetCommunityRating() {
 
 function GetCommunityRating() {   
     SideKickOnline_GetRating("Getting community rating...");
-}
-
-function SuccessfulGetMyRating() {
-    if (latestXHTTP.status === 200) {
-
-        var rating = 0;
-        if (latestXHTTP.responseText !== '' && latestXHTTP.responseText !== "[]") {
-            $('#ratings').removeClass('ui-screen-hidden');
-            var ratingresponse = JSON.parse(latestXHTTP.responseText);
-            rating = ratingresponse.rating;
-        }
-
-        if (rating !== '0') {
-            var element = $('#datavote' + rating);
-            var id = element.parent().attr("id");
-
-            $("#" + id + ".rating a").each(function (i, v) {
-                $(v).removeClass("rated");
-            });
-
-            element.prevAll().each(function (i, v) {
-                $(v).addClass("rated");
-            });
-
-            element.addClass("rated");
-        }
-        else {
-            $("#ratings.rating a").each(function (i, v) {
-                $(v).removeClass("rated");
-            });
-        }
-
-    }
-    else {
-        UnsuccessfulGetMyRating();
-    }
-}
-
-function UnsuccessfulGetMyRating() {
-    CreatePopup(errorOnlinePopup);
-    $('#ratings').addClass('ui-screen-hidden');
 }
 
 function ClearRating() {
@@ -190,8 +149,4 @@ function OnClickStar(datavote) {
             }
         }
     }    
-}
-
-function ResetStarRating() {
-
 }

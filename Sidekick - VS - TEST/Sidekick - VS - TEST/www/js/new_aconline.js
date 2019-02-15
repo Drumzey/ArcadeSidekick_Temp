@@ -1,53 +1,44 @@
 ﻿var latestXHTTP = '';
 var hasErrored = false;
-var baseUrl = 'https://nvsngzyuq3.execute-api.eu-west-2.amazonaws.com/Beta'; //https://demo2505266.mockable.io
+var baseUrl = 'https://nvsngzyuq3.execute-api.eu-west-2.amazonaws.com/Beta';
 
 //Used to find a friend in the system
 //Will also populate their games and scores
 function SideKickOnline_FindFriend(name, message)
 {   
-    var body =
-        {
-            'UserNames': name
-        };
-
-    CallACOnlineWithBodyAndWait(baseUrl + '/getscore',
+    CallACOnlineWithBodyAndWait(baseUrl + '/getscore?usernames=' + name,
         'GET',
-        body,
+        null,
         function () { FriendExists(name); },
         function () { FriendDoesNotExist(); },
-        function () { StandardCompleteACOnline()(); },
+        function () { StandardCompleteACOnline(); },
         message);     
 }
 
 //Used to get an individual friends games and scores
 function SideKickOnline_GetFriendScores(name, message) {
     
-    var body =
-        {
-            'UserNames': name
-        };
-
-    CallACOnlineWithBodyAndWait(baseUrl + '/getscore',
+    CallACOnlineWithBodyAndWait(baseUrl + '/getscore?usernames=' + name,
         'GET',
-        body,
+        null,
         function () { FindFriendGames(name); },
         function () { UnsuccessfulOnlineCall(); },
-        function () { StandardCompleteACOnline(); NavigateToInternalPage('#FriendsGames'); },
+        function ()
+        {
+            var names = DrawFriendsGamesAndScores(friendsGames[name]);
+            NavigateToInternalPage('#FriendsGames');
+            AlterFriendScoreHeights(names);
+            StandardCompleteACOnline();            
+        },
         message);  
 }
 
 //Used to retrieve multiple friends games and scores
 function SideKickOnline_GetFriendsScores(names, message) {
 
-    var body =
-        {
-            'UserNames': names
-        };
-
-    CallACOnlineWithBodyAndWait(baseUrl + '/getscore',
+    CallACOnlineWithBodyAndWait(baseUrl + '/getscore?usernames=' + name,
         'GET',
-        body,
+        null,
         function () { AddGamesToFriends(); ProcessScoresForLeaderboard(); },
         function () { UnsuccessfulOnlineCall(); },
         function () { StandardCompleteACOnline(); },
@@ -59,16 +50,16 @@ function SideKickOnline_SaveScores(scoreArray) {
 
     GetItemFromStorageWithCallBack("secret", function (secretValue) {
         var gameNames = [];    
-        var games = [];
-        var ratings = [];
-
+        var games = {};
+        var ratings = {};
+        
         for (var game in scoreArray)
         {
             if (scoreArray.hasOwnProperty(game))
             {
                 gameNames.push(game);
-                games.push({ [game]: scoreArray[game] });
-                ratings.push({ [game]: GetRating(game) }); //GET RATING TODO
+                games[game] = scoreArray[game];
+                ratings[game] = GetRating(game);
             }
         }    
 
@@ -96,18 +87,21 @@ function SideKickOnline_SaveScores(scoreArray) {
 function SideKickOnline_SaveScore(gamename, score, rating) {
 
     GetItemFromStorageWithCallBack("secret", function (secretValue) {
+
+        //if (timed.indexOf(gamename) !== -1)
+        //{
+        //    score = MillisecondsToMinutesSecondsMilliseconds(parseInt(score));
+        //}
+
         var gameNames = [];
         gameNames.push(gamename);
 
         var games =
-            [
-                { [gamename]: score }
-            ];
+            { [gamename]: score };
+            
 
         var ratings =
-            [
-                { [gamename]: rating }
-            ];
+            { [gamename]: rating };            
 
         var body =
             {
@@ -141,15 +135,66 @@ function SideKickOnline_GetRating(message)
         message);
 }
 
+//Used to save multiple ratings in one go, when user transitions from offline to online
+function SideKickOnline_SaveRatings()
+{
+    GetItemFromStorageWithCallBack("secret", function (secretValue) {
+
+        var ratings = [];
+
+        for (var i = 0; i < currentRecord.ratings.length; i++) {
+            var ratingJson = {};
+            var gameName = currentRecord.ratings[i].id;
+            var rating = currentRecord.ratings[i].rating;
+
+            if (rating !== 0) //Only push the rating if its non zero
+            { 
+                ratingJson = {
+                    'GameName': gameName,
+                    'Rating': rating
+                };
+
+                ratings.push(ratingJson);
+            }
+        }        
+
+        var body =
+            {
+                'Username': clientUserName,
+                'Ratings': ratings
+            };
+
+        var jwt = CreateJWT(clientUserName, emailAddress, secretValue);
+
+        CallACOnlineWithBodyAndWait(baseUrl + '/saverating',
+            'Post',
+            body,
+            function () { },
+            function () { UnsuccessfulOnClickStar(); },
+            function () { StandardCompleteACOnline(); },
+            'Uploading ratings...',
+            jwt);
+    });
+}
+
+// {\"Username\":\"Drumzey\",\"Ratings\":[{\"GameName\":\"Bubble Bobble\",\"Rating\":10},{\"GameName\":\"Amidar\",\"Rating\":9}]}
 //Used to save a single rating to the data
 function SideKickOnline_SaveRating(rating, element, id, message)
 {
     GetItemFromStorageWithCallBack("secret", function (secretValue) {
+
+        var ratingJson = {
+            'GameName': TransformedCurrentGameName(),
+            'Rating': rating
+        };
+
+        var ratings = [];
+        ratings.push(ratingJson);
+        
         var body =
             {
                 'Username': clientUserName,
-                'GameName': TransformedCurrentGameName(),
-                'Rating': rating
+                'Ratings': ratings
             };
 
         var jwt = CreateJWT(clientUserName, emailAddress, secretValue);
@@ -173,20 +218,23 @@ function SideKickOnline_GetMyGames(username, email, secret)
 {
     var authorization = CreateJWT(username, email, secret);
 
-    var myname = [];
-    myname.push(clientUserName);
-
-    var body =
-        {
-            'UserNames': myname
-        };
-
-    CallACOnlineWithBodyAndWait(baseUrl + '/getscore',
+    CallACOnlineWithBodyAndWait(baseUrl + '/getscore?usernames=' + username,
         'GET',
-        body,
-        function () { ProcessMyGames(); }, //If we succeed we want to save our secret to the storage
+        null,
+        function ()
+        {
+            ProcessMyGames();
+            clientUserName = username;
+            SetItemInStorage("userName", clientUserName);
+            emailAddress = email;
+            SetItemInStorage("emailAddress", emailAddress);            
+            SetItemInStorage("secret", secret);
+            SetNextPopUp(successOnlinePopup); 
+            SetUserNameAdnEmailInSetup(username, emailAddress); 
+            Hide('#verifyuserbutton'); //Show verified button in setup
+        }, //If we succeed we want to save our secret to the storage
         function () { UnsuccessfulOnlineCall(); },
-        function () { StandardCompleteACOnline(); },
+        function () { ClosePopup(); StandardCompleteACOnline(); },
         "Restoring data ...");
 }
 
@@ -313,46 +361,6 @@ function CallACOnlineWithBodyAndWait(url, type, body, successCallback, failureCa
     }
 }
 
-function CallACOnlineWithWait(url, type, successCallback, failureCallback, completeCallBack, message) {
-    
-    if (message === '') {
-        message = "Loading...";
-    }
-
-    $.mobile.loading('show', { theme: themeLetter, text: message, textVisible: "true" });
-
-    var jqxhr = $.ajax({
-        url: url,
-        type: type,
-        success: function () {
-            latestXHTTP = jqxhr;
-            successCallback();
-        },
-        error: function () {
-            latestXHTTP = jqxhr;
-            failureCallback();
-        },
-        complete: function () {
-            completeCallBack();
-        }
-    });
-}
-
-function CompleteWithCounter(useCountPleaseWait, pageToNavigateTo, successCallBack, failureCallBack) {
-    if (useCountPleaseWait) {
-        if (countPleaseWait === 0) {
-            StandardCompleteACOnline();
-        }
-        else {
-            countPleaseWait--;
-            CloseMultiplePleaseWait(pageToNavigateTo, successCallBack, failureCallBack);
-        }
-    }
-    else {
-        StandardCompleteACOnline();
-    }
-}
-
 function SuccessfulVerifyUser() {
     SetNextPopUp(successVerify);
     ClosePopup();
@@ -370,9 +378,7 @@ function UnsuccessfulNewUser() {
     if (latestXHTTP.status === 409) {
         //User already exists
         $('span[id=userErrorText_newuser]').removeClass('ui-screen-hidden');
-        document.getElementById("userErrorText_newuser").innerText = "Username already exists, pick another user name";
-        //SetNextPopUp(errorNewUser);
-        //ClosePopup();     
+        document.getElementById("userErrorText_newuser").innerText = "Username already exists, pick another user name";          
     }
     else
     {
@@ -393,12 +399,23 @@ function CompleteACOnlineWithNavigate(pageToNavigateTo, successCallBack, failure
     
     if (pageToNavigateTo === "#Game") {
         //Wait for images to preload then navigate
+        var bezel = GetBezel(TransformedCurrentGameName());
         var array = [];
         array.push("game_banners/" + currentCategoryId + "/" + currentGameName.toLowerCase() + ".png");
         array.push("game_images/" + currentCategoryId + "/" + currentGameName.toLowerCase() + ".gif");
+        if (bezel.id === 'default')
+        {
+            array.push("game_bezels/" + bezel.image);
+        }     
+        else
+        {
+            array.push("game_bezels/" + currentCategoryId + "/" + bezel.image);
+        }
+
         preloadimages(array).done(function (images) {
-            if (CurrentPage() !== pageToNavigateTo) {
+            if (CurrentPage() !== pageToNavigateTo) {               
                 NavigateToInternalPage(pageToNavigateTo);
+                ResizeScreenImage();
             }
             successCallBack();
             $.mobile.loading('hide');
@@ -421,19 +438,6 @@ function CompleteACOnlineWithNavigate(pageToNavigateTo, successCallBack, failure
             hasErrored = false;
         }
     }                    
-}
-
-function ErrorWithCounter(useCountPleaseWait, callBack) {
-    if (useCountPleaseWait) {
-        hasErrored = true;
-    }
-    else {
-        callBack();
-    }
-}
-
-function ResetACOnline() {
-    latestXHTTP = '';
 }
 
 function GameInfoError() {

@@ -1,7 +1,7 @@
 var timed = [];
 
-function GoToMyScores() {
-
+function GetTimedGames()
+{
     if (timed.length === 0) {
         var timedData = $($.parseXML(timegames));
         tg = timedData.find('game');
@@ -18,7 +18,11 @@ function GoToMyScores() {
             timed.push(id);
         });
     }
+}
 
+function GoToMyScores() {
+
+    GetTimedGames();
     SetLocalScoresUI();
     NavigateToInternalPage("#MyScores");
     AlterScoreHeights();

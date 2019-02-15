@@ -35,6 +35,7 @@
 
 function ProcessScoresForLeaderboard()
 {
+    GetTimedGames();
     //Now we have all friends and all scores so we can find each friend that has a score for the 
     //current game.
     var scores = [];
@@ -43,17 +44,17 @@ function ProcessScoresForLeaderboard()
         if (friendsGames.hasOwnProperty(property)) {
             var games = friendsGames[property];
 
-            for (var j = 0; j < games.length; j++) {
-                var game = games[j];
+            //for (var j = 0; j < games.length; j++) {
+                //var game = games[j];
 
-                for (var gameName in game) {
-                    if ((game.hasOwnProperty(gameName)) &&
+                for (var gameName in games) {
+                    if ((games.hasOwnProperty(gameName)) &&
                         (TransformGameName(gameName) === TransformedCurrentGameName())) {
                         //add the users score to the array
-                        scores[property] = game[gameName];
+                        scores[property] = games[gameName];
                     }
                 }
-            }
+            //}
         }
     }
 
@@ -72,9 +73,18 @@ function ProcessScoresForLeaderboard()
         sortable.push([username, scores[username]]);
     }
 
-    sortable.sort(function (a, b) {
-        return b[1] - a[1];
-    });
+    if (timed.indexOf(TransformedCurrentGameName()) === -1)
+    {
+        sortable.sort(function (a, b) {
+            return b[1] - a[1];
+        });
+    }
+    else
+    {
+        sortable.sort(function (a, b) {
+            return a[1] - b[1];
+        });
+    }    
 
     //Need to show these items and resize ui        
     DisplayAllScores(sortable, "friendsgamepositionblock", "friendsgamealluserblock", "friendsgameallscoresblock",

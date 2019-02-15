@@ -5,6 +5,15 @@ var Scores = (function () {
     this.uploaded = false;
 });
 
+var Bezel = (function () {
+    this.id = '';
+    this.screenWidth = 60;
+    this.screenHeight = 60;
+    this.topOffset = 20;
+    this.leftOffset = 20;
+    this.image = '';
+});
+
 var MyScoreEntry = (function () {    
     this.score = 0;    
     this.uploaded = false;

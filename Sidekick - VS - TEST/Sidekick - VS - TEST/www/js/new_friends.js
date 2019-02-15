@@ -23,11 +23,13 @@ function ClearFriends() {
 }
 
 function SetFriendsName(username) {
-    
+
     if (username !== null || username !== '') {
         username = username.toUpperCase();
-        
-        SideKickOnline_FindFriend(username, 'Adding friend');
+
+        if (friendsCollection.indexOf(username) === -1) {            
+            SideKickOnline_FindFriend(username, 'Adding friend');
+        }
     }
 }
 
@@ -42,7 +44,7 @@ function AddExistingFriend(name) {
     friendsHistory++;
     var content =
         "<div id='divfriend" + friendsHistory + "'>" +
-        "<div id='collapse" + friendsHistory + "' data-role='collapsible' data-collapsed='true'><h5 id='hfriend" + friendsHistory + "'>" + name + "</h5><input id='friend" + friendsHistory + "' name='friendName' title='3-15 characters A-Z 0-9 only' pattern='[A-Za-z0-9]{3,15}' type='text' value='" + name + "' style='text-transform:uppercase'/>" +        
+        "<div id='collapse" + friendsHistory + "' data-role='collapsible' data-collapsed='true'><h5 name='" + name + "' id='hfriend" + friendsHistory + "'>" + name + "</h5>" +        
         "<div class='ui-grid-a'>" +
         "<div class='ui-block-a' style='width:50%'>" +
         "<ul data-role='listview' data-inset='true' class='ui-listview ui-listview-inset ui-corner-all ui-shadow'>" +
@@ -85,7 +87,8 @@ function FindFriendGames(username) {
 
 function FriendExists(username) {
     if (latestXHTTP.status === 200) {
-        if (latestXHTTP.responseText === '' || latestXHTTP.responseText === '[]') {
+        var response = JSON.parse(latestXHTTP.responseText);
+        if (response.Users.length === 0) {
             FriendDoesNotExist();
         }
         else {
@@ -113,7 +116,13 @@ function AddGamesToFriends()
 function AddGamesToFriend(username)
 {
     var response = JSON.parse(latestXHTTP.responseText);
-    friendsGames[username] = response.Users[0].Games;
+    if (response.Users[0]) {
+        friendsGames[username] = response.Users[0].Games;
+    }
+    else
+    {
+        friendsGames[username] = [];
+    }
 }
 
 function AddFriend() {
@@ -122,21 +131,28 @@ function AddFriend() {
 }
 
 function DeleteFriend(id) {
-    var newId = id.replace('deleteFriend', 'friend');
+    var newId = id.replace('deleteFriend', 'hfriend');
+    var friendName = document.getElementById(newId).getAttribute('name');    
+
     var container = document.getElementById("div" + newId);
-    container.parentNode.removeChild(container);    
+    container.parentNode.removeChild(container);   
+    //
+    var index = friendsCollection.indexOf(friendName);
+    friendsCollection.splice(index, 1);
+    delete friendsGames[friendName];
     SaveFriends();
 }
 
 function FriendGames(id) {
     var message = 'Getting games';
-    var newId = id.replace('friendGames', 'friend');
-    var name = document.getElementById(newId).value;
+    var newId = id.replace('friendGames', 'hfriend');
+    var name = document.getElementById(newId).getAttribute('name');
+    document.getElementById("friendGamesTitle").innerText = name;
 
     if (friendsGames.hasOwnProperty(name)) {
-        DrawFriendsGamesAndScores(friendsGames[name]);
-        document.getElementById("friendGamesTitle").innerText = name;
+        var names = DrawFriendsGamesAndScores(friendsGames[name]);                
         NavigateToInternalPage('#FriendsGames');       
+        AlterFriendScoreHeights(names);
     }
     else {
         //We have not yet got this friends scores so we need to get them
@@ -149,77 +165,47 @@ function DrawFriendsGamesAndScores(games)
     RemoveAllChildren("allfriendgameblocklocal");
     RemoveAllChildren("allfriendscoresblocklocal");
 
+    GetTimedGames();
+
     var nameArray = [];
     var scoreArray = [];
     var names = [];    
+    
+    for (var property in games) {
+        if (games.hasOwnProperty(property)) {
+            var gameName = property.replace(/_/g, ' ');
 
-    for (var i = 0; i < games.length; i++) {  
-        var game = games[i];
-        for (var property in game) {
-            if (game.hasOwnProperty(property)) {
-                var gameName = property.replace(/_/g, ' ');
+            var score = games[property];
 
-                var score = game[property];
-
-                if (timed.indexOf(property) !== -1) {
-                    score = MillisecondsToMinutesSecondsMilliseconds(parseInt(score));
-                }
-                else {
-                    score = addComma(score.toString());
-                }
-
-                nameArray.push('<li name="friend' + property + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;font-size:70%;">' + gameName + '</li>');       
-                scoreArray.push('<li name="friend' + property + '" class="ui-li ui-btn-up-c score" style="white-space: normal;text-overflow: clip;font-size:70%;text-align: right !important">' + score + '</li>');       
-                names.push("friend" + property);
+            if (timed.indexOf(property) !== -1) {
+                score = MillisecondsToMinutesSecondsMilliseconds(parseInt(score));
             }
-        }        
-    }
+            else {
+                score = addComma(score.toString());
+            }
 
-    $('#friendgameblocklocal').children('ul').append(nameArray.sort().join('')).listview().listview('refresh');
-    $('#friendscoreblocklocal').children('ul').append(scoreArray.sort().join('')).listview().listview('refresh');
+            nameArray.push([property,'<li name="friend' + property + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;font-size:70%;">' + gameName + '</li>']);       
+            scoreArray.push([property,'<li name="friend' + property + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;font-size:70%;text-align: right !important">' + score + '</li>']);       
+            names.push("friend" + property);
+        }
+    } 
 
-    AlterFriendScoreHeights(names);
+    nameArray.sort(SortById);
+    scoreArray.sort(SortById);
+
+    var nameoutput = [];
+    var scoreoutput = [];
+
+    for (var j = 0; j < nameArray.length; j++) {
+        nameoutput.push(nameArray[j][1]);
+        scoreoutput.push(scoreArray[j][1]);
+    }    
+
+    $('#friendgameblocklocal').children('ul').append(nameoutput.join('')).listview().listview('refresh');
+    $('#friendscoreblocklocal').children('ul').append(scoreoutput.join('')).listview().listview('refresh');
+
+    return names;
 }
-
-//function SuccessFriendGames(name) {
-//    //call to find the games that friend has played    
-//    var title = document.getElementById("friendGamesTitle");
-//    title.innerText = name;
-
-//    var array = [];
-//    var output = [];
-
-//    if (latestXHTTP.status === 200) {
-//        if (latestXHTTP.responseText === '' || latestXHTTP.responseText === '[]') {
-//            document.getElementById("friendNoGame").innerText = name[1];
-//            ShowPopup('#FriendsGamesNoGames');
-//            return;
-//        }
-
-//        RemoveAllChildren('friendGameListUL');
-
-//        var response = JSON.parse(latestXHTTP.responseText);
-
-//        for (var i = 0; i < response.length; i++) {
-//            var obj = response[i];
-//            var gameName = obj.gameName.replace(/_/g, ' ');
-
-//            array.push([gameName, '<li class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + gameName + '</span></li>']);
-//        }
-
-//        array.sort(SortById);
-
-//        for (var j = 0; j < array.length; j++) {
-//            output.push(array[j][1]);
-//        }
-
-//        $('#friendGameList').children('ul').append(output.join('')).listview().listview('refresh');
-//        NavigateToInternalPage('#FriendsGames');        
-//    }
-//    else {
-//        UnsuccessfulOnlineCall();
-//    }
-//}
 
 function LoadFriendsCollection() {
     GetItemFromStorageWithCallBack('friends', function (value) {
@@ -259,9 +245,9 @@ function SaveFriends() {
     }
 
     for (var i = 1; i <= friendsHistory; i++) {
-        var nameElement = document.getElementById("friend" + i);
+        var nameElement = document.getElementById("hfriend" + i);
         if (nameElement) {
-            friendsArray.push(nameElement.value.toUpperCase());
+            friendsArray.push(nameElement.getAttribute("name").toUpperCase());
         }
     }
 

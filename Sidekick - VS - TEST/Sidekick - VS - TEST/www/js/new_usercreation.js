@@ -108,37 +108,6 @@ function SetExistingUser() {
     SideKickOnline_ReturningUser();    
 }
 
-function SuccessfulSetOfExistingUser(userName, emailAddress, favouriteGame) {
-    if ((latestXHTTP.responseText === '' || latestXHTTP.responseText === "[]") && latestXHTTP.status === 200) {
-        //User does not exists
-        $('span[id=userErrorText_existinguser]').removeClass('ui-screen-hidden');
-        document.getElementById('userErrorText_existinguser').innerText = "Username not found, try again.";
-    }
-    else if (latestXHTTP.status === 200) {
-        //user exists online        
-
-        var response = JSON.parse(latestXHTTP.responseText);
-        var recordEmail = response.emailAddress;
-        var recordGame = response.favouriteGame;
-
-        //Does password and email match user details?
-        if (emailAddress.toLowerCase() !== recordEmail.toLowerCase() || favouriteGame.toLowerCase() !== recordGame.toLowerCase()) {
-            $('span[id=userErrorText_existinguser]').removeClass('ui-screen-hidden');
-            document.getElementById('userErrorText_existinguser').innerText = "Details do not match, try again.";
-        }
-        else {
-            ClosePopup();
-            SetUserNameInSetup(userName);
-            RefreshGame();   
-            SetItemInStorage('userName', clientUserName);            
-            SetNextPopUp(successOnlinePopup);
-        }
-    }
-    else {
-        UnsuccessfulOnlineCall();
-    }
-}
-
 // You have reregistered an existing user through setup
 // If game or myscores are in the history then we need to refresh those pages
 function RefreshGame() {
@@ -157,84 +126,11 @@ function RefreshGame() {
 function PostSignup() {  
 
     //If we have entered any scores these are fine
-    //they appear in the list of scores and have the uploiad button next to them
+    //they appear in the list of scores and have the upload button next to them
     //and the bulk update at the top
 
-    //If you have rated any games then we have an issue...
-    //Those ratings 
-
-
-
-
-    //If we have some game information present then
-
-    //if (HasExistingData()) {
-    //    UploadBulkDataAndPullDownStoredData();
-    //}
-    //else {
-    //    SynchOnlineAndOffline();
-    //}
-}
-
-function UploadBulkDataAndPullDownStoredData() {
-
-    //If we have data in our current record we need to do a mass update of that data
-    CallACOnlineWithBodyAndWait('http://arcadeclub.azurewebsites.net/user/' + clientUserName + '/bulk',
-        'POST',
-        GetExistingData(),
-        function () {            
-            if (latestXHTTP.status === 200)
-            {
-                if (latestXHTTP.responseText !== '' && latestXHTTP.responseText !== "[]")
-                {
-                    SuccessfulSychDataPlayed();
-                    SuccessfulSychDataRatings();
-                    SuccessfulSychDataScores();
-                }
-            }
-            else {
-                UnsuccessfulOnlineCall();
-            }
-        },
-        function () { UnsuccessfulOnlineCall(); },
-        function () { SuccessfulSychData(); StandardCompleteACOnline(); },
-        'Uploading current data'
-    );        
-}
-
-function HasExistingData() {
-
-    var played = currentRecord.played;
-    var scores = currentRecord.scores;
-    var ratings = currentRecord.ratings;
-
-    var data = false;
-
-    if (played.length !== 0) {
-        data = true;
-    }
-
-    if (ratings.length !== 0) {
-        data = true;
-    }
-
-    if (scores.length !== 0) {
-        data = true;
-    }
-
-    return data;
-}
-
-function GetExistingData() {
-
-    var body = {
-        'played': currentRecord.played,
-        'ratings': currentRecord.ratings,
-        'scores': currentRecord.scores
-    };
-
-    return body;
-}
-
-function ResetUserCreation() {
+    //If you have rated any games then we want to push those ratings online
+    if (currentRecord.ratings.length !== 0) {
+        SideKickOnline_SaveRatings();
+    }    
 }

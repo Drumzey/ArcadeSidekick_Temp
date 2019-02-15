@@ -45,6 +45,10 @@ body {
     background: transparent;
 }
 
+.custom {
+    background: url(../category_icons/customgames.png), url(themes/images/qix_2_btn.png);
+}
+
 .myscores {
     background: url(../category_icons/myscores.png), url(themes/images/qix_1_btn.png);
 }

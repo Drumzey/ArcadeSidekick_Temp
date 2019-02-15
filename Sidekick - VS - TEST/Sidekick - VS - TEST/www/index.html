@@ -60,14 +60,12 @@
     <!--<script type="text/javascript" src="js/new_news.js"></script>-->
     <script type="text/javascript" src="js/new_notifications.js"></script>
     <script type="text/javascript" src="js/new_onstartup.js"></script>
-    <script type="text/javascript" src="js/new_popups.js"></script>
-    <script type="text/javascript" src="js/new_reset.js"></script>
+    <script type="text/javascript" src="js/new_popups.js"></script>    
     <script type="text/javascript" src="js/new_setup.js"></script>
     <script type="text/javascript" src="js/new_shared_popups.js"></script>
     <script type="text/javascript" src="js/new_social.js"></script>
     <script type="text/javascript" src="js/new_starrating.js"></script>
-    <script type="text/javascript" src="js/new_storage.js"></script>
-    <script type="text/javascript" src="js/new_sync.js"></script>
+    <script type="text/javascript" src="js/new_storage.js"></script>    
     <script type="text/javascript" src="js/new_theme.js"></script>
     <!--<script type="text/javascript" src="js/new_top20.js"></script>-->
     <script type="text/javascript" src="js/new_types.js"></script>
@@ -81,6 +79,8 @@
     <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/ui.js"></script>
     <script type="text/javascript" src="js/_helpers.js"></script>
+
+    <script type="text/javascript" src="js/new_bezel.js"></script>
 
     <!-- SECURITY -->
     <script type="text/javascript" src="js/new_jwt.js"></script>
@@ -332,11 +332,11 @@
             <a style="font-size:70%" onclick="FAQ()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">FAQs</span></span></a>
             <a style="font-size:70%" onclick="About()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">About</span></span></a>
             <a style="font-size:70%" onclick="Contact()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Contact</span></span></a>
-            <a style="font-size:70%" onclick="Backup()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Backup</span></span></a>
-            <a style="font-size:70%" onclick="Restore()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Restore</span></span></a>
+            <!--<a style="font-size:70%" onclick="Backup()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Backup</span></span></a>
+            <a style="font-size:70%" onclick="Restore()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Restore</span></span></a>-->
             <a style="font-size:70%" onclick="ShowTheme()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Choose Theme</span></span></a>
             <a style="font-size:70%" onclick="Thanks()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Thankyous</span></span></a>
-            <a style="font-size:70%" onclick="ShowReset()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Reset</span></span></a>
+            <!--<a style="font-size:70%" onclick="ShowReset()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Reset</span></span></a>-->
         </div>
 
     </div>
@@ -354,14 +354,29 @@
 
             <div data-role="collapsibleset" data-theme="a" data-inset="true">
                 <div data-role="collapsible">
+                    <h5>Why have you developed Sidekick?</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">   
+                            Sidekick started off as a personal project to record my scores and the games I had and wanted to play. After developing it for
+                            some time i showed a few friends who also wanted to use it. The idea grew from there. I added more games, more artwork, ratings,
+                            leaderboards and before i knew it i had something that my friends were suggesting i make available to everyone on the app stores. This
+                            was a pretty scary thought, but it became my abmition to release an app and so here it is, and here you are reading about why i made this.
+                            I want the sidekick to encourage friendly competition between friends, to help keep the memory and nostalgia of the retro gaming scene 
+                            alive and to help preserve these classic games so they are not forgotten. If you have any suggestions as to how i can make the sidekick better
+                            please let me know and contact me via email or twitter.
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="collapsible">
                     <h5>What games are listed?</h5>
                     <ul data-role="listview" class="ui-listview ui-corner-all">
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            We currently list all the games from the worlds 2 largest arcade, the Galloping Ghost and Arcade Club UK.
+                            We currently list the vast majority of games from the worlds 2 largest arcade, the Galloping Ghost and Arcade Club UK.
                             Both aquire new games regularly which we will aim to keep on top of and update as soon as possible.
-                            We're planning on continuing down the list of the worlds largest arcade to cater for as many games as possible
+                            We're planning on continuing down the list of the worlds largest arcades to cater for as many games as possible
                             and will be adding more games regularly. If there is a game that you want including in the system then please
-                            get in touch and we'll do our best to make it available in the next update.
+                            get in touch via email or twitter
+                            and we'll do our best to make it available in the next update.
                         </li>
                     </ul>
                 </div>
@@ -369,8 +384,8 @@
                     <h5>How do I request a game?</h5>
                     <ul data-role="listview" class="ui-listview ui-corner-all">
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            The easiest way to request a game is to either tweet us your request or send it to us via email. Tweeting of course gives the rest
-                            of the community the chance to vote on your suggestion, and the posts with higher votes are most likely to get into the next updates.
+                            The easiest way to request a game is to either email or tweet> 
+                            us your request. Tweeting of course gives the rest of the community the chance to vote on your suggestion, and the posts with higher votes are most likely to get into the next updates.
                         </li>
                     </ul>
                 </div>
@@ -380,6 +395,44 @@
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
                             Dont agree with where we've placed a game? Its hard to segment every game into 1 category but we've done our best. If you think a game belongs in a different category
                             then please contact us, we want the classification to be as accurate as we can. Some games just dont fit any well known genre so we've popped them into miscalaneous.
+                            Below is the definition we have used for each category
+                        </li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            <b>Beat'em ups</b> - or brawlers, hand to hand combat between the protagonist and an obscene amount of opponents, typically sidescrolling in 2D.
+                        </li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            <b>Fighting</b> - combat between a limited number of characters (usually 2 or 4) where the fight continues until all but one combatant is defeated or the timer expires.
+                        </li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            <b>Light guns</b> - primary element is aiming and shooting with a gun-shaped controller, where players shoot at multiple targets moving through a level or standing stationary.
+                        </li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            <b>Hack 'n' slash</b> - real-time combat with hand-to-hand weapons as opposed to guns or fists.
+                        </li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            <b>Maze</b> - playing field is a maze which players have to mavigate round, avoiding obstacles or enemies.
+                        </li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            <b>Platformer</b> - jumping and climbing between suspended platforms.
+                        </li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            <b>Puzzle</b> - puzzle solving and problem solving skills, logic pattern recognition etc.
+                        </li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            <b>Racing</b> - first or third person perspective where player takes part in racing competitions, whether it be by land, water, air or space vehicle.
+                        </li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            <b>Rhythm</b> - music-themed video games that challenges a player's sense of rhythm. Movement or button presses dictated on screen that must be followed along to the beat of music.
+                        </li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            <b>Run 'n' Gun</b> - subgenre of shooters ocassionally with occassional platform elements, primarily focused on the protagonist (mostly human) moving quickly on foot and firing with near constant gun fire.
+                        </li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            <b>Shooter</b> - traditionally set in space. Fighting done by a single spacecraft against multiple enemies.</li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            <b>Sports</b> - simulates the practice of sports.</li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            <b>Miscalaneous</b> - anything i couldnt categorise into one of the other categories. If through time enough games appear in misc that could have their own category then a new category will be added.
                         </li>
                     </ul>
                 </div>
@@ -388,7 +441,8 @@
                     <ul data-role="listview" class="ui-listview ui-corner-all">
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
                             Please do! If you have any ideas how we can make this application better serve the arcade gaming community let us know! The app was developed to
-                            meet my own personal needs when playing games at arcades, but if you have any further ideas then please tweet us and im happy to have a chat about them!
+                            meet my own personal needs when playing games at arcades, but if you have any further ideas then please email or tweet
+                            us and im happy to have a chat about them!
                             My vision is that together we can all get the app to one that best serves the needs of arcade go-ers and retro gamers.
                         </li>
                     </ul>
@@ -406,16 +460,16 @@
                     <h5>Some game details are wrong</h5>
                     <ul data-role="listview" class="ui-listview ui-corner-all">
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            Oops. With hundreds of games its possible mistakes have been made so please get in touch and we'll aim to update the incorrect information as soon as possible
+                            Oops. Soz. With hundreds of games its possible mistakes have been made so please get in touch and we'll aim to update the incorrect information as soon as possible.
                         </li>
                     </ul>
                 </div>
                 <div data-role="collapsible">
-                    <h5>We want more gifs!</h5>
+                    <h5>We want more gifs and bezels!</h5>
                     <ul data-role="listview" class="ui-listview ui-corner-all">
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            We love the game gifs. When time allows we will aim to add more gifs to the existing games. We hope one day to have a gif for everygame, but that will be a difficult task.
-                            If youve got a gif of a game that youd like to share with us to assist in this goal that would be great.
+                            We love the game gifs and bezels. When time allows we will aim to add more images to the existing games. We hope one day to have a gif and bezel for everygame, but that will be a difficult task.
+                            If youve got a gif or bezel of a game that youd like to share with us to assist in this goal that would be great.
                         </li>
                     </ul>
                 </div>
@@ -423,9 +477,19 @@
                     <h5>What features are on the roadmap?</h5>
                     <ul data-role="listview" class="ui-listview ui-corner-all">
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            We have lots of ideas for the app going forward. As well as more games, we want to add more artwork (like the arcade cab bezels or control panels).
-                            We want to enhance the number of themes that we can offer, add in achievements, more game information, where the games can be played, head 2 head statistics against your friends,
-                            global leaderboards, links to game wiki pages etc. We would really appreciate your feedback on these features and which ones youd like to see first. As mentioned before its also
+                            We have lots of ideas for the app going forward. Here are just a few.
+                        </li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">More games</li> <!-- features -->
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">More artwork</li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">Extra themes</li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">Achievements</li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">More game information</li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">Where the games are available to play</li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">Head 2 Head statistics</li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">News</li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">Links to wiki, videos etc</li>
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            We would really appreciate your feedback on these features and which ones youd like to see first. As mentioned before its also
                             really important to us that we have the features that you want to see, so suggest a new feature to us and it can be added to the roadmap for the future.
                         </li>
                     </ul>
@@ -512,9 +576,6 @@
                 </div>
             </div>
 
-            <!--<div id="friendGameList">
-                <ul id="friendGameListUL" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all"></ul>
-            </div>-->
         </div>
 
     </div>
@@ -751,10 +812,17 @@
         <div role="main" class="ui-content Page">
             <div>
                 <div>
-                    <div style="width: 100%;text-align: center;">
-                        <div class="bigtile" id="gameimage" style=""></div>
+                    
+                    <div class="wrapper">
+                        <div class="bezel" id="bezelimage">
+                            <div class="bigtile" id="gameimage"></div>
+                        </div>
                     </div>
-
+                    
+                    <!--<div class="bezel" id="bezelimage" style="width: 100%;text-align: center;">
+                        <div class="bigtile" id="gameimage" style=""></div>
+                    </div>-->
+                                            
                     <ul id="GameInfo" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all">
                         <li data-role="list-divider" id="info" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Info</li>
                         <li id="release" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Release</li>
@@ -775,11 +843,11 @@
                                 </div>
                                 <div class="ui-block-b" id="seconddiv" style="width:33%">
                                     <label for="seconds" class="fieldLabel" style="font-size:50%">Seconds</label>
-                                    <input type="text" id="seconds" maxlength="2" pattern="\d*" onkeydown="return TestForNumber(event)" />
+                                    <input type="text" id="seconds" maxlength="2" pattern="\d*" onkeydown="return TestForNumber(event)" onchange="SaveLocalTime()"/>
                                 </div>
                                 <div class="ui-block-c" id="microdiv" style="width:33%">
                                     <label for="micro" class="fieldLabel" style="font-size:50%">Micro</label>
-                                    <input type="text" id="micro" maxlength="3" pattern="\d*" onkeydown="return TestForNumber(event)" />
+                                    <input type="text" id="micro" maxlength="3" pattern="\d*" onkeydown="return TestForNumber(event)" onchange="SaveLocalTime()"/>
                                 </div>
                             </div>                            
                         </li>

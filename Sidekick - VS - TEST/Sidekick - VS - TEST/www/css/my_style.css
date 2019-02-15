@@ -170,13 +170,33 @@ embed {
         height: 10vh;
     }
 
-.bigtile {
-    display: inline-block;
-    width: 60vw !important;
-    height: 60vw !important;
-    border-radius: 1em 1em 1em 1em !important;
+.wrapper {
+    position: relative;
+    margin-left: -16px;
+    background: black;
+    width: 100vw;
+    height: 100vw;
+    z-index: 10;
+}
+
+.bezel {    
+    position: relative;
+    z-index: initial;
+    /*margin-left: -16px;*/
+    margin-top: -25px;
+    width: 100vw !important;
+    height: 100vw !important;
+    background-color: transparent;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;    
+    text-align:center;
+}
+
+.bigtile {    
+    z-index: -1;
+    position: relative;
+    /*display: inline-block;*/
     background-color: #000000;
-    border: 2px solid black !important;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }

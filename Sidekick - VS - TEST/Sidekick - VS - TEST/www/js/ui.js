@@ -86,10 +86,21 @@ function GetHeights(id) {
     }
 }
 
+function ResizeScreenImage() {
+    var bezel = GetBezel(TransformedCurrentGameName());
+    var imageElement = document.getElementById('gameimage');    
+    imageElement.style.top = bezel.topOffset + 'vw';
+    imageElement.style.left = bezel.leftOffset + 'vw';
+    imageElement.style.width = bezel.screenWidth + 'vw';
+    imageElement.style.height = bezel.screenHeight + 'vw';    
+}
+
 function preloadimages(arr) {
-   newimages = [], loadedimages = 0
-   var postaction = function () { }
-   var arr = (typeof arr != "object") ? [arr] : arr
+    newimages = [], loadedimages = 0;
+    var postaction = function () {        
+    };
+
+    var arr = (typeof arr !== "object") ? [arr] : arr;
    var index = 0;
 
    function imageLoadBanner()
@@ -100,41 +111,61 @@ function preloadimages(arr) {
    }
 
    function imageLoadScreen()
-   {
+   {   
        SetImageOnElement('gameimage', "url('game_images/" + currentCategoryId + "/" + currentGameName.toLowerCase() + ".gif')");
        imageloadpost();
    }
 
+   function imageLoadBezel()
+   {
+       var bezel = GetBezel(TransformedCurrentGameName());
+       if (bezel.id === 'default')
+       {
+           SetImageOnElement('bezelimage', "url('game_bezels/" + bezel.image + "')");
+       }
+       else
+       {
+           SetImageOnElement('bezelimage', "url('game_bezels/" + currentCategoryId + "/" + bezel.image + "')");
+       }          
+       imageloadpost();
+   }
+
    function imageloadpost() {
-     loadedimages++             
-     if (loadedimages == arr.length) {
-       postaction(newimages) //call postaction and pass in newimages array as parameter
+       loadedimages++;            
+     if (loadedimages === arr.length) {
+         postaction(newimages); //call postaction and pass in newimages array as parameter
      }
    }
 
    for (var i = 0; i < arr.length; i++)
    {
-     newimages[i] = new Image()
+       newimages[i] = new Image();
      newimages[i].src = arr[i];
-     if (i == 0)
+     if (i === 0)
      {
          newimages[i].onload = function () {
-             imageLoadBanner()
-         }
+             imageLoadBanner();
+         };
      }
+     else if (i === 1)
+     {
+         newimages[i].onload = function () {
+             imageLoadScreen();
+         };
+     }
      else
      {
          newimages[i].onload = function () {
-             imageLoadScreen()
-         }
-     }     
-     newimages[i].onerror = function () {
-         imageloadpost()
-     }
+             imageLoadBezel();
+         };
+     }
+     newimages[i].onerror = function () {
+         imageloadpost();
+     };
    }
    return { //return blank object with done() method
-     done: function (f) {
-       postaction = f || postaction //remember user defined callback functions to be called when images load
-     }
-   }
+       done: function (f) {
+           postaction = f || postaction; //remember user defined callback functions to be called when images load
+       }
+   };
 }
