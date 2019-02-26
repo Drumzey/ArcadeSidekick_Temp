@@ -75,6 +75,7 @@
     '<shooter name="Super Cobra" myrecord="" arcaderecord="" release="1981" developer="Konami" players="2" link=""><column name="name">Super Cobra</column></shooter>' +
     '<shooter name="Viewpoint" myrecord="" arcaderecord="" release="1992" developer="Aicom" players="2" link=""><column name="name">Viewpoint</column></shooter>' +
     '<shooter name="Cosmic Avenger" myrecord="" arcaderecord="" release="July 1981" developer="Universal" players="2" link=""><column name="name">Cosmic Avenger</column></shooter>' +
+
     '<shooter name="1943" myrecord="" arcaderecord="" release="June 1987" developer="Capcom" players="2" link=""><column name="name">1943</column></shooter>' +
     '<shooter name="19XX" myrecord="" arcaderecord="" release="January 1996" developer="Capcom" players="2" link=""><column name="name">19XX</column></shooter>' +
     '<shooter name="Aero Fighters" myrecord="" arcaderecord="" release="1992" developer="Video System" players="2" link=""><column name="name">Aero Fighters</column></shooter>' +
@@ -88,5 +89,6 @@
     '<shooter name="Argus" myrecord="" arcaderecord="" release="1986" developer="NMK" players="2" link=""><column name="name">Argus</column></shooter>' +
     '<shooter name="Armor Attack" myrecord="" arcaderecord="" release="1980" developer="Cinematronics" players="2" link=""><column name="name">Armor Attack</column></shooter>' +
     '<shooter name="Astro Fighter" myrecord="" arcaderecord="" release="1980" developer="Data East" players="2" link=""><column name="name">Astro Fighter</column></shooter>' +
-    '<shooter name="Aurial" myrecord="" arcaderecord="" release="1990" developer="Sega" players="2" link=""><column name="name">Aurail</column></shooter>' +
+    '<shooter name="Aurail" myrecord="" arcaderecord="" release="1990" developer="Sega" players="2" link=""><column name="name">Aurail</column></shooter>' +
+
     '<shooter name="Battlezone" myrecord="" arcaderecord="" worldrecord="" release="November 1980" developer="Atari" players="1" link="https://en.wikipedia.org/wiki/Battlezone_(1980_video_game)"><column name="name">Battlezone</column></shooter>';

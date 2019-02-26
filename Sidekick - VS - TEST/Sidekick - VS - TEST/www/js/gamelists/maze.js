@@ -13,6 +13,8 @@
     '<maze name="Pac-man Battle Royale" myrecord="" arcaderecord="" release="2011" developer="Namco" players="4" link=""><column name="name">Pac-man Battle Royale</column></maze>' +
     '<maze name="Ladybug" myrecord="" arcaderecord="" release="1981" developer="Universal" players="2" link=""><column name="name">Ladybug</column></maze>' +
     '<maze name="Make Trax" myrecord="" arcaderecord="" release="1981" developer="Alpha Denshi" players="2" link=""><column name="name">Make Trax</column></maze>' +
+
     '<maze name="Adventures of Robby Roto" myrecord="" arcaderecord="" release="1981" developer="Bally Midway" players="2" link=""><column name="name">Adventures of Robby Roto</column></maze>' +
     '<maze name="AntEater" myrecord="" arcaderecord="" release="1982" developer="Stern Electronics" players="2" link=""><column name="name">AntEater</column></maze>' +
+
     '<maze name="Tutankham" myrecord="" arcaderecord="" release="1982" developer="Konami" players="2" link="https://en.wikipedia.org/wiki/Tutankham"><column name="name">Tutankham</column></maze>';

@@ -10,9 +10,19 @@
     return -1;
 }
 
+var pushRatings = false;
+
 function ProcessMyGames()
 {
     if (latestXHTTP.status === 200) {
+
+        if (currentRecord.ratings.length !== 0)
+        {
+            //We have ratings that we have not pushed online
+            //ie they are in our offline profile and so want
+            //to push them up.
+            pushRatings = true;
+        }
 
         //Get games played from response
         var response = JSON.parse(latestXHTTP.responseText);

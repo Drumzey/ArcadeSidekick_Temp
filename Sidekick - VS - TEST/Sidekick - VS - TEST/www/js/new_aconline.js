@@ -216,19 +216,12 @@ function SideKickOnline_SaveRating(rating, element, id, message)
 //function to get my games after a restore or existing username
 function SideKickOnline_GetMyGames(username, email, secret)
 {
-    var authorization = CreateJWT(username, email, secret);
-
     CallACOnlineWithBodyAndWait(baseUrl + '/getscore?usernames=' + username,
         'GET',
         null,
         function ()
         {
-            ProcessMyGames();
-            clientUserName = username;
-            SetItemInStorage("userName", clientUserName);
-            emailAddress = email;
-            SetItemInStorage("emailAddress", emailAddress);            
-            SetItemInStorage("secret", secret);
+            ProcessMyGames();            
             SetNextPopUp(successOnlinePopup); 
             SetUserNameAdnEmailInSetup(username, emailAddress); 
             Hide('#verifyuserbutton'); //Show verified button in setup
@@ -281,14 +274,39 @@ function SideKickOnline_VerifyUser()
 function SideKickOnline_ReturningUser()
 {
     var userName = document.getElementById("myusername_existinguser").value;
-    var emailAddress = document.getElementById("myemail_existinguser").value;
+    var email = document.getElementById("myemail_existinguser").value;
     var secret = document.getElementById("myfavouritegame_existinguser").value;
 
-    userName = userName.toUpperCase();
-    emailAddress = emailAddress.toLowerCase();    
-    
-    SideKickOnline_GetMyGames(userName, emailAddress, secret);
+    //Needs to make a call to verify user here....
+    SideKickOnline_VerifyReturningUser(userName.toUpperCase(), email.toLowerCase(), secret);
 }
+
+function SideKickOnline_VerifyReturningUser(userName, email, secret) {    
+    var jwt = CreateJWT(userName, email, secret);
+
+    var body =
+        {
+            'Username': userName,
+            'EmailAddress': email
+        };
+
+    CallACOnlineWithBodyAndWait(baseUrl + '/verifyuser',
+        'POST',
+        body,
+        function ()
+        {
+            clientUserName = userName;
+            emailAddress = email;
+            SetItemInStorage("userName", userName);            
+            SetItemInStorage("emailAddress", emailAddress);
+            SetItemInStorage("secret", secret);
+            SideKickOnline_GetMyGames(userName, emailAddress, secret);
+        },
+        function () { UnsuccessfulVerifyUser(); },
+        function () { },
+        "Verifying user ...",
+        jwt);    
+}  
 
 function CallACOnlineWithBodyAndWait(url, type, body, successCallback, failureCallback, completeCallBack, message, jwt) {
     if (message === '') {

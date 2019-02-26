@@ -124,13 +124,7 @@ function RefreshGame() {
 
 //When creating a new user what do we do?
 function PostSignup() {  
-
-    //If we have entered any scores these are fine
-    //they appear in the list of scores and have the upload button next to them
-    //and the bulk update at the top
-
-    //If you have rated any games then we want to push those ratings online
-    if (currentRecord.ratings.length !== 0) {
+    if (pushRatings === true) {
         SideKickOnline_SaveRatings();
     }    
 }

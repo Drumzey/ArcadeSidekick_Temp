@@ -12,14 +12,10 @@
     '<beatemup name="Rygar" myrecord="" arcaderecord="" release="1986" developer="Tecmo" players="2" link="https://en.wikipedia.org/wiki/Rygar"><column name="name">Rygar</column></beatemup>' +
     '<beatemup name="Ninja Warriors" myrecord="" arcaderecord="" release="1987" developer="Taito" players="1" link=""><column name="name">Ninja Warriors</column></beatemup>' +
     '<beatemup name="Splatterhouse" myrecord="" arcaderecord="" release="1988" developer="Namco" players="2" link=""><column name="name">Splatterhouse</column></beatemup>' +
-'<beatemup name="X-Men" myrecord="" arcaderecord="" release="1992" developer="Komani" players="6" link=""><column name="name">X-Men</column></beatemup>' +
+    '<beatemup name="X-Men" myrecord="" arcaderecord="" release="1992" developer="Komani" players="6" link=""><column name="name">X-Men</column></beatemup>' +
 
-
-
-'<beatemup name="Alien vs Predator" myrecord="" arcaderecord="" release="1994" developer="Capcom" players="3" link=""><column name="name">Alien vs Predator</column></beatemup>' +
-'<beatemup name="Altered Beast" myrecord="" arcaderecord="" release="1998" developer="Sega" players="2" link=""><column name="name">Altered Beast</column></beatemup>' +
-'<beatemup name="Arabian Fight" myrecord="" arcaderecord="" release="1992" developer="Sega" players="4" link=""><column name="name">Arabian Fight</column></beatemup>' +
-
-
-
+    '<beatemup name="Alien vs Predator" myrecord="" arcaderecord="" release="1994" developer="Capcom" players="3" link=""><column name="name">Alien vs Predator</column></beatemup>' +
+    '<beatemup name="Altered Beast" myrecord="" arcaderecord="" release="1998" developer="Sega" players="2" link=""><column name="name">Altered Beast</column></beatemup>' +
+    '<beatemup name="Arabian Fight" myrecord="" arcaderecord="" release="1992" developer="Sega" players="4" link=""><column name="name">Arabian Fight</column></beatemup>' +
+    
     '<beatemup name="Indiana Jones and The Temple of Doom" myrecord="" arcaderecord="" release="August 1985" developer="Atari" players="2" link="https://en.wikipedia.org/wiki/Indiana_Jones_and_the_Temple_of_Doom_(1985_video_game)"><column name="name">Indiana Jones and The Temple of Doom</column></beatemup>'

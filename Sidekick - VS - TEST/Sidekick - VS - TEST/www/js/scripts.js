@@ -8,7 +8,7 @@ var currentMyScoreTab = 'AllScoresTab';
 var currentRecord;
 var storePosition = {
     topCoordinate: null
-}
+};
 
 var controlCache = [];
 var gameCache = [];

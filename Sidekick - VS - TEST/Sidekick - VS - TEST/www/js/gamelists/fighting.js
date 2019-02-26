@@ -13,7 +13,9 @@
     '<fighting name="Virtua Fighter" myrecord="" arcaderecord="" release="October 1993" developer="Sega" players="2" link="https://en.wikipedia.org/wiki/Virtua_Fighter_(video_game)"><column name="name">Virtua Fighter</column></fighting>' +
     '<fighting name="Soul Calibur" myrecord="" arcaderecord="" release="1998" developer="Namco" players="2" link="https://en.wikipedia.org/wiki/Soulcalibur"><column name="name">Soul Calibur</column></fighting>' +
     '<fighting name="Mortal Kombat 4" myrecord="" arcaderecord="" release="October 1997" developer="Midway" players="2" link=""><column name="name">Mortal Kombat 4</column></fighting>' +
-    '<fighting name="Art of Fighting" myrecord="" arcaderecord="" release="1992" developer="SNK" players="2" link=""><column name="name">Art Of Fighting</column></fighting>' +
-    '<fighting name="Art of Fighting 2" myrecord="" arcaderecord="" release="1994" developer="SNK" players="2" link=""><column name="name">Art Of Fighting 2</column></fighting>' +
-    '<fighting name="Art of Fighting 3" myrecord="" arcaderecord="" release="1996" developer="SNK" players="2" link=""><column name="name">Art Of Fighting 3</column></fighting>' +
+
+    '<fighting name="Art Of Fighting" myrecord="" arcaderecord="" release="1992" developer="SNK" players="2" link=""><column name="name">Art Of Fighting</column></fighting>' +
+    '<fighting name="Art Of Fighting 2" myrecord="" arcaderecord="" release="1994" developer="SNK" players="2" link=""><column name="name">Art Of Fighting 2</column></fighting>' +
+    '<fighting name="Art Of Fighting 3" myrecord="" arcaderecord="" release="1996" developer="SNK" players="2" link=""><column name="name">Art Of Fighting 3</column></fighting>' +
+
     '<fighting name="WWF Wrestlefest" myrecord="" arcaderecord="" release="June 1991" developer="Technos Japan" players="4" link="https://en.wikipedia.org/wiki/WWF_WrestleFest"><column name="name">WWF Wrestlefest</column></fighting>';

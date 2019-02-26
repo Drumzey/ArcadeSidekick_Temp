@@ -15,5 +15,7 @@
     '<guns name="Area 51" myrecord="" arcaderecord="" release="1995" developer="Mesa Logic" players="2" link="https://en.wikipedia.org/wiki/Area_51_(1995_video_game)"><column name="name">Area 51</column></guns>' +
     '<guns name="Quick and Crash" type="time" order="lowest" myrecord="" arcaderecord="" release="1999" developer="Namco" players="1" link=""><column name="name">Quick and Crash</column></guns>' +
     '<guns name="Time Crisis II" myrecord="" arcaderecord="" release="1997" developer="Namco" players="2" link=""><column name="name">Time Crisis II</column></guns>' +
+
     '<guns name="Alien 3 The Gun" myrecord="" arcaderecord="" release="1993" developer="Sega" players="2" link=""><column name="name">Alien 3 The Gun</column></guns>' +
+
     '<guns name="Time Crisis" myrecord="" arcaderecord="" release="1996" developer="Namco" players="1" link="https://en.wikipedia.org/wiki/Time_Crisis"><column name="name">Time Crisis</column></guns>';

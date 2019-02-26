@@ -152,8 +152,7 @@ function SetGameUI(nameOfGame, trueName, xml) {
     }
 }
 
-function PopulateInfoForGame(nameOfGame, trueName) {
-    
+function PopulateInfoForGame(nameOfGame, trueName) {    
     var game = data.find(currentCategoryId + "[name='" + nameOfGame + "']");        
     SetGameUI(nameOfGame, trueName, game);    
     LoadOnlineGameInformation();    
@@ -182,7 +181,15 @@ function CreateGameListControls(categoryName) {
         id = id.replace(/&apos;/g, "");
         id = id.replace(/&amp;/g, "");
         id = id.replace(/&/g, "");
-        array.push([id, '<li onclick="GoToGame(this)" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + name + '</span></a></li>']);
+
+        if (gamesByFriend.hasOwnProperty(TransformGameName(name))) {
+            //A friend has played this game
+            //user a different icon
+            array.push([id, '<li data-icon="user" onclick="GoToGame(this)" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + name + '</span></a></li>']);
+        }
+        else {
+            array.push([id, '<li onclick="GoToGame(this)" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + name + '</span></a></li>']);
+        }
 
         names[id.replace(/ /g, '_').toLowerCase()] = name;
     });
@@ -251,7 +258,15 @@ function DisplayEveryGame() {
             id = id.replace("&amp;", "");
             id = id.replace("&", "");
 
-            var valueToPush = '<li onclick="GoToGameFromAll(this,\'' + categoryName + '\',\'' + id + '\',\'' + name + '\')" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + name + '</span></a></li>';
+            var valueToPush = '';
+
+            if (gamesByFriend.hasOwnProperty(TransformGameName(name))) {
+                valueToPush = '<li data-icon="user" onclick="GoToGameFromAll(this,\'' + categoryName + '\',\'' + id + '\',\'' + name + '\')" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + name + '</span></a></li>';                
+            }
+            else {
+                valueToPush = '<li onclick="GoToGameFromAll(this,\'' + categoryName + '\',\'' + id + '\',\'' + name + '\')" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + name + '</span></a></li>';                
+            }
+
             array.push([id, valueToPush]);
 
             names[id.replace(/ /g, '_').toLowerCase()] = name;

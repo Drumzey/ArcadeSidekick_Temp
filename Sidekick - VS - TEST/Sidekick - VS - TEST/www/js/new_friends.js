@@ -2,6 +2,7 @@ var friends = 0;
 var friendsHistory = 0;
 
 var friendsGames = [];
+var gamesByFriend = [];
 
 function SetupFriends() {
     ClearFriends();
@@ -110,6 +111,19 @@ function AddGamesToFriends()
     for (var i = 0; i < response.Users.length; i++)
     {
         friendsGames[response.Users[i].Username] = response.Users[i].Games;
+
+        for (var game in response.Users[i].Games) {
+            if (response.Users[i].Games.hasOwnProperty(game)) {
+
+                if (gamesByFriend.hasOwnProperty(game)) {
+                    gamesByFriend[game].push(response.Users[i].Username);
+                }
+                else {
+                    gamesByFriend[game] = [];
+                    gamesByFriend[game].push(response.Users[i].Username);
+                }
+            }
+        }
     }
 }
 
@@ -123,11 +137,26 @@ function AddGamesToFriend(username)
     {
         friendsGames[username] = [];
     }
+
+    for (var game in response.Users[0].Games)
+    {
+        if (response.Users[0].Games.hasOwnProperty(game))
+        {
+            if (gamesByFriend.hasOwnProperty(game)) {
+                gamesByFriend[game].push(username);
+            }
+            else
+            {
+                gamesByFriend[game] = [];
+                gamesByFriend[game].push(username);
+            }
+        }
+    }
 }
 
 function AddFriend() {
     var newfriend = document.getElementById("newfriend").value;    
-    SetFriendsName(newfriend);
+    SetFriendsName(newfriend);    
 }
 
 function DeleteFriend(id) {
@@ -136,11 +165,11 @@ function DeleteFriend(id) {
 
     var container = document.getElementById("div" + newId);
     container.parentNode.removeChild(container);   
-    //
+    
     var index = friendsCollection.indexOf(friendName);
     friendsCollection.splice(index, 1);
     delete friendsGames[friendName];
-    SaveFriends();
+    SaveFriends();    
 }
 
 function FriendGames(id) {
@@ -210,6 +239,16 @@ function DrawFriendsGamesAndScores(games)
 function LoadFriendsCollection() {
     GetItemFromStorageWithCallBack('friends', function (value) {
         friendsCollection = value;
+        var friendsArray = [];        
+
+        if (friendsCollection.length > 0)
+        {
+            if (friendsCollection[i] !== clientUserName) {
+                friendsArray.push(friendsCollection[i]);
+            }
+            var names = friendsArray.join(",");
+            SideKickOnline_GetFriendsScores(names, "Loading friends scores....");
+        }
     });
 }
 
@@ -261,4 +300,6 @@ function SaveFriends() {
     if (highscores !== -1) {
         refreshHighscores = 1;
     }
+    //Clear control cache so game list regenerates
+    controlCache = [];
 }
