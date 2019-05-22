@@ -5,3 +5,7 @@ function DebugAlert(message) {
         alert(message);
     }
 }
+
+function EmailError() {
+    Email(lastError, "Sidekick - ERROR Report");
+}

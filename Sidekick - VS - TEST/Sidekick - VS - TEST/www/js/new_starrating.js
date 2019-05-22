@@ -6,7 +6,7 @@
         }
         else {
             var ratingresponse = JSON.parse(latestXHTTP.responseText);
-            var average = ratingresponse.Games[TransformedCurrentGameName()].Average;
+            var average = ratingresponse.Games[TransformedCurrentGameName()].Average.toFixed(2);
             var numberOfRatings = ratingresponse.Games[TransformedCurrentGameName()].NumberOfRatings;
 
             if (ratingresponse.ratings === 0 || ratingresponse.total === 0) {
@@ -34,13 +34,22 @@ function GetCommunityRating() {
     SideKickOnline_GetRating("Getting community rating...");
 }
 
-function ClearRating() {
-    $("#ratings.rating a").each(function (i, v) {
-        $(v).removeClass("rated");
-    });
+function ClearRating(rating) {
+    try {
+        var element = $('#datavote' + rating);
+        var id = element.parent().attr("id");
+
+        $("#" + id + ".rating a").each(function (i, v) {
+            $(v).removeClass("rated");
+        });
+    }
+    catch (err)
+    {
+        //This hosuldnt erro but in case it does.
+    }
 }
 
-function LoadRating() {
+function LoadRating() {    
     var ratings = currentRecord.ratings;
     var rating = '0';
 
@@ -52,8 +61,8 @@ function LoadRating() {
             break;
         }
     }
-
-    if (rating !== '0') {
+    
+    if (rating !== '0' && rating !== 0) {
         var element = $('#datavote' + rating);        
         var id = element.parent().attr("id");        
 
@@ -66,9 +75,6 @@ function LoadRating() {
         });
 
         element.addClass("rated");
-    }
-    else {        
-        ClearRating();
     }
 }
 
@@ -125,7 +131,7 @@ function OnClickStar(datavote) {
     var id = element.parent().attr("id");    
     var rating = element.data("vote");
 
-    if (AllowedOnline()) {
+    if (AllowedOnline()) {        
         SideKickOnline_SaveRating(rating, element, id, "Updating rating...");
     }
     else {

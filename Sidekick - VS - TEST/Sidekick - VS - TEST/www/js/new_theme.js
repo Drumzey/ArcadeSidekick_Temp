@@ -39,13 +39,19 @@ $.mobile.changeGlobalTheme = function (themeL) {
     setTheme(".ui-btn", "ui-btn-hover", themeL);
     setTheme("[data-role='page']", "ui-page-theme", themeL);
 
+    //Tabs
     setTheme("#PlayedTab", "ui-btn", themeL);
     setTheme("#NotPlayedTab", "ui-btn", themeL);
     setTheme("#AllTab", "ui-btn", themeL);
-
     setTheme("#AllPlayedTab", "ui-btn", themeL);
     setTheme("#AllNotPlayedTab", "ui-btn", themeL);
     setTheme("#AllAllTab", "ui-btn", themeL);
+    setTheme('#MYFRIENDS', "ui-btn", themeL);
+    setTheme('#ALLUSERS', "ui-btn", themeL);
+    setTheme('#FRIENDSSCORESTAB', "ui-btn", themeL);
+    setTheme('#ALLSCORESTAB', "ui-btn", themeL);
+
+
 
     setTheme("#70s", "ui-btn", themeL);
     setTheme("#80s", "ui-btn", themeL);

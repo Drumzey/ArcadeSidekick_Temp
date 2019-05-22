@@ -1,42 +1,29 @@
+var firstTime = "yes";
+
 //Do we show the welcome screen on start up?
 function CheckForFirstTime() {
 
-    GetItemFromStorageWithCallBack('firstTime', function (firstTime) {
-        if (firstTime !== "no") {
-            clientUserName = '';
-            SetItemInStorage('firstTime', 'no');
-            SetItemInStorage('userName', '');
-            SetItemInStorage('emailAddress', '');
-            $('#userErrorText').addClass('ui-screen-hidden');
-            ShowPopup('#FirstTime');
-        } else {
-            if (clientUserName !== '' && clientUserName !== null) {
-                document.getElementById('myusernamesetup').innerText = 'Username ' + clientUserName;
-                document.getElementById('myemailsetup').innerText = 'Email ' + emailAddress;
-            } else {
-                document.getElementById('myusernamesetup').innerText = 'Username';
-                document.getElementById('myemailsetup').innerText = 'Email';
-            }
-        }
+    if (firstTime !== "no") {        
+        SetItemInStorage('firstTime', 'no');
+        $('#userErrorText').addClass('ui-screen-hidden');
+        return true;
+    }
 
-        pageHistory.push("#MainMenu");
+    return false;
+}
 
-        GetItemFromStorageWithCallBack("my_record", function (value) {
-            currentRecord = value;
-            if (currentRecord === null || currentRecord === "[]") {
-                var category = new Record();
-                SetItemInStorage("my_record", category);
-            }
-        });
-    });
+function CheckForVerified() {
+    if (currentRecord.verified === false && (clientUserName !== '' && clientUserName !== null)) { 
+        CreatePopup(verifyLaunchPopup);
+    }
 }
 
 function WelcomeNewUserClicked() {
-    ClosePopup();
-    CreatePopup(newUserPopup);
+    SetNextPopUp(newUserPopup);
+    ClosePopup();    
 }
 
-function WelcomeExistingUserClicked() {    
-    ClosePopup();
-    CreatePopup(existingUserPopup);
+function WelcomeExistingUserClicked() {
+    SetNextPopUp(existingUserPopup);
+    ClosePopup();    
 }

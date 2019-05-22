@@ -75,7 +75,7 @@ function GetHeights(id) {
     // Find max height of all elements
     var max = Math.max.apply(Math, heights);
 
-    if (max != 0) {
+    if (max !== 0) {
         // Set all heights to max height
         $('li[name="' + id + '"]').each(function () {
             $(this).css('height', max + 'px');
@@ -105,14 +105,25 @@ function preloadimages(arr) {
 
    function imageLoadBanner()
    {
-       var imagesrc = "game_banners/" + currentCategoryId + "/" + currentGameName.toLowerCase() + ".png";
+       var imageName = currentGameName.toLowerCase();
+       if (parentGame) {
+           imageName = parentGame.toLowerCase();
+       }
+
+       var imagesrc = "game_banners/" + currentCategoryId + "/" + imageName + ".png";
        SetImageSrc('gamebanner', imagesrc);
+       SetImageSrc('gamebannerhs', imagesrc);
        imageloadpost();
    }
 
    function imageLoadScreen()
    {   
-       SetImageOnElement('gameimage', "url('game_images/" + currentCategoryId + "/" + currentGameName.toLowerCase() + ".gif')");
+       var imageName = currentGameName.toLowerCase();
+       if (parentGame) {
+           imageName = parentGame.toLowerCase();
+       }
+
+       SetImageOnElement('gameimage', "url('game_images/" + currentCategoryId + "/" + imageName + ".gif')");
        imageloadpost();
    }
 

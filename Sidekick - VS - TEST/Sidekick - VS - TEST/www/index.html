@@ -14,39 +14,11 @@
     <script type="text/javascript" src="js/jquery.mobile.utils.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
 
-    <script type='text/javascript'>
-        var beatemup = '';
-        var fighting = '';
-        var guns = '';
-        var hackandslash = '';
-        var maze = '';
-        var misc = '';
-        var platformer = '';
-        var puzzle = '';
-        var racing = '';
-        var runandgun = '';
-        var shooter = '';
-        var sports = '';
-        var rhythm = '';
-    </script>
-
     <!-- GAME LISTS-->
-    <script type="text/javascript" src="js/gamelists/beatemup.js"></script>
-    <script type="text/javascript" src="js/gamelists/fighting.js"></script>
-    <script type="text/javascript" src="js/gamelists/guns.js"></script>
-    <script type="text/javascript" src="js/gamelists/hackandslash.js"></script>
-    <script type="text/javascript" src="js/gamelists/maze.js"></script>
-    <script type="text/javascript" src="js/gamelists/misc.js"></script>
-    <script type="text/javascript" src="js/gamelists/platformer.js"></script>
-    <script type="text/javascript" src="js/gamelists/puzzle.js"></script>
-    <script type="text/javascript" src="js/gamelists/racing.js"></script>
-    <script type="text/javascript" src="js/gamelists/runandgun.js"></script>
-    <script type="text/javascript" src="js/gamelists/shooter.js"></script>
-    <script type="text/javascript" src="js/gamelists/sports.js"></script>
-    <script type="text/javascript" src="js/gamelists/rhythm.js"></script>
-    <script type="text/javascript" src="js/gamelists/timegames.js"></script>
-
-    <!-- CUSTOM SCRIPTS-->
+    <script type="text/javascript" src="js/gamelists/catalog.js"></script>    
+	<script type="text/javascript" src="js/gamelists/timegames.js"></script>
+	
+    <!-- CUSTOM SCRIPTS-->    
     <script type="text/javascript" src="js/new_aconline.js"></script>
     <script type="text/javascript" src="js/new_allmyscores.js"></script>
     <script type="text/javascript" src="js/new_debug.js"></script>
@@ -54,45 +26,44 @@
     <script type="text/javascript" src="js/new_friends.js"></script>
     <script type="text/javascript" src="js/new_gamedata.js"></script>
     <script type="text/javascript" src="js/new_gameui.js"></script>
+    <script type="text/javascript" src="js/new_head2head.js"></script>
     <script type="text/javascript" src="js/new_leaderboard.js"></script>
     <script type="text/javascript" src="js/new_mainmenu.js"></script>
     <script type="text/javascript" src="js/new_navigation.js"></script>
-    <!--<script type="text/javascript" src="js/new_news.js"></script>-->
     <script type="text/javascript" src="js/new_notifications.js"></script>
     <script type="text/javascript" src="js/new_onstartup.js"></script>
-    <script type="text/javascript" src="js/new_popups.js"></script>    
+    <script type="text/javascript" src="js/new_popups.js"></script>
     <script type="text/javascript" src="js/new_setup.js"></script>
     <script type="text/javascript" src="js/new_shared_popups.js"></script>
     <script type="text/javascript" src="js/new_social.js"></script>
     <script type="text/javascript" src="js/new_starrating.js"></script>
-    <script type="text/javascript" src="js/new_storage.js"></script>    
+    <script type="text/javascript" src="js/new_storage.js"></script>
     <script type="text/javascript" src="js/new_theme.js"></script>
-    <!--<script type="text/javascript" src="js/new_top20.js"></script>-->
     <script type="text/javascript" src="js/new_types.js"></script>
     <script type="text/javascript" src="js/new_restoreuser.js"></script>
     <script type="text/javascript" src="js/new_usercreation.js"></script>
     <script type="text/javascript" src="js/new_welcome.js"></script>
     <script type="text/javascript" src="js/new_customgames.js"></script>
     <script type="text/javascript" src="js/new_notes.js"></script>
-
+    <script type="text/javascript" src="js/new_help.js"></script>
     <script type="text/javascript" src="js/score.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/ui.js"></script>
     <script type="text/javascript" src="js/_helpers.js"></script>
-
     <script type="text/javascript" src="js/new_bezel.js"></script>
-
+    <script type="text/javascript" src="js/new_top50.js"></script>
+    <script type="text/javascript" src="js/new_recent.js"></script>
     <!-- SECURITY -->
     <script type="text/javascript" src="js/new_jwt.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/hmac-sha256.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64-min.js"></script>
+    <script type="text/javascript" src="js/hmac-sha256.js"></script>
+    <script type="text/javascript" src="js/enc-base64-min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/themes/Retro.css" />
     <link rel="stylesheet" type="text/css" href="css/themes/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" type="text/css" href="css/my_style.css" />
-    <link id="secondstyle" rel="stylesheet" type="text/css" href="css/default.css" />
+    <link id="secondstyle" rel="stylesheet" type="text/css" href="css/default.css" />    
 
     <title>Arcade Sidekick</title>
 
@@ -103,22 +74,6 @@
 
     <div data-role="page" data-theme="a" id="MainMenu" class="MainMenu ui-screen-hidden">
 
-        <!-- First Time -->
-        <div id="FirstTime" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
-            <div data-role="content" data-theme="a" class="ui-corner-bottom ui-content" role="main">
-                <h3 style="text-align: center">Welcome!</h3>
-                <h6>Thankyou for purchasing Arcade sidekick, the place to record your top scores on arcade video game classics, share your achievements and challenge your friends.</h6>
-                <h6>Want to be part of our online community? Create a new user or enter an already registered username. You can set it now or through the setup menu later.</h6>
-                <h6>Follow us on <a href="#" onclick="GoToTwitter(this)">twitter</a> for all the latest news and please give us feedback so we can make the sidekick everything you want it to be.</h6>                
-                <h6>Now go set some high scores!</h6>
-                <a onclick="WelcomeNewUserClicked();" style="font-size:70%" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">New User</span></span></a>
-                <a onclick="WelcomeExistingUserClicked();" style="font-size:70%" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Existing User</span></span></a>
-                <a onclick="ClosePopup()" style="font-size:70%" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Lets go!</span></span></a>
-            </div>
-        </div>
-
-        <!-- end of pop ups -->
-
         <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <h1 style="font-weight: bold; font-size:100%" ;>SIDEKICK</h1>
             <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none" class="ui-btn-right"></a>
@@ -126,10 +81,10 @@
 
         <div role="main" class="ui-content Page">
 
-            <section id="CategoryPanel" class="TwoColumn">
-                <!--<div onclick="News()" id="news" class="tile news" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>-->
+            <section id="CategoryPanel" class="TwoColumn">                
                 <div onclick="Friends()" id="setupfriendsTile" class="tile friends" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
                 <div onclick="AllGames()" id="AllTemplate" class="tile allgames" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
+                <div onclick="ArcadeTop50()" id="top10" class="tile topfifty" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
                 <div onclick="Category(this)" id="beatemup" class="tile beatemup" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
                 <div onclick="Category(this)" id="guns" class="tile guns" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
                 <div onclick="Category(this)" id="maze" class="tile maze" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
@@ -138,8 +93,9 @@
                 <div onclick="Category(this)" id="shooter" class="tile shooter" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
                 <div onclick="CustomGames()" id="custom" class="tile custom" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
 
-                <!--<div onclick="ArcadeTop20()" id="top10" class="tile topten" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>-->
                 <div onclick="MyScores()" id="scores" class="tile myscores" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
+                <div onclick="Head2Head()" id="head2head" class="tile head2head" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
+                <div onclick="GetRecentActivity()" id="recentActivity" class="tile recent" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
                 <div onclick="Category(this)" id="fighting" class="tile fighting" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
                 <div onclick="Category(this)" id="hackandslash" class="tile hackandslash" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
                 <div onclick="Category(this)" id="misc" class="tile misc" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
@@ -147,36 +103,18 @@
                 <div onclick="Category(this)" id="racing" class="tile racing" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
                 <div onclick="Category(this)" id="runandgun" class="tile runandgun" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
                 <div onclick="Category(this)" id="sports" class="tile sports" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
-                <div id="blank" class="blanktile" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div>
 
             </section>
         </div>
 
     </div>
 
-    <!-- News -->
-
-    <!--<div data-role="page" data-theme="a" id="News" class="MainMenu">
-
-        <div data-role="header" data-position="fixed" data-tap-toggle="false">
-            <h1 style="font-weight: bold; font-size:100%" ;>News</h1>
-            <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
-            <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
-        </div>
-
-        <div role="main" class="ui-content Page">
-
-            <ul id="newsfeed" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
-        </div>
-
-    </div>-->
-
     <!-- SETTINGS -->
 
     <div data-role="page" data-theme="a" id="Settings" class="MainMenu">
 
         <!-- No User Name -->
-        <div id="NoUser" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <div id="NoUser" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" data-theme="a" class="ui-corner-bottom ui-content" role="main">
                 <h3>No User name!</h3>
                 <h6>If you want to use our online community please register a username.</h6>
@@ -185,17 +123,18 @@
         </div>
 
         <!-- About -->
-        <div id="About" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <div id="About" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" data-theme="a" class="ui-corner-bottom ui-content" role="main">
                 <h3 style="text-align: center">Welcome to Arcade Sidekick</h3>
                 <h6>I'm a huge fan of retro games and with the resurgence of the arcades I found myself wanting to keep track of my scores on my favourite machines. Thus Arcade Sidekick was born. Keep track of the games you have played, how you rate them, your top score and what the community think. Challenge your friends and enemies and publish your achievements on social media!</h6>
                 <h6>Created by Rich Rumsey</h6>
+                <h6>Version 1.0.41</h6>
                 <a onclick="ClosePopup()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Lets go!</span></span></a>
             </div>
         </div>
 
         <!-- RESET -->
-        <div id="Reset" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <div id="Reset" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" data-theme="a" class="ui-corner-bottom ui-content" role="main">
                 <h3>Are you sure?</h3>
                 <h6>Resetting will permanently remove all your data including your online user and ratings. Are you sure you want to do this?</h6>
@@ -205,7 +144,7 @@
         </div>
 
         <!-- THEMES -->
-        <div id="Themes" data-dismissible="false" data-role="popup" class="ui-corner-all ui-popup ui-overlay-shadow popupheight" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <div id="Themes" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="ui-corner-all ui-popup ui-overlay-shadow popupheight" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" data-theme="a" class="ui-corner-bottom ui-content" role="main" style="border: none !important">
 
                 <div>
@@ -264,7 +203,7 @@
         </div>
 
         <!-- Contact -->
-        <div id="Contact" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <div id="Contact" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" data-theme="a" class="ui-corner-bottom ui-content" role="main">
                 <h3>Contact us!</h3>
                 <h6>We always want to hear from you so get in touch in any of the following ways:</h6>
@@ -273,12 +212,6 @@
                     <li onclick="GoToEmail(this)" style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
                         <a>
                             <span style="font-size:80%">Email</span>
-                        </a>
-                    </li>
-                    <li id="contactfacebook" onclick="GoToFacebook(this)" style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
-                        <a>
-                            <img src="img/facebook.png" class="ui-li-icon ui-corner-none ui-li-thumb">
-                            <span style="font-size:70%">Facebook</span>
                         </a>
                     </li>
                     <li onclick="GoToTwitter(this)" style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
@@ -294,12 +227,12 @@
         </div>
 
         <!-- Thanks -->
-        <div id="Thanks" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <div id="Thanks" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" data-theme="a" class="ui-corner-bottom ui-content" role="main">
                 <h3>Thankyou!</h3>
                 <h6>
                     To <a href="https://twitter.com/ThilDuncan">Phil Duncan</a> for artwork he donated while developing the Bafta award winning <a href="http://www.ghosttowngames.com/overcooked/">Overcooked.</a>
-                    To the staff at Arcade Club Bury for their interest and help.
+                    <a href="https://www.arcadeartwork.org/">Arcade Artwork</a> for the fantastic bezel images used.
                     <a href="https://smartfonts.com/patrick-lauke.author">Patrick Lauke</a> for qix, joust and space invaders fonts (<a href="https://creativecommons.org/licenses/by/3.0/legalcode">license</a>).
                     <a href="https://www.dafont.com/alan-carr.d48">Alan Carr</a> for frogger (Freeware).
                     <a href="www.freakyfonts.de">Freaky Fonts</a> for arkanoid (Freeware).
@@ -322,23 +255,242 @@
         <div role="main" class="ui-content Page">
 
             <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all">
-                <li data-role="list-divider" id="myusernamesetup" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">User name</li>
-                <li data-role="list-divider" id="myemailsetup" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Email</li>
+                <li data-role="list-divider" id="myusernamesetup" style="white-space: normal;" class="ui-li ui-li-static ui-btn-up-c">User name</li>
+                <li data-role="list-divider" id="myemailsetup" style="white-space: normal;" class="ui-li ui-li-static ui-btn-up-c">Email</li>
             </ul>
             <a id="newuserbutton" style="font-size:70%" onclick="ShowNewUser();" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">New User</span></span></a>
             <a id="existinguserbutton" style="font-size:70%" onclick="ShowExistingUser();" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Existing User</span></span></a>
             <a id="verifyuserbutton" style="font-size:70%" onclick="LaunchVerifyUserFromSetup();" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Verify User</span></span></a>
 
+            <a style="font-size:70%" onclick="ReleaseHistory()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Release History</span></span></a>
             <a style="font-size:70%" onclick="FAQ()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">FAQs</span></span></a>
+            <a style="font-size:70%" onclick="Help()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Help</span></span></a>            
             <a style="font-size:70%" onclick="About()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">About</span></span></a>
             <a style="font-size:70%" onclick="Contact()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Contact</span></span></a>
-            <!--<a style="font-size:70%" onclick="Backup()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Backup</span></span></a>
-            <a style="font-size:70%" onclick="Restore()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Restore</span></span></a>-->
             <a style="font-size:70%" onclick="ShowTheme()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Choose Theme</span></span></a>
             <a style="font-size:70%" onclick="Thanks()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Thankyous</span></span></a>
-            <!--<a style="font-size:70%" onclick="ShowReset()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Reset</span></span></a>-->
         </div>
 
+    </div>
+
+    <div data-role="page" data-theme="a" id="Help" class="MainMenu">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 style="font-weight: bold; font-size:100%" ;>Help</h1>
+            <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+            <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
+        </div>
+
+        <div role="main" class="ui-content Page">
+            <a id="forgotusername" style="font-size:70%" onclick="Forgot_UserName();" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Forgot User name</span></span></a>
+            <a id="forgotemail" style="font-size:70%" onclick="Forget_Email();" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Forgot email address</span></span></a>
+            <a id="forgotsecret" style="font-size:70%" onclick="Forgot_Secret();" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Forgot secret key</span></span></a>
+            <a style="font-size:70%" onclick="Help_Request()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Other enquiry</span></span></a>
+
+            <div data-role="collapsibleset" data-theme="a" data-inset="true">
+
+                <div data-role="collapsible">
+                    <h5>Cant share to facebook</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            Some users have been unable to share using the links to facebook. Clicking on share results in either nothing happening or an error message. If you cant share to facebook please make sure that the facebook app is installed and that you are signed in. If this is the case but you still cannot share please contact us.
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible">
+                    <h5>Cant share to twitter</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            Some users have been unable to share using the links to twitter. Clicking on share results in either nothing happening or an error message. If you cant share to twitter please make sure that the twitter app is installed and that you are signed in. If this is the case but you still cannot share please contact us.
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Release History -->
+
+    <div data-role="page" data-theme="a" id="ReleaseHistory" class="MainMenu">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 style="font-weight: bold; font-size:100%" ;>Release History</h1>
+            <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+            <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
+        </div>
+
+        <div role="main" class="ui-content Page">
+
+            <div data-role="collapsibleset" data-theme="a" data-inset="true">
+
+                <div data-role="collapsible">
+                    <h5>V 1.3.03</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            May 17 2019 - Big Game Update! 32 new games<br /><br />
+                            <b>Platformers</b> Bagman, Circus Charlie, Kicker, Pandoras Palace, Lode Runner,Elevator Action<br />
+                            <b>Shooters</b> Raiden Fighters, Blazing Star, Sheriff, DoDonpachi, DonPachi, Fixeight, Darius, Darius Gaiden, Gunbird, Gunbird 2, Raiden, Vulgus<br />
+                            <b>Fighting</b> Waku Waku 7<br />
+                            <b>Maze</b> Frenzy, Baby Pac-Man<br />
+                            <b>Racing</b> Continental Circus, Up n Down<br />
+                            <b>Beat Em Up</b> Renegade, Eswat Cyber Police, Sly Spy/Secret Agent, Crime City<br />
+                            <b>Run'n'Gun</b> Super Contra, Heavy Barrel, Metal Slug X, Act Fancer<br />
+                            <b>Hack'n'Slash</b> Knights of the Round<br />
+                            <br />
+                            Also added alternative version of<br /><br />
+                            Berzerk Slow Bullets<br />
+                            Galaga Fast Bullets<br />
+                            Pac-man Speed up Hack<br />
+                            Ms Pac-man Speed up Hack<br />
+                            Jr Pac-man Speed up Hack<br />
+                            <br />
+                            <b>Bug fixes</b><br />
+                            Help text on find users changed<br />
+                            Remove friend is now the last button option on the friend information<br />
+                            Background is greyed out when popups are open<br />
+                            Can now exit out of forgotten information popups which was previously not possible<br />
+                            Confirmation when saying you have not played a game as scores would be lost if pressed accidentally<br />
+                            Friends list in alphabetical order<br />
+                            Games with alternative names now appear correctly on the played and not played list<br />
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible">
+                    <h5>V 1.3.01</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            May 8 2019 - Major update. Added 2 major new features, the top 50 arcade games and recent activity items on the main menu. The recent activity is a global list of the last 100 events to occur in the system that are either scores being logged or users being created.
+                            The recent activity will also be a good place to surface the 'what my friends have done since i last logged in' section in a future update.<br />
+                            I have also added the ability to see the release history of the app in a new section that you will find under settings. You can see a little more details (like this) in this section than the whats new notification.<br />
+                            Where games have alternate names users were sometimes finding it difficult to find them/know that they were in the system. So now when a game has an alternative name, the game will appear in the list twice under each name.<br />
+                            Added a few new help topics around sharing the facebook and twitter.<br />
+                            Bug fixes including better error handling on failed calls to online services.
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible">
+                    <h5>V 1.2.08</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            May 4 2019 - Minor bug fixes and updated some incorrect artwork.
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible">
+                    <h5>V 1.2.07</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            May 2 2019 - New games added! Dragon Blaze, Im Sorry, Pac And Paint, Super Pang, Pang, Rabbit Punch.
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible">
+                    <h5>V 1.2.04</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            April 28 2019 - Added 7 new games Motos, Ajax/Typhoon, Satans Hollow, Plus Alpha, I Robot, Bermuda Triangle and Ghosts n Goblins!
+                            Also fixed in this release, the ability for games to have alternate names, i.e Rush n Attack and Green Beret, an error when re-entering VS mode where the list and player did not match and a fix to a very embarrassing spelling mistake.
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible">
+                    <h5>V 1.2.03</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            April 25 2019 - My Score Improvements! Link directly from the my scores section to the game or highscore.
+                            New games added with the help from the awesome Michael Lis.
+                            Robocop, Sky Kid, Sky Skipper, Solomons Key, Sonson, Space Firebird, Spatter, Strikers 1945 III, Super Glob, Teddy Boy Blues, Thunder Cross, Thundercade, Toypop, Turtles, U.N Defence Force Earth Joker, Uncle Poo, Uo Poko, Volfied, vs Dr Mario and Xaind Sleena.
+                            Bug fixes.
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible">
+                    <h5>V 1.2.01</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            April 23 2019 - Introducing VS Mode! Go Head to Head with another gamer to see which games you have both played, who is winning each, and who can call themselves the better gamer!
+                            4 new games Halleys Comet, Flying Shark, Parodius and Discs Of Tron.
+                            Bug fix where all users list was not in alphabetical order
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible">
+                    <h5>V 1.1.02</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            April 20 2019 - New Games! Venture, Zookeeper, Pepper II, Dig Dug II, Jr. Pac-Man, Pengo, Tank Battalion, Van Van Car, Minky Monkey, Faster Harder More Challenging Q-Bert, Gun Smoke, The End, Xevious, Yie Ar Kung Fu
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible">
+                    <h5>V 1.1.01</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            April 17 2019 - Global Leaderboards! No need to add all users to your friends list, keep that for real frenemies.
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible">
+                    <h5>V 1.0.51</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            April 16 2019 - More games! Congo Bongo, Eyes, Batsugan, Giga Wing, vs Super Mario Bros, Kid Niki, Journey, Battel Bakraid, Baluba Louk No Densetsu
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible">
+                    <h5>V 1.0.50</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            April 15 2019 - 5 new games Ali baba and the 40 Thieves, Armored Car, Bank Panic, Go Go Mile Smile and Swimmer. You can now see a list of all users in friends. A new whats new screen. Options to share your username on creation of a new user. Tweets and social sharing now include a link to @arcadesidekick to get the name out there. Highscore screen now uses game marquee instead of words highscore
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible">
+                    <h5>V 1.0.48</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            April 12 2019 - My Scores improvements. Now segregates games into those that you're friends have played, ones that only you have played, and your custom games.
+                            Added Swimmer to misc games.
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible">
+                    <h5>V 1.0.46</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            April 11 2019 - Added new games, link to send a request a game email and reduced font size in leaderboard to allow for longer usernames.
+                        </li>
+                    </ul>
+                </div>
+
+                <div data-role="collapsible">
+                    <h5>V 1.0.45</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            April 6 2019 - Release!
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <!-- FAQ -->
@@ -348,6 +500,7 @@
         <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <h1 style="font-weight: bold; font-size:100%" ;>FAQ</h1>
             <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+            <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
         </div>
 
         <div role="main" class="ui-content Page">
@@ -356,12 +509,12 @@
                 <div data-role="collapsible">
                     <h5>Why have you developed Sidekick?</h5>
                     <ul data-role="listview" class="ui-listview ui-corner-all">
-                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">   
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
                             Sidekick started off as a personal project to record my scores and the games I had and wanted to play. After developing it for
                             some time i showed a few friends who also wanted to use it. The idea grew from there. I added more games, more artwork, ratings,
                             leaderboards and before i knew it i had something that my friends were suggesting i make available to everyone on the app stores. This
-                            was a pretty scary thought, but it became my abmition to release an app and so here it is, and here you are reading about why i made this.
-                            I want the sidekick to encourage friendly competition between friends, to help keep the memory and nostalgia of the retro gaming scene 
+                            was a pretty scary thought, but it became my ambition to release an app and so here it is, and here you are reading about why i made this.
+                            I want the sidekick to encourage friendly competition between friends, to help keep the memory and nostalgia of the retro gaming scene
                             alive and to help preserve these classic games so they are not forgotten. If you have any suggestions as to how i can make the sidekick better
                             please let me know and contact me via email or twitter.
                         </li>
@@ -371,9 +524,9 @@
                     <h5>What games are listed?</h5>
                     <ul data-role="listview" class="ui-listview ui-corner-all">
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            We currently list the vast majority of games from the worlds 2 largest arcade, the Galloping Ghost and Arcade Club UK.
-                            Both aquire new games regularly which we will aim to keep on top of and update as soon as possible.
-                            We're planning on continuing down the list of the worlds largest arcades to cater for as many games as possible
+                            We currently list the vast majority of games from Europes largest arcade - Arcade Club UK.
+                            They acquire new games regularly which we will aim to keep on top of and update as soon as possible.
+                            We're planning on continuing on the list of the worlds largest arcades to cater for as many locations as possible
                             and will be adding more games regularly. If there is a game that you want including in the system then please
                             get in touch via email or twitter
                             and we'll do our best to make it available in the next update.
@@ -384,7 +537,7 @@
                     <h5>How do I request a game?</h5>
                     <ul data-role="listview" class="ui-listview ui-corner-all">
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            The easiest way to request a game is to either email or tweet> 
+                            The easiest way to request a game is to press the request game button in the custom games section, but you can also email or tweet
                             us your request. Tweeting of course gives the rest of the community the chance to vote on your suggestion, and the posts with higher votes are most likely to get into the next updates.
                         </li>
                     </ul>
@@ -394,7 +547,7 @@
                     <ul data-role="listview" class="ui-listview ui-corner-all">
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
                             Dont agree with where we've placed a game? Its hard to segment every game into 1 category but we've done our best. If you think a game belongs in a different category
-                            then please contact us, we want the classification to be as accurate as we can. Some games just dont fit any well known genre so we've popped them into miscalaneous.
+                            then please contact us, we want the classification to be as accurate as we can. Some games just dont fit any well known genre so we've popped them into miscellaneous.
                             Below is the definition we have used for each category
                         </li>
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
@@ -410,7 +563,7 @@
                             <b>Hack 'n' slash</b> - real-time combat with hand-to-hand weapons as opposed to guns or fists.
                         </li>
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            <b>Maze</b> - playing field is a maze which players have to mavigate round, avoiding obstacles or enemies.
+                            <b>Maze</b> - playing field is a maze which players have to navigate round, avoiding obstacles or enemies.
                         </li>
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
                             <b>Platformer</b> - jumping and climbing between suspended platforms.
@@ -425,14 +578,16 @@
                             <b>Rhythm</b> - music-themed video games that challenges a player's sense of rhythm. Movement or button presses dictated on screen that must be followed along to the beat of music.
                         </li>
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            <b>Run 'n' Gun</b> - subgenre of shooters ocassionally with occassional platform elements, primarily focused on the protagonist (mostly human) moving quickly on foot and firing with near constant gun fire.
+                            <b>Run 'n' Gun</b> - subgenre of shooters occasionally with platform elements, primarily focused on the protagonist (mostly human) moving quickly on foot and firing with near constant gun fire.
                         </li>
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            <b>Shooter</b> - traditionally set in space. Fighting done by a single spacecraft against multiple enemies.</li>
+                            <b>Shooter</b> - traditionally set in space. Fighting done by a single spacecraft against multiple enemies.
+                        </li>
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            <b>Sports</b> - simulates the practice of sports.</li>
+                            <b>Sports</b> - simulates the practice of sports.
+                        </li>
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            <b>Miscalaneous</b> - anything i couldnt categorise into one of the other categories. If through time enough games appear in misc that could have their own category then a new category will be added.
+                            <b>Miscellaneous </b> - anything i couldnt categorise into one of the other categories. If through time enough games appear in misc that could have their own category then a new category will be added.
                         </li>
                     </ul>
                 </div>
@@ -451,7 +606,7 @@
                     <h5>How often will you add new games?</h5>
                     <ul data-role="listview" class="ui-listview ui-corner-all">
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            We'll aim to add new games every couple of weeks and have regular updates to the system. Depending on whether we're going for new features or updating our catelogue
+                            We'll aim to add new games every couple of weeks and have regular updates to the system. Depending on whether we're going for new features or updating our catalogue
                             you might see more or less being added.
                         </li>
                     </ul>
@@ -460,7 +615,7 @@
                     <h5>Some game details are wrong</h5>
                     <ul data-role="listview" class="ui-listview ui-corner-all">
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            Oops. Soz. With hundreds of games its possible mistakes have been made so please get in touch and we'll aim to update the incorrect information as soon as possible.
+                            Oops. Sorry. With hundreds of games its possible mistakes have been made so please get in touch and we'll aim to update the incorrect information as soon as possible.
                         </li>
                     </ul>
                 </div>
@@ -468,8 +623,16 @@
                     <h5>We want more gifs and bezels!</h5>
                     <ul data-role="listview" class="ui-listview ui-corner-all">
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            We love the game gifs and bezels. When time allows we will aim to add more images to the existing games. We hope one day to have a gif and bezel for everygame, but that will be a difficult task.
+                            We love the game gifs and bezels. When time allows we will aim to add more images to the existing games. We hope one day to have a gif and bezel for every game, but that will be a difficult task.
                             If youve got a gif or bezel of a game that youd like to share with us to assist in this goal that would be great.
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="collapsible">
+                    <h5>What data is stored online?</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            When you create a username we store some data for you so that it can be retrieved if you move onto a different device and viewed by your friends. We will store what you have rated a game and your highest score.
                         </li>
                     </ul>
                 </div>
@@ -485,12 +648,51 @@
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">Achievements</li>
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">More game information</li>
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">Where the games are available to play</li>
-                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">Head 2 Head statistics</li>
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">News</li>
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">Links to wiki, videos etc</li>
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
                             We would really appreciate your feedback on these features and which ones youd like to see first. As mentioned before its also
                             really important to us that we have the features that you want to see, so suggest a new feature to us and it can be added to the roadmap for the future.
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="collapsible">
+                    <h5>Why do I need a username?</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            You don't need one, but we would like you to make one. A username identifies you on leaderboards and enables us to store your score/rating information.
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="collapsible">
+                    <h5>If I've been storing scores without a username will I lose them all if I create an account?</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            No. When you create a username all your scores and ratings will remain. The ratings will be uploaded automatically and you will be able to upload your scores through the my scores section from the dashboard.
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="collapsible">
+                    <h5>I've forgotten my username/email/secret key?</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            If you've forgotten any of your information then please follow the links in the help section of the setup screen. For username/secret key queries we will send you an email. If you've forgotten your email you'll receive a helpful hint. If you've forgotten everything, then contact us but there might not be anything we can do!
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="collapsible">
+                    <h5>Will you use my email address with any third parties?</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            Absolutely not. The email address is purely for our purposes. If we do get approached by any arcade venues wanting your information we would of course seek your permission first. Everyone hates spam.
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="collapsible">
+                    <h5>How do i leave feedback?</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            Please leave feedback and ideas to arcadesidekick@outlook.com or to our twitter account, there are handy links in setup to get in touch with us! Please help us drive the future development of the app and make it the app you want to see.
                         </li>
                     </ul>
                 </div>
@@ -500,10 +702,11 @@
     </div>
 
     <!-- Manage Friends -->
+
     <div data-role="page" data-theme="a" id="ManageFriends" class="MainMenu">
 
         <!-- Friends First Time -->
-        <div id="FirstTimeFriends" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <div id="FirstTimeFriends" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" data-theme="a" class="ui-corner-bottom ui-content" role="main">
                 <h3>Friends or Enemies?</h3>
                 <h6>Manage your friends and enemies here! Enter their usernames and see what they've played. Any scores they have submitted will appear in the leaderboards for each game. What are you waiting for? prove you are a better gamer than them!</h6>
@@ -512,7 +715,7 @@
         </div>
 
         <!-- Friend not found -->
-        <div id="NoFriendFound" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <div id="NoFriendFound" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" data-theme="a" class="ui-corner-bottom ui-content" role="main">
                 <h3>I AM ERROR</h3>
                 <h6>This user does not exist in our system, please confirm their username and try again.</h6>
@@ -521,7 +724,7 @@
         </div>
 
         <!-- No Games -->
-        <div id="FriendsGamesNoGames" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <div id="FriendsGamesNoGames" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" data-theme="a" class="ui-corner-bottom ui-content" role="main">
                 <h3 id="friendNoGame"></h3>
                 <h6>Hasn't yet played any games. Check back later.</h6>
@@ -530,42 +733,72 @@
         </div>
 
         <!-- Add Friend -->
-        <div id="AddFriend" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <div id="AddFriend" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" data-theme="a" class="ui-corner-bottom ui-content" role="main">
                 <h3>New Friend</h3>
                 <h6>Enter a username to add them to your list of friends</h6>
-                <input id="newfriend" title="3-15 characters A-Z 0-9 only" pattern="[A-Za-z0-9]{3,15}" type="text" style="text-transform:uppercase" />
-                <a onclick="AddFriend();ClosePopup()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Add</span></span></a>
+                <form action="javascript:DoNothing()" onsubmit="AddFriend();ClosePopup()">
+                    <input required="required" id="newfriend" title="3-15 characters A-Z 0-9 _ only" pattern="[A-Za-z0-9_]{3,15}" type="text" style="text-transform:uppercase" />
+                    <input type="submit" value="Add" id="addFriend">
+                </form>
+                <a onclick="ClosePopup()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Close</span></span></a>
             </div>
         </div>
 
         <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <h1 style="font-weight: bold; font-size:100%" ;>Friends</h1>
             <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+            <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
         </div>
 
         <div role="main" class="ui-content Page">
 
-            <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all">
-                <li onclick="AddNewFriend()" id="share" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">
-                    <span style="white-space: normal;text-overflow: clip" ;>Add</span>
-                </li>
-            </ul>
-            <div data-role="collapsible-set" id="friendsList">
+            <div data-role="tabs" class="tabs">
 
+                <div data-role="navbar">
+                    <ul>
+                        <li><a id="MYFRIENDS" onclick="SetCurrentTab('MYFRIENDS')" href="#myfriends" data-theme="a" data-ajax="false" class="ui-btn-active"><span style="font-size:70%">Friends</span></a></li>
+                        <li><a id="ALLUSERS" onclick="LoadUsers();SetCurrentTab('ALLUSERS')" href="#allusers" data-theme="a" data-ajax="false"><span style="font-size:70%">All Users</span></a></li>
+                    </ul>
+                </div>
+
+                <div id="myfriends" class="ui-content">
+                    <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all">
+                        <li onclick="AddNewFriend()" id="share" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">
+                            <span style="white-space: normal;text-overflow: clip" ;>Add</span>
+                        </li>
+                    </ul>
+                    <div data-role="collapsible-set" id="friendsList">
+                    </div>
+                </div>
+
+                <div id="allusers" class="ui-content">
+                    <ul id="allusersul" data-autodividers="true" data-role="listview" data-filter="true" data-filter-placeholder="Find user..." data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                </div>
             </div>
         </div>
-
     </div>
 
     <!-- Friends Games -->
+
     <div data-role="page" data-theme="a" id="FriendsGames" class="MainMenu">
         <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <h1 style="font-weight: bold; font-size:100%" id="friendGamesTitle"></h1>
             <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+            <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
         </div>
 
         <div role="main" class="ui-content Page">
+
+            <div id="FriendsNoGames">
+                <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+                    <li style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
+                        <span>
+                            No games recorded. Why not send them a challenge?
+                        </span>
+                    </li>
+                </ul>
+            </div>
 
             <div id="friendscores" class="ui-grid-a">
                 <div class="ui-block-a" id="friendgameblocklocal">
@@ -580,12 +813,87 @@
 
     </div>
 
-    <!-- Arcade Top 20 -->
+    <!-- Head 2 Head -->
 
-    <!--<div data-role="page" data-theme="a" id="TopTen" class="MainMenu">
+    <div data-role="page" data-theme="a" id="Head2Head" class="MainMenu">
 
         <div data-role="header" data-position="fixed" data-tap-toggle="false">
-            <h1 style="font-weight: bold; font-size:100%" ;>Top 20</h1>
+            <h1 style="font-weight: bold; font-size:100%" ;>Head To Head</h1>
+            <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+            <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
+        </div>
+
+        <div role="main" class="ui-content Page">
+            <div class="ui-grid-b">
+                <div class="ui-block-c" style="width:42%">
+                    <select name="select-opponent-1" id="select-opponent-1" data-native-menu="false"
+                            data-mini="true" onchange="RefreshComparison()"></select>
+                </div>
+                <div class="ui-block-b" style="width:16%">
+                    <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"
+                        style="margin:0.466em 0.3125em !important">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%;text-align:center;padding: 0.7em 0em;" class="ui-li ui-btn-up-c">
+                            <span>
+                                Vs
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ui-block-c" style="width:42%">
+                    <select name="select-opponent-2" id="select-opponent-2" data-native-menu="false"
+                            data-mini="true" onchange="RefreshComparison()"></select>
+                </div>
+            </div>
+
+            <div id="NoComparrison">
+                <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+                    <li style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
+                        <span id="noComparrisonText">
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="ui-grid-b" id="comparisonsresults">
+                <div class="ui-block-a" style="width:45%">
+                    <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+                        <li style="white-space: normal;text-overflow: clip;text-align:center" class="ui-li ui-btn-up-c">
+                            <span id="comparrisonMe">
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ui-block-b" style="width:10%"></div>
+                <div class="ui-block-c" style="width:45%">
+                    <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+                        <li style="white-space: normal;text-overflow: clip;text-align:center" class="ui-li ui-btn-up-c">
+                            <span id="comparrisonOpponent">
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ui-grid-b">
+                <div id="head2headgame" class="ui-block-a" style="width:40%">
+                    <ul id="head2headgameul" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                </div>
+                <div id="head2headmyscore" class="ui-block-b" style="width:30%">
+                    <ul id="head2headmyscoreul" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                </div>
+                <div id="head2headfriendscore" class="ui-block-c" style="width:30%">
+                    <ul id="head2headfriendscoreul" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Arcade Top 50 -->
+    <div data-role="page" data-theme="a" id="TopFifty" class="MainMenu">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 style="font-weight: bold; font-size:100%" ;>Top 50</h1>
             <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
             <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
         </div>
@@ -595,7 +903,7 @@
             <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
                 <li style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
                     <span>
-                        Our users top 20 favourite games are:
+                        Our users top 50 favourite games are:
                     </span>
                 </li>
             </ul>
@@ -611,10 +919,28 @@
 
         </div>
 
-    </div>-->
+    </div>
+
+    <!-- Recent -->
+    <div data-role="page" data-theme="a" id="Recent" class="MainMenu">
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 style="font-weight: bold; font-size:100%" ;>Recent Activity</h1>
+            <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+            <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
+        </div>
+
+        <div role="main" class="ui-content Page">
+
+            <div class="ui-block-a" id="recentblock">
+                <ul id="allrecentblock" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+            </div>
+
+        </div>
+
+    </div>
 
     <!-- My Top Scores -->
-
     <div data-role="page" data-theme="a" id="MyScores" class="MainMenu">
 
         <div data-role="header" data-position="fixed" data-tap-toggle="false">
@@ -641,12 +967,46 @@
                 </a>
             </div>
             <div id="allscoreslocal" class="ui-grid-a">
-                <div class="ui-block-a" id="gameblocklocal">
-                    <ul id="allgameblocklocal" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+
+                <!--FRIENDS GAMES-->
+                <div id="FRIENDSGAMES">
+                    <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow" style="margin-bottom: 0;">
+                        <li data-role="list-divider" style="font-size:70%;white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Played By Friends</li>
+                    </ul>
+                    <div class="ui-block-a" id="gameblocklocalfriends" style="width:60%">
+                        <ul id="allgameblocklocalfriends" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                    </div>
+                    <div class="ui-block-b" id="scoreblocklocalfriends" style="width:40%">
+                        <ul id="allscoresblocklocalfriends" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                    </div>
                 </div>
-                <div class="ui-block-b" id="scoreblocklocal">
-                    <ul id="allscoresblocklocal" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+
+                <!--MY GAMES-->
+                <div id="MYGAMES">
+                    <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow" style="margin-bottom: 0;">
+                        <li data-role="list-divider" style="font-size:70%;white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Only Played By Me</li>
+                    </ul>
+                    <div class="ui-block-a" id="gameblocklocal" style="width:60%">
+                        <ul id="allgameblocklocal" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                    </div>
+                    <div class="ui-block-b" id="scoreblocklocal" style="width:40%">
+                        <ul id="allscoresblocklocal" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                    </div>
                 </div>
+
+                <!--CUSTOM GAMES-->
+                <div id="CUSTOMGAMES">
+                    <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow" style="margin-bottom: 0;">
+                        <li data-role="list-divider" style="font-size:70%;white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Custom Games</li>
+                    </ul>
+                    <div class="ui-block-a" id="gameblocklocalcustom" style="width:60%">
+                        <ul id="allgameblocklocalcustom" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                    </div>
+                    <div class="ui-block-b" id="scoreblocklocalcustom" style="width:40%">
+                        <ul id="allscoresblocklocalcustom" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -667,9 +1027,9 @@
 
                 <div data-role="navbar">
                     <ul>
-                        <li><a id="AllPlayedTab" onclick="SetCurrentTab('AllPlayedTab')" href="#allone" data-theme="a" data-ajax="false" class="ui-btn-active"><span style="font-size:70%">Played</span></a></li>
-                        <li><a id="AllNotPlayedTab" onclick="SetCurrentTab('AllNotPlayedTab')" href="#alltwo" data-theme="a" data-ajax="false"><span style="font-size:70%">Not</span></a></li>
-                        <li><a id="AllAllTab" onclick="SetCurrentTab('AllAllTab')" href="#allthree" data-theme="a" data-ajax="false"><span style="font-size:70%">All</span></a></li>
+                        <li><a id="AllPlayedTab" onclick="SetAllGamesTab('AllPlayedTab');SetCurrentTab('AllPlayedTab')" href="#allone" data-theme="a" data-ajax="false" class="ui-btn-active"><span style="font-size:70%">Played</span></a></li>
+                        <li><a id="AllNotPlayedTab" onclick="SetAllGamesTab('AllNotPlayedTab');SetCurrentTab('AllNotPlayedTab')" href="#alltwo" data-theme="a" data-ajax="false"><span style="font-size:70%">Not</span></a></li>
+                        <li><a id="AllAllTab" onclick="SetAllGamesTab('AllAllTab');SetCurrentTab('AllAllTab')" href="#allthree" data-theme="a" data-ajax="false"><span style="font-size:70%">All</span></a></li>
                     </ul>
                 </div>
 
@@ -712,9 +1072,9 @@
 
                 <div data-role="navbar">
                     <ul>
-                        <li><a id="PlayedTab" onclick="SetCurrentTab('PlayedTab')" href="#one" data-theme="a" data-ajax="false" class="ui-btn-active"><span style="font-size:70%">Played</span></a></li>
-                        <li><a id="NotPlayedTab" onclick="SetCurrentTab('NotPlayedTab')" href="#two" data-theme="a" data-ajax="false"><span style="font-size:70%">Not</span></a></li>
-                        <li><a id="AllTab" onclick="SetCurrentTab('AllTab')" href="#three" data-theme="a" data-ajax="false"><span style="font-size:70%">All</span></a></li>
+                        <li><a id="PlayedTab" onclick="SetCategoryGamesTab('PlayedTab');SetCurrentTab('PlayedTab')" href="#one" data-theme="a" data-ajax="false" class="ui-btn-active"><span style="font-size:70%">Played</span></a></li>
+                        <li><a id="NotPlayedTab" onclick="SetCategoryGamesTab('NotPlayedTab');SetCurrentTab('NotPlayedTab')" href="#two" data-theme="a" data-ajax="false"><span style="font-size:70%">Not</span></a></li>
+                        <li><a id="AllTab" onclick="SetCategoryGamesTab('AllTab');SetCurrentTab('AllTab')" href="#three" data-theme="a" data-ajax="false"><span style="font-size:70%">All</span></a></li>
                     </ul>
                 </div>
 
@@ -746,7 +1106,7 @@
     <div data-role="page" data-theme="a" id="Game" class="MainMenu">
 
         <!-- No User Name -->
-        <div id="NoUserGame" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <div id="NoUserGame" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" data-theme="a" class="ui-corner-bottom ui-content" role="main">
                 <h3>No User name!</h3>
                 <h6>If you want to use our online services please enter a unique username in the setup menu.</h6>
@@ -755,7 +1115,7 @@
         </div>
 
         <!-- No Friends -->
-        <div id="NoFriends" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <div id="NoFriends" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" data-theme="a" class="ui-corner-bottom ui-content" role="main">
                 <h3>Make Friends</h3>
                 <h6>In order to see scores in the leaderboard you must first add your friends via Manage friends. </h6>
@@ -764,38 +1124,13 @@
             </div>
         </div>
 
-        <!-- Share -->
-        <div id="SharePop" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <!-- Remove your game? -->
+        <div id="RemoveGame" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" data-theme="a" class="ui-corner-bottom ui-content" role="main">
-                <h3>Share!</h3>
-                <h6>Post your achievements to social media or challenge a friend via text to beat your high score:</h6>
-
-                <ul id="postgamepopuplist" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
-                    <li id="postgametotext" onclick="ShareOnText()" style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
-                        <a id="textlink">
-                            <span style="font-size:70%;white-space: normal;text-overflow: clip" ;>Challenge a friend</span>
-                        </a>
-                    </li>
-                    <li id="postgametofacebook" onclick="ShareOnFaceBook()" style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
-                        <a id="facebooklink">
-                            <img src="img/facebook.png" class="ui-li-icon ui-corner-none ui-li-thumb">
-                            <span style="font-size:70%;white-space: normal;text-overflow: clip" ;>Share on Facebook</span>
-                        </a>
-                    </li>
-                    <li id="postgametotwitter" onclick="ShareOnTwitter()" style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
-                        <a id="twitterlink">
-                            <img src="img/twitter.png" class="ui-li-icon ui-corner-none ui-li-thumb">
-                            <span style="font-size:70%;white-space: normal;text-overflow: clip" ;>Share on Twitter</span>
-                        </a>
-                    </li>
-                    <li id="postgametoother" onclick="ShareOnOther()" style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
-                        <a id="otherlink">
-                            <span style="font-size:70%;white-space: normal;text-overflow: clip;">Share.....</span>
-                        </a>
-                    </li>
-                </ul>
-
-                <a onclick="ClosePopup()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Done</span></span></a>
+                <h3>Remove Game</h3>
+                <h6>Are you sure you wish to remove this game. Your score will be lost</h6>
+                <a onclick="ClosePopup();SuccessfulRemovePlayed();" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">OK</span></span></a>
+                <a onclick="ClosePopup();UndoRemovePlayed();" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Cancel</span></span></a>
             </div>
         </div>
 
@@ -806,60 +1141,86 @@
                 <img id="gamebanner" class="banner" style="font-weight: bold; font-size:100%" />
             </div>
             <a onclick="NavigateBack();" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
-            <a onclick="Settings();" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>            
+            <a onclick="Settings();" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
         </div>
 
         <div role="main" class="ui-content Page">
             <div>
                 <div>
-                    
                     <div class="wrapper">
                         <div class="bezel" id="bezelimage">
                             <div class="bigtile" id="gameimage"></div>
                         </div>
                     </div>
-                    
-                    <!--<div class="bezel" id="bezelimage" style="width: 100%;text-align: center;">
-                        <div class="bigtile" id="gameimage" style=""></div>
-                    </div>-->
-                                            
+
                     <ul id="GameInfo" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all">
                         <li data-role="list-divider" id="info" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Info</li>
+                        <li id="version" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Version</li>
                         <li id="release" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Release</li>
                         <li id="developer" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Developer</li>
                         <li id="players" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Players</li>
-
-                        <li data-role="list-divider" id="mrdivider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">My record:</li>
-                        <li data-role="fieldcontain" id="myrecordcontainer" style="margin: 0; padding: 0;">
-                            <div class="scoreinput" id="savescorescore" style="margin: 0;padding: 0;">
-                                <input style="margin: 0;" type="text" name="myrecord" id="myrecord" value="" onkeydown="return TestForNumber(event)" onclick="BlankScore()" onchange="SaveLocalScore()"/>
-                            </div>                            
-                        </li>
-                        <li data-role="fieldcontain" id="myrecordtimecontainer">
-                            <div id="timediv" class="ui-grid-a">
-                                <div class="timeinput ui-block-a" id="minutediv" style="width:33%">
-                                    <label for="minutes" class="fieldLabel" style="font-size:50%">Minutes</label>
-                                    <input type="text" id="minutes" maxlength="3" pattern="\d*" onkeydown="return TestForNumber(event)" onchange="SaveLocalTime()" />
-                                </div>
-                                <div class="ui-block-b" id="seconddiv" style="width:33%">
-                                    <label for="seconds" class="fieldLabel" style="font-size:50%">Seconds</label>
-                                    <input type="text" id="seconds" maxlength="2" pattern="\d*" onkeydown="return TestForNumber(event)" onchange="SaveLocalTime()"/>
-                                </div>
-                                <div class="ui-block-c" id="microdiv" style="width:33%">
-                                    <label for="micro" class="fieldLabel" style="font-size:50%">Micro</label>
-                                    <input type="text" id="micro" maxlength="3" pattern="\d*" onkeydown="return TestForNumber(event)" onchange="SaveLocalTime()"/>
-                                </div>
-                            </div>                            
-                        </li>
-                        <li data-role="list-divider" id="myrecordnotes" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Notes:</li>
-                        <li data-role="fieldcontain" id="myrecordnotescontents" style="margin: 0; padding: 0;">                            
-                            <textarea style="margin: 0;" id="gameNotes" onchange="SaveNotes()"></textarea>                            
-                        </li>
-
-                        <li id="leaderboard" onclick="LoadGameLeaderboard()" style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
-                            <a>Leaderboard</a>
-                        </li>
                     </ul>
+                </div>
+
+                <div id="myrecordcontainer">
+                    <ul id="ScoreInfo" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
+                        <li data-role="list-divider" id="mrdivider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">My record:</li>
+                    </ul>
+                    <div class="scoreinput" id="savescorescore" style="margin: 0;padding: 0;">
+                        <form id="submitScoreForm" action="javascript:DoNothing" onsubmit="SaveLocalScore()">
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a" style="width:100%">
+                                    <input class="ui-corner-bottom" style="margin: 0;" type="number" name="myrecord" id="myrecord" onclick="BlankScore();" onchange="SaveLocalScore()" />
+                                    <input class="ui-corner-bottom" style="margin: 0;" type="text" name="myrecordText" id="myrecordText" onclick="BlankScore(); SelectScore();" />
+                                </div>
+                                <div class="ui-block-c" style="width:0%">
+                                    <input type="submit">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="myrecordtimecontainer">
+                    <ul id="ScoreInfoTime" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
+                        <li data-role="list-divider" id="mrtimedivider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">My record:</li>
+                    </ul>
+                    <form id="submitTimeForm" action="javascript:DoNothing()" onsubmit="SaveLocalTime();CloseTime();">
+                        <div id="timediv" class="ui-grid-a ui-body-a ui-corner-bottom" style="padding-left: 0.7em; padding-right: 0.7em">
+                            <div class="timeinput ui-block-a" id="minutediv" style="width:33%">
+                                <label for="minutes" class="fieldLabel" style="font-size:50%"> Minutes</label>
+                                <input type="number" id="minutes" maxlength="3" pattern="\d*" onchange="SaveLocalTime()" />
+                            </div>
+                            <div class="ui-block-b" id="seconddiv" style="width:33%">
+                                <label for="seconds" class="fieldLabel" style="font-size:50%"> Seconds</label>
+                                <input type="number" id="seconds" maxlength="2" pattern="\d*" onchange="SaveLocalTime();SaveSeconds()" />
+                            </div>
+                            <div class="ui-block-c" id="microdiv" style="width:34%">
+                                <label for="micro" class="fieldLabel" style="font-size:50%"> Micro</label>
+                                <input type="number" id="micro" maxlength="3" pattern="\d*" onchange="SaveLocalTime();SaveMicro();CloseTime();" />
+                            </div>
+                            <div class="ui-block-d" style="width:0%;display: none">
+                                <input type="submit">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="myrecordnotes">
+                    <ul id="NoteInfo" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
+                        <li data-role="list-divider" id="mrdivider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Notes:</li>
+                    </ul>
+                    <div data-role="fieldcontain" id="myrecordnotescontents" style="margin: 0; padding: 0;">
+                        <textarea class="ui-corner-bottom" style="margin: 0;" id="gameNotes" onchange="SaveNotes()" onkeypress="CheckForTextAreaEnter(event)"></textarea>
+                    </div>
+                </div>
+
+                <div>
+                    <a onclick="LoadGameLeaderboard()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" style="margin-top: 16px">
+                        <span class="ui-btn-inner ui-btn-corner-all">
+                            <span class="ui-btn-text">Leaderboard</span>
+                        </span>
+                    </a>
                 </div>
 
                 <div style="margin:auto;text-align:center;" id="communityrating">
@@ -925,34 +1286,70 @@
     <div data-role="page" data-theme="a" id="GameHighScores" class="MainMenu HighScores">
 
         <div data-role="header" data-position="fixed" data-tap-toggle="false">
-            <h1 style="font-weight: bold; font-size:100%" ;>High Scores</h1>
+            <div style="width: 100%;text-align: center;">
+                <img id="gamebannerhs" class="banner" style="font-weight: bold; font-size:100%" />
+            </div>
             <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
             <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
         </div>
 
-        <div role="main" class="ui-content Page">
+        <div role="main" class="ui-content Page" style="padding:0.1em !important">
 
-            <ul id="myposition" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all">
-                <li id="mypositionli" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">
-                    <span id="myfriendspositionspan" style="white-space: normal;text-overflow: clip"></span>
-                </li>
-            </ul>
+            <div data-role="tabs" class="tabs">
 
-            <div id="gameallscores" class="ui-grid-a">
-                <div class="ui-block-a" id="friendspositionblock" style="width:20%">
-                    <ul id="friendsgamepositionblock" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a id="FRIENDSSCORES" onclick="SetCurrentTab('FRIENDSSCORES')" href="#FRIENDSSCORESTAB" data-theme="a" data-ajax="false" class="ui-btn-active"><span style="font-size:70%">Friends</span></a></li>
+                        <li><a id="ALLSCORES" onclick="LoadGlobalLeaderboard();SetCurrentTab('ALLSCORES')" href="#ALLSCORESTAB" data-theme="a" data-ajax="false"><span style="font-size:70%">All Submitted</span></a></li>
+                    </ul>
                 </div>
-                <div class="ui-block-b" id="friendsuserblock" style="width:40%">
-                    <ul id="friendsgamealluserblock" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+
+                <div id="FRIENDSSCORESTAB" class="ui-content" style="padding:0.1em !important">
+                    <ul id="myposition" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all">
+                        <li id="mypositionli" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">
+                            <span id="myfriendspositionspan" style="white-space: normal;text-overflow: clip;font-size:70%"></span>
+                        </li>
+                    </ul>
+
+                    <div id="gameallscores" class="ui-grid-a">
+                        <div class="ui-block-a" id="friendspositionblock" style="width:20%">
+                            <ul id="friendsgamepositionblock" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                        </div>
+                        <div class="ui-block-b" id="friendsuserblock" style="width:40%">
+                            <ul id="friendsgamealluserblock" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                        </div>
+                        <div class="ui-block-c" id="friendsgamescoreblock" style="width:40%">
+                            <ul id="friendsgameallscoresblock" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="ui-block-c" id="friendsgamescoreblock" style="width:40%">
-                    <ul id="friendsgameallscoresblock" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+
+                <div id="ALLSCORESTAB" class="ui-content" style="padding:0.1em !important">
+                    <ul id="mypositionAll" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all">
+                        <li id="mypositionAllli" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">
+                            <span id="myAllpositionspan" style="white-space: normal;text-overflow: clip;font-size:70%"></span>
+                        </li>
+                    </ul>
+
+                    <div class="ui-grid-b">
+                        <div class="ui-block-a" id="allpositionblock" style="width:20%">
+                            <ul id="allgamepositionblock" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                        </div>
+                        <div class="ui-block-b" id="alluserblock" style="width:40%">
+                            <ul id="allgamealluserblock" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                        </div>
+                        <div class="ui-block-c" id="allscoreblock" style="width:40%">
+                            <ul id="allgameallscoresblock" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
 
         </div>
 
-        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="border: none; background: none">
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="border: none; background: black">
             <div id="footerfun" class="ui-grid-a">
                 <div class="ui-block-a" style="width:50%">
                     <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
@@ -963,16 +1360,18 @@
                     <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
                         <li class="ui-li ui-btn-up-c score" style="font-size:70%;white-space: normal;text-overflow: clip;color: white !important;text-align: right !important">&#169 Rumzcorp 2019</li>
                     </ul>
-                </div>                
-            </div>            
+                </div>
+            </div>
         </div>
 
     </div>
 
+    <!-- Custom Games-->
+
     <div data-role="page" data-theme="a" id="Custom" class="MainMenu">
 
         <!-- FirstTimeCustom -->
-        <div id="FirstTimeCustom" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <div id="FirstTimeCustom" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" data-theme="a" class="ui-corner-bottom ui-content" role="main">
                 <h3>Custom Games</h3>
                 <h6>Played a game we dont yet have on our system? Don't worry! You can still add a score for it here and use the handy links to request its addition in the next update.</h6>
@@ -980,7 +1379,7 @@
             </div>
         </div>
 
-        <div id="NewCustomGame" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <div id="NewCustomGame" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" class="ui-corner-bottom ui-content" role="main">
                 <h3>Add Game</h3>
                 <h6>Enter the name and score of your custom game.</h6>
@@ -994,16 +1393,16 @@
                         <input type="number" name="newCustomGameScore" id="newCustomGameScore" value="" />
                     </div>
                     <div class="errorTxt" id="customGameError"></div>
-                    <input type="submit" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" value="Add" />
+                    <input type="submit" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" value="Save and new" />
                 </form>
-                <a onclick="ClosePopup();" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Finished</span></span></a>
+                <a onclick="ClosePopup();" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Close without save</span></span></a>
             </div>
         </div>
 
-        <div id="EditCustomGame" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
+        <div id="EditCustomGame" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" class="ui-corner-bottom ui-content" role="main">
-                <h3 id="customGameTitle"></h3>                                
-                <input type="number" name="customGameScore" id="customGameScore" value="" />                
+                <h3 id="customGameTitle"></h3>
+                <input type="number" name="customGameScore" id="customGameScore" value="" />
                 <a onclick="SaveCustomScore();ClosePopup();" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Ok</span></span></a>
             </div>
         </div>
@@ -1016,6 +1415,7 @@
 
         <div role="main" class="ui-content Page">
             <div id="customGameBlock" style="width:100%">
+                <a style="font-size:70%" onclick="SendGameRequest()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Send Game Request</span></span></a>
                 <ul id="customgamelist" data-split-icon="delete" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
             </div>
         </div>

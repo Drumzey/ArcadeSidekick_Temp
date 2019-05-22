@@ -14,6 +14,7 @@ title, h1, h3, li[data-role="list-divider"] {
 
 .ui-listview > .ui-li-divider {
     padding: 0em 0.5em;
+    font-size: 22px !important;
 }
 
 	ui-loader .ui-icon {
@@ -49,6 +50,14 @@ body {
     background: url(../category_icons/myscores.png), url(themes/images/frogger_1_btn.png);
 }
 
+.head2head {
+    background: url(../category_icons/headtohead.png), url(themes/images/frogger_1_btn.png);
+}
+
+.recent {
+    background: url(../category_icons/recent.png), url(themes/images/frogger_2_btn.png);
+}
+
 .allgames {
     background: url(../category_icons/allgames.png), url(themes/images/frogger_1_btn.png);
 }
@@ -81,8 +90,8 @@ body {
     background: url(../category_icons/platformer.png), url(themes/images/frogger_2_btn.png);
 }
 
-.topten {
-    background: url(../category_icons/topten.png), url(themes/images/frogger_1_btn.png);
+.topfifty {
+    background: url(../category_icons/topfifty.png), url(themes/images/frogger_1_btn.png);
 }
 
 .friends {

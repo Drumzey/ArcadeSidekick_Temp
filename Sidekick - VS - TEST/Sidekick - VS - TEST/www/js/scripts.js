@@ -1,8 +1,13 @@
 var currentGameName = '';
+var parentGame = ''
 var currentGameTrueName = '';
 var currentCategoryName = '';
 var currentCategoryId = '';
+
 var currentTab = 'PlayedTab';
+var lastAllGamesTab = '';
+var lastCategoryGamesTab = '';
+
 var currentScoreTab = 'AllPlayers';
 var currentMyScoreTab = 'AllScoresTab';
 var currentRecord;

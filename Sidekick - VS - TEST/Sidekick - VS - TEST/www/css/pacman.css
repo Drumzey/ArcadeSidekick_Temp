@@ -14,6 +14,7 @@ title, h1, h3, li[data-role="list-divider"] {
 
 .ui-listview > .ui-li-divider {
     padding: 0em 0.5em;
+    font-size: 22px !important;
 }
 
 ui-loader .ui-icon {
@@ -47,6 +48,14 @@ body {
 
 .custom {
     background: url(../category_icons/customgames.png), url(themes/images/pacman_btn.png);
+}
+
+.recent {
+    background: url(../category_icons/recent.png), url(themes/images/pacman_btn.png);
+}
+
+.head2head {
+    background: url(../category_icons/headtohead.png), url(themes/images/pacman_btn.png);
 }
 
 .myscores {
@@ -85,8 +94,8 @@ body {
     background: url(../category_icons/platformer.png), url(themes/images/pacman_btn.png);
 }
 
-.topten {
-    background: url(../category_icons/topten.png), url(themes/images/pacman_btn.png);
+.topfifty {
+    background: url(../category_icons/topfifty.png), url(themes/images/pacman_btn.png);
 }
 
 .friends {

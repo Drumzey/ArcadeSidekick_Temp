@@ -31,6 +31,14 @@ body {
     background: url(../category_icons/customgames.png), url(themes/images/default_btn.png);
 }
 
+.head2head {
+    background: url(../category_icons/headtohead.png), url(themes/images/default_btn.png);
+}
+
+.recent {
+    background: url(../category_icons/recent.png), url(themes/images/default_btn.png);
+}
+
 .myscores {
     background: url(../category_icons/myscores.png), url(themes/images/default_btn.png);
 }
@@ -67,8 +75,8 @@ body {
     background: url(../category_icons/platformer.png), url(themes/images/default_btn.png);
 }
 
-.topten {
-    background: url(../category_icons/topten.png), url(themes/images/default_btn.png);
+.topfifty {
+    background: url(../category_icons/topfifty.png), url(themes/images/default_btn.png);
 }
 
 .friends {

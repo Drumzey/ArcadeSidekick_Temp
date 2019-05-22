@@ -1,4 +1,7 @@
-﻿var defaultSetting = 11;
+﻿var defaultDataErrors = true;
+var defaultSetting = 12;
+var appVersion = "1.3.04";
+var currentVersion = "";
 
 function Success() {
     defaultSetting--; 
@@ -34,15 +37,45 @@ function Success() {
 function SetDefaultData() {
 
     if (test) {
+        localStorage.setItem("version", appVersion);
+        Success();
+    }
+    else {
+        GetItemFromStorageWithSuccessAndFailureCallBack('version',
+            function (value) {
+                currentVersion = value;
+                if (currentVersion === null || currentVersion === '') {
+                    currentVersion = appVersion;
+                    SetItemInStorageWithCallBack('version', currentVersion, Success);
+                }
+                else {
+                    Success();
+                }
+            },
+            function (err) {
+                SetItemInStorageWithCallBack('version', appVersion, Success);
+            }
+        );
+    }
+
+    if (test) {
+        currentRecord = new Record();
         localStorage.setItem("my_record", JSON.stringify(new Record()));
         Success();
     }
     else {
-        GetItemFromStorageWithSuccessAndFailureCallBack('my_record', Success,
-            function (err) {
-                if (err.code === 2) {                    
-                    SetItemInStorageWithCallBack('my_record', new Record(), Success);                    
+        GetItemFromStorageWithSuccessAndFailureCallBack('my_record',
+            function (value) {                
+                currentRecord = value;
+                if (currentRecord === null || currentRecord === "[]" || currentRecord === '')
+                {                    
+                    currentRecord = new Record();
                 }
+                Success();
+            },
+            function (err) {  
+                currentRecord = new Record();                                         
+                SetItemInStorageWithCallBack('my_record', new Record(), Success);                                    
             }
         );
     }
@@ -53,11 +86,18 @@ function SetDefaultData() {
         Success();
     }
     else {
-        GetItemFromStorageWithSuccessAndFailureCallBack('firstTime', Success,
-            function (err) {
-                if (err.code === 2) {
-                    SetItemInStorageWithCallBack('firstTime', 'yes', Success);
+        GetItemFromStorageWithSuccessAndFailureCallBack('firstTime',
+            function (value) {                
+                firstTime = value;
+                if (firstTime === null || firstTime === '')
+                {
+                    firstTime = "yes";
                 }
+                Success();
+            },
+            function (err) {               
+                firstTime = "yes";                               
+                SetItemInStorageWithCallBack('firstTime', 'yes', Success);                
             }
         );
     }
@@ -68,24 +108,28 @@ function SetDefaultData() {
     }
     else {
         GetItemFromStorageWithSuccessAndFailureCallBack('firstTimeCustom', Success,
-            function (err) {
-                if (err.code === 2) {
-                    SetItemInStorageWithCallBack('firstTimeCustom', 'yes', Success);
-                }
+            function (err) {                                
+                SetItemInStorageWithCallBack('firstTimeCustom', 'yes', Success);                
             }
         );
     }
 
     if (test) {
-        localStorage.setItem("customGames", JSON.stringify([]));
+        //localStorage.setItem("customGames", JSON.stringify({}));
         Success();
     }
     else {
-        GetItemFromStorageWithSuccessAndFailureCallBack('customGames', Success,
-            function (err) {
-                if (err.code === 2) {
-                    SetItemInStorageWithCallBack('customGames', [], Success);
+        GetItemFromStorageWithSuccessAndFailureCallBack('customGames',
+            function (value) {                
+                customGames = value;
+                if (customGames === null || customGames === '') {
+                    customGames = {};
                 }
+                Success();
+            },
+            function (err) {                
+                customGames = {};                                   
+                SetItemInStorageWithCallBack('customGames', {}, Success);                
             }
         );
     }
@@ -96,10 +140,8 @@ function SetDefaultData() {
     }
     else {
         GetItemFromStorageWithSuccessAndFailureCallBack('secret', Success,
-            function (err) {
-                if (err.code === 2) {
-                    SetItemInStorageWithCallBack('secret', '', Success);
-                }
+            function (err) {                
+                SetItemInStorageWithCallBack('secret', '', Success);                
             }
         );
     }
@@ -109,11 +151,21 @@ function SetDefaultData() {
         Success();
     }
     else {
-        GetItemFromStorageWithSuccessAndFailureCallBack('userName', Success,
-            function (err) {
-                if (err.code === 2) {
-                    SetItemInStorageWithCallBack('userName', '', Success);
+        document.getElementById('myusernamesetup').innerText = 'Username';
+        GetItemFromStorageWithSuccessAndFailureCallBack('userName',
+            function (value) {                   
+                clientUserName = value;
+                if (clientUserName === null) {
+                    clientUserName = '';
                 }
+                if (clientUserName !== '' && clientUserName !== null) {
+                    document.getElementById('myusernamesetup').innerText = 'Username ' + clientUserName;
+                }
+                Success();
+            },
+            function (err) {                
+                clientUserName = '';                
+                SetItemInStorageWithCallBack('userName', '', Success);
             }
         );
     }
@@ -123,11 +175,21 @@ function SetDefaultData() {
         Success();
     }
     else {
-        GetItemFromStorageWithSuccessAndFailureCallBack('emailAddress', Success,
-            function (err) {
-                if (err.code === 2) {
-                    SetItemInStorageWithCallBack('emailAddress', '', Success);
+        document.getElementById('myemailsetup').innerText = 'Email';  
+        GetItemFromStorageWithSuccessAndFailureCallBack('emailAddress',
+            function (value) {                      
+                emailAddress = value;
+                if (emailAddress === null) {
+                    emailAddress = '';
                 }
+                if (emailAddress !== '' && emailAddress !== null) {
+                    document.getElementById('myemailsetup').innerText = 'Email ' + emailAddress;
+                }
+                Success();
+            },
+            function (err) {
+                emailAddress = '';                           
+                SetItemInStorageWithCallBack('emailAddress', '', Success);
             }
         );
     }    
@@ -138,10 +200,8 @@ function SetDefaultData() {
     }
     else {
         GetItemFromStorageWithSuccessAndFailureCallBack('notify', Success,
-            function (err) {
-                if (err.code === 2) {
-                    SetItemInStorageWithCallBack('notify', 'on', Success);
-                }
+            function (err) {                
+                SetItemInStorageWithCallBack('notify', 'on', Success);                
             }
         );
     }
@@ -152,24 +212,29 @@ function SetDefaultData() {
     }
     else {
         GetItemFromStorageWithSuccessAndFailureCallBack('theme', Success,
-            function (err) {
-                if (err.code === 2) {
-                    SetItemInStorageWithCallBack('theme', 'a', Success);
-                }
+            function (err) {                
+                SetItemInStorageWithCallBack('theme', 'a', Success);                
             }
         );
     }
 
     if (test) {
+        friendsCollection = [];
         localStorage.setItem("friends", JSON.stringify([]));
         Success();
     }
     else {
-        GetItemFromStorageWithSuccessAndFailureCallBack('friends', Success,
-            function (err) {
-                if (err.code === 2) {
-                    SetItemInStorageWithCallBack('friends', [], Success);
+        GetItemFromStorageWithSuccessAndFailureCallBack('friends',
+            function (value) {
+                friendsCollection = value;
+                if (friendsCollection === null || friendsCollection === '') {                    
+                    friendsCollection = [];
                 }
+                Success();
+            },
+            function (err) {                
+                friendsCollection = [];                                                 
+                SetItemInStorageWithCallBack('friends', [], Success);
             }
         );
     }
@@ -181,9 +246,7 @@ function SetDefaultData() {
     else {
         GetItemFromStorageWithSuccessAndFailureCallBack('firstTimeFriends', Success,
             function (err) {
-                if (err.code === 2) {
-                    SetItemInStorageWithCallBack('firstTimeFriends', 'yes', Success);
-                }
+                SetItemInStorageWithCallBack('firstTimeFriends', 'yes', Success);
             }
         );
     }

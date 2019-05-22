@@ -1,4 +1,8 @@
-﻿function LoadNotes() {
+﻿function ClearNotes() {
+    document.getElementById('gameNotes').value = '';
+}
+
+function LoadNotes() {
     var noteValue = '';
     
     var scores = currentRecord.scores;
@@ -27,4 +31,18 @@ function SaveNotes() {
             break;
         }
     }
+ }
+
+function CheckForTextAreaEnter(e) {  
+
+    if (e.which === 13 && !e.shiftKey) {
+        //document.submitNotesForm.submit();
+
+        document.activeElement.blur();
+        $("#gameNotes").blur();
+        SaveNotes();
+
+        e.preventDefault();
+        return false;
+    }    
 }

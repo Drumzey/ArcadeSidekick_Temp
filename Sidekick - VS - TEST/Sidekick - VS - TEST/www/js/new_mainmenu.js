@@ -25,12 +25,12 @@ function ArcadeTop20() {
 
 function AllGames(tab) {
     if (tab === null || tab === undefined) {
-        currentTab = "AllAllTab";
+        SetAllGamesTab("AllAllTab");
+        SetCurrentTab("AllAllTab");
     } else {
-        currentTab = tab;
+        SetAllGamesTab(tab);
+        SetCurrentTab(tab);
     }
-
-    Rehighlight();
 
     $.mobile.loading('show', {
         theme: themeLetter,

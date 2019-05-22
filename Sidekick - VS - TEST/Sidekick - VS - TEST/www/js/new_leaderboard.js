@@ -1,33 +1,46 @@
-﻿function LoadGameLeaderboard() {
+﻿var loadAllScores = true;
 
-    if (myfriends === null ||
-        myfriends === [] ||
-        myfriends.length === 0) {
-        ShowPopup('#NoFriends');
-    }
-    else {
+function LoadGameLeaderboard() {
+
+    loadAllScores = true;
+
+    if (friendsCollection === null ||
+        friendsCollection === [] ||
+        friendsCollection.length === 0) {        
+
         ClearLeaderboardUI();
 
-        //For each friend make sure we have an entry in the friends games
+        if (friendsCollection === null ||
+            friendsCollection === [] ||
+            friendsCollection.length === 0) {
+            document.getElementById('myfriendspositionspan').innerText = "You have no friends";
+            SetCurrentTab('FRIENDSSCORES');
+            NavigateToInternalPage('#GameHighScores');
+            return;
+        }
+
+    }
+    else {
+        //For each friend make sure we have an entry in the friends games that is up to date.        
         var friendsToGet = [];
-        for (var i = 0; i < myfriends.length; i++)
+        for (var i = 0; i < friendsCollection.length; i++)
         {
-            if (myfriends[i] !== clientUserName)
+            if (friendsCollection[i] !== clientUserName)
             {
-                if (!friendsGames.hasOwnProperty(myfriends[i]))
-                {
-                    friendsToGet.push(myfriends[i]);
-                }
+                //if (!friendsGames.hasOwnProperty(friendsCollection[i]))
+                //{
+                    friendsToGet.push(friendsCollection[i]);
+                //}
             }
         }
 
-        //Make a call to get the scores for friendsToGet
-        if (friendsToGet.length !== 0) {
-            SideKickOnline_GetFriendsScores(friendsToGet.join(','), 'Getting scores....');
+        //Make a call to get the most upto date scores for all friends
+        if (friendsToGet.length !== 0) {            
+            SideKickOnline_GetFriendsScores(friendsToGet.join(','), 'Getting scores....', true);
         }
         else
         {
-            //We have all the scores for our friends already
+            //We have all the scores for our friends already            
             ProcessScoresForLeaderboard();
         }
     }    
@@ -35,7 +48,7 @@
 
 function ProcessScoresForLeaderboard()
 {
-    GetTimedGames();
+    GetTimedGames();    
     //Now we have all friends and all scores so we can find each friend that has a score for the 
     //current game.
     var scores = [];
@@ -44,31 +57,40 @@ function ProcessScoresForLeaderboard()
         if (friendsGames.hasOwnProperty(property)) {
             var games = friendsGames[property];
 
-            //for (var j = 0; j < games.length; j++) {
-                //var game = games[j];
-
-                for (var gameName in games) {
-                    if ((games.hasOwnProperty(gameName)) &&
-                        (TransformGameName(gameName) === TransformedCurrentGameName())) {
-                        //add the users score to the array
+            for (var gameName in games) {
+                if ((games.hasOwnProperty(gameName)) &&
+                    (TransformGameName(gameName) === TransformedCurrentGameName())) {
+                    //add the users score to the array only if its non zero
+                    if (games[gameName] !== 0 && games[gameName] !== "0") {
                         scores[property] = games[gameName];
                     }
+                    break;
                 }
-            //}
+            }
         }
     }
-
+    
     //Need to add our score if we have one.        
     for (var sc = 0; sc < currentRecord.scores.length; sc++) {
-        var gameid = currentRecord.scores[sc].id;
+        var gameid = currentRecord.scores[sc].id;        
 
         if (gameid === TransformedCurrentGameName()) {
-            scores[clientUserName] = currentRecord.scores[sc].score;
+
+            var myscore = currentRecord.scores[sc].score;
+            if (myscore !== 0 && myscore !== "0") {
+                if (clientUserName === '') {
+                    scores["me"] = myscore;
+                }
+                else {
+                    scores[clientUserName] = myscore;
+                }
+            }
+
+            break;
         }
     }
 
-    var sortable = [];
-
+    var sortable = [];    
     for (var username in scores) {
         sortable.push([username, scores[username]]);
     }
@@ -86,10 +108,10 @@ function ProcessScoresForLeaderboard()
         });
     }    
 
-    //Need to show these items and resize ui        
     DisplayAllScores(sortable, "friendsgamepositionblock", "friendsgamealluserblock", "friendsgameallscoresblock",
-        "#friendspositionblock", "#friendsuserblock", "#friendsgamescoreblock", "myfriendspositionspan");
+        "#friendspositionblock", "#friendsuserblock", "#friendsgamescoreblock", "myfriendspositionspan");    
     AlterControlHeights(sortable, "");
+    SetCurrentTab('FRIENDSSCORES');
     NavigateToInternalPage('#GameHighScores');
 }
 
@@ -97,6 +119,9 @@ function ClearLeaderboardUI() {
     RemoveAllChildren("friendsgamepositionblock");
     RemoveAllChildren("friendsgamealluserblock");
     RemoveAllChildren("friendsgameallscoresblock");    
+    RemoveAllChildren("allgamepositionblock");
+    RemoveAllChildren("allgamealluserblock");
+    RemoveAllChildren("allgameallscoresblock");    
 }
 
 function DisplayAllScores(sortable, block1, block2, block3, block1Outer, block2Outer, block3Outer, position) {
@@ -121,7 +146,7 @@ function DisplayAllScores(sortable, block1, block2, block3, block1Outer, block2O
             score = addComma(score.toString());
         }
 
-        if (player === clientUserName) {
+        if (player === clientUserName || player === "me") {
             myposition = (i + 1).toString();
         }
 
@@ -145,9 +170,9 @@ function DisplayAllScores(sortable, block1, block2, block3, block1Outer, block2O
         var colourIndex = i % 9;
         var colour = colours[colourIndex];
 
-        positionArray.push('<li name="' + player + '" class="ui-li ui-btn-up-c score" style="font-size:70%;white-space: normal;text-overflow: clip;color: ' + colour + ' !important;">' + positionInTable + '</li>');
-        userNameArray.push('<li name="' + player + '" class="ui-li ui-btn-up-c score" style="font-size:70%;white-space: normal;text-overflow: clip;color: ' + colour + ' !important;">' + player + '</li>');
-        gameScoreArray.push('<li name="' + player + '" class="ui-li ui-btn-up-c score" style="font-size:70%;white-space: normal;text-overflow: clip;text-align: right !important;color: ' + colour + ' !important;">' + score + '</li>');
+        positionArray.push('<li name="' + player + '" class="ui-li ui-btn-up-c score" style="font-size:60%;white-space: normal;text-overflow: clip;color: ' + colour + ' !important;">' + positionInTable + '</li>');
+        userNameArray.push('<li name="' + player + '" class="ui-li ui-btn-up-c score" style="font-size:60%;white-space: normal;text-overflow: clip;color: ' + colour + ' !important;">' + player + '</li>');
+        gameScoreArray.push('<li name="' + player + '" class="ui-li ui-btn-up-c score" style="font-size:60%;white-space: normal;text-overflow: clip;text-align: right !important;color: ' + colour + ' !important;">' + score + '</li>');
     }
 
     AddScoresToBlocks(block1Outer, block2Outer, block3Outer, positionArray, userNameArray, gameScoreArray);    
@@ -178,11 +203,50 @@ function SetMyPosition(position, myposition, scoresArraySize) {
         mypos.innerText = "There are no highscores registered for this game";
     }
     else {
-        if (clientUserName === null || clientUserName === '') {
-            mypos.innerText = "No username set. Create a user in settings to submit scores and see what position you are on our leaderboards";
-        }
-        else {
-            mypos.innerText = "You have no highscore registered";
+        mypos.innerText = "You have no highscore registered";        
+    }
+}
+
+var leaderboards = [];
+
+function LoadGlobalLeaderboard() {
+    //Do not cache the leaderboards for the games....
+    //This means that the leaderboards could be different between
+    //firends nad global (i.e freinds cached, global not)
+    if (loadAllScores) {
+        SideKickOnline_GetLeaderboard();
+        loadAllScores = false;
+    }
+}
+
+function SuccessfulGetLeaderboard() {
+
+    var response = JSON.parse(latestXHTTP.responseText);
+
+    var scores = [];
+
+    for (var prop in response)
+    {
+        if (response.hasOwnProperty(prop))
+        {
+            if (response[prop] !== "0" && response[prop] !== 0) {
+                scores.push([prop, response[prop]]);
+            }
         }
     }
+
+    if (timed.indexOf(TransformedCurrentGameName()) === -1) {
+        scores.sort(function (a, b) {
+            return b[1] - a[1];
+        });
+    }
+    else {
+        scores.sort(function (a, b) {
+            return a[1] - b[1];
+        });
+    }    
+
+    DisplayAllScores(scores, "allgamepositionblock", "allgamealluserblock", "allgameallscoresblock",
+        "#allpositionblock", "#alluserblock", "#allscoreblock", "myAllpositionspan");
+    AlterControlHeights(scores, "");    
 }

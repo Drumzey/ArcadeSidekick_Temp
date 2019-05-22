@@ -6,7 +6,8 @@ var gamesByFriend = [];
 
 function SetupFriends() {
     ClearFriends();
-    LoadFriends();        
+    LoadFriends();
+    SetCurrentTab("MYFRIENDS");    
     NavigateToInternalPage("#ManageFriends");
     //Check for first time friends
     GetItemFromStorageWithCallBack('firstTimeFriends', function (value) {
@@ -28,8 +29,14 @@ function SetFriendsName(username) {
     if (username !== null || username !== '') {
         username = username.toUpperCase();
 
-        if (friendsCollection.indexOf(username) === -1) {            
-            SideKickOnline_FindFriend(username, 'Adding friend');
+        if (friendsCollection.indexOf(username) === -1) {
+            try {
+                SideKickOnline_FindFriend(username, 'Adding friend');
+            }
+            catch (err)
+            {
+                alert(err.message);
+            }
         }
     }
 }
@@ -49,15 +56,15 @@ function AddExistingFriend(name) {
         "<div class='ui-grid-a'>" +
         "<div class='ui-block-a' style='width:50%'>" +
         "<ul data-role='listview' data-inset='true' class='ui-listview ui-listview-inset ui-corner-all ui-shadow'>" +
-        "<li onclick='DeleteFriend(this.id)' id='deleteFriend" + friendsHistory + "' style='white-space: normal;text-overflow: clip;' class='ui-li ui-li-static ui-btn-up-c'>" +
-        "<span style='font-size:70%;white-space: normal;text-overflow: clip' ;>Remove</span>" +
+        "<li onclick='FriendGames(this.id)' id='friendGames" + friendsHistory + "' style='white-space: normal;text-overflow: clip;' class='ui-li ui-li-static ui-btn-up-c'>" +
+        "<span style='font-size:70%;white-space: normal;text-overflow: clip' ;>Games</span>" +
         "</li>" +
         "</ul>" +
         "</div>" +
         "<div class='ui-block-b' style='width:50%'>" +
         "<ul data-role='listview' data-inset='true' class='ui-listview ui-listview-inset ui-corner-all ui-shadow'>" +
-        "<li onclick='FriendGames(this.id)' id='friendGames" + friendsHistory + "' style='white-space: normal;text-overflow: clip;' class='ui-li ui-li-static ui-btn-up-c'>" +
-        "<span style='font-size:70%;white-space: normal;text-overflow: clip' ;>Games</span>" +
+        "<li onclick='DeleteFriend(this.id)' id='deleteFriend" + friendsHistory + "' style='white-space: normal;text-overflow: clip;' class='ui-li ui-li-static ui-btn-up-c'>" +
+        "<span style='font-size:70%;white-space: normal;text-overflow: clip' ;>Remove</span>" +
         "</li>" +
         "</ul>" +
         "</div>" +
@@ -97,6 +104,7 @@ function FriendExists(username) {
             DrawFriendsUI();
             SaveFriends();    
             AddGamesToFriend(username);
+            ShowAllUsers();
         }
     }
     else {
@@ -107,6 +115,8 @@ function FriendExists(username) {
 //Used to add all the games for all the friends received
 function AddGamesToFriends()
 {
+    controlCache = [];
+
     var response = JSON.parse(latestXHTTP.responseText);
     for (var i = 0; i < response.Users.length; i++)
     {
@@ -129,18 +139,34 @@ function AddGamesToFriends()
 
 function AddGamesToFriend(username)
 {
+    var filteredGames = [];
     var response = JSON.parse(latestXHTTP.responseText);
     if (response.Users[0]) {
-        friendsGames[username] = response.Users[0].Games;
+
+        var games = response.Users[0].Games;        
+
+        for (var prop in games)
+        {
+            if (games.hasOwnProperty(prop))
+            {
+                //filter out the zero games
+                if (games[prop] !== 0 && games[prop] !== "0")
+                {
+                    filteredGames[prop] = games[prop];
+                }
+            }
+        }
+
+        friendsGames[username] = filteredGames;
     }
     else
     {
         friendsGames[username] = [];
     }
 
-    for (var game in response.Users[0].Games)
+    for (var game in filteredGames)
     {
-        if (response.Users[0].Games.hasOwnProperty(game))
+        if (filteredGames.hasOwnProperty(game))
         {
             if (gamesByFriend.hasOwnProperty(game)) {
                 gamesByFriend[game].push(username);
@@ -155,7 +181,7 @@ function AddGamesToFriend(username)
 }
 
 function AddFriend() {
-    var newfriend = document.getElementById("newfriend").value;    
+    var newfriend = document.getElementById("newfriend").value;        
     SetFriendsName(newfriend);    
 }
 
@@ -163,13 +189,26 @@ function DeleteFriend(id) {
     var newId = id.replace('deleteFriend', 'hfriend');
     var friendName = document.getElementById(newId).getAttribute('name');    
 
-    var container = document.getElementById("div" + newId);
+    var divfriend = id.replace('deleteFriend', 'friend');
+    var container = document.getElementById("div" + divfriend);
     container.parentNode.removeChild(container);   
     
     var index = friendsCollection.indexOf(friendName);
     friendsCollection.splice(index, 1);
     delete friendsGames[friendName];
-    SaveFriends();    
+    SaveFriends();     //Clears the control cachec so it will be drawn again.
+
+    //Need to remove the games related to that friend from the gamesByFriend Colelction
+    for (var game in gamesByFriend)
+    {
+        if (gamesByFriend.hasOwnProperty(game)) {
+            var findex = gamesByFriend[game].indexOf(friendName);            
+            if (findex !== -1)
+            {
+                gamesByFriend[game].splice(findex, 1);
+            }
+        }
+    }
 }
 
 function FriendGames(id) {
@@ -230,6 +269,15 @@ function DrawFriendsGamesAndScores(games)
         scoreoutput.push(scoreArray[j][1]);
     }    
 
+    if (nameArray.length === 0)
+    {
+        Show("#FriendsNoGames");
+    }
+    else
+    {
+        Hide("#FriendsNoGames");
+    }
+
     $('#friendgameblocklocal').children('ul').append(nameoutput.join('')).listview().listview('refresh');
     $('#friendscoreblocklocal').children('ul').append(scoreoutput.join('')).listview().listview('refresh');
 
@@ -247,35 +295,33 @@ function LoadFriendsCollection() {
                 friendsArray.push(friendsCollection[i]);
             }
             var names = friendsArray.join(",");
-            SideKickOnline_GetFriendsScores(names, "Loading friends scores....");
+            SideKickOnline_GetFriendsScores(names, "Loading friends scores....", false);
         }
     });
 }
 
 function LoadFriends() {
-    GetItemFromStorageWithCallBack('friends', function (value) {        
-        friendsCollection = value;
-        if (friendsCollection === null || friendsCollection.length === 0) {
-            //We have no friends to show
-        }
-        else {
-            DrawFriendsUI();
-        }
-    });
+    if (friendsCollection === null || friendsCollection.length === 0)
+    {
+        //
+    }
+    else {
+        DrawFriendsUI();
+    }    
 }
 
 function DrawFriendsUI()
 {
     ClearFriends();
-    for (var i = 0; i < friendsCollection.length; i++) {
-        if (friendsCollection[i] !== clientUserName) {
-            AddExistingFriend(friendsCollection[i]);
+    var array = friendsCollection.sort();
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] !== clientUserName) {
+            AddExistingFriend(array[i]);
         }
     }
 }
 
 var refreshHighscores = 0;
-var myfriends = [];
 
 function SaveFriends() {
     var friendsArray = [];
@@ -291,7 +337,7 @@ function SaveFriends() {
     }
 
     SetItemInStorage('friends', friendsArray);
-    myfriends = friendsArray;
+    friendsCollection = friendsArray;
     friendsScores = [];
 
     //If we have game high scores in our history then we need to refresh
@@ -302,4 +348,61 @@ function SaveFriends() {
     }
     //Clear control cache so game list regenerates
     controlCache = [];
+}
+
+var allUsers = [];
+
+function LoadUsers()
+{
+    if (allUsers.length === 0)
+    {
+        SideKickOnline_AllUsers();
+    }
+    else
+    {
+        ShowAllUsers();
+    }    
+}
+
+function ShowAllUsers()
+{
+    RemoveAllChildren('allusersul');
+
+    if (allUsers.length === 0)
+        return;
+
+    var names = [];
+
+    for (var i = 0; i < allUsers.length; i++)
+    {
+        var name = allUsers[i];
+        if (friendsCollection.indexOf(name) === -1 && name !== clientUserName)
+        {
+            //This user is not in our friendscollection and isnt us so add it to our list
+            names.push([name,'<li onclick="SetFriendsName(this.id);" id="' + name.toUpperCase() + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + name + '</span></a></li>']);
+        }
+    }
+
+    names.sort(SortById);
+
+    var nameoutput = [];
+    
+    for (var k = 0; k < names.length; k++) {
+        nameoutput.push(names[k][1]);        
+    }
+
+    $('#allusers').children('ul').append(nameoutput.join('')).listview().listview('refresh');
+}
+
+function SuccessfulAllUsers()
+{
+    //Need to turn the result into allUsers.
+    if (latestXHTTP.status === 200) {
+        var response = JSON.parse(latestXHTTP.responseText);
+        allUsers = response;
+        ShowAllUsers();    
+    }
+    else {
+        UnsuccessfulOnlineCall();
+    }    
 }

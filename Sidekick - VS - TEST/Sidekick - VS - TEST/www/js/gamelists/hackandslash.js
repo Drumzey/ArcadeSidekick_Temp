@@ -1,5 +1,0 @@
-﻿hackandslash =
-    '<hackandslash name="Gauntlet" myrecord="" arcaderecord="" release="October 1985" developer="Atari" players="4" link="https://en.wikipedia.org/wiki/Gauntlet_(1985_video_game)"><column name="name">Gauntlet</column></hackandslash>' +
-    '<hackandslash name="Gauntlet II" myrecord="" arcaderecord="" release="1986" developer="Atari" players="4" link="https://en.wikipedia.org/wiki/Gauntlet_II"><column name="name">Gauntlet II</column></hackandslash>' +
-    '<hackandslash name="Rastan Saga" myrecord="" arcaderecord="" release="1987" developer="Taito" players="1" link=""><column name="name">Rastan Saga</column></hackandslash>' +
-    '<hackandslash name="Gauntlet Legends" myrecord="" arcaderecord="" release="October 1998" developer="Atari" players="4" link="https://en.wikipedia.org/wiki/Gauntlet_Legends"><column name="name">Gauntlet Legends</column></hackandslash>';

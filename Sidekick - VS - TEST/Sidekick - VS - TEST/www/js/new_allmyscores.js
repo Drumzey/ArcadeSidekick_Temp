@@ -31,12 +31,18 @@ function GoToMyScores() {
 function SetLocalScoresUI() {
     RemoveAllChildren("allgameblocklocal");
     RemoveAllChildren("allscoresblocklocal");
+    RemoveAllChildren("allgameblocklocalfriends");
+    RemoveAllChildren("allscoresblocklocalfriends");
+    RemoveAllChildren("allgameblocklocalcustom");
+    RemoveAllChildren("allscoresblocklocalcustom");
 
     var scorefound = 0;
     var uploadsNeeded = 0;
     var scores = currentRecord.scores;
     var scoreArray = [];
     var hasCustomGames = false;
+    var hasFriendsGames = false;
+    var hasMyGames = false;
 
     for (var i = 0; i < scores.length; i++) {
         var game = scores[i].id;
@@ -56,7 +62,7 @@ function SetLocalScoresUI() {
         }
         scoreArray[game] = entry;
 
-        if (scores[i].uploaded === false) {
+        if (scores[i].uploaded === false && entry.score !== "0") {
             uploadsNeeded++;
         }
     }
@@ -85,6 +91,8 @@ function SetLocalScoresUI() {
 
     var gameNameArray = [];
     var gameScoreArray = [];
+    var gameNameArrayFriends = [];
+    var gameScoreArrayFriends = [];
 
     for (var property in scoreArray) {
         if (scoreArray.hasOwnProperty(property)) {
@@ -98,52 +106,92 @@ function SetLocalScoresUI() {
             else {
                 score = addComma(score.toString());
             }
-                        
-            gameNameArray.push([ gameName, '<li name="' + gameName + '" class="ui-li ui-btn-up-c" style="font-size:70%;white-space: normal;text-overflow: clip;">' + gameName + '</li>' ]);
 
-            if (uploaded === false) {                
-                gameScoreArray.push([ gameName, '<li data-icon="custom" id="cloud" class="ui-li ui-btn-up-c" style="font-size:70%;white-space: normal;text-overflow: clip;text-align: right !important"><a name="' + gameName + '" href="#" id="' + property + '" onclick="UploadSingleGame(this.id,\'' + scoreArray[property].score + '\')">' + score + '</a></li>' ]);
+            var id = FindGameInCatalog(gameName);
+
+            if (gamesByFriend.hasOwnProperty(TransformGameName(gameName)) && gamesByFriend[TransformGameName(gameName)].length !== 0) {
+                hasFriendsGames = true;
+                gameNameArrayFriends.push([gameName, '<li onclick="GoToGame(this)" id="' + id + '" name="' + gameName + '" class="ui-li ui-btn-up-c" style="font-size:70%;white-space: normal;text-overflow: clip;"><a>' + gameName + '</a></li>']);
+
+                if (uploaded === false && score !== "0" && AllowedOnline()) {
+                    gameScoreArrayFriends.push([gameName, '<li data-icon="custom" id="cloud" name="' + gameName + '" class="ui-li ui-btn-up-c" style="font-size:70%;white-space: normal;text-overflow: clip;text-align: right !important"><a href="#" id="' + property + '" onclick="UploadSingleGame(this.id,\'' + scoreArray[property].score + '\')">' + score + '</a></li>']);
+                }
+                else {
+                    gameScoreArrayFriends.push([gameName, '<li onclick="LoadGameInfoWithoutNavigate(this);" id="' + id + '" name="' + gameName + '" class="ui-li ui-btn-up-c" style="font-size:70%;white-space: normal;text-overflow: clip;text-align: right !important"><a>' + score + '</a></li>']);
+                }
             }
             else {
-                gameScoreArray.push([ gameName, '<li name="' + gameName + '" class="ui-li ui-btn-up-c" style="font-size:70%;white-space: normal;text-overflow: clip;text-align: right !important">' + score + '</li>' ]);
+                hasMyGames = true;
+                gameNameArray.push([gameName, '<li onclick="GoToGame(this)" id="' + id + '" name="' + gameName + '" class="ui-li ui-btn-up-c" style="font-size:70%;white-space: normal;text-overflow: clip;"><a>' + gameName + '</a></li>']);
+
+                if (uploaded === false && score !== "0" && AllowedOnline()) {
+                    gameScoreArray.push([gameName, '<li data-icon="custom" id="cloud" name="' + gameName + '" class="ui-li ui-btn-up-c" style="font-size:70%;white-space: normal;text-overflow: clip;text-align: right !important"><a href="#" id="' + property + '" onclick="UploadSingleGame(this.id,\'' + scoreArray[property].score + '\')">' + score + '</a></li>']);
+                }
+                else {
+                    gameScoreArray.push([gameName, '<li onclick="LoadGameInfoWithoutNavigate(this);" id="' + id + '" name="' + gameName + '" class="ui-li ui-btn-up-c" style="font-size:70%;white-space: normal;text-overflow: clip;text-align: right !important"><a>' + score + '</a></li>']);
+                }
             }
         }
     }
 
-    gameNameArray.sort(SortById);
-    gameScoreArray.sort(SortById);
+    if (hasFriendsGames)
+    {
+        Show('#FRIENDSGAMES');
+        gameNameArrayFriends.sort(SortById);
+        gameScoreArrayFriends.sort(SortById);
+        var nameoutputFriends = [];
+        var scoreoutputFriends = [];
+        for (var j = 0; j < gameNameArrayFriends.length; j++) {
+            nameoutputFriends.push(gameNameArrayFriends[j][1]);
+            scoreoutputFriends.push(gameScoreArrayFriends[j][1]);
+        }   
+        $('#gameblocklocalfriends').children('ul').append(nameoutputFriends.join('')).listview().listview('refresh');
+        $('#scoreblocklocalfriends').children('ul').append(scoreoutputFriends.join('')).listview().listview('refresh');
+    }
+    else
+    {
+        Hide('#FRIENDSGAMES');
+    }
 
-    var nameoutput = [];
-    var scoreoutput = [];
+    if (hasMyGames) {
+        Show('#MYGAMES');
+        gameNameArray.sort(SortById);
+        gameScoreArray.sort(SortById);
 
-    for (var j = 0; j < gameNameArray.length; j++) {
-        nameoutput.push(gameNameArray[j][1]);
-        scoreoutput.push(gameScoreArray[j][1]);
-    }    
+        var nameoutput = [];
+        var scoreoutput = [];
+
+        for (var k = 0; k < gameNameArray.length; k++) {
+            nameoutput.push(gameNameArray[k][1]);
+            scoreoutput.push(gameScoreArray[k][1]);
+        }
+
+        $('#gameblocklocal').children('ul').append(nameoutput.join('')).listview().listview('refresh');
+        $('#scoreblocklocal').children('ul').append(scoreoutput.join('')).listview().listview('refresh');
+    }
+    else
+    {
+        Hide('#MYGAMES');
+    }
     
-    $('#gameblocklocal').children('ul').append(nameoutput.join('')).listview().listview('refresh');
-    $('#scoreblocklocal').children('ul').append(scoreoutput.join('')).listview().listview('refresh');
-
     if (hasCustomGames) {
-
-        gameNameArray = [];
-        gameScoreArray = [];
+        Show('#CUSTOMGAMES');
+        var gameNameArrayCustom = [];
+        var gameScoreArrayCustom = [];
 
         for (var customGame in customGames) {
             if (customGames.hasOwnProperty(customGame)) {
-                gameNameArray.push('<li name="' + customGame + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + customGame + '</span></li>');
-                gameScoreArray.push('<li name="' + customGame + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;text-align: right !important"><span style="width:100%;font-size:70%;white-space: normal;text-overflow: clip; text-align: right !important;">' + customGames[customGame] + '</span></li>');
+                gameNameArrayCustom.push('<li name="' + customGame + '" class="ui-li ui-btn-up-c" style="font-size:70%;white-space: normal;text-overflow: clip;">' + customGame + '</li>');
+                gameScoreArrayCustom.push('<li name="' + customGame + '" class="ui-li ui-btn-up-c" style="font-size:70%;white-space: normal;text-overflow: clip;text-align: right !important">' + customGames[customGame] + '</li>');
             }
         }
 
-        var divider = '<li name="customDiv" data-role="list-divider" style="font-size:70%;white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Custom</li>';
-        var dividerBlank = '<li name="customDiv" data-role="list-divider" style="font-size:70%;white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c"></li>';
-
-        $('#gameblocklocal').children('ul').append(divider).listview().listview('refresh');
-        $('#scoreblocklocal').children('ul').append(dividerBlank).listview().listview('refresh');
-
-        $('#gameblocklocal').children('ul').append(gameNameArray.sort().join('')).listview().listview('refresh');
-        $('#scoreblocklocal').children('ul').append(gameScoreArray.sort().join('')).listview().listview('refresh');
+        $('#gameblocklocalcustom').children('ul').append(gameNameArrayCustom.sort().join('')).listview().listview('refresh');
+        $('#scoreblocklocalcustom').children('ul').append(gameScoreArrayCustom.sort().join('')).listview().listview('refresh');
+    }
+    else
+    {
+        Hide('#CUSTOMGAMES');
     }
 }
 
@@ -158,7 +206,7 @@ function UploadScores() {
         }
     }
 
-    //Save the scores and redaw the ui by calling SetLocalScoresUI
+    //Save the scores and redaw the ui by calling SetLocalScoresUI   
     SideKickOnline_SaveScores(scoresToUpload);
 }
 

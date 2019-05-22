@@ -31,9 +31,9 @@ function ClosePopup() {
 
 function CreatePopup(popupCode) {
     
-    var $popUp = $("<div/>").popup({
+    var $popUp = $("<div data-overlay-theme='b'/>").popup({
         dismissible: false,
-        theme: themeLetter,        
+        theme: themeLetter,          
         transition: "pop"
     }).on("popupafterclose", function () {
         $(this).remove();
@@ -43,7 +43,7 @@ function CreatePopup(popupCode) {
         }
     });
 
-    $(popupCode, {}).appendTo($popUp);
+    $(popupCode, {}).appendTo($popUp);    
     $popUp.popup('open').trigger("create");
     temppopup = $popUp;
 }

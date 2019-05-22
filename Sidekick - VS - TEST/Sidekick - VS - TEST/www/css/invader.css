@@ -15,7 +15,12 @@ ui-loader .ui-icon {
 	background-image: url(themes/images/invader.gif);
 	background-size: 46px 46px;				
 }
-    
+
+.ui-listview > .ui-li-divider {    
+    font-size: 12px;
+}
+
+
 html {
     background: transparent;
 }
@@ -40,8 +45,16 @@ body {
     background: url(../category_icons/customgames.png), url(themes/images/invader_btn.png);
 }
 
+.recent {
+    background: url(../category_icons/recent.png), url(themes/images/invader_btn.png);
+}
+
 .myscores {
     background: url(../category_icons/myscores.png), url(themes/images/invader_btn.png);
+}
+
+.head2head {
+    background: url(../category_icons/headtohead.png), url(themes/images/invader_btn.png);
 }
 
 .allgames {
@@ -76,8 +89,8 @@ body {
     background: url(../category_icons/platformer.png), url(themes/images/invader_btn.png);
 }
 
-.topten {
-    background: url(../category_icons/topten.png), url(themes/images/invader_btn.png);
+.topfifty {
+    background: url(../category_icons/topfifty.png), url(themes/images/invader_btn.png);
 }
 
 .friends {

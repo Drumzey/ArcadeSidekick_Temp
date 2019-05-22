@@ -85,6 +85,8 @@ function GetTestReturnData(key) {
             return localStorage.getItem("firstTimeFriends");
         case "customGames":
             return JSON.parse(localStorage.getItem("customGames"));
+        case "version":
+            return "1.0.40";
     }
 }
 

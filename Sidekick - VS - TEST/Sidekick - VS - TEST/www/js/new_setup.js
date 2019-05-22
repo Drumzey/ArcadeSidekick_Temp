@@ -50,6 +50,11 @@ function ShowExistingUser() {
     CreatePopup(existingUserPopup);
 }
 
+function ReleaseHistory()
+{
+    NavigateToInternalPage("#ReleaseHistory");
+}
+
 function FAQ() {
     NavigateToInternalPage("#FAQ");
 }
@@ -59,7 +64,7 @@ function About() {
 }
 
 function Contact() {
-    ShowPopup("#Contact");
+    CreatePopup(contactPopup);    
 }
 
 function ShowTheme() {

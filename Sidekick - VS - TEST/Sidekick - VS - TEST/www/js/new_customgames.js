@@ -1,4 +1,4 @@
-﻿var customGames = [];
+﻿var customGames = {};
 
 function HasCustomGames() {
     for (var customGameName in customGames) {
@@ -13,13 +13,14 @@ function HasCustomGames() {
 function LoadCustomGamesCollection() {
     GetItemFromStorageWithCallBack("customGames", function (value) {
         customGames = value;
+        PopulateCustomGames();
+        NavigateToInternalPage("#Custom");
+        CheckForFirstTimeCustom();    
     });
 }
 
-function CustomGames() {           
-    PopulateCustomGames();
-    NavigateToInternalPage("#Custom");
-    CheckForFirstTimeCustom();    
+function CustomGames() {   
+    LoadCustomGamesCollection();    
 }
 
 function CheckForFirstTimeCustom() {
@@ -58,9 +59,7 @@ function SaveNewCustomGame() {
     
     document.getElementById("newCustomGameName").value = '';
     document.getElementById("newCustomGameScore").value = '';
-
     customGames[name] = score;
-
     SetItemInStorage("customGames", customGames);
     PopulateCustomGames();
 
@@ -76,9 +75,9 @@ function PopulateCustomGames() {
 
     var customgameListUIArray = [];
 
-    for (var property in customGames) {
-        if (customGames.hasOwnProperty(property)) {            
-            customgameListUIArray.push('<li name="' + property + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a onclick="EditCustomGame(\'' + property + '\')" style="font-size:70%;white-space: normal;text-overflow: clip;">' + property + ' - ' + customGames[property] + '</a><a onclick="DeleteCustomGame(\'' + property + '\')"></a></li>');
+    for (property in customGames) {        
+        if (customGames.hasOwnProperty(property)) {
+            customgameListUIArray.push('<li name="' + property + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a onclick="EditCustomGame(\'' + property + '\')" style="font-size:70%;white-space: normal;text-overflow: clip;">' + property + ' - ' + customGames[property] + '</a><a onclick="DeleteCustomGame(\'' + property + '\')"></a></li>');        
         }
     }
 
@@ -105,4 +104,8 @@ function DeleteCustomGame(gameName) {
 
     SetItemInStorage("customGames", customGames);
     PopulateCustomGames();
+}
+
+function SendGameRequest() {
+    Email("", "Arcade Sidekick - Game Request");
 }

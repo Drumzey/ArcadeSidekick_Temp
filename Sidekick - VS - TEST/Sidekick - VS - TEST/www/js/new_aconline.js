@@ -1,6 +1,67 @@
 ﻿var latestXHTTP = '';
 var hasErrored = false;
 var baseUrl = 'https://nvsngzyuq3.execute-api.eu-west-2.amazonaws.com/Beta';
+var lastError = '';
+
+function SideKickOnline_GetRecent()
+{
+    CallACOnlineWithBodyAndWait(baseUrl + '/recent',
+        'GET',
+        null,
+        function () {
+            SuccessfulRecentActivity();
+        },
+        function () {
+            UnsuccessfulOnlineCall();
+        },
+        function () { StandardCompleteACOnline(); },
+        'Getting Recent Activity ......');
+}
+
+function SideKickOnline_GetTopFifty()
+{
+    CallACOnlineWithBodyAndWait(baseUrl + '/topfifty',
+        'GET',
+        null,
+        function () {
+            SuccessfulArcadeTop50();
+        },
+        function () {
+            UnsuccessfulOnlineCall();
+        },
+        function () { StandardCompleteACOnline(); },
+        'Getting Top 50 Games ......');
+}
+
+function SideKickOnline_GetLeaderboard()
+{
+    CallACOnlineWithBodyAndWait(baseUrl + '/getleaderboard?gamename=' + TransformedCurrentGameName(),
+        'GET',
+        null,
+        function () {
+            SuccessfulGetLeaderboard();
+        },
+        function () {
+            UnsuccessfulOnlineCall();
+        },
+        function () { StandardCompleteACOnline(); },
+        'Loading Leaderboard.....');     
+}
+
+function SideKickOnline_AllUsers()
+{
+    CallACOnlineWithBodyAndWait(baseUrl + '/getusers',
+        'GET',
+        null,
+        function () {
+            SuccessfulAllUsers();            
+        },
+        function () {
+            UnsuccessfulOnlineCall();
+        },
+        function () { StandardCompleteACOnline(); },
+        'Loading all users.....');     
+}
 
 //Used to find a friend in the system
 //Will also populate their games and scores
@@ -9,8 +70,14 @@ function SideKickOnline_FindFriend(name, message)
     CallACOnlineWithBodyAndWait(baseUrl + '/getscore?usernames=' + name,
         'GET',
         null,
-        function () { FriendExists(name); },
-        function () { FriendDoesNotExist(); },
+        function ()
+        {
+            FriendExists(name);
+        },
+        function ()
+        {
+            FriendDoesNotExist();
+        },
         function () { StandardCompleteACOnline(); },
         message);     
 }
@@ -34,12 +101,18 @@ function SideKickOnline_GetFriendScores(name, message) {
 }
 
 //Used to retrieve multiple friends games and scores
-function SideKickOnline_GetFriendsScores(names, message) {
+function SideKickOnline_GetFriendsScores(names, message, processScores) {
 
-    CallACOnlineWithBodyAndWait(baseUrl + '/getscore?usernames=' + name,
+    CallACOnlineWithBodyAndWait(baseUrl + '/getscore?usernames=' + names,
         'GET',
         null,
-        function () { AddGamesToFriends(); ProcessScoresForLeaderboard(); },
+        function () {            
+            AddGamesToFriends();
+
+            if (processScores === true) {
+                ProcessScoresForLeaderboard();
+            }
+        },
         function () { UnsuccessfulOnlineCall(); },
         function () { StandardCompleteACOnline(); },
         message);     
@@ -88,20 +161,14 @@ function SideKickOnline_SaveScore(gamename, score, rating) {
 
     GetItemFromStorageWithCallBack("secret", function (secretValue) {
 
-        //if (timed.indexOf(gamename) !== -1)
-        //{
-        //    score = MillisecondsToMinutesSecondsMilliseconds(parseInt(score));
-        //}
-
         var gameNames = [];
         gameNames.push(gamename);
 
-        var games =
-            { [gamename]: score };
-            
-
-        var ratings =
-            { [gamename]: rating };            
+        var games = {};
+        games[gamename] = score;
+        
+        var ratings = {};
+        ratings[gamename] = rating;
 
         var body =
             {
@@ -171,7 +238,7 @@ function SideKickOnline_SaveRatings()
             body,
             function () { },
             function () { UnsuccessfulOnClickStar(); },
-            function () { StandardCompleteACOnline(); },
+            function () { StandardCompleteACOnline(); ClosePopup(); },
             'Uploading ratings...',
             jwt);
     });
@@ -206,7 +273,9 @@ function SideKickOnline_SaveRating(rating, element, id, message)
                 AddStarHighlight(id, element);
                 SuccessfulOnClickStar(rating);
             },
-            function () { UnsuccessfulOnClickStar(); },
+            function () {                
+                UnsuccessfulOnClickStar();
+            },
             function () { StandardCompleteACOnline(); },
             message,
             jwt);
@@ -248,26 +317,28 @@ function SideKickOnline_NewUser(username, email)
         "Checking user name ...");
 }
 
-function SideKickOnline_VerifyUser()
+function SideKickOnline_VerifyUser(secretvalue)
 {
-    GetItemFromStorageWithCallBack("secret", function(secretValue) {
-        var jwt = CreateJWT(clientUserName, emailAddress, secretValue);
+    var jwt = CreateJWT(clientUserName, emailAddress, secretvalue);
 
-        var body =
-        {
-            'Username': clientUserName,
-            'EmailAddress': emailAddress
-        };
+    var body =
+    {
+        'Username': clientUserName,
+        'EmailAddress': emailAddress
+    };
 
-        CallACOnlineWithBodyAndWait(baseUrl + '/verifyuser',
-        'POST',
-        body,
-        function() { SuccessfulVerifyUser(); },
-        function() { UnsuccessfulVerifyUser(); },
-        function() { StandardCompleteACOnline(); },
-        "Verifying user ...",
-        jwt);
-    });
+    CallACOnlineWithBodyAndWait(baseUrl + '/verifyuser',
+    'POST',
+    body,
+    function ()
+    {
+        SetItemInStorage("secret", secretvalue);   
+        SuccessfulVerifyUser();        
+    },
+    function() { UnsuccessfulVerifyUser(); },
+    function() { StandardCompleteACOnline(); },
+    "Verifying user ...",
+    jwt);    
 }    
 
 //Used to re-register a user, say for moving device etc
@@ -300,56 +371,84 @@ function SideKickOnline_VerifyReturningUser(userName, email, secret) {
             SetItemInStorage("userName", userName);            
             SetItemInStorage("emailAddress", emailAddress);
             SetItemInStorage("secret", secret);
-            SideKickOnline_GetMyGames(userName, emailAddress, secret);
+            SideKickOnline_GetMyGames(userName, emailAddress, secret);            
         },
-        function () { UnsuccessfulVerifyUser(); },
-        function () { },
+        function () {
+            StandardCompleteACOnline();
+            UnsuccessfulVerifyUser();
+        },
+        function () { /* DO NOTHING AS WE ARE WAITING ON ANOTHER CALL*/},
         "Verifying user ...",
         jwt);    
 }  
 
+function SideKickOnline_ForgotUsername(email) {
+    CallACOnlineWithBodyAndWait(baseUrl + '/forgot?mode=USERNAME&Email=' + email,
+        'GET',
+        null,
+        function () {            
+            SuccessfulForgotUserName();
+        },
+        function () { FailedForgotInformation(); },
+        function () { StandardCompleteACOnline(); },
+        "Getting username reminder ...");
+}
+
+function SideKickOnline_ForgotEmail(username)
+{
+    CallACOnlineWithBodyAndWait(baseUrl + '/forgot?mode=EMAIL&Username=' + username,
+        'GET',
+        null,
+        function () {
+            SuccessfulForgotEmail();            
+        },
+        function () { FailedForgotInformation(); },
+        function () { StandardCompleteACOnline(); },
+        "Getting email reminder ...");   
+}
+
+function SideKickOnline_ForgotSecret(username, email) {
+    CallACOnlineWithBodyAndWait(baseUrl + '/forgot?mode=SECRET&Username=' + username + '&Email=' + email,
+        'GET',
+        null,
+        function () {
+            SuccessfulForgotSecret();
+        },
+        function () { FailedForgotInformation(); },
+        function () { StandardCompleteACOnline(); },
+        "Getting secret reminder ...");
+}
+
+var currentURL = '';
+var currentBody = '';
+
 function CallACOnlineWithBodyAndWait(url, type, body, successCallback, failureCallback, completeCallBack, message, jwt) {
-    if (message === '') {
-        message = "Loading...";
-    }
+    try {
 
-    $.mobile.loading('show', { theme: themeLetter, text: message, textVisible: "true" });
+        currentURL = url;
+        currentBody = body;
 
-    if (jwt)
-    {
-        var jqxhrWithJwt = $.ajax({
-            url: url,
-            type: type,
-            contentType: 'application/json',
-            data: JSON.stringify(body),
-            headers: { "Authorization": jwt },
-            success: function () {
-                latestXHTTP = jqxhrWithJwt;
-                successCallback();
-            },
-            error: function () {
-                latestXHTTP = jqxhrWithJwt;
-                failureCallback();
-            },
-            complete: function () {
-                completeCallBack();
-            }
-        });
-    }
-    else
-    {
-        if (body) {
-            var jqxhr = $.ajax({
+        if (message === '') {
+            message = "Loading...";
+        }
+
+        $.mobile.loading('show', { theme: themeLetter, text: message, textVisible: "true" });
+
+        if (jwt) {
+            var jqxhrWithJwt = $.ajax({
                 url: url,
                 type: type,
                 contentType: 'application/json',
                 data: JSON.stringify(body),
+                headers: { "Authorization": jwt },
                 success: function () {
-                    latestXHTTP = jqxhr;
+                    latestXHTTP = jqxhrWithJwt;
                     successCallback();
                 },
-                error: function () {
-                    latestXHTTP = jqxhr;
+                error: function (xhr, ajaxOptions, thrownError) {
+                    var err = new Error();                    
+                    lastError = currentURL + "\r\n" + JSON.stringify(currentBody) + "\r\n" + err.stack + "\r\n" + xhr.status + "\r\n" + thrownError;
+                    latestXHTTP = jqxhrWithJwt;
                     failureCallback();
                 },
                 complete: function () {
@@ -357,29 +456,58 @@ function CallACOnlineWithBodyAndWait(url, type, body, successCallback, failureCa
                 }
             });
         }
-        else
-        {
-            var getRequest = $.ajax({
-                url: url,
-                type: type,
-                contentType: 'application/json',                
-                success: function () {
-                    latestXHTTP = getRequest;
-                    successCallback();
-                },
-                error: function () {
-                    latestXHTTP = getRequest;
-                    failureCallback();
-                },
-                complete: function () {
-                    completeCallBack();
-                }
-            });
+        else {
+            if (body) {
+                var jqxhr = $.ajax({
+                    url: url,
+                    type: type,
+                    contentType: 'application/json',
+                    data: JSON.stringify(body),
+                    success: function () {
+                        latestXHTTP = jqxhr;
+                        successCallback();
+                    },
+                    error: function (xhr, ajaxOptions, thrownerror) {
+                        var err = new Error();
+                        lastError = currentURL + "\r\n" + JSON.stringify(currentBody) + "\r\n" + err.stack + "\r\n" + xhr.status + "\r\n" + thrownerror;
+                        latestXHTTP = jqxhr;
+                        failureCallback();
+                    },
+                    complete: function () {
+                        completeCallBack();
+                    }
+                });
+            }
+            else {
+                var getRequest = $.ajax({
+                    url: url,
+                    type: type,
+                    contentType: 'application/json',
+                    success: function () {
+                        latestXHTTP = getRequest;
+                        successCallback();
+                    },
+                    error: function (xhr, ajaxOptions, thrownerror) {
+                        var err = new Error();
+                        lastError = currentURL + "\r\n" + "\r\n" + err.stack + "\r\n" + xhr.status + "\r\n" + thrownerror;
+                        latestXHTTP = getRequest;
+                        failureCallback();
+                    },
+                    complete: function () {
+                        completeCallBack();
+                    }
+                });
+            }
         }
+    }
+    catch (error)
+    {
+        lastError = error.stack;
+        CreatePopup(errorOnlinePopup);
     }
 }
 
-function SuccessfulVerifyUser() {
+function SuccessfulVerifyUser() {    
     SetNextPopUp(successVerify);
     ClosePopup();
     Hide('#verifyuserbutton');
@@ -396,7 +524,7 @@ function UnsuccessfulNewUser() {
     if (latestXHTTP.status === 409) {
         //User already exists
         $('span[id=userErrorText_newuser]').removeClass('ui-screen-hidden');
-        document.getElementById("userErrorText_newuser").innerText = "Username already exists, pick another user name";          
+        document.getElementById("userErrorText_newuser").innerText = "Username already exists, pick another";          
     }
     else
     {
@@ -413,14 +541,37 @@ function StandardCompleteACOnline() {
     $.mobile.loading('hide');
 }
 
+
+function LoadOnlyBannerFromLinkTo()
+{
+    var imageName = currentGameName.toLowerCase();
+    if (parentGame)
+    {
+        imageName = parentGame.toLowerCase();
+    }
+
+    var array = [];
+    array.push("game_banners/" + currentCategoryId + "/" + imageName + ".png");    
+    preloadimages(array).done(function (images) {
+        //NavigateToInternalPage("#GameHighScores");
+        LoadGameLeaderboard();
+    });
+}
+
 function CompleteACOnlineWithNavigate(pageToNavigateTo, successCallBack, failureCallBack) {
     
     if (pageToNavigateTo === "#Game") {
         //Wait for images to preload then navigate
         var bezel = GetBezel(TransformedCurrentGameName());
         var array = [];
-        array.push("game_banners/" + currentCategoryId + "/" + currentGameName.toLowerCase() + ".png");
-        array.push("game_images/" + currentCategoryId + "/" + currentGameName.toLowerCase() + ".gif");
+
+        var imageName = currentGameName.toLowerCase();
+        if (parentGame) {
+            imageName = parentGame.toLowerCase();
+        }
+
+        array.push("game_banners/" + currentCategoryId + "/" + imageName + ".png");
+        array.push("game_images/" + currentCategoryId + "/" + imageName + ".gif");
         if (bezel.id === 'default')
         {
             array.push("game_bezels/" + bezel.image);

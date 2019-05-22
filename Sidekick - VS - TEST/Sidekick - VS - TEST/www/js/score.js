@@ -39,7 +39,7 @@ function GetTime() {
     return score;
 }
 
-function SaveLocalTime(score) {
+function SaveLocalTime() {
 
     var scores = currentRecord.scores;
     for (var i = 0; i < scores.length; i++) {
@@ -54,18 +54,33 @@ function SaveLocalTime(score) {
     }    
 }
 
-function BlankScore() {
-    var value = document.getElementById('myrecord').value;
+function SaveSeconds() {
+    var seconds = document.getElementById('seconds').value;
+    seconds = ("00" + seconds).slice(-2);
+    document.getElementById('seconds').value = seconds;
+}
 
-    if (value === '0') {
-        //If we click into our control and we had a score of 0 then blank it out ready for editing
-        document.getElementById('myrecord').value = '';
-    }
+function SaveMicro() {
+    var micro = document.getElementById('micro').value;
+    micro = ("000" + micro).slice(-3);
+    document.getElementById('micro').value = micro;
+}
+
+function CloseTime()
+{
+    document.activeElement.blur();
+    $("#micro").blur();
+}
+
+function SelectScore()
+{
+    $('#myrecord').parent().removeClass('ui-screen-hidden');
+    $('#myrecordText').parent().addClass('ui-screen-hidden');       
+    $('#myrecord').focus();
 }
 
 function SaveLocalScore() {    
-    var score = document.getElementById('myrecord').value;
-    score = score.replace(/,/g, '');
+    var score = document.getElementById('myrecord').value;    
     
     var scores = currentRecord.scores;
     for (var i = 0; i < scores.length; i++) {
@@ -78,6 +93,11 @@ function SaveLocalScore() {
             break;
         }
     }
+
+    //Add commas to the value entered.
+    addCommas(document.getElementById('myrecordText'), score);
+    $('#myrecord').parent().addClass('ui-screen-hidden');
+    $('#myrecordText').parent().removeClass('ui-screen-hidden');    
 }
 
 function AlterFriendScoreHeights(names) {
@@ -160,23 +180,21 @@ function OnSuccessfulLoadOfGame() {
         document.getElementById('seconds').value = local_seconds;
         document.getElementById('micro').value = local_micro;        
     }
-    else {        
-        //score = addComma(score.toString());
+    else {                       
         document.getElementById('myrecord').value = score;
+        document.getElementById('myrecordText').value = addComma(score);
+        $('#myrecord').parent().addClass('ui-screen-hidden');        
+        $('#myrecordText').parent().removeClass('ui-screen-hidden');
+        $('#myrecord').parent().addClass('ui-corner-bottom');
+        $('#myrecordText').parent().addClass('ui-corner-bottom'); 
     }
 }
 
-var scoreEdited = 0;
+function BlankScore() {
+    var value = document.getElementById('myrecord').value;
 
-function TestForNumber(evt) {
-
-    scoreEdited = 1;
-
-    var charCode = (evt.which) ? evt.which : event.keyCode;
-    if (!((charCode > 95 && charCode < 106)
-        || (charCode > 47 && charCode < 58)
-        || charCode === 8)) {
-        return false;
+    if (value === '0') {        
+        document.getElementById('myrecord').value = '';
     }
 }
 

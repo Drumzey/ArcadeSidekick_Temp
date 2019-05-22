@@ -1,5 +1,14 @@
-﻿function SetCurrentTab(name) {
+﻿function SetCategoryGamesTab(name) {
+    lastCategoryGamesTab = name;
+}
+
+function SetAllGamesTab(name) {
+    lastAllGamesTab = name;
+}
+
+function SetCurrentTab(name) {
     currentTab = name;
+    Rehighlight();
 }
 
 function Rehighlight() {
@@ -12,9 +21,15 @@ function Rehighlight() {
     $('#NotPlayedTab').removeClass('ui-btn-active');
     $('#AllTab').removeClass('ui-btn-active');
 
-    if (currentTab === "AllPlayedTab" || currentTab === "PlayedTab") {
-        $(".tabs").tabs().tabs("option", "active", 0);        
-    } else if (currentTab === "AllNotPlayedTab" || currentTab === "NotPlayedTab") {
+    $('#MYFRIENDS').removeClass('ui-btn-active');
+    $('#ALLUSERS').removeClass('ui-btn-active');
+
+    $('#FRIENDSSCORES').removeClass('ui-btn-active');
+    $('#ALLSCORES').removeClass('ui-btn-active');
+   
+    if (currentTab === "AllPlayedTab" || currentTab === "PlayedTab" || currentTab === "MYFRIENDS" || currentTab === "FRIENDSSCORES") {
+        $(".tabs").tabs().tabs("option", "active", 0);            
+    } else if (currentTab === "AllNotPlayedTab" || currentTab === "NotPlayedTab" || currentTab === "ALLUSERS" || currentTab === "ALLSCORES") {
         $(".tabs").tabs().tabs("option", "active", 1);        
     } else if (currentTab === "AllAllTab" || currentTab === "AllTab") {
         $(".tabs").tabs().tabs("option", "active", 2);        
@@ -27,49 +42,51 @@ function GoToCategory(category, doNotNavigate) {
     AddAllGames(category, doNotNavigate);
 }
 
+function LoadGameInfoWithoutNavigate(node)
+{
+    currentGameNode = node;    
+    var game = gameCatalog[node.id];
+    currentCategoryId = game.category;
+    SetGameUI(node.id, node.innerText, game);
+    LoadOnlyBannerFromLinkTo();    
+}
+
 function GoToGame(node) {
     currentGameNode = node;
     storePosition.topCoordinate = $(node).offset().top;
     PopulateInfoForGame(node.id, node.innerText);
+    $('#myrecord').parent().addClass('ui-corner-bottom'); 
+    $('#myrecordText').parent().addClass('ui-corner-bottom'); 
 }
 
-function GoToGameFromAll(node, category, gameId, gameName) {
-    currentCategoryId = category;
-    ReturnCorrectData(currentCategoryId);
-    data = $($.parseXML(data));
-
-    GetItemFromStorageWithCallBack("my_record", function (value) {
-        currentRecord = value;
-        storePosition.topCoordinate = $(node).offset().top;
-        PopulateInfoForGame(gameId, gameName);
-    });
-}
-
-function SetGameUI(nameOfGame, trueName, xml) {
+function SetGameUI(nameOfGame, trueName, gameData) {
     
     currentGameType = 'score';
     timeOrder = '';
     currentGameName = nameOfGame;
+    parentGame = gameData.parent;
     currentGameTrueName = trueName;    
     document.getElementById('myrecord').value = '0';
+    ClearNotes();
+    ClearRating('10');
 
-    if (xml) {
-        var release = xml.attr("release");
-        var developer = xml.attr("developer");
-        var players = xml.attr("players");        
-        var myrecord = xml.attr("myrecord");        
-        var type = xml.attr("type");
-        var order = xml.attr("order");
+    if (gameData) {
+        var release = gameData.release;
+        var developer = gameData.developer;
+        var players = gameData.players;        
+        var type = gameData.type;
+        var order = gameData.order;
 
         SetGameSection(release, 'release');
         SetGameSection(developer, 'developer');
-        
+        SetGameSection(gameData.version, 'version');
+
         if (players === "1") {
             SetGameSection(players + " player", 'players');
         } else {
             SetGameSection(players + " players", 'players');
         }
-        
+
         if (type === "time") {
             timeOrder = order;
             currentGameType = "time";
@@ -79,6 +96,8 @@ function SetGameUI(nameOfGame, trueName, xml) {
             Show('#minutes');
         } else {
             Show('#myrecord');
+            $('#myrecord').parent().addClass('ui-corner-bottom');
+            $('#myrecordText').parent().addClass('ui-corner-bottom'); 
             Hide('#micro');
             Hide('#seconds');
             Hide('#minutes');
@@ -87,9 +106,7 @@ function SetGameUI(nameOfGame, trueName, xml) {
         var gots = currentRecord.played;
         var foundgame = 0;
         Hide('#ratings');
-        
-        if (myrecord !== null) //A record can be stored for this game denoted by the empty attribute myrecord in the xml data
-        {
+       
             for (var i = 0; i < gots.length; i++) {
                 var game = gots[i];
 
@@ -101,29 +118,30 @@ function SetGameUI(nameOfGame, trueName, xml) {
                 
                 if (testName === game) {
                     foundgame = 1;
-                    Show('#mrdivider');
-                    LoadNotes();
+                    LoadNotes();                    
                     Show('#myrecordnotes');
                     Show('#myrecordnotescontents');
 
                     if (type === "time") {
+                        Hide('#mrdivider');
+                        Show('#mrtimedivider');
                         Show('#myrecordtimecontainer');
                         Hide('#myrecordcontainer');
                     } else {
+                        Show('#mrdivider');
+                        Hide('#mrtimedivider');
                         Hide('#myrecordtimecontainer');
                         Show('#myrecordcontainer');
                     }
                     
-                    $('#ratings').removeClass('ui-screen-hidden');                        
+                    $('#ratings').removeClass('ui-screen-hidden');  
                     LoadRating();
                     $('#postgame').removeClass('ui-screen-hidden');
                     break;
                 }
             }
-        }
-
-        if (foundgame === 0) {
-            ClearRating();
+        
+        if (foundgame === 0) {                     
             document.getElementById('myrecord').value = '0';
             document.getElementById('minutes').value = '-';
             document.getElementById('seconds').value = '-';
@@ -152,8 +170,9 @@ function SetGameUI(nameOfGame, trueName, xml) {
     }
 }
 
-function PopulateInfoForGame(nameOfGame, trueName) {    
-    var game = data.find(currentCategoryId + "[name='" + nameOfGame + "']");        
+function PopulateInfoForGame(nameOfGame, trueName) {
+    var game = gameCatalog[nameOfGame];
+    currentCategoryId = game.category;    
     SetGameUI(nameOfGame, trueName, game);    
     LoadOnlineGameInformation();    
 }
@@ -165,34 +184,59 @@ function RemoveAllChildrenFromGameList() {
     RemoveAllChildren("gamelistnotplayedul");
 }
 
-function CreateGameListControls(categoryName) {
-    data = $($.parseXML(data));
-
-    allGames = data.find(categoryName);
-
+function CreateGameListControls(categoryName, gamesInCategory) {
+    
     var output = [];
     var array = [];
     var names = [];
 
-    allGames.each(function () {
-        var name = jQuery(this).children('[name="name"]').text();
+    for (var i = 0; i < gamesInCategory.length; i++)
+    {
+        var name = gamesInCategory[i].name;
 
         var id = name.replace(/'/g, "");
         id = id.replace(/&apos;/g, "");
         id = id.replace(/&amp;/g, "");
         id = id.replace(/&/g, "");
 
-        if (gamesByFriend.hasOwnProperty(TransformGameName(name))) {
+        var displayName = name;
+        if (gamesInCategory[i].alternativeName !== '') {
+            displayName = name + " / " + gamesInCategory[i].alternativeName;
+        }
+
+        if (gamesByFriend.hasOwnProperty(TransformGameName(name)) && gamesByFriend[TransformGameName(name)].length !== 0) {
             //A friend has played this game
             //user a different icon
-            array.push([id, '<li data-icon="user" onclick="GoToGame(this)" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + name + '</span></a></li>']);
+            array.push([id, '<li data-icon="user" onclick="GoToGame(this)" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + displayName + '</span></a></li>']);
         }
         else {
-            array.push([id, '<li onclick="GoToGame(this)" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + name + '</span></a></li>']);
+            array.push([id, '<li onclick="GoToGame(this)" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + displayName + '</span></a></li>']);
         }
 
         names[id.replace(/ /g, '_').toLowerCase()] = name;
-    });
+
+        if (gamesInCategory[i].alternativeName !== '')
+        {
+            var altDisplayName = gamesInCategory[i].alternativeName + " / " + name;
+
+            var altid = gamesInCategory[i].alternativeName.replace(/'/g, "");
+            altid = altid.replace(/&apos;/g, "");
+            altid = altid.replace(/&amp;/g, "");
+            altid = altid.replace(/&/g, "");
+
+            //Add the game in again as its alternative name
+            if (gamesByFriend.hasOwnProperty(TransformGameName(name)) && gamesByFriend[TransformGameName(name)].length !== 0) {
+                //A friend has played this game
+                //user a different icon
+                array.push([altid, '<li data-icon="user" onclick="GoToGame(this)" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + altDisplayName + '</span></a></li>']);
+            }
+            else {
+                array.push([altid, '<li onclick="GoToGame(this)" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + altDisplayName + '</span></a></li>']);
+            }
+
+            names[altid.replace(/ /g, '_').toLowerCase()] = name;
+        }
+    };
 
     array.sort(SortById);
 
@@ -206,11 +250,11 @@ function CreateGameListControls(categoryName) {
 }
 
 function PopulateListOfGamesForCategory(categoryName) {
-    ReturnCorrectData(categoryName);
+    var gamesInCategory = ReturnCorrectData(categoryName);
     RemoveAllChildrenFromGameList();
 
     if (controlCache.length === 0) {
-        CreateGameListControls(categoryName);
+        CreateGameListControls(categoryName, gamesInCategory);
     } else {
         var found = 0;
 
@@ -223,7 +267,7 @@ function PopulateListOfGamesForCategory(categoryName) {
         }
 
         if (found === 0) {
-            CreateGameListControls(categoryName);
+            CreateGameListControls(categoryName, gamesInCategory);
         }
     }
 }
@@ -241,18 +285,14 @@ function DisplayEveryGame() {
     var arrayPlayed = [];
     var arrayNot = [];
 
-    for (var i = 0; i < categoryList.length; i++) {
-        var categoryName = categoryList[i];
-        var names = [];
+    var allGames = gameCatalog;
 
-        ReturnCorrectData(categoryName);
-
-        data = $($.parseXML(data));
-        allGames = data.find(categoryName);
-
-        allGames.each(function () {
-            var name = jQuery(this).children('[name="name"]').text();
-
+    for (var game in gameCatalog)
+    {
+        if (gameCatalog.hasOwnProperty(game))
+        {
+            var name = gameCatalog[game].name;
+            
             var id = name.replace("'", "");
             id = id.replace("&apos;", "");
             id = id.replace("&amp;", "");
@@ -260,25 +300,33 @@ function DisplayEveryGame() {
 
             var valueToPush = '';
 
+            var displayName = name;
+            if (gameCatalog[game].alternativeName !== '') {
+                displayName = name + " / " + gameCatalog[game].alternativeName;
+            }
+
             if (gamesByFriend.hasOwnProperty(TransformGameName(name))) {
-                valueToPush = '<li data-icon="user" onclick="GoToGameFromAll(this,\'' + categoryName + '\',\'' + id + '\',\'' + name + '\')" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + name + '</span></a></li>';                
+                //valueToPush = '<li data-icon="user" onclick="GoToGameFromAll(this,\'' + categoryName + '\',\'' + id + '\',\'' + name + '\')" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + name + '</span></a></li>';
+                valueToPush = '<li data-icon="user" onclick="GoToGame(this)" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + displayName + '</span></a></li>';
             }
             else {
-                valueToPush = '<li onclick="GoToGameFromAll(this,\'' + categoryName + '\',\'' + id + '\',\'' + name + '\')" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + name + '</span></a></li>';                
+                //valueToPush = '<li onclick="GoToGameFromAll(this,\'' + categoryName + '\',\'' + id + '\',\'' + name + '\')" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + name + '</span></a></li>';
+                valueToPush = '<li onclick="GoToGame(this)" id="' + id + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + displayName + '</span></a></li>';
             }
 
             array.push([id, valueToPush]);
-
-            names[id.replace(/ /g, '_').toLowerCase()] = name;
 
             if ($.inArray(id.replace(/ /g, '_').toLowerCase(), currentRecord.played) !== -1) {
                 arrayPlayed.push([id, valueToPush]);
             } else {
                 arrayNot.push([id, valueToPush]);
             }
-        });
 
-        gameCache[categoryName] = names;
+            if (!gameCache[gameCatalog[game].category]) {
+                gameCache[gameCatalog[game].category] = [];                
+            }
+            gameCache[gameCatalog[game].category][id.replace(/ /g, '_').toLowerCase()] = name;
+        }
     }
 
     array.sort(SortById);
@@ -350,7 +398,19 @@ function PopulateListOfGamesIHavePlayed() {
                 var imageName = 'img/star' + rating + '.png';
                 var id = game;
 
-                array.push([id, '<li onclick="GoToGame(this)" id="' + gameName + '" class="ui-li ui-btn-up-c"><a><img id="' + id + 'rating" src="' + imageName + '" class="ui-li-icon ui-corner-none ui-li-thumb"><span class"link" style="font-size:70%;white-space: normal;text-overflow: clip;">' + gameName + '</span></a></li>']);
+                var displayName = gameName;
+                               
+                if (gameCatalog[gameName].alternativeName !== '') {
+                    displayName = gameName + " / " + gameCatalog[gameName].alternativeName;
+                    var altDisplayName = gameCatalog[gameName].alternativeName + " / " + gameName;
+                    var altid = gameCatalog[gameName].alternativeName.replace(/'/g, "");
+                    altid = altid.replace(/&apos;/g, "");
+                    altid = altid.replace(/&amp;/g, "");
+                    altid = altid.replace(/&/g, "");
+                    array.push([altid, '<li onclick="GoToGame(this)" id="' + gameName + '" class="ui-li ui-btn-up-c"><a><img id="' + id + 'rating" src="' + imageName + '" class="ui-li-icon ui-corner-none ui-li-thumb"><span class"link" style="font-size:70%;white-space: normal;text-overflow: clip;">' + altDisplayName + '</span></a></li>']);
+                }
+
+                array.push([id, '<li onclick="GoToGame(this)" id="' + gameName + '" class="ui-li ui-btn-up-c"><a><img id="' + id + 'rating" src="' + imageName + '" class="ui-li-icon ui-corner-none ui-li-thumb"><span class"link" style="font-size:70%;white-space: normal;text-overflow: clip;">' + displayName + '</span></a></li>']);
             }
         }
     }
@@ -365,20 +425,17 @@ function PopulateListOfGamesIHavePlayed() {
 }
 
 function PopulateListOfGamesIHaveNotPlayed() {
-    ReturnCorrectData(currentCategoryId);
+    var gamesInCategory = ReturnCorrectData(currentCategoryId);
     RemoveAllChildren("gamelistnotplayedul");
-
-    data = $($.parseXML(data));
-    allGames = data.find(currentCategoryId);
 
     var output = [];
     var array = [];
 
     var gots = currentRecord.played;
 
-    allGames.each(function () {
-
-        var game = jQuery(this).children('[name="name"]').text();
+    for (var i = 0; i < gamesInCategory.length; i++)
+    {    
+        var game = gamesInCategory[i].name;
         var gameid = game.replace(/'/g, "");
         gameid = gameid.replace(/&apos;/g, "");
         gameid = gameid.replace(/&amp;/g, "");
@@ -387,8 +444,8 @@ function PopulateListOfGamesIHaveNotPlayed() {
 
         var haveWeGotTheGame = 0;
 
-        for (var i = 0; i < gots.length; i++) {
-            var gotgame = gots[i];
+        for (var k = 0; k < gots.length; k++) {
+            var gotgame = gots[k];
 
             if (gotgame === gameid) {
                 haveWeGotTheGame = 1;
@@ -402,9 +459,21 @@ function PopulateListOfGamesIHaveNotPlayed() {
             id = id.replace("&amp;", "");
             id = id.replace("&", "");
 
-            array.push([id, '<li onclick="GoToGame(this)" id="' + id + '" class="ui-li ui-btn-up-c"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + game + '</span></a></li>']);
+            var displayName = game;
+
+            if (gameCatalog[game].alternativeName !== '') {
+                displayName = game + " / " + gameCatalog[game].alternativeName;
+                var altDisplayName = gamesInCategory[i].alternativeName + " / " + game;
+                var altid = gamesInCategory[i].alternativeName.replace(/'/g, "");
+                altid = altid.replace(/&apos;/g, "");
+                altid = altid.replace(/&amp;/g, "");
+                altid = altid.replace(/&/g, "");
+                array.push([altid, '<li onclick="GoToGame(this)" id="' + id + '" class="ui-li ui-btn-up-c"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + altDisplayName + '</span></a></li>']);
+            }
+
+            array.push([id, '<li onclick="GoToGame(this)" id="' + id + '" class="ui-li ui-btn-up-c"><a><span style="font-size:70%;white-space: normal;text-overflow: clip;">' + displayName + '</span></a></li>']);
         }
-    });
+    };
 
     array.sort(SortById);
 
@@ -413,7 +482,6 @@ function PopulateListOfGamesIHaveNotPlayed() {
     }
 
     $('#gamelistnotplayed').children('ul').append(output.join('')).listview().listview('refresh');
-
 }
 
 function AddGamesControls(name, id, doNotNavigate) {
@@ -428,8 +496,8 @@ function AddGamesControls(name, id, doNotNavigate) {
         PopulateListOfGamesIHavePlayed();
         PopulateListOfGamesIHaveNotPlayed();
 
-        currentTab = "AllTab";
-        Rehighlight();
+        SetCategoryGamesTab("AllTab");
+        SetCurrentTab("AllTab");
 
         if (doNotNavigate !== 1) {
             NavigateToInternalPage("#Category");
@@ -488,19 +556,41 @@ function AddToPlayed() {
     SetItemInStorageWithCallBack("my_record", currentRecord, UpdatePlayed);
 }
 
-function RemoveFromPlayed() {
-    var array = currentRecord.played;
-    var ratings = currentRecord.ratings;
-    var scores = currentRecord.scores;
-    var index = array.indexOf(TransformedCurrentGameName());
+function GameIndex(array, game)
+{
+    for (var i = 0; i < array.length; i++) {
+        var gameid = array[i].id;
 
-    if (index > -1) {
-        array.splice(index, 1);
-        ratings.splice(index, 1);
-        scores.splice(index, 1);
+        if (gameid === TransformedCurrentGameName()) {
+            return i;            
+        }
     }
 
-    currentRecord.played = array;
+    return -1;
+}
+
+function RemoveFromPlayed() {
+    var played = currentRecord.played;
+    var ratings = currentRecord.ratings;
+    var scores = currentRecord.scores;
+
+    var playedIndex = played.indexOf(TransformedCurrentGameName());    
+    var ratingIndex = GameIndex(ratings, TransformedCurrentGameName());
+    var scoreIndex = GameIndex(scores, TransformedCurrentGameName());
+
+    if (playedIndex > -1) {
+        played.splice(playedIndex, 1);        
+    }
+
+    if (ratingIndex > -1) {
+        ratings.splice(ratingIndex, 1);
+    }
+
+    if (scoreIndex > -1) {
+        scores.splice(scoreIndex, 1);
+    }
+
+    currentRecord.played = played;
     currentRecord.ratings = ratings;
     currentRecord.scores = scores;
 
@@ -508,13 +598,19 @@ function RemoveFromPlayed() {
 }
 
 function UpdatePlayed() {
-    PopulateListOfGamesIHavePlayed();
-    PopulateListOfGamesIHaveNotPlayed();
+    var scoreElement = document.getElementById('myrecord');
+    $('#myrecord').parent().addClass('ui-corner-bottom');      
+    $('#myrecordText').parent().addClass('ui-corner-bottom'); 
     $('#GameInfo').listview('refresh');
+    $('#ScoreInfo').listview('refresh');
+    $('#ScoreInfoTime').listview('refresh');
+    $('#NoteInfo').listview('refresh');
+    PopulateListOfGamesIHavePlayed();
+    PopulateListOfGamesIHaveNotPlayed();    
 }
 
-function SuccessfulAddPlayed() {
-    AddToPlayed(UpdatePlayed);
+function SuccessfulAddPlayed() {    
+    AddToPlayed();
 
     if (currentGameType === "time") {
         Show('#myrecordtimecontainer');
@@ -529,9 +625,10 @@ function SuccessfulAddPlayed() {
     OnSuccessfulLoadOfGame();    
     Show('#ratings');
     Show('#postgame');
+    UpdatePlayed();
 }
 
-function SuccessfulRemovePlayed() {
+function SuccessfulRemovePlayed() {    
     RemoveFromPlayed();
     PopulateListOfGamesIHavePlayed();
     PopulateListOfGamesIHaveNotPlayed();
@@ -544,6 +641,7 @@ function SuccessfulRemovePlayed() {
     Hide('#myrecordnotescontents');
     Hide('#ratings');
     Hide('#postgame');
+    UpdatePlayed();
 }
 
 function CompleteChangeGameStatus() {
@@ -565,7 +663,13 @@ function ChangeGameStatus() {
         SuccessfulAddPlayed();                    
     }
 
-    if (choice === "notplayed") {        
-        SuccessfulRemovePlayed();                    
+    if (choice === "notplayed") {  
+        ShowPopup('#RemoveGame');
     }
+}
+
+function UndoRemovePlayed()
+{
+    set_jqm_radio_button_off("radio-view", "notplayed");
+    set_jqm_radio_button("radio-view", "played");    
 }

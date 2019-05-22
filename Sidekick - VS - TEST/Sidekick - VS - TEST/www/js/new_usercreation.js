@@ -22,6 +22,19 @@ function TryAndSetupUserName() {
     if (!CheckFieldValid('Email address', 'myemail_newuser', true))
         return;
 
+    if (!CheckFieldValid('Email address', 'myconfirmemail_newuser', true))
+        return;
+
+    var email = document.getElementById("myemail_newuser").value.toLowerCase();
+    var emailConfirm = document.getElementById("myconfirmemail_newuser").value.toLowerCase();
+
+    if (email !== emailConfirm)
+    {
+        $('span[id=userErrorText_newuser]').removeClass('ui-screen-hidden');
+        document.getElementById('userErrorText_newuser').innerText = "Emails do not match";
+        return;
+    }
+
     var userName = document.getElementById("myusername_newuser").value;
     var emailAddress = document.getElementById("myemail_newuser").value;
 
@@ -57,8 +70,9 @@ function SuccessfulGetOfNewUser(userName, email) {
         StandardCompleteACOnline();
         ClosePopup();
         SetNextPopUp(secretKeyPopup);
-        SetUserNameAdnEmailInSetup(userName, email);        
-        SetItemInStorage('userName', clientUserName);  
+        SetUserNameAdnEmailInSetup(userName, email);
+        clientUserName = userName;
+        SetItemInStorage('userName', userName);
         SetItemInStorage('emailAddress', email);          
     }    
     else {        
@@ -72,10 +86,8 @@ function LaunchVerifyUserFromSetup()
 }
 
 function VerifyUser(element) {    
-    var value = document.getElementById("secretkeyinput").value;
-    SetItemInStorageWithCallBack("secret", value, function (result) {
-        SideKickOnline_VerifyUser();
-    }); 
+    var secretvalue = document.getElementById("secretkeyinput").value;
+    SideKickOnline_VerifyUser(secretvalue);
 }
 
 function SetUserNameAdnEmailInSetup(userName, email) {
@@ -122,9 +134,16 @@ function RefreshGame() {
     }
 }
 
-//When creating a new user what do we do?
-function PostSignup() {  
-    if (pushRatings === true) {
+function PostSignup(showshare) {
+    if (showshare === true) {
+        SetNextPopUp(shareSignup);
+    }
+
+    if (pushRatings === true) {        
         SideKickOnline_SaveRatings();
-    }    
+    }
+    else
+    {        
+        ClosePopup();
+    }
 }

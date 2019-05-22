@@ -14,6 +14,15 @@ baddudes.screenHeight = 50;
 baddudes.image = 'bad dudes vs dragon ninja.png';
 bezelDimensions['bad_dudes_vs_dragon_ninja'] = baddudes;
 
+var crimecity = new Bezel();
+crimecity.id = 'crime city';
+crimecity.topOffset = 28;
+crimecity.leftOffset = 16;
+crimecity.screenWidth = 68;
+crimecity.screenHeight = 47;
+crimecity.image = 'crime city.png';
+bezelDimensions['crime_city'] = crimecity;
+
 var doubledragon = new Bezel();
 doubledragon.id = 'double dragon';
 doubledragon.topOffset = 22;
@@ -121,6 +130,24 @@ bezelDimensions['rastan_saga'] = rastansaga;
 
 //MAZE
 
+var babypacman = new Bezel();
+babypacman.id = 'baby pac-man';
+babypacman.topOffset = 11;
+babypacman.leftOffset = 21;
+babypacman.screenWidth = 61;
+babypacman.screenHeight = 75;
+babypacman.image = 'baby pac-man.png';
+bezelDimensions['baby_pac-man'] = babypacman;
+
+var turtles = new Bezel();
+turtles.id = 'turtles';
+turtles.topOffset = 18;
+turtles.leftOffset = 22;
+turtles.screenWidth = 57;
+turtles.screenHeight = 73;
+turtles.image = 'turtles.png';
+bezelDimensions['turtles'] = turtles;
+
 var amidarBezel = new Bezel();
 amidarBezel.id = 'amidar';
 amidarBezel.topOffset = 18;
@@ -129,6 +156,24 @@ amidarBezel.screenWidth = 56;
 amidarBezel.screenHeight = 73;
 amidarBezel.image = 'amidar.png';
 bezelDimensions['amidar'] = amidarBezel;
+
+var armoredcar = new Bezel();
+armoredcar.id = 'armored car';
+armoredcar.screenWidth = 58;
+armoredcar.screenHeight = 71;
+armoredcar.topOffset = 16;
+armoredcar.leftOffset = 21;
+armoredcar.image = 'armored car.png';
+bezelDimensions['armored_car'] = armoredcar;
+
+var eyes = new Bezel();
+eyes.id = 'eyes';
+eyes.screenWidth = 68;
+eyes.screenHeight = 80;
+eyes.topOffset = 13;
+eyes.leftOffset = 16;
+eyes.image = 'eyes.png';
+bezelDimensions['eyes'] = eyes;
 
 var digdug = new Bezel();
 digdug.id = 'dig dug';
@@ -165,6 +210,7 @@ mspacman.screenWidth = 52;
 mspacman.screenHeight = 60;
 mspacman.image = 'ms pac-man.png';
 bezelDimensions['ms_pac-man'] = mspacman;
+bezelDimensions['ms_pac-man_-_speed_up_hack'] = mspacman;
 
 var pacman = new Bezel();
 pacman.id = 'pac-man';
@@ -174,6 +220,7 @@ pacman.screenWidth = 55;
 pacman.screenHeight = 70;
 pacman.image = 'pac-man.png';
 bezelDimensions['pac-man'] = pacman;
+bezelDimensions['pac-man_-_speed_up_hack'] = pacman;
 
 var pacmania = new Bezel();
 pacmania.id = 'pac-mania';
@@ -203,6 +250,15 @@ superpacman.image = 'super pac-man.png';
 bezelDimensions['super_pac-man'] = superpacman;
 
 //misc
+
+var journey = new Bezel();
+journey.id = 'journey';
+journey.screenWidth = 59;
+journey.screenHeight = 77;
+journey.topOffset = 11;
+journey.leftOffset = 22;
+journey.image = 'journey.png';
+bezelDimensions['journey'] = journey;
 
 var qix = new Bezel();
 qix.id = 'qix';
@@ -297,6 +353,33 @@ flicky.screenHeight = 65;
 flicky.image = 'flicky.png';
 bezelDimensions['flicky'] = flicky;
 
+var congobongo = new Bezel();
+congobongo.id = 'congo bongo';
+congobongo.topOffset = 10;
+congobongo.leftOffset = 14;
+congobongo.screenWidth = 73;
+congobongo.screenHeight = 79;
+congobongo.image = 'congo bongo.png';
+bezelDimensions['congo_bongo'] = congobongo;
+
+var kidniki = new Bezel();
+kidniki.id = 'kid niki';
+kidniki.topOffset = 16;
+kidniki.leftOffset = 15;
+kidniki.screenWidth = 70;
+kidniki.screenHeight = 80;
+kidniki.image = 'kid niki.png';
+bezelDimensions['kid_niki'] = kidniki;
+
+var vssupermariobros = new Bezel();
+vssupermariobros.id = 'vs super mario bros';
+vssupermariobros.topOffset = 14;
+vssupermariobros.leftOffset = 20;
+vssupermariobros.screenWidth = 61;
+vssupermariobros.screenHeight = 61;
+vssupermariobros.image = 'vs super mario bros.png';
+bezelDimensions['vs_super_mario_bros'] = vssupermariobros;
+
 var foodfight = new Bezel(); // WRONG GENRE???
 foodfight.id = 'food fight';
 foodfight.topOffset = 28;
@@ -332,6 +415,15 @@ ghoulsnghosts.screenWidth = 69;
 ghoulsnghosts.screenHeight = 58;
 ghoulsnghosts.image = 'ghouls n ghosts.png';
 bezelDimensions['ghouls_n_ghosts'] = ghoulsnghosts;
+
+var ghostsngoblins = new Bezel();
+ghostsngoblins.id = 'ghosts n goblins';
+ghostsngoblins.topOffset = 26;
+ghostsngoblins.leftOffset = 18;
+ghostsngoblins.screenWidth = 64;
+ghostsngoblins.screenHeight = 53;
+ghostsngoblins.image = 'ghosts n goblins.png';
+bezelDimensions['ghosts_n_goblins'] = ghostsngoblins;
 
 var joust = new Bezel();
 joust.id = 'joust';
@@ -388,6 +480,15 @@ strider.image = 'strider.png';
 bezelDimensions['strider'] = strider;
 
 //Puzzle
+
+var drmario = new Bezel();
+drmario.id = 'vs dr mario';
+drmario.topOffset = 18;
+drmario.leftOffset = 23;
+drmario.screenWidth = 58;
+drmario.screenHeight = 60;
+drmario.image = 'vs dr mario.png';
+bezelDimensions['vs_dr_mario'] = drmario;
 
 var bubbles = new Bezel();
 bubbles.id = 'bubbles';
@@ -511,6 +612,42 @@ mercs.image = 'mercs.png';
 bezelDimensions['mercs'] = mercs;
 
 //Shooter
+var strikers1945iii = new Bezel();
+strikers1945iii.id = 'strikers 1945 iii';
+strikers1945iii.topOffset = 16;
+strikers1945iii.leftOffset = 16;
+strikers1945iii.screenWidth = 68;
+strikers1945iii.screenHeight = 68;
+strikers1945iii.image = 'strikers 1945 iii.png';
+bezelDimensions['strikers_1945_iii'] = strikers1945iii;
+
+var darius = new Bezel();
+darius.id = 'darius';
+darius.topOffset = 28;
+darius.leftOffset = 0;
+darius.screenWidth = 100;
+darius.screenHeight = 36;
+darius.image = 'darius.png';
+bezelDimensions['darius'] = darius;
+
+var sheriff = new Bezel();
+sheriff.id = 'sheriff';
+sheriff.topOffset = 21;
+sheriff.leftOffset = 20;
+sheriff.screenWidth = 60;
+sheriff.screenHeight = 58;
+sheriff.image = 'sheriff.png';
+bezelDimensions['sheriff'] = sheriff;
+
+var thundercade = new Bezel();
+thundercade.id = 'thundercade';
+thundercade.topOffset = 11;
+thundercade.leftOffset = 7;
+thundercade.screenWidth = 86;
+thundercade.screenHeight = 74;
+thundercade.image = 'thundercade.png';
+bezelDimensions['thundercade'] = thundercade;
+
 var _1942 = new Bezel();
 _1942.id = '1942';
 _1942.topOffset = 15;
@@ -564,6 +701,7 @@ berzerk.screenWidth = 74;
 berzerk.screenHeight = 67;
 berzerk.image = 'berzerk.png';
 bezelDimensions['berzerk'] = berzerk;
+bezelDimensions['berzerk_-_slow_bullets'] = berzerk;
 
 var carnival = new Bezel();
 carnival.id = 'carnival';
@@ -600,6 +738,7 @@ galaga.screenWidth = 55;
 galaga.screenHeight = 70;
 galaga.image = 'galaga.png';
 bezelDimensions['galaga'] = galaga;
+bezelDimensions['galaga_-_fast_shoot_hack'] = galaga;
 
 var galaxian = new Bezel();
 galaxian.id = 'galaxian';

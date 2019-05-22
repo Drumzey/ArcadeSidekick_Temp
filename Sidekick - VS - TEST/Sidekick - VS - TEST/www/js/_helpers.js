@@ -56,15 +56,40 @@ function TransformedCurrentGameName() {
     return transformed;
 }
 
+var gameMapping = [];
+
+function FindGameInCatalog(gameName) {
+
+    if (gameMapping.length === 0)
+    {
+        for (var game in gameCatalog) {
+            if (gameCatalog.hasOwnProperty(game)) {
+                gameMapping[gameCatalog[game].name.toLowerCase()] = game;                
+            }
+        }
+    }
+
+    return gameMapping[gameName];
+}
+
 $(document).on("scroll touchmove", Toggle);
 
 function Toggle() {
-    if (CurrentPage() === "#Game") {
-
+    if (CurrentPage() === "#Game")
+    {
         if ($(document).scrollTop() > 1) {
             $('#gamebanner').addClass('tiny');
         } else {
             $('#gamebanner').removeClass('tiny');
+            $(window).trigger('resize');
+        }
+    }
+    if (CurrentPage() === "#GameHighScores")
+    {
+        if ($(document).scrollTop() > 1) {
+            $('#gamebannerhs').addClass('tiny');
+        } else {
+            $('#gamebannerhs').removeClass('tiny');
             $(window).trigger('resize');
         }
     }
