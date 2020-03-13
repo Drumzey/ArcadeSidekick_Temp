@@ -27,7 +27,6 @@ body {
     width:100%;
 }
 
-/* Portrait layout (default) */
 .app {
     background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
     position:absolute;             /* position in the center of the screen */
@@ -41,7 +40,6 @@ body {
                                    /* offset horizontal: half of text area width */
 }
 
-/* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
         background-position:left center;
@@ -95,4 +93,3 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
-

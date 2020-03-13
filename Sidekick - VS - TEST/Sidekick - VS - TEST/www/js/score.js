@@ -14,7 +14,7 @@ function addComma(nStr) {
     while (rgx.test(x1)) {
         x1 = x1.replace(rgx, '$1' + ',' + '$2');
     }
-    
+
     return x1 + x2;
 }
 
@@ -24,15 +24,15 @@ function GetTime() {
     var micro = document.getElementById('micro').value;
 
     if (minutes === '') {
-        minutes = '0';       
+        minutes = '0';
     }
 
     if (seconds === '') {
-        seconds = '00';        
+        seconds = '00';
     }
 
     if (micro === '') {
-        micro = '000';        
+        micro = '000';
     }
 
     var score = parseInt(micro) + (parseInt(seconds) * 1000) + (parseInt(minutes) * 60000);
@@ -48,10 +48,19 @@ function SaveLocalTime() {
         if (gameid === TransformedCurrentGameName()) {
             scores[i].score = GetTime();
             scores[i].uploaded = false;
+            if (AllowedOnline() && score !== 0 && score !== "0") {
+                Show("#uploadscorebtn");
+            }
             SetItemInStorage("my_record", currentRecord);
+
+            //After we have added a score we update our local statistics
+            if (!AllowedOnline()) {
+                CalculateLocalStatistics();
+            }
+
             break;
         }
-    }    
+    }
 }
 
 function SaveSeconds() {
@@ -66,22 +75,29 @@ function SaveMicro() {
     document.getElementById('micro').value = micro;
 }
 
-function CloseTime()
-{
+function CloseTime() {
     document.activeElement.blur();
     $("#micro").blur();
 }
 
-function SelectScore()
-{
+function SelectScore() {
     $('#myrecord').parent().removeClass('ui-screen-hidden');
-    $('#myrecordText').parent().addClass('ui-screen-hidden');       
+    $('#myrecordText').parent().addClass('ui-screen-hidden');
     $('#myrecord').focus();
 }
 
-function SaveLocalScore() {    
-    var score = document.getElementById('myrecord').value;    
-    
+function UndoScoreUpdate() {
+    document.getElementById('myrecord').value = previousscore;
+    document.getElementById('myrecordText').value = addComma(previousscore);
+    $('#myrecord').parent().addClass('ui-screen-hidden');
+    $('#myrecordText').parent().removeClass('ui-screen-hidden');
+}
+
+function ProcessScore(score) {
+    if (!score) {
+        score = document.getElementById('myrecord').value;
+    }
+
     var scores = currentRecord.scores;
     for (var i = 0; i < scores.length; i++) {
         var gameid = scores[i].id;
@@ -89,6 +105,10 @@ function SaveLocalScore() {
         if (gameid === TransformedCurrentGameName()) {
             scores[i].score = score;
             scores[i].uploaded = false;
+            if (AllowedOnline() && score !== 0 && score !== "0") {
+                Show('#uploadScoresMainMenu');
+                Show("#uploadscorebtn");
+            }
             SetItemInStorage("my_record", currentRecord);
             break;
         }
@@ -97,23 +117,47 @@ function SaveLocalScore() {
     //Add commas to the value entered.
     addCommas(document.getElementById('myrecordText'), score);
     $('#myrecord').parent().addClass('ui-screen-hidden');
-    $('#myrecordText').parent().removeClass('ui-screen-hidden');    
+    $('#myrecordText').parent().removeClass('ui-screen-hidden');
+
+    //After we have added a score we update our local statistics
+    if (!AllowedOnline()) {
+        CalculateLocalStatistics();
+    }
+}
+
+function SaveLocalScore() {
+    var score = document.getElementById('myrecord').value;
+
+    //Is the new score lower than your existing score?
+    if (parseInt(previousscore) > parseInt(score)) {
+        if (popupopen === 1) {
+            //if we are already in a popup then this is the event that is firing twice
+            //so return without doing anything. Which ever one wins will fire the previous pop
+            //up event
+            return;
+        }
+
+        CreatePopup(lowerHighscorePopup);
+        return;
+    }
+
+    ProcessScore(score);
 }
 
 function AlterFriendScoreHeights(names) {
     for (i = 0; i < names.length; i++) {
         var gameName = names[i];
         GetHeights(gameName);
-    }   
+    }
 }
 
 function AlterScoreHeights() {
     //for each game name in currentRecord.scores
     //find that item and set the heights
-    for (i = 0; i < currentRecord.scores.length; i++) {        
+    for (i = 0; i < currentRecord.scores.length; i++) {
         var gameName = currentRecord.scores[i].id.replace(/_/g, ' ').toLowerCase();
         GetHeights(gameName);
-    }   
+    }
 
     if (HasCustomGames()) {
         //Custom Divider
@@ -141,25 +185,46 @@ function MillisecondsToMinutesSecondsMilliseconds(ms) {
     return minutes + ":" + ("00" + sec).slice(-2) + "." + ("000" + millims).slice(-3);
 }
 
-//If accessing an individual game before retrieving all scores 
+function UploadSingleGameFromGameScreen() {
+    var score = 0;
+
+    if (currentGameType === "time") {
+        SaveLocalTime();
+        score = GetTime();
+    }
+    else {
+        SaveLocalScore();
+        score = document.getElementById('myrecord').value;
+    }
+
+    UploadSingleGame(TransformedCurrentGameName(), score);
+}
+
 function OnSuccessfulLoadOfGame() {
     var scores = currentRecord.scores;
     var score = '0';
-    
+
     for (var i = 0; i < scores.length; i++) {
         var gameid = scores[i].id;
 
         if (gameid === TransformedCurrentGameName()) {
             score = scores[i].score;
+
+            if (scores[i].uploaded === false &&
+                score !== 0 && score !== "0" &&
+                AllowedOnline()) {
+                Show("#uploadscorebtn");
+            }
+
             break;
         }
     }
-         
+
     if (currentGameType === "time") {
         var local_minutes = '0';
         var local_seconds = '00';
         var local_micro = '000';
-                       
+
         if (score === '0' || score === '') {
             local_minutes = '0';
             local_seconds = '00';
@@ -175,29 +240,32 @@ function OnSuccessfulLoadOfGame() {
         }
 
         score = local_minutes + ":" + ("00" + local_seconds).slice(-2) + "." + ("00" + local_micro).slice(-3);
-        
+
         document.getElementById('minutes').value = local_minutes;
         document.getElementById('seconds').value = local_seconds;
-        document.getElementById('micro').value = local_micro;        
+        document.getElementById('micro').value = local_micro;
     }
-    else {                       
+    else {
         document.getElementById('myrecord').value = score;
         document.getElementById('myrecordText').value = addComma(score);
-        $('#myrecord').parent().addClass('ui-screen-hidden');        
+        $('#myrecord').parent().addClass('ui-screen-hidden');
         $('#myrecordText').parent().removeClass('ui-screen-hidden');
         $('#myrecord').parent().addClass('ui-corner-bottom');
-        $('#myrecordText').parent().addClass('ui-corner-bottom'); 
+        $('#myrecordText').parent().addClass('ui-corner-bottom');
     }
 }
 
+var previousscore = '0';
+
 function BlankScore() {
     var value = document.getElementById('myrecord').value;
+    previousscore = value;
 
-    if (value === '0') {        
+    if (value === '0') {
         document.getElementById('myrecord').value = '';
     }
 }
 
-function ResetScores() {    
+function ResetScores() {
     gameCount = 0;
 }

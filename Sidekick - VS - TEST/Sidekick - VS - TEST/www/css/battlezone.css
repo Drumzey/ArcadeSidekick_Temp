@@ -3,10 +3,16 @@
     src: url("../res/battlezone.otf");
 }
 
+.divIconPos {
+    position: absolute;
+    display: inline;
+    left: 0px;
+}
+
 title, h1, h3, li[data-role="list-divider"] {
     font-family: "customfont";
     font-size: 200% !important;
-    color: #00ff00 !important;    
+    color: #00ff00 !important;
 }
 
 .ui-header .ui-title, .ui-footer .ui-title {
@@ -18,21 +24,21 @@ title, h1, h3, li[data-role="list-divider"] {
     font-size: 20px !important;
 }
 
-	ui-loader .ui-icon {
-		background-image: url(themes/images/battle.gif);		
-	} 
+ui-loader .ui-icon {
+    background-image: url(themes/images/loaders/battle.gif);
+}
 
-	.ui-icon-loading {  
-		background-image: url(themes/images/battle.gif);
-		background-size: 46px 46px;				
-	}
+.ui-icon-loading {
+    background-image: url(themes/images/loaders/battle.gif);
+    background-size: 46px 46px;
+}
 
 html {
     background: transparent;
 }
 
 body {
-    background: #000000 url(themes/images/battle.png) !important;
+    background: #000000 url(themes/images/backgrounds/battle.png) !important;
     background-repeat: no-repeat !important;
     background-position: bottom right !important;
     background-attachment: fixed !important;
@@ -47,92 +53,108 @@ body {
     background: transparent;
 }
 
+.quiz {
+    background: url(../img/category_icons/quiz.png), url(themes/images/buttons/battlezone_btn.png);
+}
+
+.notifications {
+    background: url(../img/category_icons/messages.png), url(themes/images/buttons/battlezone_btn.png);
+}
+
+.profile {
+    background: url(../img/category_icons/profile.png), url(themes/images/buttons/battlezone_btn.png);
+}
+
+.clubs {
+    background: url(../img/category_icons/clubs.png), url(themes/images/buttons/battlezone_btn.png);
+}
+
 .custom {
-    background: url(../category_icons/customgames.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/customgames.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .head2head {
-    background: url(../category_icons/headtohead.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/headtohead.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .recent {
-    background: url(../category_icons/recent.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/recentactivity.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .myscores {
-    background: url(../category_icons/myscores.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/myscores.png), url(themes/images/buttons/battlezone_btn.png);
+}
+
+.videogames {
+    background: url(../img/category_icons/arcadegames.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .allgames {
-    background: url(../category_icons/allgames.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/allgames.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .pinball {
-    background: url(../category_icons/pinball.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/pinball.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .beatemup {
-    background: url(../category_icons/beatemup.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/beatemup.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .fighting {
-    background: url(../category_icons/fighting.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/fighting.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .guns {
-    background: url(../category_icons/guns.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/guns.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .hackandslash {
-    background: url(../category_icons/hackandslash.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/hackandslash.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .maze {
-    background: url(../category_icons/maze.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/maze.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .platformer {
-    background: url(../category_icons/platformer.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/platformer.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .topfifty {
-    background: url(../category_icons/topfifty.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/topfifty.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .friends {
-    background: url(../category_icons/friends.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/friends.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .puzzle {
-    background: url(../category_icons/puzzle.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/puzzle.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .racing {
-    background: url(../category_icons/racing.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/racing.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .runandgun {
-    background: url(../category_icons/runandgun.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/runandgun.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .shooter {
-    background: url(../category_icons/shooter.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/shooter.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .sports {
-    background: url(../category_icons/sports.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/sports.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .rhythm {
-    background: url(../category_icons/rhythm.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/rhythm.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .misc {
-    background: url(../category_icons/misc.png), url(themes/images/battle_btn.png);
-}
-
-.news {
-    background: url(../category_icons/news.png), url(themes/images/battle_btn.png);
+    background: url(../img/category_icons/misc.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
 .tile {
@@ -142,37 +164,8 @@ body {
     overflow: hidden;
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
-    -moz-column-break-inside: avoid;
-    column-break-inside: avoid;
     break-inside: avoid;
     break-inside: avoid-column;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-}
-
-.savebutton {
-    height: 28px !important;
-    padding: 0 !important;
-    margin-bottom: 0 !important;
-    margin-top: 2px !important;
-    margin-left: 0 !important;
-    margin-right: 5px !important;
-    background-color: #000000 !important;
-    border-color: #00ff00 !important;
-    color: #ff0000 !important;
-    text-shadow: 0 0 0 #000000 !important;
-}
-
-.savebuttontime {
-    height: 28px !important;
-    float: right;
-    padding: 0 !important;
-    margin-bottom: 0 !important;
-    margin-top: 5px !important;
-    margin-left: 0 !important;
-    margin-right: 5px !important;
-    background-color: #000000 !important;
-    border-color: #00ff00 !important;
-    color: #ff0000 !important;
-    text-shadow: 0 0 0 #000000 !important;
 }

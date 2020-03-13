@@ -6,37 +6,53 @@
 
 @font-face {
     font-family: "default";
-    src: url("../res/Roboto-Regular.ttf");
+    src: url("../res/VCR_OSD_MONO_1.001.ttf");
+}
+
+.member::after {
+    background-color: green;
+}
+
+.collapse-ui-li-divider {
+    padding-left: 35px !important;
 }
 
 .ui-li-desc {
     white-space: normal;
-    !important
 }
 
-.ui-icon-retro-cart:after {
-    background-image: url("../img/app-icon-cart.png");
-    background-repeat: no-repeat;
+.ui-li-count {
+    padding-left: 0.2em;
+    padding-right: 0.2em;
 }
 
-.ui-icon-retro-console:after {
-    background-image: url("../img/app-icon-console.png");
-    background-repeat: no-repeat;
+#no-results {
+    display: none;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-    .ui-icon-retro-cart :after {
-        background-image: url("../img/app-icon-cart-highres.png");
-        background-size: 18px 18px;
-        background-repeat: no-repeat;
+.badge {
+    position: relative;
+}
+
+    .badge[data-badge]:after {
+        content: attr(data-badge);
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        font-size: .7em;
+        background: green;
+        color: white;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        border-radius: 50%;
+        box-shadow: 0 0 1px #333;
     }
 
-    .ui-icon-retro-console :after {
-        background-image: url("../img/app-icon-console-highres.png");
-        background-size: 30px 25px;
-        background-repeat: no-repeat;
+    .badge[data-badge=""]:after {
+        content: none;
     }
-}
 
 .disabled {
     pointer-events: none;
@@ -59,12 +75,7 @@ body {
 html, body, option {
     height: 100%;
     width: 100%;
-    /*font-family: "customfont";*/
     background-color: black;
-}
-
-span, div, label, input {
-    /*font-family: "customfont" !important;*/
 }
 
 .MainMenu {
@@ -134,20 +145,14 @@ embed {
     column-gap: 10vw;
 }
 
-/*ul, li {
-        opacity: 0.8;
-    }*/
-
 .blanktile {
     width: 40vw !important;
     height: 40vw !important;
     margin-bottom: 5vw;
-    overflow: hidden; /* Fix for firefox and IE 10-11  */
-    -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
-    page-break-inside: avoid; /* Deprecated Firefox */
-    -moz-column-break-inside: avoid; /* Current Firefox */
-    column-break-inside: avoid;
-    break-inside: avoid; /* IE 10+ */
+    overflow: hidden;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
     break-inside: avoid-column;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -156,7 +161,6 @@ embed {
 .banner {
     display: inline-block;
     max-width: 100vw;
-    /*min-width: 80vw !important;*/
     min-height: 10vh;
     max-height: 20vh;
     background-repeat: no-repeat;
@@ -179,33 +183,34 @@ embed {
     z-index: 10;
 }
 
-.bezel {    
+.bezel {
     position: relative;
     z-index: initial;
-    /*margin-left: -16px;*/
     margin-top: -25px;
     width: 100vw !important;
     height: 100vw !important;
     background-color: transparent;
     background-size: 100% 100%;
-    background-repeat: no-repeat;    
-    text-align:center;
+    background-repeat: no-repeat;
+    /*text-align: center;*/
 }
 
-.bigtile {    
-    z-index: -1;
+.bigvideotile {    
     position: relative;
-    /*display: inline-block;*/
     background-color: #000000;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 
-.console {
+.bigtile {
+    z-index: -1;
+    position: relative;
+    background-color: #000000;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
-.bestScore
-{
+.bestScore {
     background-color: greenyellow !important;
 }
 
@@ -215,7 +220,7 @@ embed {
 
 .rating a {
     border: 0px !important;
-    margin: 0px;
+    margin: -3px;
 }
 
 #themesGroup .ui-controlgroup-label {
@@ -284,7 +289,7 @@ embed {
 }
 
 #flipswitchWrapper .ui-flipswitch-active {
-    padding-left: 0px;   
+    padding-left: 0px;
 }
 
 #flipswitchWrapper .ui-flipswitch .ui-flipswitch-on, #flipswitchWrapper .ui-flipswitch.ui-flipswitch-active .ui-flipswitch-on {
@@ -318,12 +323,49 @@ div.scoreinput .ui-input-text {
     border-left-width: 0px;
 }
 
+div.detailedMainPage .ui-input-text {
+    height: 35px;
+    margin: 0 !important;
+    padding-left: 10px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-width: 0px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+}
+
+div.detailedMainPage .ui-select {
+    margin: 0 !important;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-width: 0px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+}
+
+.multilineLi {
+    white-space: normal !important;
+}
+
+div.detailedMainPage .ui-datebox-container {
+    border-radius: 0em 0em 0.6em 0.6em !important;
+    padding: 10px;
+}
+
+div.detailedMainPage h4{
+    margin: 0px;
+}
+
 div.timeinput .ui-input-text {
     height: 35px;
 }
 
 textarea {
-    -webkit-border-radius: 0em !important;    
+    -webkit-border-radius: 0em !important;
     border-radius: 0em !important;
 }
 
@@ -348,4 +390,12 @@ textarea {
 .ui-corner-bottom {
     -webkit-border-radius: 0em 0em 0.6em 0.6em !important;
     border-radius: 0em 0em 0.6em 0.6em !important;
+}
+
+.ui-datebox-container {
+    border: none !important;
+}
+
+.ui-datebox-controls {
+    padding-top: 0.8em !important;
 }

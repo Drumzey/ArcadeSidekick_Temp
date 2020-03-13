@@ -21,7 +21,7 @@ $.mobile.changeGlobalTheme = function (themeL) {
                 .attr("data-theme", themeL);
         }
     }
-    
+
     setTheme(".ui-mobile-viewport", "ui-overlay", themeL);
     setTheme("[data-role='popup']", "ui-page-theme", themeL);
     setTheme("[data-role='popup']", "ui-body", themeL);
@@ -34,7 +34,7 @@ $.mobile.changeGlobalTheme = function (themeL) {
         .removeClass(themes.split(" ").join(" " + "ui-body" + "-"))
 
     setTheme("li", "ui-btn-up", themeL);
-    setTheme("a", "ui-btn", themeL);    
+    setTheme("a", "ui-btn", themeL);
     setTheme(".ui-btn", "ui-btn-up", themeL);
     setTheme(".ui-btn", "ui-btn-hover", themeL);
     setTheme("[data-role='page']", "ui-page-theme", themeL);
@@ -48,10 +48,9 @@ $.mobile.changeGlobalTheme = function (themeL) {
     setTheme("#AllAllTab", "ui-btn", themeL);
     setTheme('#MYFRIENDS', "ui-btn", themeL);
     setTheme('#ALLUSERS', "ui-btn", themeL);
+    setTheme('#CLUBS', "ui-btn", themeL);
     setTheme('#FRIENDSSCORESTAB', "ui-btn", themeL);
     setTheme('#ALLSCORESTAB', "ui-btn", themeL);
-
-
 
     setTheme("#70s", "ui-btn", themeL);
     setTheme("#80s", "ui-btn", themeL);
@@ -81,28 +80,28 @@ function UpdateTheme() {
     theme = choice;
 
     switch (choice) {
-        case "frogger":            
+        case "frogger":
             themeLetter = "b";
             break;
-        case "qix":            
+        case "qix":
             themeLetter = "c";
             break;
-        case "joust":            
+        case "joust":
             themeLetter = "d";
             break;
-        case "pacman":            
+        case "pacman":
             themeLetter = "e";
             break;
-        case "invader":            
+        case "invader":
             themeLetter = "f";
             break;
-        case "donkey":            
+        case "donkey":
             themeLetter = "g";
             break;
-        case "arkanoid":            
+        case "arkanoid":
             themeLetter = "h";
             break;
-        case "battlezone":            
+        case "battlezone":
             themeLetter = "i";
             break;
         default:
@@ -134,28 +133,28 @@ function SetNewThemeInUI() {
 
         switch (theme) {
             case "frogger":
-                themeLetter = "b";                
+                themeLetter = "b";
                 break;
             case "qix":
-                themeLetter = "c";                
+                themeLetter = "c";
                 break;
             case "joust":
-                themeLetter = "d";                
+                themeLetter = "d";
                 break;
             case "pacman":
-                themeLetter = "e";                
+                themeLetter = "e";
                 break;
             case "invader":
-                themeLetter = "f";                
+                themeLetter = "f";
                 break;
             case "donkey":
-                themeLetter = "g";                
+                themeLetter = "g";
                 break;
             case "arkanoid":
-                themeLetter = "h";                
+                themeLetter = "h";
                 break;
             case "battlezone":
-                themeLetter = "i";                
+                themeLetter = "i";
                 break;
             default:
                 theme = "default";

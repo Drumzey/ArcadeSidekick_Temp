@@ -1,13 +1,22 @@
-﻿//TODO: DONE
+﻿var notify = '';
 
 function TurnOnNotifications() {
-    if (test == false) {
+    if (test === false) {
         AppCenter.Push.setEnabled(true, enableSuccess, error);
+        if (AllowedOnline()) {            
+            try {
+                AppCenter.setUserId(clientUserName);
+            }
+            catch (err)
+            {
+                alert(err);
+            }
+        }
     }
 }
 
 function TurnOffNotifications() {
-    if (test == false) {
+    if (test === false) {
         AppCenter.Push.setEnabled(false, disableSuccess, error);
     }
 }
@@ -31,14 +40,13 @@ function SetNotifications() {
         choice = $(this).val();
     });
 
-    GetItemFromStorageWithCallBack('notify', function (oldchoice) {
-
-        if (oldchoice === "on" && choice === "notifyoff") {
-            SetItemInStorage('notify', 'off');
-            TurnOffNotifications();
-        } else if (oldchoice === "off" && choice === "notifyon") {
-            SetItemInStorage('notify', 'on');
-            TurnOnNotifications();
-        }
-    });
+    if (notify === "on" && choice === "notifyoff") {
+        notify = 'off';
+        SetItemInStorage('notify', 'off');
+        TurnOffNotifications();
+    } else if (notify === "off" && choice === "notifyon") {
+        notify = 'on';
+        SetItemInStorage('notify', 'on');
+        TurnOnNotifications();
+    }
 }

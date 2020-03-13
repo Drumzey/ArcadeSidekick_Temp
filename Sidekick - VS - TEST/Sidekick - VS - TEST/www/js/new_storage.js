@@ -6,15 +6,14 @@ function SuccessCallback(obj) {
 }
 
 function FailedToGet(obj) {
-    alert("Failured to get " + keyImLookingFor);    
+    alert("Failured to get " + keyImLookingFor);
 }
 
 function FailureCallBack(obj) {
-    alert("Failured to store " + keyImLookingFor);    
+    alert("Failured to store " + keyImLookingFor);
 }
 
-function ClearStorage()
-{
+function ClearStorage() {
     if (test === false) {
         NativeStorage.clear(SuccessCallback, FailureCallBack);
     }
@@ -25,12 +24,18 @@ function ClearStorage()
 
 function SetTestData(key, value) {
     switch (key) {
+        case "friendData":
+            localStorage.setItem("friendData", JSON.stringify(value));
+            return;
+        case "sharescreenshot":
+            localStorage.setItem("sharescreenshot", value);
+            return;
         case "notify":
             localStorage.setItem("notify", value);
             return;
         case "theme":
             localStorage.setItem("theme", value);
-            return;        
+            return;
         case "my_record":
             localStorage.setItem("my_record", JSON.stringify(value));
             return;
@@ -49,8 +54,14 @@ function SetTestData(key, value) {
         case "emailAddress":
             localStorage.setItem("emailAddress", value);
             return;
+        case "twitterHandle":
+            localStorage.setItem("twitterHandle", value);
+            return;
         case "friends":
             localStorage.setItem("friends", JSON.stringify(value));
+            return;
+        case "enemies":
+            localStorage.setItem("enemies", JSON.stringify(value));
             return;
         case "firstTimeFriends":
             localStorage.setItem("firstTimeFriends", value);
@@ -58,13 +69,20 @@ function SetTestData(key, value) {
         case "customGames":
             localStorage.setItem("customGames", JSON.stringify(value));
             return;
+        case "detailedScoreCollection":
+            localStorage.setItem("detailedScoreCollection", JSON.stringify(value));
+            return;
     }
 }
 
 function GetTestReturnData(key) {
     switch (key) {
+        case "friendData":
+            return JSON.parse(localStorage.getItem("friendData"));
+        case "sharescreenshot":
+            return localStorage.getItem("sharescreenshot");
         case "notify":
-            return localStorage.getItem("notify");            
+            return localStorage.getItem("notify");
         case "theme":
             return localStorage.getItem("theme");
         case "my_record":
@@ -78,25 +96,30 @@ function GetTestReturnData(key) {
         case "secret":
             return localStorage.getItem("secret");
         case "emailAddress":
-            return localStorage.getItem("emailAddress");            
-        case "friends":        
+            return localStorage.getItem("emailAddress");
+        case "twitterHandle":
+            return localStorage.getItem("twitterHandle");
+        case "friends":
             return JSON.parse(localStorage.getItem("friends"));
+        case "enemies":
+            return JSON.parse(localStorage.getItem("enemies"));
         case "firstTimeFriends":
             return localStorage.getItem("firstTimeFriends");
         case "customGames":
             return JSON.parse(localStorage.getItem("customGames"));
         case "version":
             return "1.0.40";
+        case "detailedScoreCollection":
+            return JSON.parse(localStorage.getItem("detailedScoreCollection"));
     }
 }
 
-function SetItemInStorage(key, value)
-{
+function SetItemInStorage(key, value) {
     if (test === false) {
         keyImLookingFor = key;
         NativeStorage.setItem(key, value, SuccessCallback, FailureCallBack);
     }
-    else {        
+    else {
         SetTestData(key, value);
         SuccessCallback();
     }

@@ -21,12 +21,14 @@ var gamenotifications = new Array();
 
 var clientUserName = '';
 var emailAddress = '';
+var secret = '';
+var twitterHandle = '';
 
 var currentGameNode = null;
 
 var currentGameType = '';
 var timeOrder = '';
 
-function LoadOnlineGameInformation() {     
-    GetCommunityRating();    
+function LoadOnlineGameInformation() {
+    GetCommunityRating();
 }

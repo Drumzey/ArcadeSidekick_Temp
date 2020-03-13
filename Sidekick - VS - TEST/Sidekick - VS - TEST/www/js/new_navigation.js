@@ -11,7 +11,7 @@ function ExitApp() {
 }
 
 function NavigateToInternalPage(pageName) {
-    if (CurrentPage !== pageName) {
+    if (CurrentPage() !== pageName) {
         pageHistory.push(pageName);
         Navigate(pageName);
     }
@@ -25,12 +25,18 @@ function NavigateBack() {
     if (pageHistory.length === 0) {
         ExitApp();
     } else {
-        var lastPage = pageHistory[pageHistory.length - 1];       
+        var lastPage = pageHistory[pageHistory.length - 1];
         Rehighlight(); //Refresh the current tab
-        if (lastPage === "#MyScores" && refreshMyScores) {            
-            SetLocalScoresUI();            
+        if (lastPage === "#MyScores" && refreshMyScores) {
+            SetLocalScoresUI();
             AlterScoreHeights();
             refreshMyScores = 0;
+        }
+
+        if (pageFrom === "#Game")
+        {
+            var videoElement = document.getElementById("gamevideo");
+            videoElement.setAttribute('src', '');
         }
 
         if (lastPage === "#Game" && refreshGame) {
@@ -38,12 +44,12 @@ function NavigateBack() {
             refreshGame = 0;
         }
 
-        if (lastPage === "#Category") {            
+        if (lastPage === "#Category") {
             if (currentTab === 'FRIENDSSCORES' || currentTab === 'ALLSCORES') {
                 SetCurrentTab(lastCategoryGamesTab);
             }
         }
-        if (lastPage === "#Everything") {            
+        if (lastPage === "#Everything") {
             if (currentTab === 'FRIENDSSCORES' || currentTab === 'ALLSCORES') {
                 SetCurrentTab(lastAllGamesTab);
             }
@@ -72,7 +78,7 @@ function NavigateBackDeviceButton(e) {
 
     if (popupopen === 0) {
         NavigateBack();
-    } else {        
+    } else {
         ClosePopup();
     }
 }

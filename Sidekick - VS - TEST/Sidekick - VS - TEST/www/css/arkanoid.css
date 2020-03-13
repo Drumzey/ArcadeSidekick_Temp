@@ -3,6 +3,12 @@
     src: url("../res/arkanoid.ttf");
 }
 
+.divIconPos {
+    position: absolute;
+    display: inline;
+    left: -3px;
+}
+
 title, h1, h3, li[data-role="list-divider"] {
     font-family: "customfont";
     font-size: 200% !important;
@@ -17,21 +23,21 @@ title, h1, h3, li[data-role="list-divider"] {
     font-size: 22px !important;
 }
 
-	ui-loader .ui-icon {
-		background-image: url(themes/images/arkanoid.gif);		
-	} 
+ui-loader .ui-icon {
+    background-image: url(themes/images/loaders/arkanoid.gif);
+}
 
-	.ui-icon-loading {  
-		background-image: url(themes/images/arkanoid.gif);
-		background-size: 46px 46px;				
-	}
+.ui-icon-loading {
+    background-image: url(themes/images/loaders/arkanoid.gif);
+    background-size: 46px 46px;
+}
 
 html {
     background: transparent;
 }
 
 body {
-    background: #000000 url(themes/images/arkanoid.png) !important;
+    background: #000000 url(themes/images/backgrounds/arkanoid.png) !important;
     background-repeat: no-repeat !important;
     background-position: bottom right !important;
     background-attachment: fixed !important;
@@ -46,92 +52,108 @@ body {
     background: transparent;
 }
 
-.myscores {
-    background: url(../category_icons/myscores.png), url(themes/images/arkanoid_1_btn.png);
+.quiz {
+    background: url(../img/category_icons/quiz.png), url(themes/images/buttons/arkanoid_btn2.png);
 }
 
-.recent {
-    background: url(../category_icons/recent.png), url(themes/images/arkanoid_3_btn.png);
+.notifications {
+    background: url(../img/category_icons/messages.png), url(themes/images/buttons/arkanoid_btn1.png);
 }
 
-.head2head {
-    background: url(../category_icons/headtohead.png), url(themes/images/arkanoid_4_btn.png);
+.profile {
+    background: url(../img/category_icons/profile.png), url(themes/images/buttons/arkanoid_btn2.png);
 }
 
-.allgames {
-    background: url(../category_icons/allgames.png), url(themes/images/arkanoid_2_btn.png);
-}
-
-.pinball {
-    background: url(../category_icons/pinball.png), url(themes/images/arkanoid_3_btn.png);
-}
-
-.beatemup {
-    background: url(../category_icons/beatemup.png), url(themes/images/arkanoid_4_btn.png);
-}
-
-.fighting {
-    background: url(../category_icons/fighting.png), url(themes/images/arkanoid_5_btn.png);
-}
-
-.guns {
-    background: url(../category_icons/guns.png), url(themes/images/arkanoid_6_btn.png);
-}
-
-.hackandslash {
-    background: url(../category_icons/hackandslash.png), url(themes/images/arkanoid_1_btn.png);
-}
-
-.maze {
-    background: url(../category_icons/maze.png), url(themes/images/arkanoid_2_btn.png);
-}
-
-.platformer {
-    background: url(../category_icons/platformer.png), url(themes/images/arkanoid_3_btn.png);
-}
-
-.topfifty {
-    background: url(../category_icons/topfifty.png), url(themes/images/arkanoid_1_btn.png);
-}
-
-.friends {
-    background: url(../category_icons/friends.png), url(themes/images/arkanoid_2_btn.png);
-}
-
-.puzzle {
-    background: url(../category_icons/puzzle.png), url(themes/images/arkanoid_3_btn.png);
-}
-
-.racing {
-    background: url(../category_icons/racing.png), url(themes/images/arkanoid_4_btn.png);
-}
-
-.runandgun {
-    background: url(../category_icons/runandgun.png), url(themes/images/arkanoid_5_btn.png);
-}
-
-.shooter {
-    background: url(../category_icons/shooter.png), url(themes/images/arkanoid_6_btn.png);
-}
-
-.sports {
-    background: url(../category_icons/sports.png), url(themes/images/arkanoid_1_btn.png);
-}
-
-.rhythm {
-    background: url(../category_icons/rhythm.png), url(themes/images/arkanoid_2_btn.png);
-}
-
-.misc {
-    background: url(../category_icons/misc.png), url(themes/images/arkanoid_3_btn.png);
-}
-
-.news {
-    background: url(../category_icons/news.png), url(themes/images/arkanoid_3_btn.png);
+.clubs {
+    background: url(../img/category_icons/clubs.png), url(themes/images/buttons/arkanoid_btn3.png);
 }
 
 .custom {
-    background: url(../category_icons/customgames.png), url(themes/images/arkanoid_4_btn.png);
+    background: url(../img/category_icons/customgames.png), url(themes/images/buttons/arkanoid_btn4.png);
+}
+
+.head2head {
+    background: url(../img/category_icons/headtohead.png), url(themes/images/buttons/arkanoid_btn5.png);
+}
+
+.recent {
+    background: url(../img/category_icons/recentactivity.png), url(themes/images/buttons/arkanoid_btn6.png);
+}
+
+.myscores {
+    background: url(../img/category_icons/myscores.png), url(themes/images/buttons/arkanoid_btn1.png);
+}
+
+.videogames {
+    background: url(../img/category_icons/arcadegames.png), url(themes/images/buttons/arkanoid_btn2.png);
+}
+
+.allgames {
+    background: url(../img/category_icons/allgames.png), url(themes/images/buttons/arkanoid_btn3.png);
+}
+
+.pinball {
+    background: url(../img/category_icons/pinball.png), url(themes/images/buttons/arkanoid_btn4.png);
+}
+
+.beatemup {
+    background: url(../img/category_icons/beatemup.png), url(themes/images/buttons/arkanoid_btn5.png);
+}
+
+.fighting {
+    background: url(../img/category_icons/fighting.png), url(themes/images/buttons/arkanoid_btn6.png);
+}
+
+.guns {
+    background: url(../img/category_icons/guns.png), url(themes/images/buttons/arkanoid_btn1.png);
+}
+
+.hackandslash {
+    background: url(../img/category_icons/hackandslash.png), url(themes/images/buttons/arkanoid_btn2.png);
+}
+
+.maze {
+    background: url(../img/category_icons/maze.png), url(themes/images/buttons/arkanoid_btn3.png);
+}
+
+.platformer {
+    background: url(../img/category_icons/platformer.png), url(themes/images/buttons/arkanoid_btn4.png);
+}
+
+.topfifty {
+    background: url(../img/category_icons/topfifty.png), url(themes/images/buttons/arkanoid_btn5.png);
+}
+
+.friends {
+    background: url(../img/category_icons/friends.png), url(themes/images/buttons/arkanoid_btn6.png);
+}
+
+.puzzle {
+    background: url(../img/category_icons/puzzle.png), url(themes/images/buttons/arkanoid_btn1.png);
+}
+
+.racing {
+    background: url(../img/category_icons/racing.png), url(themes/images/buttons/arkanoid_btn2.png);
+}
+
+.runandgun {
+    background: url(../img/category_icons/runandgun.png), url(themes/images/buttons/arkanoid_btn3.png);
+}
+
+.shooter {
+    background: url(../img/category_icons/shooter.png), url(themes/images/buttons/arkanoid_btn4.png);
+}
+
+.sports {
+    background: url(../img/category_icons/sports.png), url(themes/images/buttons/arkanoid_btn5.png);
+}
+
+.rhythm {
+    background: url(../img/category_icons/rhythm.png), url(themes/images/buttons/arkanoid_btn6.png);
+}
+
+.misc {
+    background: url(../img/category_icons/misc.png), url(themes/images/buttons/arkanoid_btn1.png);
 }
 
 .tile {
@@ -141,37 +163,8 @@ body {
     overflow: hidden;
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
-    -moz-column-break-inside: avoid;
-    column-break-inside: avoid;
     break-inside: avoid;
     break-inside: avoid-column;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-}
-
-.savebutton {
-    height: 28px !important;
-    padding: 0 !important;
-    margin-bottom: 0 !important;
-    margin-top: 2px !important;
-    margin-left: 0 !important;
-    margin-right: 5px !important;
-    background-color: #0081ff !important;
-    border-color: #ffffff !important;
-    color: #ffffff !important;
-    text-shadow: 0 0 0 #f3f3f3 !important;
-}
-
-.savebuttontime {
-    height: 28px !important;
-    float: right;
-    padding: 0 !important;
-    margin-bottom: 0 !important;
-    margin-top: 5px !important;
-    margin-left: 0 !important;
-    margin-right: 5px !important;
-    background-color: #0081ff !important;
-    border-color: #ffffff !important;
-    color: #ffffff !important;
-    text-shadow: 0 0 0 #f3f3f3 !important;
 }

@@ -1,15 +1,11 @@
 function Setup() {
-
-    GetItemFromStorageWithCallBack('notify', function (notify) {
-
-        if (notify === "on") {
-            set_jqm_radio_button_off("radio-notify", "notifyoff");
-            set_jqm_radio_button("radio-notify", "notifyon");
-        } else {
-            set_jqm_radio_button_off("radio-notify", "notifyon");
-            set_jqm_radio_button("radio-notify", "notifyoff");
-        }
-    });
+    if (notify === "on") {
+        set_jqm_radio_button_off("radio-notify", "notifyoff");
+        set_jqm_radio_button("radio-notify", "notifyon");
+    } else {
+        set_jqm_radio_button_off("radio-notify", "notifyon");
+        set_jqm_radio_button("radio-notify", "notifyoff");
+    }
 
     set_jqm_radio_button_off("radio-choice", "default");
     set_jqm_radio_button_off("radio-choice", "frogger");
@@ -28,17 +24,16 @@ function Setup() {
         Hide('#newuserbutton');
         Hide('#existinguserbutton');
         if (AllowedOnline()) {
-            Hide('#verifyuserbutton');            
+            Hide('#verifyuserbutton');
         }
-        else
-        {
+        else {
             Show('#verifyuserbutton');
         }
     }
     else {
         Show('#newuserbutton');
         Show('#existinguserbutton');
-        Hide('#verifyuserbutton');   
+        Hide('#verifyuserbutton');
     }
 }
 
@@ -50,8 +45,7 @@ function ShowExistingUser() {
     CreatePopup(existingUserPopup);
 }
 
-function ReleaseHistory()
-{
+function ReleaseHistory() {
     NavigateToInternalPage("#ReleaseHistory");
 }
 
@@ -64,7 +58,7 @@ function About() {
 }
 
 function Contact() {
-    CreatePopup(contactPopup);    
+    CreatePopup(contactPopup);
 }
 
 function ShowTheme() {

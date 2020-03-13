@@ -1,19 +1,4 @@
-﻿var Game = (function () {
-    this.name = '';
-    this.developer = '';
-    this.release = '';
-    this.players = '';
-    this.category = '';
-    this.type = '';
-    this.order = '';
-    this.alternativeName = '';
-    this.version = '';
-    this.parent = ''
-});
-
-var gameCatalog = [];
-
-gameCatalog['Alien vs Predator'] = new Game();
+﻿gameCatalog['Alien vs Predator'] = new Game();
 gameCatalog['Alien vs Predator'].name = 'Alien vs Predator';
 gameCatalog['Alien vs Predator'].developer = 'Capcom';
 gameCatalog['Alien vs Predator'].release = '1994';
@@ -23,7 +8,7 @@ gameCatalog['Alien vs Predator'].category = 'beatemup';
 gameCatalog['Altered Beast'] = new Game();
 gameCatalog['Altered Beast'].name = 'Altered Beast';
 gameCatalog['Altered Beast'].developer = 'Sega';
-gameCatalog['Altered Beast'].release = '1998';
+gameCatalog['Altered Beast'].release = '1988';
 gameCatalog['Altered Beast'].players = '2';
 gameCatalog['Altered Beast'].category = 'beatemup';
 
@@ -805,6 +790,14 @@ gameCatalog['Crazy Kong'].release = '1981';
 gameCatalog['Crazy Kong'].players = '2';
 gameCatalog['Crazy Kong'].category = 'platformer';
 
+gameCatalog['Crazy Kong (Galaxian Hardware)'] = new Game();
+gameCatalog['Crazy Kong (Galaxian Hardware)'].name = 'Crazy Kong (Galaxian Hardware)';
+gameCatalog['Crazy Kong (Galaxian Hardware)'].developer = 'Falcon';
+gameCatalog['Crazy Kong (Galaxian Hardware)'].release = '1981';
+gameCatalog['Crazy Kong (Galaxian Hardware)'].players = '2';
+gameCatalog['Crazy Kong (Galaxian Hardware)'].category = 'platformer';
+gameCatalog['Crazy Kong (Galaxian Hardware)'].parent = 'Crazy Kong';
+
 gameCatalog['Donkey Kong 3'] = new Game();
 gameCatalog['Donkey Kong 3'].name = 'Donkey Kong 3';
 gameCatalog['Donkey Kong 3'].developer = 'Nintendo';
@@ -1320,7 +1313,7 @@ gameCatalog['Spy Hunter'].category = 'racing';
 
 gameCatalog['Super bug'] = new Game();
 gameCatalog['Super bug'].name = 'Super bug';
-gameCatalog['Super bug'].developer = 'Atari';
+gameCatalog['Super bug'].developer = 'Atari (Key Games)';
 gameCatalog['Super bug'].release = 'September 1977';
 gameCatalog['Super bug'].players = '1';
 gameCatalog['Super bug'].category = 'racing';
@@ -1499,6 +1492,7 @@ gameCatalog['Gryzor'].developer = 'Konami';
 gameCatalog['Gryzor'].release = '1987';
 gameCatalog['Gryzor'].players = '2';
 gameCatalog['Gryzor'].category = 'runandgun';
+gameCatalog['Gryzor'].alternativeName = 'Contra';
 
 gameCatalog['Ikari Warriors'] = new Game();
 gameCatalog['Ikari Warriors'].name = 'Ikari Warriors';
@@ -1707,8 +1701,8 @@ gameCatalog['Astro Fighter'].category = 'shooter';
 
 gameCatalog['Astro Invader'] = new Game();
 gameCatalog['Astro Invader'].name = 'Astro Invader';
-gameCatalog['Astro Invader'].developer = 'Konami';
-gameCatalog['Astro Invader'].release = '1979';
+gameCatalog['Astro Invader'].developer = 'Stern Electronics';
+gameCatalog['Astro Invader'].release = '1980';
 gameCatalog['Astro Invader'].players = '2';
 gameCatalog['Astro Invader'].category = 'shooter';
 
@@ -1725,6 +1719,12 @@ gameCatalog['Batsugan'].developer = 'Toaplan';
 gameCatalog['Batsugan'].release = '1993';
 gameCatalog['Batsugan'].players = '2';
 gameCatalog['Batsugan'].category = 'shooter';
+try {
+    //gameCatalog['Batsugan'].displayName = 'Batsugun';    
+}
+catch (err) {
+    console.log(err);
+}
 
 gameCatalog['Battlezone'] = new Game();
 gameCatalog['Battlezone'].name = 'Battlezone';
@@ -2709,6 +2709,7 @@ gameCatalog['Strikers 1945 III'].developer = 'Psikyo';
 gameCatalog['Strikers 1945 III'].release = '1999';
 gameCatalog['Strikers 1945 III'].players = '2';
 gameCatalog['Strikers 1945 III'].category = 'shooter';
+gameCatalog['Strikers 1945 III'].alternativeName = 'Strikers 1999';
 
 gameCatalog['Thunder Cross'] = new Game();
 gameCatalog['Thunder Cross'].name = 'Thunder Cross';
@@ -3008,6 +3009,7 @@ gameCatalog['Sheriff'].developer = 'Nintendo';
 gameCatalog['Sheriff'].release = '1980';
 gameCatalog['Sheriff'].players = '2';
 gameCatalog['Sheriff'].category = 'shooter';
+gameCatalog['Sheriff'].alternativeName = 'Bandido';
 
 gameCatalog['Vulgus'] = new Game();
 gameCatalog['Vulgus'].name = 'Vulgus';
@@ -3050,3 +3052,3395 @@ gameCatalog['Baby Pac-Man'].developer = 'Bally Midway';
 gameCatalog['Baby Pac-Man'].release = '1982';
 gameCatalog['Baby Pac-Man'].players = '2';
 gameCatalog['Baby Pac-Man'].category = 'maze';
+
+gameCatalog['Air Gallet'] = new Game();
+gameCatalog['Air Gallet'].name = 'Air Gallet';
+gameCatalog['Air Gallet'].developer = 'Banpresto';
+gameCatalog['Air Gallet'].release = '1996';
+gameCatalog['Air Gallet'].players = '2';
+gameCatalog['Air Gallet'].category = 'shooter';
+
+gameCatalog['Big Karnak'] = new Game();
+gameCatalog['Big Karnak'].name = 'Big Karnak';
+gameCatalog['Big Karnak'].developer = 'Gaelco';
+gameCatalog['Big Karnak'].release = '1991';
+gameCatalog['Big Karnak'].players = '2';
+gameCatalog['Big Karnak'].category = 'platformer';
+
+gameCatalog['Bogey Manor'] = new Game();
+gameCatalog['Bogey Manor'].name = 'Bogey Manor';
+gameCatalog['Bogey Manor'].developer = 'Technos';
+gameCatalog['Bogey Manor'].release = '1985';
+gameCatalog['Bogey Manor'].players = '2';
+gameCatalog['Bogey Manor'].category = 'platformer';
+
+gameCatalog['ESP RA.DE.'] = new Game();
+gameCatalog['ESP RA.DE.'].name = 'ESP RA.DE.';
+gameCatalog['ESP RA.DE.'].developer = 'Atlus/Cave';
+gameCatalog['ESP RA.DE.'].release = '1998';
+gameCatalog['ESP RA.DE.'].players = '2';
+gameCatalog['ESP RA.DE.'].category = 'shooter';
+
+gameCatalog['Image Fight'] = new Game();
+gameCatalog['Image Fight'].name = 'Image Fight';
+gameCatalog['Image Fight'].developer = 'Irem';
+gameCatalog['Image Fight'].release = '1988';
+gameCatalog['Image Fight'].players = '2';
+gameCatalog['Image Fight'].category = 'shooter';
+
+gameCatalog['Mat Mania'] = new Game();
+gameCatalog['Mat Mania'].name = 'Mat Mania';
+gameCatalog['Mat Mania'].developer = 'Taito';
+gameCatalog['Mat Mania'].release = '1985';
+gameCatalog['Mat Mania'].players = '2';
+gameCatalog['Mat Mania'].category = 'sports';
+gameCatalog['Mat Mania'].alternativeName = 'Exciting Hour';
+
+gameCatalog['Metal Slug 2'] = new Game();
+gameCatalog['Metal Slug 2'].name = 'Metal Slug 2';
+gameCatalog['Metal Slug 2'].developer = 'SNK';
+gameCatalog['Metal Slug 2'].release = '1998';
+gameCatalog['Metal Slug 2'].players = '2';
+gameCatalog['Metal Slug 2'].category = 'runandgun';
+
+gameCatalog['Metal Slug 4'] = new Game();
+gameCatalog['Metal Slug 4'].name = 'Metal Slug 4';
+gameCatalog['Metal Slug 4'].developer = 'SNK';
+gameCatalog['Metal Slug 4'].release = '2002';
+gameCatalog['Metal Slug 4'].players = '2';
+gameCatalog['Metal Slug 4'].category = 'runandgun';
+
+gameCatalog['Metal Slug 5'] = new Game();
+gameCatalog['Metal Slug 5'].name = 'Metal Slug 5';
+gameCatalog['Metal Slug 5'].developer = 'SNK';
+gameCatalog['Metal Slug 5'].release = '2003';
+gameCatalog['Metal Slug 5'].players = '2';
+gameCatalog['Metal Slug 5'].category = 'runandgun';
+
+gameCatalog['Mr. F. Lea'] = new Game();
+gameCatalog['Mr. F. Lea'].name = 'Mr. F. Lea';
+gameCatalog['Mr. F. Lea'].developer = 'Pacific Novelty';
+gameCatalog['Mr. F. Lea'].release = '1983';
+gameCatalog['Mr. F. Lea'].players = '2';
+gameCatalog['Mr. F. Lea'].category = 'misc';
+
+gameCatalog['Muchi Muchi Pork'] = new Game();
+gameCatalog['Muchi Muchi Pork'].name = 'Muchi Muchi Pork';
+gameCatalog['Muchi Muchi Pork'].developer = 'Cave';
+gameCatalog['Muchi Muchi Pork'].release = '2007';
+gameCatalog['Muchi Muchi Pork'].players = '2';
+gameCatalog['Muchi Muchi Pork'].category = 'shooter';
+
+gameCatalog['Pit Fighter'] = new Game();
+gameCatalog['Pit Fighter'].name = 'Pit Fighter';
+gameCatalog['Pit Fighter'].developer = 'Atari';
+gameCatalog['Pit Fighter'].release = '1990';
+gameCatalog['Pit Fighter'].players = '3';
+gameCatalog['Pit Fighter'].category = 'fighting';
+
+gameCatalog['Sea Fighter Poseidon'] = new Game();
+gameCatalog['Sea Fighter Poseidon'].name = 'Sea Fighter Poseidon';
+gameCatalog['Sea Fighter Poseidon'].developer = 'Taito';
+gameCatalog['Sea Fighter Poseidon'].release = '1984';
+gameCatalog['Sea Fighter Poseidon'].players = '2';
+gameCatalog['Sea Fighter Poseidon'].category = 'shooter';
+
+gameCatalog['The Last Day'] = new Game();
+gameCatalog['The Last Day'].name = 'The Last Day';
+gameCatalog['The Last Day'].developer = 'Dooyong';
+gameCatalog['The Last Day'].release = '1990';
+gameCatalog['The Last Day'].players = '2';
+gameCatalog['The Last Day'].category = 'shooter';
+
+gameCatalog['Chelnov - Atomic Runner'] = new Game();
+gameCatalog['Chelnov - Atomic Runner'].name = 'Chelnov - Atomic Runner';
+gameCatalog['Chelnov - Atomic Runner'].developer = 'Data East';
+gameCatalog['Chelnov - Atomic Runner'].release = '1988';
+gameCatalog['Chelnov - Atomic Runner'].players = '2';
+gameCatalog['Chelnov - Atomic Runner'].category = 'shooter';
+
+gameCatalog['Cloak And Dagger'] = new Game();
+gameCatalog['Cloak And Dagger'].name = 'Cloak And Dagger';
+gameCatalog['Cloak And Dagger'].developer = 'Atari';
+gameCatalog['Cloak And Dagger'].release = '1983';
+gameCatalog['Cloak And Dagger'].players = '2';
+gameCatalog['Cloak And Dagger'].category = 'shooter';
+gameCatalog['Cloak And Dagger'].alternativeName = 'Agent X';
+
+gameCatalog['Mega Zone'] = new Game();
+gameCatalog['Mega Zone'].name = 'Mega Zone';
+gameCatalog['Mega Zone'].developer = 'Konami';
+gameCatalog['Mega Zone'].release = '1983';
+gameCatalog['Mega Zone'].players = '2';
+gameCatalog['Mega Zone'].category = 'shooter';
+
+gameCatalog['Silk Worm'] = new Game();
+gameCatalog['Silk Worm'].name = 'Silk Worm';
+gameCatalog['Silk Worm'].developer = 'Tecmo';
+gameCatalog['Silk Worm'].release = '1988';
+gameCatalog['Silk Worm'].players = '2';
+gameCatalog['Silk Worm'].category = 'shooter';
+
+gameCatalog['Uniwar S'] = new Game();
+gameCatalog['Uniwar S'].name = 'Uniwar S';
+gameCatalog['Uniwar S'].developer = 'Irem';
+gameCatalog['Uniwar S'].release = '1980';
+gameCatalog['Uniwar S'].players = '2';
+gameCatalog['Uniwar S'].category = 'shooter';
+
+gameCatalog['10-Yard Fight'] = new Game();
+gameCatalog['10-Yard Fight'].name = '10-Yard Fight';
+gameCatalog['10-Yard Fight'].developer = 'Taito';
+gameCatalog['10-Yard Fight'].release = '1984';
+gameCatalog['10-Yard Fight'].players = '2';
+gameCatalog['10-Yard Fight'].category = 'sports';
+
+gameCatalog['Timber'] = new Game();
+gameCatalog['Timber'].name = 'Timber';
+gameCatalog['Timber'].developer = 'Bally Midway';
+gameCatalog['Timber'].release = '1984';
+gameCatalog['Timber'].players = '2';
+gameCatalog['Timber'].category = 'misc';
+
+gameCatalog['Tournament Arkanoid'] = new Game();
+gameCatalog['Tournament Arkanoid'].name = 'Tournament Arkanoid';
+gameCatalog['Tournament Arkanoid'].developer = 'Taito';
+gameCatalog['Tournament Arkanoid'].release = '1987';
+gameCatalog['Tournament Arkanoid'].players = '2';
+gameCatalog['Tournament Arkanoid'].category = 'misc';
+
+gameCatalog['Pac-Man Plus'] = new Game();
+gameCatalog['Pac-Man Plus'].name = 'Pac-Man Plus';
+gameCatalog['Pac-Man Plus'].developer = 'Bally Midway';
+gameCatalog['Pac-Man Plus'].release = '1982';
+gameCatalog['Pac-Man Plus'].players = '2';
+gameCatalog['Pac-Man Plus'].category = 'maze';
+
+gameCatalog['Pac-Man Plus - Speed up hack'] = new Game();
+gameCatalog['Pac-Man Plus - Speed up hack'].name = 'Pac-Man Plus - Speed up hack';
+gameCatalog['Pac-Man Plus - Speed up hack'].developer = 'Bally Midway';
+gameCatalog['Pac-Man Plus - Speed up hack'].release = '1982';
+gameCatalog['Pac-Man Plus - Speed up hack'].players = '2';
+gameCatalog['Pac-Man Plus - Speed up hack'].category = 'maze';
+gameCatalog['Pac-Man Plus - Speed up hack'].version = 'Speed up hack';
+gameCatalog['Pac-Man Plus - Speed up hack'].parent = 'Pac-Man Plus';
+
+gameCatalog['Tinkle Pit'] = new Game();
+gameCatalog['Tinkle Pit'].name = 'Tinkle Pit';
+gameCatalog['Tinkle Pit'].developer = 'Namco';
+gameCatalog['Tinkle Pit'].release = '1993';
+gameCatalog['Tinkle Pit'].players = '2';
+gameCatalog['Tinkle Pit'].category = 'maze';
+
+gameCatalog['Rescue'] = new Game();
+gameCatalog['Rescue'].name = 'Rescue';
+gameCatalog['Rescue'].developer = 'Stern';
+gameCatalog['Rescue'].release = '1982';
+gameCatalog['Rescue'].players = '2';
+gameCatalog['Rescue'].category = 'shooter';
+
+gameCatalog['1944 The Loop Master'] = new Game();
+gameCatalog['1944 The Loop Master'].name = '1944 The Loop Master';
+gameCatalog['1944 The Loop Master'].developer = 'Capcom/8ing/Raizing';
+gameCatalog['1944 The Loop Master'].release = '2000';
+gameCatalog['1944 The Loop Master'].players = '2';
+gameCatalog['1944 The Loop Master'].category = 'shooter';
+
+gameCatalog['B.Rap Boys'] = new Game();
+gameCatalog['B.Rap Boys'].name = 'B.Rap Boys';
+gameCatalog['B.Rap Boys'].developer = 'Kaneko';
+gameCatalog['B.Rap Boys'].release = '1992';
+gameCatalog['B.Rap Boys'].players = '3';
+gameCatalog['B.Rap Boys'].category = 'beatemup';
+
+gameCatalog['Batman Forever'] = new Game();
+gameCatalog['Batman Forever'].name = 'Batman Forever';
+gameCatalog['Batman Forever'].developer = 'Acclaim';
+gameCatalog['Batman Forever'].release = '1996';
+gameCatalog['Batman Forever'].players = '2';
+gameCatalog['Batman Forever'].category = 'beatemup';
+
+gameCatalog['Batman'] = new Game();
+gameCatalog['Batman'].name = 'Batman';
+gameCatalog['Batman'].developer = 'Atari';
+gameCatalog['Batman'].release = '1990';
+gameCatalog['Batman'].players = '2';
+gameCatalog['Batman'].category = 'beatemup';
+
+gameCatalog['Battle Garegga'] = new Game();
+gameCatalog['Battle Garegga'].name = 'Battle Garegga';
+gameCatalog['Battle Garegga'].developer = 'Raizing/8ing';
+gameCatalog['Battle Garegga'].release = '1996';
+gameCatalog['Battle Garegga'].players = '2';
+gameCatalog['Battle Garegga'].category = 'shooter';
+
+gameCatalog['Battle Shark'] = new Game();
+gameCatalog['Battle Shark'].name = 'Battle Shark';
+gameCatalog['Battle Shark'].developer = 'Taito';
+gameCatalog['Battle Shark'].release = '1989';
+gameCatalog['Battle Shark'].players = '1';
+gameCatalog['Battle Shark'].category = 'shooter';
+
+gameCatalog['Battletoads'] = new Game();
+gameCatalog['Battletoads'].name = 'Battletoads';
+gameCatalog['Battletoads'].developer = 'Rare';
+gameCatalog['Battletoads'].release = '1994';
+gameCatalog['Battletoads'].players = '3';
+gameCatalog['Battletoads'].category = 'beatemup';
+
+gameCatalog['Bio Freaks'] = new Game();
+gameCatalog['Bio Freaks'].name = 'Bio Freaks';
+gameCatalog['Bio Freaks'].developer = 'Midway';
+gameCatalog['Bio Freaks'].release = '1998';
+gameCatalog['Bio Freaks'].players = '2';
+gameCatalog['Bio Freaks'].category = 'fighting';
+
+gameCatalog['Bionic Commando'] = new Game();
+gameCatalog['Bionic Commando'].name = 'Bionic Commando';
+gameCatalog['Bionic Commando'].developer = 'capcom';
+gameCatalog['Bionic Commando'].release = '1987';
+gameCatalog['Bionic Commando'].players = '2';
+gameCatalog['Bionic Commando'].category = 'platformer';
+
+gameCatalog['Bio-ship Paladin'] = new Game();
+gameCatalog['Bio-ship Paladin'].name = 'Bio-ship Paladin';
+gameCatalog['Bio-ship Paladin'].developer = 'UPL';
+gameCatalog['Bio-ship Paladin'].release = '1990';
+gameCatalog['Bio-ship Paladin'].players = '2';
+gameCatalog['Bio-ship Paladin'].category = 'shooter';
+
+gameCatalog['Blade Master'] = new Game();
+gameCatalog['Blade Master'].name = 'Blade Master';
+gameCatalog['Blade Master'].developer = 'Irem';
+gameCatalog['Blade Master'].release = '1991';
+gameCatalog['Blade Master'].players = '2';
+gameCatalog['Blade Master'].category = 'hackandslash';
+
+gameCatalog['Blasted'] = new Game();
+gameCatalog['Blasted'].name = 'Blasted';
+gameCatalog['Blasted'].developer = 'Bally Midway';
+gameCatalog['Blasted'].release = '1988';
+gameCatalog['Blasted'].players = '2';
+gameCatalog['Blasted'].category = 'shooter';
+
+gameCatalog['Blaster'] = new Game();
+gameCatalog['Blaster'].name = 'Blaster';
+gameCatalog['Blaster'].developer = 'Williams Electronics';
+gameCatalog['Blaster'].release = '1983';
+gameCatalog['Blaster'].players = '2';
+gameCatalog['Blaster'].category = 'shooter';
+
+gameCatalog['Block Hole'] = new Game();
+gameCatalog['Block Hole'].name = 'Block Hole';
+gameCatalog['Block Hole'].developer = 'Konami';
+gameCatalog['Block Hole'].release = '1989';
+gameCatalog['Block Hole'].players = '2';
+gameCatalog['Block Hole'].category = 'puzzle';
+
+gameCatalog['Bloodstorm'] = new Game();
+gameCatalog['Bloodstorm'].name = 'Bloodstorm';
+gameCatalog['Bloodstorm'].developer = 'Strata';
+gameCatalog['Bloodstorm'].release = '1994';
+gameCatalog['Bloodstorm'].players = '2';
+gameCatalog['Bloodstorm'].category = 'fighting';
+
+gameCatalog['Bloxeed'] = new Game();
+gameCatalog['Bloxeed'].name = 'Bloxeed';
+gameCatalog['Bloxeed'].developer = 'Sega';
+gameCatalog['Bloxeed'].release = '1990';
+gameCatalog['Bloxeed'].players = '2';
+gameCatalog['Bloxeed'].category = 'puzzle';
+
+gameCatalog['Blue Print'] = new Game();
+gameCatalog['Blue Print'].name = 'Blue Print';
+gameCatalog['Blue Print'].developer = 'Bally Midway';
+gameCatalog['Blue Print'].release = '1982';
+gameCatalog['Blue Print'].players = '2';
+gameCatalog['Blue Print'].category = 'maze';
+
+gameCatalog['Bonanza Bros'] = new Game();
+gameCatalog['Bonanza Bros'].name = 'Bonanza Bros';
+gameCatalog['Bonanza Bros'].developer = 'Sega';
+gameCatalog['Bonanza Bros'].release = '1990';
+gameCatalog['Bonanza Bros'].players = '2';
+gameCatalog['Bonanza Bros'].category = 'platformer';
+
+gameCatalog['Bonks Adventure'] = new Game();
+gameCatalog['Bonks Adventure'].name = 'Bonks Adventure';
+gameCatalog['Bonks Adventure'].developer = 'Kaneko';
+gameCatalog['Bonks Adventure'].release = '1994';
+gameCatalog['Bonks Adventure'].players = '2';
+gameCatalog['Bonks Adventure'].category = 'platformer';
+
+gameCatalog['Boogie Wings'] = new Game();
+gameCatalog['Boogie Wings'].name = 'Boogie Wings';
+gameCatalog['Boogie Wings'].developer = 'Data East';
+gameCatalog['Boogie Wings'].release = '1992';
+gameCatalog['Boogie Wings'].players = '2';
+gameCatalog['Boogie Wings'].category = 'shooter';
+
+gameCatalog['Boomer Rangr'] = new Game();
+gameCatalog['Boomer Rangr'].name = 'Boomer Rangr';
+gameCatalog['Boomer Rangr'].developer = 'Data East';
+gameCatalog['Boomer Rangr'].release = '1983';
+gameCatalog['Boomer Rangr'].players = '2';
+gameCatalog['Boomer Rangr'].category = 'platformer';
+
+gameCatalog['Bosconian'] = new Game();
+gameCatalog['Bosconian'].name = 'Bosconian';
+gameCatalog['Bosconian'].developer = 'Midway';
+gameCatalog['Bosconian'].release = '1981';
+gameCatalog['Bosconian'].players = '2';
+gameCatalog['Bosconian'].category = 'shooter';
+
+gameCatalog['Breakers Revenge'] = new Game();
+gameCatalog['Breakers Revenge'].name = 'Breakers Revenge';
+gameCatalog['Breakers Revenge'].developer = 'Visco Games';
+gameCatalog['Breakers Revenge'].release = '1998';
+gameCatalog['Breakers Revenge'].players = '2';
+gameCatalog['Breakers Revenge'].category = 'fighting';
+
+gameCatalog['Buck Rogers'] = new Game();
+gameCatalog['Buck Rogers'].name = 'Buck Rogers';
+gameCatalog['Buck Rogers'].developer = 'Sega';
+gameCatalog['Buck Rogers'].release = '1982';
+gameCatalog['Buck Rogers'].players = '2';
+gameCatalog['Buck Rogers'].category = 'shooter';
+
+gameCatalog['Bucky OHare'] = new Game();
+gameCatalog['Bucky OHare'].name = 'Bucky OHare';
+gameCatalog['Bucky OHare'].developer = 'Konami';
+gameCatalog['Bucky OHare'].release = '1992';
+gameCatalog['Bucky OHare'].players = '4';
+gameCatalog['Bucky OHare'].category = 'beatemup';
+
+gameCatalog['Bullet'] = new Game();
+gameCatalog['Bullet'].name = 'Bullet';
+gameCatalog['Bullet'].developer = 'Sega';
+gameCatalog['Bullet'].release = '1987';
+gameCatalog['Bullet'].players = '3';
+gameCatalog['Bullet'].category = 'runandgun';
+
+gameCatalog['Cosmic Alien'] = new Game();
+gameCatalog['Cosmic Alien'].name = 'Cosmic Alien';
+gameCatalog['Cosmic Alien'].developer = 'Universal';
+gameCatalog['Cosmic Alien'].release = '1980';
+gameCatalog['Cosmic Alien'].players = '2';
+gameCatalog['Cosmic Alien'].category = 'shooter';
+
+gameCatalog['Crazy Balloon'] = new Game();
+gameCatalog['Crazy Balloon'].name = 'Crazy Balloon';
+gameCatalog['Crazy Balloon'].developer = 'Taito';
+gameCatalog['Crazy Balloon'].release = '1980';
+gameCatalog['Crazy Balloon'].players = '2';
+gameCatalog['Crazy Balloon'].category = 'maze';
+
+gameCatalog['Dont Pull'] = new Game();
+gameCatalog['Dont Pull'].name = 'Dont Pull';
+gameCatalog['Dont Pull'].developer = 'Capcom';
+gameCatalog['Dont Pull'].release = '1991';
+gameCatalog['Dont Pull'].players = '2';
+gameCatalog['Dont Pull'].category = 'puzzle';
+
+gameCatalog['Dr Micro'] = new Game();
+gameCatalog['Dr Micro'].name = 'Dr Micro';
+gameCatalog['Dr Micro'].developer = 'Sanritsu';
+gameCatalog['Dr Micro'].release = '1983';
+gameCatalog['Dr Micro'].players = '2';
+gameCatalog['Dr Micro'].category = 'platformer';
+
+gameCatalog['Exed Exes'] = new Game();
+gameCatalog['Exed Exes'].name = 'Exed Exes';
+gameCatalog['Exed Exes'].developer = 'Capcom';
+gameCatalog['Exed Exes'].release = '1985';
+gameCatalog['Exed Exes'].players = '2';
+gameCatalog['Exed Exes'].category = 'shooter';
+
+gameCatalog['Fantasy Zone II'] = new Game();
+gameCatalog['Fantasy Zone II'].name = 'Fantasy Zone II';
+gameCatalog['Fantasy Zone II'].developer = 'Sega';
+gameCatalog['Fantasy Zone II'].release = '1987';
+gameCatalog['Fantasy Zone II'].players = '2';
+gameCatalog['Fantasy Zone II'].category = 'shooter';
+
+gameCatalog['Iron Horse'] = new Game();
+gameCatalog['Iron Horse'].name = 'Iron Horse';
+gameCatalog['Iron Horse'].developer = 'Konami';
+gameCatalog['Iron Horse'].release = '1986';
+gameCatalog['Iron Horse'].players = '2';
+gameCatalog['Iron Horse'].category = 'beatemup';
+
+gameCatalog['Jump Bug'] = new Game();
+gameCatalog['Jump Bug'].name = 'Jump Bug';
+gameCatalog['Jump Bug'].developer = 'Rock-Ola Mfg Corp';
+gameCatalog['Jump Bug'].release = '1981';
+gameCatalog['Jump Bug'].players = '2';
+gameCatalog['Jump Bug'].category = 'platformer';
+
+gameCatalog['Jumping Jack'] = new Game();
+gameCatalog['Jumping Jack'].name = 'Jumping Jack';
+gameCatalog['Jumping Jack'].developer = 'Universal';
+gameCatalog['Jumping Jack'].release = '1984';
+gameCatalog['Jumping Jack'].players = '2';
+gameCatalog['Jumping Jack'].category = 'platformer';
+
+gameCatalog['Jungler'] = new Game();
+gameCatalog['Jungler'].name = 'Jungler';
+gameCatalog['Jungler'].developer = 'Konami';
+gameCatalog['Jungler'].release = '1981';
+gameCatalog['Jungler'].players = '2';
+gameCatalog['Jungler'].category = 'maze';
+
+gameCatalog['Marchen Maze'] = new Game();
+gameCatalog['Marchen Maze'].name = 'Marchen Maze';
+gameCatalog['Marchen Maze'].developer = 'Namco';
+gameCatalog['Marchen Maze'].release = '1988';
+gameCatalog['Marchen Maze'].players = '2';
+gameCatalog['Marchen Maze'].category = 'platformer';
+
+gameCatalog['Mr Driller'] = new Game();
+gameCatalog['Mr Driller'].name = 'Mr Driller';
+gameCatalog['Mr Driller'].developer = 'Namco';
+gameCatalog['Mr Driller'].release = '1999';
+gameCatalog['Mr Driller'].players = '2';
+gameCatalog['Mr Driller'].category = 'puzzle';
+
+gameCatalog['Naughty Boy'] = new Game();
+gameCatalog['Naughty Boy'].name = 'Naughty Boy';
+gameCatalog['Naughty Boy'].developer = 'Jaleco';
+gameCatalog['Naughty Boy'].release = '1982';
+gameCatalog['Naughty Boy'].players = '2';
+gameCatalog['Naughty Boy'].category = 'maze';
+
+gameCatalog['Pinball Action'] = new Game();
+gameCatalog['Pinball Action'].name = 'Pinball Action';
+gameCatalog['Pinball Action'].developer = 'Tehkan';
+gameCatalog['Pinball Action'].release = '1985';
+gameCatalog['Pinball Action'].players = '2';
+gameCatalog['Pinball Action'].category = 'misc';
+
+gameCatalog['Pirate Ship Higemaru'] = new Game();
+gameCatalog['Pirate Ship Higemaru'].name = 'Pirate Ship Higemaru';
+gameCatalog['Pirate Ship Higemaru'].developer = 'Capcom';
+gameCatalog['Pirate Ship Higemaru'].release = '1984';
+gameCatalog['Pirate Ship Higemaru'].players = '2';
+gameCatalog['Pirate Ship Higemaru'].category = 'platformer';
+
+gameCatalog['Pulsar'] = new Game();
+gameCatalog['Pulsar'].name = 'Pulsar';
+gameCatalog['Pulsar'].developer = 'Sega/Gremlin';
+gameCatalog['Pulsar'].release = '1981';
+gameCatalog['Pulsar'].players = '2';
+gameCatalog['Pulsar'].category = 'maze';
+
+gameCatalog['Red Baron'] = new Game();
+gameCatalog['Red Baron'].name = 'Red Baron';
+gameCatalog['Red Baron'].developer = 'Atari';
+gameCatalog['Red Baron'].release = '1980';
+gameCatalog['Red Baron'].players = '1';
+gameCatalog['Red Baron'].category = 'shooter';
+
+gameCatalog['Road Fighter'] = new Game();
+gameCatalog['Road Fighter'].name = 'Road Fighter';
+gameCatalog['Road Fighter'].developer = 'Konami';
+gameCatalog['Road Fighter'].release = '1984';
+gameCatalog['Road Fighter'].players = '2';
+gameCatalog['Road Fighter'].category = 'racing';
+
+gameCatalog['Tokio'] = new Game();
+gameCatalog['Tokio'].name = 'Tokio';
+gameCatalog['Tokio'].developer = 'Taito';
+gameCatalog['Tokio'].release = '1986';
+gameCatalog['Tokio'].players = '2';
+gameCatalog['Tokio'].category = 'shooter';
+gameCatalog['Tokio'].alternativeName = 'Scramble Formation';
+
+gameCatalog['Twin Cobra'] = new Game();
+gameCatalog['Twin Cobra'].name = 'Twin Cobra';
+gameCatalog['Twin Cobra'].developer = 'Toaplan';
+gameCatalog['Twin Cobra'].release = '1987';
+gameCatalog['Twin Cobra'].players = '2';
+gameCatalog['Twin Cobra'].category = 'shooter';
+
+gameCatalog['Caveman Ninja'] = new Game();
+gameCatalog['Caveman Ninja'].name = 'Caveman Ninja';
+gameCatalog['Caveman Ninja'].developer = 'Data East';
+gameCatalog['Caveman Ninja'].release = '1991';
+gameCatalog['Caveman Ninja'].players = '2';
+gameCatalog['Caveman Ninja'].category = 'platformer';
+
+gameCatalog['Chimera Beast'] = new Game();
+gameCatalog['Chimera Beast'].name = 'Chimera Beast';
+gameCatalog['Chimera Beast'].developer = 'Jaleco';
+gameCatalog['Chimera Beast'].release = '1993';
+gameCatalog['Chimera Beast'].players = '2';
+gameCatalog['Chimera Beast'].category = 'shooter';
+
+gameCatalog['Cabal'] = new Game();
+gameCatalog['Cabal'].name = 'Cabal';
+gameCatalog['Cabal'].developer = 'TAD Corporation';
+gameCatalog['Cabal'].release = '1988';
+gameCatalog['Cabal'].players = '2';
+gameCatalog['Cabal'].category = 'shooter';
+
+gameCatalog['Cadash'] = new Game();
+gameCatalog['Cadash'].name = 'Cadash';
+gameCatalog['Cadash'].developer = 'Taito';
+gameCatalog['Cadash'].release = '1989';
+gameCatalog['Cadash'].players = '4';
+gameCatalog['Cadash'].category = 'platformer';
+gameCatalog['Cadash'].type = 'time';
+
+gameCatalog['Captain America And The Avengers'] = new Game();
+gameCatalog['Captain America And The Avengers'].name = 'Captain America And The Avengers';
+gameCatalog['Captain America And The Avengers'].developer = 'Data East';
+gameCatalog['Captain America And The Avengers'].release = '1991';
+gameCatalog['Captain America And The Avengers'].players = '2';
+gameCatalog['Captain America And The Avengers'].category = 'beatemup';
+
+gameCatalog['P.O.W'] = new Game();
+gameCatalog['P.O.W'].name = 'P.O.W';
+gameCatalog['P.O.W'].developer = 'SNK';
+gameCatalog['P.O.W'].release = '1988';
+gameCatalog['P.O.W'].players = '2';
+gameCatalog['P.O.W'].category = 'beatemup';
+
+gameCatalog['The Punisher'] = new Game();
+gameCatalog['The Punisher'].name = 'The Punisher';
+gameCatalog['The Punisher'].developer = 'Capcom';
+gameCatalog['The Punisher'].release = '1993';
+gameCatalog['The Punisher'].players = '2';
+gameCatalog['The Punisher'].category = 'beatemup';
+
+gameCatalog['Capcom vs SNK 2 Mark of the Millennium 2001'] = new Game();
+gameCatalog['Capcom vs SNK 2 Mark of the Millennium 2001'].name = 'Capcom vs SNK 2 Mark of the Millennium 2001';
+gameCatalog['Capcom vs SNK 2 Mark of the Millennium 2001'].developer = 'Capcom';
+gameCatalog['Capcom vs SNK 2 Mark of the Millennium 2001'].release = '2001';
+gameCatalog['Capcom vs SNK 2 Mark of the Millennium 2001'].players = '2';
+gameCatalog['Capcom vs SNK 2 Mark of the Millennium 2001'].category = 'fighting';
+gameCatalog['Capcom vs SNK 2 Mark of the Millennium 2001'].alternativeName = 'Capcom vs SNK 2 Millionaire Fighting 2001';
+
+gameCatalog['X-Men vs Street Fighter'] = new Game();
+gameCatalog['X-Men vs Street Fighter'].name = 'X-Men vs Street Fighter';
+gameCatalog['X-Men vs Street Fighter'].developer = 'Capcom';
+gameCatalog['X-Men vs Street Fighter'].release = '1996';
+gameCatalog['X-Men vs Street Fighter'].players = '2';
+gameCatalog['X-Men vs Street Fighter'].category = 'fighting';
+
+gameCatalog['Mad Dog Mc Cree'] = new Game();
+gameCatalog['Mad Dog Mc Cree'].name = 'Mad Dog Mc Cree';
+gameCatalog['Mad Dog Mc Cree'].developer = 'American Laser Games';
+gameCatalog['Mad Dog Mc Cree'].release = '1990';
+gameCatalog['Mad Dog Mc Cree'].players = '1';
+gameCatalog['Mad Dog Mc Cree'].category = 'guns';
+
+gameCatalog['Silent Scope 2'] = new Game();
+gameCatalog['Silent Scope 2'].name = 'Silent Scope 2';
+gameCatalog['Silent Scope 2'].developer = 'Konami';
+gameCatalog['Silent Scope 2'].release = '2000';
+gameCatalog['Silent Scope 2'].players = '1';
+gameCatalog['Silent Scope 2'].category = 'guns';
+
+gameCatalog['Dragons Lair II'] = new Game();
+gameCatalog['Dragons Lair II'].name = 'Dragons Lair II';
+gameCatalog['Dragons Lair II'].developer = 'Leland';
+gameCatalog['Dragons Lair II'].release = '1991';
+gameCatalog['Dragons Lair II'].players = '2';
+gameCatalog['Dragons Lair II'].category = 'misc';
+
+gameCatalog['Krull'] = new Game();
+gameCatalog['Krull'].name = 'Krull';
+gameCatalog['Krull'].developer = 'Gottlieb, D., & Co., a Columbia Pictures Industries Co';
+gameCatalog['Krull'].release = '1983';
+gameCatalog['Krull'].players = '2';
+gameCatalog['Krull'].category = 'misc';
+
+gameCatalog['Space Ace'] = new Game();
+gameCatalog['Space Ace'].name = 'Space Ace';
+gameCatalog['Space Ace'].developer = 'Cinematronics';
+gameCatalog['Space Ace'].release = '1984';
+gameCatalog['Space Ace'].players = '2';
+gameCatalog['Space Ace'].category = 'misc';
+
+gameCatalog['Xybots'] = new Game();
+gameCatalog['Xybots'].name = 'Xybots';
+gameCatalog['Xybots'].developer = 'Atari';
+gameCatalog['Xybots'].release = '1987';
+gameCatalog['Xybots'].players = '2';
+gameCatalog['Xybots'].category = 'misc';
+
+gameCatalog['Pitfall II'] = new Game();
+gameCatalog['Pitfall II'].name = 'Pitfall II';
+gameCatalog['Pitfall II'].developer = 'Sega';
+gameCatalog['Pitfall II'].release = '1985';
+gameCatalog['Pitfall II'].players = '2';
+gameCatalog['Pitfall II'].category = 'platformer';
+
+gameCatalog['Spelunker II'] = new Game();
+gameCatalog['Spelunker II'].name = 'Spelunker II';
+gameCatalog['Spelunker II'].developer = 'Irem';
+gameCatalog['Spelunker II'].release = '1985';
+gameCatalog['Spelunker II'].players = '2';
+gameCatalog['Spelunker II'].category = 'platformer';
+
+gameCatalog['Spelunker'] = new Game();
+gameCatalog['Spelunker'].name = 'Spelunker';
+gameCatalog['Spelunker'].developer = 'Irem';
+gameCatalog['Spelunker'].release = '1985';
+gameCatalog['Spelunker'].players = '2';
+gameCatalog['Spelunker'].category = 'platformer';
+
+gameCatalog['Out Run 2 SP - Special Tours'] = new Game();
+gameCatalog['Out Run 2 SP - Special Tours'].name = 'Out Run 2 SP - Special Tours';
+gameCatalog['Out Run 2 SP - Special Tours'].developer = 'Sega';
+gameCatalog['Out Run 2 SP - Special Tours'].release = '2004';
+gameCatalog['Out Run 2 SP - Special Tours'].players = '4';
+gameCatalog['Out Run 2 SP - Special Tours'].category = 'racing';
+
+gameCatalog['Rally Bike'] = new Game();
+gameCatalog['Rally Bike'].name = 'Rally Bike';
+gameCatalog['Rally Bike'].developer = 'Taito';
+gameCatalog['Rally Bike'].release = '1988';
+gameCatalog['Rally Bike'].players = '2';
+gameCatalog['Rally Bike'].category = 'racing';
+
+gameCatalog['Ridge Racer'] = new Game();
+gameCatalog['Ridge Racer'].name = 'Ridge Racer';
+gameCatalog['Ridge Racer'].developer = 'Namco';
+gameCatalog['Ridge Racer'].release = '1993';
+gameCatalog['Ridge Racer'].players = '1';
+gameCatalog['Ridge Racer'].category = 'racing';
+
+gameCatalog['Sega Rally 2 Championship'] = new Game();
+gameCatalog['Sega Rally 2 Championship'].name = 'Sega Rally 2 Championship';
+gameCatalog['Sega Rally 2 Championship'].developer = 'Sega';
+gameCatalog['Sega Rally 2 Championship'].release = '1998';
+gameCatalog['Sega Rally 2 Championship'].players = '4';
+gameCatalog['Sega Rally 2 Championship'].category = 'racing';
+
+gameCatalog['Sega Rally 3'] = new Game();
+gameCatalog['Sega Rally 3'].name = 'Sega Rally 3';
+gameCatalog['Sega Rally 3'].developer = 'Sega';
+gameCatalog['Sega Rally 3'].release = '2008';
+gameCatalog['Sega Rally 3'].players = '6';
+gameCatalog['Sega Rally 3'].category = 'racing';
+
+gameCatalog['Super Sprint'] = new Game();
+gameCatalog['Super Sprint'].name = 'Super Sprint';
+gameCatalog['Super Sprint'].developer = 'Atari';
+gameCatalog['Super Sprint'].release = '1986';
+gameCatalog['Super Sprint'].players = '3';
+gameCatalog['Super Sprint'].category = 'racing';
+
+gameCatalog['Zippy Race'] = new Game();
+gameCatalog['Zippy Race'].name = 'Zippy Race';
+gameCatalog['Zippy Race'].developer = 'Irem';
+gameCatalog['Zippy Race'].release = '1983';
+gameCatalog['Zippy Race'].players = '2';
+gameCatalog['Zippy Race'].category = 'racing';
+
+gameCatalog['Jail Break'] = new Game();
+gameCatalog['Jail Break'].name = 'Jail Break';
+gameCatalog['Jail Break'].developer = 'Konami';
+gameCatalog['Jail Break'].release = '1985';
+gameCatalog['Jail Break'].players = '2';
+gameCatalog['Jail Break'].category = 'runandgun';
+
+gameCatalog['Choplifter'] = new Game();
+gameCatalog['Choplifter'].name = 'Choplifter';
+gameCatalog['Choplifter'].developer = 'Sega';
+gameCatalog['Choplifter'].release = '1985';
+gameCatalog['Choplifter'].players = '2';
+gameCatalog['Choplifter'].category = 'shooter';
+
+gameCatalog['DoDonpachi II'] = new Game();
+gameCatalog['DoDonpachi II'].name = 'DoDonpachi II';
+gameCatalog['DoDonpachi II'].developer = 'I.G.S';
+gameCatalog['DoDonpachi II'].release = '2001';
+gameCatalog['DoDonpachi II'].players = '2';
+gameCatalog['DoDonpachi II'].category = 'shooter';
+try {
+    //gameCatalog['DoDonpachi II'].displayName = 'DoDonpachi II - Bee Storm';
+}
+catch (err) {
+    console.log(err);
+}
+
+gameCatalog['Espgaluda'] = new Game();
+gameCatalog['Espgaluda'].name = 'Espgaluda';
+gameCatalog['Espgaluda'].developer = 'Cave';
+gameCatalog['Espgaluda'].release = '2003';
+gameCatalog['Espgaluda'].players = '2';
+gameCatalog['Espgaluda'].category = 'shooter';
+
+gameCatalog['Espgaluda II'] = new Game();
+gameCatalog['Espgaluda II'].name = 'Espgaluda II';
+gameCatalog['Espgaluda II'].developer = 'Cave';
+gameCatalog['Espgaluda II'].release = '2005';
+gameCatalog['Espgaluda II'].players = '2';
+gameCatalog['Espgaluda II'].category = 'shooter';
+
+gameCatalog['Hellfire'] = new Game();
+gameCatalog['Hellfire'].name = 'Hellfire';
+gameCatalog['Hellfire'].developer = 'Toaplan';
+gameCatalog['Hellfire'].release = '1989';
+gameCatalog['Hellfire'].players = '2';
+gameCatalog['Hellfire'].category = 'shooter';
+
+gameCatalog['Combat School'] = new Game();
+gameCatalog['Combat School'].name = 'Combat School';
+gameCatalog['Combat School'].developer = 'Konami';
+gameCatalog['Combat School'].release = '1987';
+gameCatalog['Combat School'].players = '2';
+gameCatalog['Combat School'].category = 'sports';
+
+gameCatalog['After Burner Climax'] = new Game();
+gameCatalog['After Burner Climax'].name = 'After Burner Climax';
+gameCatalog['After Burner Climax'].developer = 'Sega';
+gameCatalog['After Burner Climax'].release = '2006';
+gameCatalog['After Burner Climax'].players = '1';
+gameCatalog['After Burner Climax'].category = 'shooter';
+
+gameCatalog['Andro Dunos'] = new Game();
+gameCatalog['Andro Dunos'].name = 'Andro Dunos';
+gameCatalog['Andro Dunos'].developer = 'Visco Games';
+gameCatalog['Andro Dunos'].release = '1992';
+gameCatalog['Andro Dunos'].players = '2';
+gameCatalog['Andro Dunos'].category = 'shooter';
+
+gameCatalog['Dragons Lair'] = new Game();
+gameCatalog['Dragons Lair'].name = 'Dragons Lair';
+gameCatalog['Dragons Lair'].developer = 'Cinematronics';
+gameCatalog['Dragons Lair'].release = '1983';
+gameCatalog['Dragons Lair'].players = '1';
+gameCatalog['Dragons Lair'].category = 'misc';
+
+gameCatalog['Fighting Mania'] = new Game();
+gameCatalog['Fighting Mania'].name = 'Fighting Mania';
+gameCatalog['Fighting Mania'].developer = 'Konami';
+gameCatalog['Fighting Mania'].release = '2000';
+gameCatalog['Fighting Mania'].players = '1';
+gameCatalog['Fighting Mania'].category = 'fighting';
+gameCatalog['Fighting Mania'].alternativeName = 'Punch Mania';
+
+gameCatalog['Galaxy Wars'] = new Game();
+gameCatalog['Galaxy Wars'].name = 'Galaxy Wars';
+gameCatalog['Galaxy Wars'].developer = 'Universal';
+gameCatalog['Galaxy Wars'].release = '1979';
+gameCatalog['Galaxy Wars'].players = '2';
+gameCatalog['Galaxy Wars'].category = 'shooter';
+
+gameCatalog['Gravitar'] = new Game();
+gameCatalog['Gravitar'].name = 'Gravitar';
+gameCatalog['Gravitar'].developer = 'Atari';
+gameCatalog['Gravitar'].release = '1982';
+gameCatalog['Gravitar'].players = '2';
+gameCatalog['Gravitar'].category = 'shooter';
+
+gameCatalog['Jackal'] = new Game();
+gameCatalog['Jackal'].name = 'Jackal';
+gameCatalog['Jackal'].developer = 'Konami';
+gameCatalog['Jackal'].release = '1986';
+gameCatalog['Jackal'].players = '2';
+gameCatalog['Jackal'].category = 'runandgun';
+
+gameCatalog['Mad Planets'] = new Game();
+gameCatalog['Mad Planets'].name = 'Mad Planets';
+gameCatalog['Mad Planets'].developer = 'Gottlieb, D., & Co., a Columbia Pictures Industries Co.';
+gameCatalog['Mad Planets'].release = '1983';
+gameCatalog['Mad Planets'].players = '2';
+gameCatalog['Mad Planets'].category = 'shooter';
+
+gameCatalog['Moon Shuttle'] = new Game();
+gameCatalog['Moon Shuttle'].name = 'Moon Shuttle';
+gameCatalog['Moon Shuttle'].developer = 'Michibutsu';
+gameCatalog['Moon Shuttle'].release = '1981';
+gameCatalog['Moon Shuttle'].players = '2';
+gameCatalog['Moon Shuttle'].category = 'shooter';
+
+gameCatalog['Q-berts Qubes'] = new Game();
+gameCatalog['Q-berts Qubes'].name = 'Q-berts Qubes';
+gameCatalog['Q-berts Qubes'].developer = 'Mylstar';
+gameCatalog['Q-berts Qubes'].release = '1983';
+gameCatalog['Q-berts Qubes'].players = '2';
+gameCatalog['Q-berts Qubes'].category = 'platformer';
+
+gameCatalog['Quantum'] = new Game();
+gameCatalog['Quantum'].name = 'Quantum';
+gameCatalog['Quantum'].developer = 'Atari';
+gameCatalog['Quantum'].release = '1982';
+gameCatalog['Quantum'].players = '2';
+gameCatalog['Quantum'].category = 'misc';
+
+gameCatalog['Solar Fox'] = new Game();
+gameCatalog['Solar Fox'].name = 'Solar Fox';
+gameCatalog['Solar Fox'].developer = 'Bally Midway';
+gameCatalog['Solar Fox'].release = '1981';
+gameCatalog['Solar Fox'].players = '2';
+gameCatalog['Solar Fox'].category = 'misc';
+
+gameCatalog['Thief'] = new Game();
+gameCatalog['Thief'].name = 'Thief';
+gameCatalog['Thief'].developer = 'Pacific Novelty';
+gameCatalog['Thief'].release = '1981';
+gameCatalog['Thief'].players = '2';
+gameCatalog['Thief'].category = 'maze';
+
+gameCatalog['TNK III'] = new Game();
+gameCatalog['TNK III'].name = 'TNK III';
+gameCatalog['TNK III'].developer = 'SNK';
+gameCatalog['TNK III'].release = '1985';
+gameCatalog['TNK III'].players = '2';
+gameCatalog['TNK III'].category = 'shooter';
+gameCatalog['TNK III'].alternativeName = 'T.A.N.K';
+
+gameCatalog['Video Pinball'] = new Game();
+gameCatalog['Video Pinball'].name = 'Video Pinball';
+gameCatalog['Video Pinball'].developer = 'Atari';
+gameCatalog['Video Pinball'].release = '1978';
+gameCatalog['Video Pinball'].players = '1';
+gameCatalog['Video Pinball'].category = 'misc';
+
+gameCatalog['Wizard Of Wor'] = new Game();
+gameCatalog['Wizard Of Wor'].name = 'Wizard Of Wor';
+gameCatalog['Wizard Of Wor'].developer = 'Midway';
+gameCatalog['Wizard Of Wor'].release = '1980';
+gameCatalog['Wizard Of Wor'].players = '2';
+gameCatalog['Wizard Of Wor'].category = 'maze';
+
+gameCatalog['Tunnel Hunt'] = new Game();
+gameCatalog['Tunnel Hunt'].name = 'Tunnel Hunt';
+gameCatalog['Tunnel Hunt'].developer = 'Centuri';
+gameCatalog['Tunnel Hunt'].release = '1982';
+gameCatalog['Tunnel Hunt'].players = '2';
+gameCatalog['Tunnel Hunt'].category = 'shooter';
+
+gameCatalog['Punch-Out!!'] = new Game();
+gameCatalog['Punch-Out!!'].name = 'Punch-Out!!';
+gameCatalog['Punch-Out!!'].developer = 'Nintendo';
+gameCatalog['Punch-Out!!'].release = '1984';
+gameCatalog['Punch-Out!!'].players = '2';
+gameCatalog['Punch-Out!!'].category = 'sports';
+
+gameCatalog['Rootin Tootin'] = new Game();
+gameCatalog['Rootin Tootin'].name = 'Rootin Tootin';
+gameCatalog['Rootin Tootin'].developer = 'Data East';
+gameCatalog['Rootin Tootin'].release = '1983';
+gameCatalog['Rootin Tootin'].players = '2';
+gameCatalog['Rootin Tootin'].category = 'maze';
+gameCatalog['Rootin Tootin'].alternativeName = 'La Pa Pa';
+
+// GAMES WITHOUT ART
+
+gameCatalog['Roc N Rope'] = new Game();
+gameCatalog['Roc N Rope'].name = 'Roc N Rope';
+gameCatalog['Roc N Rope'].developer = 'Konami';
+gameCatalog['Roc N Rope'].release = '1983';
+gameCatalog['Roc N Rope'].players = '2';
+gameCatalog['Roc N Rope'].category = 'platformer';
+
+gameCatalog['Samurai Shodown'] = new Game();
+gameCatalog['Samurai Shodown'].name = 'Samurai Shodown';
+gameCatalog['Samurai Shodown'].developer = 'SNK';
+gameCatalog['Samurai Shodown'].release = '1993';
+gameCatalog['Samurai Shodown'].players = '2';
+gameCatalog['Samurai Shodown'].category = 'fighting';
+
+gameCatalog['Samurai Shodown II'] = new Game();
+gameCatalog['Samurai Shodown II'].name = 'Samurai Shodown II';
+gameCatalog['Samurai Shodown II'].developer = 'SNK';
+gameCatalog['Samurai Shodown II'].release = '1994';
+gameCatalog['Samurai Shodown II'].players = '2';
+gameCatalog['Samurai Shodown II'].category = 'fighting';
+
+gameCatalog['Samurai Shodown III'] = new Game();
+gameCatalog['Samurai Shodown III'].name = 'Samurai Shodown III';
+gameCatalog['Samurai Shodown III'].developer = 'SNK';
+gameCatalog['Samurai Shodown III'].release = '1996';
+gameCatalog['Samurai Shodown III'].players = '2';
+gameCatalog['Samurai Shodown III'].category = 'fighting';
+
+gameCatalog['Samurai Shodown III Blades Of Blood'] = new Game();
+gameCatalog['Samurai Shodown III Blades Of Blood'].name = 'Samurai Shodown III Blades Of Blood';
+gameCatalog['Samurai Shodown III Blades Of Blood'].developer = 'SNK';
+gameCatalog['Samurai Shodown III Blades Of Blood'].release = '1996';
+gameCatalog['Samurai Shodown III Blades Of Blood'].players = '2';
+gameCatalog['Samurai Shodown III Blades Of Blood'].category = 'fighting';
+
+gameCatalog['Samurai Shodown IV'] = new Game();
+gameCatalog['Samurai Shodown IV'].name = 'Samurai Shodown IV';
+gameCatalog['Samurai Shodown IV'].developer = 'SNK';
+gameCatalog['Samurai Shodown IV'].release = '1996';
+gameCatalog['Samurai Shodown IV'].players = '2';
+gameCatalog['Samurai Shodown IV'].category = 'fighting';
+
+gameCatalog['Samurai Shodown IV Amakusas Revenge'] = new Game();
+gameCatalog['Samurai Shodown IV Amakusas Revenge'].name = 'Samurai Shodown IV Amakusas Revenge';
+gameCatalog['Samurai Shodown IV Amakusas Revenge'].developer = 'SNK';
+gameCatalog['Samurai Shodown IV Amakusas Revenge'].release = '1996';
+gameCatalog['Samurai Shodown IV Amakusas Revenge'].players = '2';
+gameCatalog['Samurai Shodown IV Amakusas Revenge'].category = 'fighting';
+
+gameCatalog['Samurai Shodown V'] = new Game();
+gameCatalog['Samurai Shodown V'].name = 'Samurai Shodown V';
+gameCatalog['Samurai Shodown V'].developer = 'Yuki Enterprise';
+gameCatalog['Samurai Shodown V'].release = '2003';
+gameCatalog['Samurai Shodown V'].players = '2';
+gameCatalog['Samurai Shodown V'].category = 'fighting';
+
+gameCatalog['Samurai Shodown V Special'] = new Game();
+gameCatalog['Samurai Shodown V Special'].name = 'Samurai Shodown V Special';
+gameCatalog['Samurai Shodown V Special'].developer = 'Yuki Enterprise';
+gameCatalog['Samurai Shodown V Special'].release = '2003';
+gameCatalog['Samurai Shodown V Special'].players = '2';
+gameCatalog['Samurai Shodown V Special'].category = 'fighting';
+
+gameCatalog['Samurai Shodown VI Tenkaichi Kenkakuden'] = new Game();
+gameCatalog['Samurai Shodown VI Tenkaichi Kenkakuden'].name = 'Samurai Shodown VI Tenkaichi Kenkakuden';
+gameCatalog['Samurai Shodown VI Tenkaichi Kenkakuden'].developer = 'SNK Playmore';
+gameCatalog['Samurai Shodown VI Tenkaichi Kenkakuden'].release = '2005';
+gameCatalog['Samurai Shodown VI Tenkaichi Kenkakuden'].players = '2';
+gameCatalog['Samurai Shodown VI Tenkaichi Kenkakuden'].category = 'fighting';
+
+gameCatalog['Samurai Shodown Warriors Rage'] = new Game();
+gameCatalog['Samurai Shodown Warriors Rage'].name = 'Samurai Shodown Warriors Rage';
+gameCatalog['Samurai Shodown Warriors Rage'].developer = 'SNK';
+gameCatalog['Samurai Shodown Warriors Rage'].release = '1998';
+gameCatalog['Samurai Shodown Warriors Rage'].players = '2';
+gameCatalog['Samurai Shodown Warriors Rage'].category = 'fighting';
+
+gameCatalog['Samurai Shodown 64'] = new Game();
+gameCatalog['Samurai Shodown 64'].name = 'Samurai Shodown 64';
+gameCatalog['Samurai Shodown 64'].developer = 'SNK';
+gameCatalog['Samurai Shodown 64'].release = '1997';
+gameCatalog['Samurai Shodown 64'].players = '2';
+gameCatalog['Samurai Shodown 64'].category = 'fighting';
+
+gameCatalog['Space Panic'] = new Game();
+gameCatalog['Space Panic'].name = 'Space Panic';
+gameCatalog['Space Panic'].developer = 'Universal';
+gameCatalog['Space Panic'].release = '1980';
+gameCatalog['Space Panic'].players = '2';
+gameCatalog['Space Panic'].category = 'platformer';
+
+gameCatalog['Mr. Do!s Wild Ride'] = new Game();
+gameCatalog['Mr. Do!s Wild Ride'].name = 'Mr. Do!s Wild Ride';
+gameCatalog['Mr. Do!s Wild Ride'].developer = 'Universal';
+gameCatalog['Mr. Do!s Wild Ride'].release = '1984';
+gameCatalog['Mr. Do!s Wild Ride'].players = '2';
+gameCatalog['Mr. Do!s Wild Ride'].category = 'platformer';
+
+gameCatalog['Do! Run Run'] = new Game();
+gameCatalog['Do! Run Run'].name = 'Do! Run Run';
+gameCatalog['Do! Run Run'].developer = 'Universal';
+gameCatalog['Do! Run Run'].release = '1984';
+gameCatalog['Do! Run Run'].players = '2';
+gameCatalog['Do! Run Run'].category = 'platformer';
+
+gameCatalog['Fatal Fury - The Battle Of Fury'] = new Game();
+gameCatalog['Fatal Fury - The Battle Of Fury'].name = 'Fatal Fury - The Battle Of Fury';
+gameCatalog['Fatal Fury - The Battle Of Fury'].developer = 'SNK';
+gameCatalog['Fatal Fury - The Battle Of Fury'].release = '1991';
+gameCatalog['Fatal Fury - The Battle Of Fury'].players = '2';
+gameCatalog['Fatal Fury - The Battle Of Fury'].category = 'fighting';
+
+gameCatalog['Fatal Fury 2'] = new Game();
+gameCatalog['Fatal Fury 2'].name = 'Fatal Fury 2';
+gameCatalog['Fatal Fury 2'].developer = 'SNK';
+gameCatalog['Fatal Fury 2'].release = '1992';
+gameCatalog['Fatal Fury 2'].players = '2';
+gameCatalog['Fatal Fury 2'].category = 'fighting';
+
+gameCatalog['Fatal Fury 2 - The Battle Of Destiny'] = new Game();
+gameCatalog['Fatal Fury 2 - The Battle Of Destiny'].name = 'Fatal Fury 2 - The Battle Of Destiny';
+gameCatalog['Fatal Fury 2 - The Battle Of Destiny'].developer = 'SNK';
+gameCatalog['Fatal Fury 2 - The Battle Of Destiny'].release = '1992';
+gameCatalog['Fatal Fury 2 - The Battle Of Destiny'].players = '2';
+gameCatalog['Fatal Fury 2 - The Battle Of Destiny'].category = 'fighting';
+
+gameCatalog['Fatal Fury 2 - The Sultans Of Slug'] = new Game();
+gameCatalog['Fatal Fury 2 - The Sultans Of Slug'].name = 'Fatal Fury 2 - The Sultans Of Slug';
+gameCatalog['Fatal Fury 2 - The Sultans Of Slug'].developer = 'SNK';
+gameCatalog['Fatal Fury 2 - The Sultans Of Slug'].release = '1992';
+gameCatalog['Fatal Fury 2 - The Sultans Of Slug'].players = '2';
+gameCatalog['Fatal Fury 2 - The Sultans Of Slug'].category = 'fighting';
+
+gameCatalog['Fatal Fury 3 - Road To The Final Victory'] = new Game();
+gameCatalog['Fatal Fury 3 - Road To The Final Victory'].name = 'Fatal Fury 3 - Road To The Final Victory';
+gameCatalog['Fatal Fury 3 - Road To The Final Victory'].developer = 'SNK';
+gameCatalog['Fatal Fury 3 - Road To The Final Victory'].release = '1995';
+gameCatalog['Fatal Fury 3 - Road To The Final Victory'].players = '2';
+gameCatalog['Fatal Fury 3 - Road To The Final Victory'].category = 'fighting';
+
+gameCatalog['Fatal Fury Special'] = new Game();
+gameCatalog['Fatal Fury Special'].name = 'Fatal Fury Special';
+gameCatalog['Fatal Fury Special'].developer = 'SNK';
+gameCatalog['Fatal Fury Special'].release = '1993';
+gameCatalog['Fatal Fury Special'].players = '2';
+gameCatalog['Fatal Fury Special'].category = 'fighting';
+
+gameCatalog['Fatal Fury - Wild Ambition'] = new Game();
+gameCatalog['Fatal Fury - Wild Ambition'].name = 'Fatal Fury - Wild Ambition';
+gameCatalog['Fatal Fury - Wild Ambition'].developer = 'SNK';
+gameCatalog['Fatal Fury - Wild Ambition'].release = '1998';
+gameCatalog['Fatal Fury - Wild Ambition'].players = '2';
+gameCatalog['Fatal Fury - Wild Ambition'].category = 'fighting';
+
+gameCatalog['Fatal Fury - King Of Fighters'] = new Game();
+gameCatalog['Fatal Fury - King Of Fighters'].name = 'Fatal Fury - King Of Fighters';
+gameCatalog['Fatal Fury - King Of Fighters'].developer = 'SNK';
+gameCatalog['Fatal Fury - King Of Fighters'].release = '1991';
+gameCatalog['Fatal Fury - King Of Fighters'].players = '2';
+gameCatalog['Fatal Fury - King Of Fighters'].category = 'fighting';
+
+gameCatalog['Real Bout Fatal Fury'] = new Game();
+gameCatalog['Real Bout Fatal Fury'].name = 'Real Bout Fatal Fury';
+gameCatalog['Real Bout Fatal Fury'].developer = 'SNK';
+gameCatalog['Real Bout Fatal Fury'].release = '1995';
+gameCatalog['Real Bout Fatal Fury'].players = '2';
+gameCatalog['Real Bout Fatal Fury'].category = 'fighting';
+
+gameCatalog['Real Bout Fatal Fury 2 - The Newcomers'] = new Game();
+gameCatalog['Real Bout Fatal Fury 2 - The Newcomers'].name = 'Real Bout Fatal Fury 2 - The Newcomers';
+gameCatalog['Real Bout Fatal Fury 2 - The Newcomers'].developer = 'SNK';
+gameCatalog['Real Bout Fatal Fury 2 - The Newcomers'].release = '1998';
+gameCatalog['Real Bout Fatal Fury 2 - The Newcomers'].players = '2';
+gameCatalog['Real Bout Fatal Fury 2 - The Newcomers'].category = 'fighting';
+
+gameCatalog['Real Bout Fatal Fury Special'] = new Game();
+gameCatalog['Real Bout Fatal Fury Special'].name = 'Real Bout Fatal Fury Special';
+gameCatalog['Real Bout Fatal Fury Special'].developer = 'SNK';
+gameCatalog['Real Bout Fatal Fury Special'].release = '1996';
+gameCatalog['Real Bout Fatal Fury Special'].players = '2';
+gameCatalog['Real Bout Fatal Fury Special'].category = 'fighting';
+
+gameCatalog['Rod-Land'] = new Game();
+gameCatalog['Rod-Land'].name = 'Rod-Land';
+gameCatalog['Rod-Land'].developer = 'Jaleco';
+gameCatalog['Rod-Land'].release = '1990';
+gameCatalog['Rod-Land'].players = '2';
+gameCatalog['Rod-Land'].category = 'platformer';
+
+gameCatalog['Time Pilot 84'] = new Game();
+gameCatalog['Time Pilot 84'].name = 'Time Pilot 84';
+gameCatalog['Time Pilot 84'].developer = 'Konami';
+gameCatalog['Time Pilot 84'].release = '1984';
+gameCatalog['Time Pilot 84'].players = '2';
+gameCatalog['Time Pilot 84'].category = 'shooter';
+
+gameCatalog['VS Clu Clu Land'] = new Game();
+gameCatalog['VS Clu Clu Land'].name = 'VS Clu Clu Land';
+gameCatalog['VS Clu Clu Land'].developer = 'Nintendo';
+gameCatalog['VS Clu Clu Land'].release = '1985';
+gameCatalog['VS Clu Clu Land'].players = '2';
+gameCatalog['VS Clu Clu Land'].category = 'maze';
+
+gameCatalog['Flower'] = new Game();
+gameCatalog['Flower'].name = 'Flower';
+gameCatalog['Flower'].developer = 'Komax';
+gameCatalog['Flower'].release = '1986';
+gameCatalog['Flower'].players = '2';
+gameCatalog['Flower'].category = 'shooter';
+
+gameCatalog['Espial'] = new Game();
+gameCatalog['Espial'].name = 'Espial';
+gameCatalog['Espial'].developer = 'Orca';
+gameCatalog['Espial'].release = '1983';
+gameCatalog['Espial'].players = '2';
+gameCatalog['Espial'].category = 'shooter';
+
+gameCatalog['Stratovox'] = new Game();
+gameCatalog['Stratovox'].name = 'Stratovox';
+gameCatalog['Stratovox'].developer = 'Taito';
+gameCatalog['Stratovox'].release = '1980';
+gameCatalog['Stratovox'].players = '2';
+gameCatalog['Stratovox'].category = 'shooter';
+
+gameCatalog['Cheeky Mouse'] = new Game();
+gameCatalog['Cheeky Mouse'].name = 'Cheeky Mouse';
+gameCatalog['Cheeky Mouse'].developer = 'Universal';
+gameCatalog['Cheeky Mouse'].release = '1980';
+gameCatalog['Cheeky Mouse'].players = '2';
+gameCatalog['Cheeky Mouse'].category = 'misc';
+
+gameCatalog['Nova 2001'] = new Game();
+gameCatalog['Nova 2001'].name = 'Nova 2001';
+gameCatalog['Nova 2001'].developer = 'Universal';
+gameCatalog['Nova 2001'].release = '1984';
+gameCatalog['Nova 2001'].players = '2';
+gameCatalog['Nova 2001'].category = 'shooter';
+
+gameCatalog['Road Runner (Atari)'] = new Game();
+gameCatalog['Road Runner (Atari)'].name = 'Road Runner (Atari)';
+gameCatalog['Road Runner (Atari)'].developer = 'Atari';
+gameCatalog['Road Runner (Atari)'].release = '1985';
+gameCatalog['Road Runner (Atari)'].players = '2';
+gameCatalog['Road Runner (Atari)'].category = 'platformer';
+
+gameCatalog['Road Runner (Midway)'] = new Game();
+gameCatalog['Road Runner (Midway)'].name = 'Road Runner (Midway)';
+gameCatalog['Road Runner (Midway)'].developer = 'Midway Manufacturing Co.';
+gameCatalog['Road Runner (Midway)'].release = '1977';
+gameCatalog['Road Runner (Midway)'].players = '2';
+gameCatalog['Road Runner (Midway)'].category = 'guns';
+
+gameCatalog['Major Havoc'] = new Game();
+gameCatalog['Major Havoc'].name = 'Major Havoc';
+gameCatalog['Major Havoc'].developer = 'Atari';
+gameCatalog['Major Havoc'].release = '1983';
+gameCatalog['Major Havoc'].players = '2';
+gameCatalog['Major Havoc'].category = 'platformer';
+
+gameCatalog['Snap Jack'] = new Game();
+gameCatalog['Snap Jack'].name = 'Snap Jack';
+gameCatalog['Snap Jack'].developer = 'Universal';
+gameCatalog['Snap Jack'].release = '1981';
+gameCatalog['Snap Jack'].players = '2';
+gameCatalog['Snap Jack'].category = 'misc';
+
+gameCatalog['Zero Hour (Universal)'] = new Game();
+gameCatalog['Zero Hour (Universal)'].name = 'Zero Hour (Universal)';
+gameCatalog['Zero Hour (Universal)'].developer = 'Universal';
+gameCatalog['Zero Hour (Universal)'].release = '1981';
+gameCatalog['Zero Hour (Universal)'].players = '2';
+gameCatalog['Zero Hour (Universal)'].category = 'shooter';
+
+gameCatalog['Pole Position II'] = new Game();
+gameCatalog['Pole Position II'].name = 'Pole Position II';
+gameCatalog['Pole Position II'].developer = 'Atari';
+gameCatalog['Pole Position II'].release = '1983';
+gameCatalog['Pole Position II'].players = '1';
+gameCatalog['Pole Position II'].category = 'racing';
+
+gameCatalog['Stocker'] = new Game();
+gameCatalog['Stocker'].name = 'Stocker';
+gameCatalog['Stocker'].developer = 'Bally Sente';
+gameCatalog['Stocker'].release = '1984';
+gameCatalog['Stocker'].players = '1';
+gameCatalog['Stocker'].category = 'racing';
+
+gameCatalog['Night Stocker'] = new Game();
+gameCatalog['Night Stocker'].name = 'Night Stocker';
+gameCatalog['Night Stocker'].developer = 'Bally Sente';
+gameCatalog['Night Stocker'].release = '1986';
+gameCatalog['Night Stocker'].players = '1';
+gameCatalog['Night Stocker'].category = 'racing';
+
+gameCatalog['L. S. A. Squad'] = new Game();
+gameCatalog['L. S. A. Squad'].name = 'L. S. A. Squad';
+gameCatalog['L. S. A. Squad'].developer = 'Taito';
+gameCatalog['L. S. A. Squad'].release = '1986';
+gameCatalog['L. S. A. Squad'].players = '2';
+gameCatalog['L. S. A. Squad'].category = 'shooter';
+
+gameCatalog['Spectar'] = new Game();
+gameCatalog['Spectar'].name = 'Spectar';
+gameCatalog['Spectar'].developer = 'Exidy';
+gameCatalog['Spectar'].release = '1980';
+gameCatalog['Spectar'].players = '2';
+gameCatalog['Spectar'].category = 'maze';
+
+gameCatalog['Frisky Tom'] = new Game();
+gameCatalog['Frisky Tom'].name = 'Frisky Tom';
+gameCatalog['Frisky Tom'].developer = 'Nichibutsu';
+gameCatalog['Frisky Tom'].release = '1981';
+gameCatalog['Frisky Tom'].players = '2';
+gameCatalog['Frisky Tom'].category = 'maze';
+
+gameCatalog['Wacko'] = new Game();
+gameCatalog['Wacko'].name = 'Wacko';
+gameCatalog['Wacko'].developer = 'Bally Midway';
+gameCatalog['Wacko'].release = '1983';
+gameCatalog['Wacko'].players = '2';
+gameCatalog['Wacko'].category = 'shooter';
+
+gameCatalog['Looping'] = new Game();
+gameCatalog['Looping'].name = 'Looping';
+gameCatalog['Looping'].developer = 'Venture Line';
+gameCatalog['Looping'].release = '1982';
+gameCatalog['Looping'].players = '2';
+gameCatalog['Looping'].category = 'shooter';
+
+gameCatalog['Red Alert'] = new Game();
+gameCatalog['Red Alert'].name = 'Red Alert';
+gameCatalog['Red Alert'].developer = 'Irem';
+gameCatalog['Red Alert'].release = '1981';
+gameCatalog['Red Alert'].players = '2';
+gameCatalog['Red Alert'].category = 'shooter';
+
+gameCatalog['Rescue Raider'] = new Game();
+gameCatalog['Rescue Raider'].name = 'Rescue Raider';
+gameCatalog['Rescue Raider'].developer = 'Bally Midway';
+gameCatalog['Rescue Raider'].release = '1987';
+gameCatalog['Rescue Raider'].players = '2';
+gameCatalog['Rescue Raider'].category = 'shooter';
+
+gameCatalog['Sea Wolf'] = new Game();
+gameCatalog['Sea Wolf'].name = 'Sea Wolf';
+gameCatalog['Sea Wolf'].developer = 'Midway Manufacturing Co';
+gameCatalog['Sea Wolf'].release = '1976';
+gameCatalog['Sea Wolf'].players = '1';
+gameCatalog['Sea Wolf'].category = 'shooter';
+
+gameCatalog['Sea Wolf II'] = new Game();
+gameCatalog['Sea Wolf II'].name = 'Sea Wolf II';
+gameCatalog['Sea Wolf II'].developer = 'Midway Manufacturing Co';
+gameCatalog['Sea Wolf II'].release = '1978';
+gameCatalog['Sea Wolf II'].players = '2';
+gameCatalog['Sea Wolf II'].category = 'shooter';
+
+gameCatalog['Crazy Climber'] = new Game();
+gameCatalog['Crazy Climber'].name = 'Crazy Climber';
+gameCatalog['Crazy Climber'].developer = 'Nihon Bussan Co. Ltd';
+gameCatalog['Crazy Climber'].release = '1980';
+gameCatalog['Crazy Climber'].players = '2';
+gameCatalog['Crazy Climber'].category = 'platformer';
+
+gameCatalog['Crazy Climber 2'] = new Game();
+gameCatalog['Crazy Climber 2'].name = 'Crazy Climber 2';
+gameCatalog['Crazy Climber 2'].developer = 'Nichibutsu';
+gameCatalog['Crazy Climber 2'].release = '1988';
+gameCatalog['Crazy Climber 2'].players = '2';
+gameCatalog['Crazy Climber 2'].category = 'platformer';
+
+gameCatalog['Space Dungeon'] = new Game();
+gameCatalog['Space Dungeon'].name = 'Space Dungeon';
+gameCatalog['Space Dungeon'].developer = 'Taito';
+gameCatalog['Space Dungeon'].release = '1981';
+gameCatalog['Space Dungeon'].players = '2';
+gameCatalog['Space Dungeon'].category = 'shooter';
+
+gameCatalog['Space Fury'] = new Game();
+gameCatalog['Space Fury'].name = 'Space Fury';
+gameCatalog['Space Fury'].developer = 'Sega/Gremlin';
+gameCatalog['Space Fury'].release = '1981';
+gameCatalog['Space Fury'].players = '2';
+gameCatalog['Space Fury'].category = 'shooter';
+
+gameCatalog['Galaga 3'] = new Game();
+gameCatalog['Galaga 3'].name = 'Galaga 3';
+gameCatalog['Galaga 3'].developer = 'Namco';
+gameCatalog['Galaga 3'].release = '1984';
+gameCatalog['Galaga 3'].players = '2';
+gameCatalog['Galaga 3'].category = 'shooter';
+gameCatalog['Galaga 3'].alternativeName = 'Gaplus';
+
+gameCatalog['Domino Man'] = new Game();
+gameCatalog['Domino Man'].name = 'Domino Man';
+gameCatalog['Domino Man'].developer = 'Bally Midway';
+gameCatalog['Domino Man'].release = '1983';
+gameCatalog['Domino Man'].players = '2';
+gameCatalog['Domino Man'].category = 'misc';
+
+gameCatalog['Lazarian'] = new Game();
+gameCatalog['Lazarian'].name = 'Lazarian';
+gameCatalog['Lazarian'].developer = 'Bally Midway';
+gameCatalog['Lazarian'].release = '1981';
+gameCatalog['Lazarian'].players = '2';
+gameCatalog['Lazarian'].category = 'shooter';
+
+gameCatalog['Break-Thru'] = new Game();
+gameCatalog['Break-Thru'].name = 'Break-Thru';
+gameCatalog['Break-Thru'].developer = 'Data East';
+gameCatalog['Break-Thru'].release = '1986';
+gameCatalog['Break-Thru'].players = '2';
+gameCatalog['Break-Thru'].category = 'shooter';
+
+gameCatalog['Canyon Bomber'] = new Game();
+gameCatalog['Canyon Bomber'].name = 'Canyon Bomber';
+gameCatalog['Canyon Bomber'].developer = 'Atari';
+gameCatalog['Canyon Bomber'].release = '1977';
+gameCatalog['Canyon Bomber'].players = '2';
+gameCatalog['Canyon Bomber'].category = 'misc';
+
+gameCatalog['Chiller'] = new Game();
+gameCatalog['Chiller'].name = 'Chiller';
+gameCatalog['Chiller'].developer = 'Exidy';
+gameCatalog['Chiller'].release = '1986';
+gameCatalog['Chiller'].players = '2';
+gameCatalog['Chiller'].category = 'guns';
+
+gameCatalog['Cheyenne'] = new Game();
+gameCatalog['Cheyenne'].name = 'Cheyenne';
+gameCatalog['Cheyenne'].developer = 'Exidy';
+gameCatalog['Cheyenne'].release = '1984';
+gameCatalog['Cheyenne'].players = '1';
+gameCatalog['Cheyenne'].category = 'guns';
+
+gameCatalog['Combat'] = new Game();
+gameCatalog['Combat'].name = 'Combat';
+gameCatalog['Combat'].developer = 'Exidy';
+gameCatalog['Combat'].release = '1985';
+gameCatalog['Combat'].players = '1';
+gameCatalog['Combat'].category = 'guns';
+
+gameCatalog['Computer Space'] = new Game();
+gameCatalog['Computer Space'].name = 'Computer Space';
+gameCatalog['Computer Space'].developer = 'Nutting Associates';
+gameCatalog['Computer Space'].release = '1971';
+gameCatalog['Computer Space'].players = '1';
+gameCatalog['Computer Space'].category = 'shooter';
+
+gameCatalog['Crash'] = new Game();
+gameCatalog['Crash'].name = 'Crash';
+gameCatalog['Crash'].developer = 'Exidy';
+gameCatalog['Crash'].release = '1979';
+gameCatalog['Crash'].players = '2';
+gameCatalog['Crash'].category = 'maze';
+
+gameCatalog['Death Race'] = new Game();
+gameCatalog['Death Race'].name = 'Death Race';
+gameCatalog['Death Race'].developer = 'Exidy';
+gameCatalog['Death Race'].release = '1976';
+gameCatalog['Death Race'].players = '2';
+gameCatalog['Death Race'].category = 'racing';
+
+gameCatalog['Depthcharge'] = new Game();
+gameCatalog['Depthcharge'].name = 'Depthcharge';
+gameCatalog['Depthcharge'].developer = 'UPL';
+gameCatalog['Depthcharge'].release = '1977';
+gameCatalog['Depthcharge'].players = '1';
+gameCatalog['Depthcharge'].category = 'shooter';
+
+gameCatalog['Destroyer'] = new Game();
+gameCatalog['Destroyer'].name = 'Destroyer';
+gameCatalog['Destroyer'].developer = 'Atari';
+gameCatalog['Destroyer'].release = '1977';
+gameCatalog['Destroyer'].players = '1';
+gameCatalog['Destroyer'].category = 'shooter';
+
+gameCatalog['Donkey Kong II - Jumpman Returns'] = new Game();
+gameCatalog['Donkey Kong II - Jumpman Returns'].name = 'Donkey Kong II - Jumpman Returns';
+gameCatalog['Donkey Kong II - Jumpman Returns'].developer = 'Jeff Kulczycki (Hack)';
+gameCatalog['Donkey Kong II - Jumpman Returns'].release = '2005';
+gameCatalog['Donkey Kong II - Jumpman Returns'].players = '2';
+gameCatalog['Donkey Kong II - Jumpman Returns'].category = 'platformer';
+
+gameCatalog['Dragon Spirit'] = new Game();
+gameCatalog['Dragon Spirit'].name = 'Dragon Spirit';
+gameCatalog['Dragon Spirit'].developer = 'Namco';
+gameCatalog['Dragon Spirit'].release = '1987';
+gameCatalog['Dragon Spirit'].players = '2';
+gameCatalog['Dragon Spirit'].category = 'shooter';
+
+gameCatalog['Exerion'] = new Game();
+gameCatalog['Exerion'].name = 'Exerion';
+gameCatalog['Exerion'].developer = 'Jaleco';
+gameCatalog['Exerion'].release = '1983';
+gameCatalog['Exerion'].players = '2';
+gameCatalog['Exerion'].category = 'shooter';
+
+gameCatalog['Final Lap'] = new Game();
+gameCatalog['Final Lap'].name = 'Final Lap';
+gameCatalog['Final Lap'].developer = 'Namco';
+gameCatalog['Final Lap'].release = '1987';
+gameCatalog['Final Lap'].players = '8';
+gameCatalog['Final Lap'].category = 'racing';
+
+gameCatalog['Final Lap 2'] = new Game();
+gameCatalog['Final Lap 2'].name = 'Final Lap 2';
+gameCatalog['Final Lap 2'].developer = 'Namco';
+gameCatalog['Final Lap 2'].release = '1991';
+gameCatalog['Final Lap 2'].players = '8';
+gameCatalog['Final Lap 2'].category = 'racing';
+
+gameCatalog['Final Lap 3'] = new Game();
+gameCatalog['Final Lap 3'].name = 'Final Lap 3';
+gameCatalog['Final Lap 3'].developer = 'Namco';
+gameCatalog['Final Lap 3'].release = '1992';
+gameCatalog['Final Lap 3'].players = '8';
+gameCatalog['Final Lap 3'].category = 'racing';
+
+gameCatalog['Final Lap R'] = new Game();
+gameCatalog['Final Lap R'].name = 'Final Lap R';
+gameCatalog['Final Lap R'].developer = 'Namco';
+gameCatalog['Final Lap R'].release = '1993';
+gameCatalog['Final Lap R'].players = '1';
+gameCatalog['Final Lap R'].category = 'racing';
+
+gameCatalog['Fire Truck'] = new Game();
+gameCatalog['Fire Truck'].name = 'Fire Truck';
+gameCatalog['Fire Truck'].developer = 'Atari';
+gameCatalog['Fire Truck'].release = '1978';
+gameCatalog['Fire Truck'].players = '2';
+gameCatalog['Fire Truck'].category = 'racing';
+
+gameCatalog['Forgotten Worlds'] = new Game();
+gameCatalog['Forgotten Worlds'].name = 'Forgotten Worlds';
+gameCatalog['Forgotten Worlds'].developer = 'CApcom';
+gameCatalog['Forgotten Worlds'].release = '1988';
+gameCatalog['Forgotten Worlds'].players = '2';
+gameCatalog['Forgotten Worlds'].category = 'shooter';
+
+gameCatalog['Front Line'] = new Game();
+gameCatalog['Front Line'].name = 'Front Line';
+gameCatalog['Front Line'].developer = 'Taito';
+gameCatalog['Front Line'].release = '1982';
+gameCatalog['Front Line'].players = '2';
+gameCatalog['Front Line'].category = 'shooter';
+
+gameCatalog['Gimme A Break'] = new Game();
+gameCatalog['Gimme A Break'].name = 'Gimme A Break';
+gameCatalog['Gimme A Break'].developer = 'Bally Sente';
+gameCatalog['Gimme A Break'].release = '1985';
+gameCatalog['Gimme A Break'].players = '2';
+gameCatalog['Gimme A Break'].category = 'sports';
+
+gameCatalog['Head-On'] = new Game();
+gameCatalog['Head-On'].name = 'Head-On';
+gameCatalog['Head-On'].developer = 'Sega/Gremlin';
+gameCatalog['Head-On'].release = '1979';
+gameCatalog['Head-On'].players = '2';
+gameCatalog['Head-On'].category = 'maze';
+
+gameCatalog['Head-On 2'] = new Game();
+gameCatalog['Head-On 2'].name = 'Head-On 2';
+gameCatalog['Head-On 2'].developer = 'Sega/Gremlin';
+gameCatalog['Head-On 2'].release = '1979';
+gameCatalog['Head-On 2'].players = '2';
+gameCatalog['Head-On 2'].category = 'maze';
+
+gameCatalog['Hit The Ice'] = new Game();
+gameCatalog['Hit The Ice'].name = 'Hit The Ice';
+gameCatalog['Hit The Ice'].developer = 'Williams Electronic Games, Inc.';
+gameCatalog['Hit The Ice'].release = '1990';
+gameCatalog['Hit The Ice'].players = '4';
+gameCatalog['Hit The Ice'].category = 'sports';
+
+gameCatalog['Indy 4'] = new Game();
+gameCatalog['Indy 4'].name = 'Indy 4';
+gameCatalog['Indy 4'].developer = 'Atari';
+gameCatalog['Indy 4'].release = '1976';
+gameCatalog['Indy 4'].players = '4';
+gameCatalog['Indy 4'].category = 'racing';
+
+gameCatalog['LeMans'] = new Game();
+gameCatalog['LeMans'].name = 'LeMans';
+gameCatalog['LeMans'].developer = 'Atari';
+gameCatalog['LeMans'].release = '1976';
+gameCatalog['LeMans'].players = '1';
+gameCatalog['LeMans'].category = 'racing';
+
+gameCatalog['Lock n Chase'] = new Game();
+gameCatalog['Lock n Chase'].name = 'Lock n Chase';
+gameCatalog['Lock n Chase'].developer = 'Data East';
+gameCatalog['Lock n Chase'].release = '1981';
+gameCatalog['Lock n Chase'].players = '2';
+gameCatalog['Lock n Chase'].category = 'maze';
+
+gameCatalog['Max R.P.M.'] = new Game();
+gameCatalog['Max R.P.M.'].name = 'Max R.P.M.';
+gameCatalog['Max R.P.M.'].developer = 'Bally Midway';
+gameCatalog['Max R.P.M.'].release = '1986';
+gameCatalog['Max R.P.M.'].players = '2';
+gameCatalog['Max R.P.M.'].category = 'racing';
+
+gameCatalog['Mini-Golf'] = new Game();
+gameCatalog['Mini-Golf'].name = 'Mini-Golf';
+gameCatalog['Mini-Golf'].developer = 'Bally Sents';
+gameCatalog['Mini-Golf'].release = '1985';
+gameCatalog['Mini-Golf'].players = '4';
+gameCatalog['Mini-Golf'].category = 'sports';
+
+gameCatalog['Monaco GP'] = new Game();
+gameCatalog['Monaco GP'].name = 'Monaco GP';
+gameCatalog['Monaco GP'].developer = 'Sega/Gremlin';
+gameCatalog['Monaco GP'].release = '1980';
+gameCatalog['Monaco GP'].players = '1';
+gameCatalog['Monaco GP'].category = 'racing';
+
+gameCatalog['Mortal Kombat'] = new Game();
+gameCatalog['Mortal Kombat'].name = 'Mortal Kombat';
+gameCatalog['Mortal Kombat'].developer = 'Midway Games';
+gameCatalog['Mortal Kombat'].release = '1992';
+gameCatalog['Mortal Kombat'].players = '2';
+gameCatalog['Mortal Kombat'].category = 'fighting';
+
+gameCatalog['Mortal Kombat 3'] = new Game();
+gameCatalog['Mortal Kombat 3'].name = 'Mortal Kombat 3';
+gameCatalog['Mortal Kombat 3'].developer = 'Midway Games';
+gameCatalog['Mortal Kombat 3'].release = '1995';
+gameCatalog['Mortal Kombat 3'].players = '2';
+gameCatalog['Mortal Kombat 3'].category = 'fighting';
+
+gameCatalog['Mouse Trap'] = new Game();
+gameCatalog['Mouse Trap'].name = 'Mouse Trap';
+gameCatalog['Mouse Trap'].developer = 'Exidy';
+gameCatalog['Mouse Trap'].release = '1981';
+gameCatalog['Mouse Trap'].players = '2';
+gameCatalog['Mouse Trap'].category = 'maze';
+
+gameCatalog['Radical Radial'] = new Game();
+gameCatalog['Radical Radial'].name = 'Radical Radial';
+gameCatalog['Radical Radial'].developer = 'Nichibutsu';
+gameCatalog['Radical Radial'].release = '1982';
+gameCatalog['Radical Radial'].players = '2';
+gameCatalog['Radical Radial'].category = 'platformer';
+
+gameCatalog['Robot Bowl'] = new Game();
+gameCatalog['Robot Bowl'].name = 'Robot Bowl';
+gameCatalog['Robot Bowl'].developer = 'Exidy';
+gameCatalog['Robot Bowl'].release = '1977';
+gameCatalog['Robot Bowl'].players = '2';
+gameCatalog['Robot Bowl'].category = 'sports';
+
+gameCatalog['Shootout'] = new Game();
+gameCatalog['Shootout'].name = 'Shootout';
+gameCatalog['Shootout'].developer = 'Data East';
+gameCatalog['Shootout'].release = '1985';
+gameCatalog['Shootout'].players = '2';
+gameCatalog['Shootout'].category = 'shooter';
+
+gameCatalog['Skydiver'] = new Game();
+gameCatalog['Skydiver'].name = 'Skydiver';
+gameCatalog['Skydiver'].developer = 'Atari';
+gameCatalog['Skydiver'].release = '1978';
+gameCatalog['Skydiver'].players = '2';
+gameCatalog['Skydiver'].category = 'misc';
+
+gameCatalog['Star Trek Strategic Operations Simulator'] = new Game();
+gameCatalog['Star Trek Strategic Operations Simulator'].name = 'Star Trek Strategic Operations Simulator';
+gameCatalog['Star Trek Strategic Operations Simulator'].developer = 'Sega';
+gameCatalog['Star Trek Strategic Operations Simulator'].release = '1982';
+gameCatalog['Star Trek Strategic Operations Simulator'].players = '2';
+gameCatalog['Star Trek Strategic Operations Simulator'].category = 'misc';
+
+gameCatalog['Strategy X'] = new Game();
+gameCatalog['Strategy X'].name = 'Strategy X';
+gameCatalog['Strategy X'].developer = 'Stern Electronics';
+gameCatalog['Strategy X'].release = '1981';
+gameCatalog['Strategy X'].players = '2';
+gameCatalog['Strategy X'].category = 'shooter';
+
+gameCatalog['Superman'] = new Game();
+gameCatalog['Superman'].name = 'Superman';
+gameCatalog['Superman'].developer = 'Taito';
+gameCatalog['Superman'].release = '1988';
+gameCatalog['Superman'].players = '2';
+gameCatalog['Superman'].category = 'beatemup';
+
+gameCatalog['Tiger Road'] = new Game();
+gameCatalog['Tiger Road'].name = 'Tiger Road';
+gameCatalog['Tiger Road'].developer = 'Capcom';
+gameCatalog['Tiger Road'].release = '1987';
+gameCatalog['Tiger Road'].players = '2';
+gameCatalog['Tiger Road'].category = 'beatemup';
+
+gameCatalog['Ultimate Mortal Kombat 3'] = new Game();
+gameCatalog['Ultimate Mortal Kombat 3'].name = 'Ultimate Mortal Kombat 3';
+gameCatalog['Ultimate Mortal Kombat 3'].developer = 'Midway Games';
+gameCatalog['Ultimate Mortal Kombat 3'].release = '1995';
+gameCatalog['Ultimate Mortal Kombat 3'].players = '8';
+gameCatalog['Ultimate Mortal Kombat 3'].category = 'fighting';
+
+gameCatalog['Wheels'] = new Game();
+gameCatalog['Wheels'].name = 'Wheels';
+gameCatalog['Wheels'].developer = 'Midway Manufacturing Co.';
+gameCatalog['Wheels'].release = '1975';
+gameCatalog['Wheels'].players = '1';
+gameCatalog['Wheels'].category = 'racing';
+
+gameCatalog['Wheels II'] = new Game();
+gameCatalog['Wheels II'].name = 'Wheels II';
+gameCatalog['Wheels II'].developer = 'Midway Manufacturing Co.';
+gameCatalog['Wheels II'].release = '1975';
+gameCatalog['Wheels II'].players = '2';
+gameCatalog['Wheels II'].category = 'racing';
+
+gameCatalog['Dangar Ufo Robo'] = new Game();
+gameCatalog['Dangar Ufo Robo'].name = 'Dangar Ufo Robo';
+gameCatalog['Dangar Ufo Robo'].developer = 'Nichibutsu';
+gameCatalog['Dangar Ufo Robo'].release = '1985';
+gameCatalog['Dangar Ufo Robo'].players = '2';
+gameCatalog['Dangar Ufo Robo'].category = 'shooter';
+
+gameCatalog['Strikers 1945'] = new Game();
+gameCatalog['Strikers 1945'].name = 'Strikers 1945';
+gameCatalog['Strikers 1945'].developer = 'Psikyo';
+gameCatalog['Strikers 1945'].release = '1995';
+gameCatalog['Strikers 1945'].players = '2';
+gameCatalog['Strikers 1945'].category = 'shooter';
+
+gameCatalog['Space Bomber'] = new Game();
+gameCatalog['Space Bomber'].name = 'Space Bomber';
+gameCatalog['Space Bomber'].developer = 'Psikyo';
+gameCatalog['Space Bomber'].release = '1998';
+gameCatalog['Space Bomber'].players = '2';
+gameCatalog['Space Bomber'].category = 'shooter';
+
+gameCatalog['Tazz Mania'] = new Game();
+gameCatalog['Tazz Mania'].name = 'Tazz Mania';
+gameCatalog['Tazz Mania'].developer = 'Stern Electronics';
+gameCatalog['Tazz Mania'].release = '1982';
+gameCatalog['Tazz Mania'].players = '2';
+gameCatalog['Tazz Mania'].category = 'shooter';
+
+gameCatalog['The Glob'] = new Game();
+gameCatalog['The Glob'].name = 'The Glob';
+gameCatalog['The Glob'].developer = 'Epos';
+gameCatalog['The Glob'].release = '1983';
+gameCatalog['The Glob'].players = '2';
+gameCatalog['The Glob'].category = 'maze';
+
+gameCatalog['Mr. Kougar'] = new Game();
+gameCatalog['Mr. Kougar'].name = 'Mr. Kougar';
+gameCatalog['Mr. Kougar'].developer = 'ATW USA';
+gameCatalog['Mr. Kougar'].release = '1984';
+gameCatalog['Mr. Kougar'].players = '2';
+gameCatalog['Mr. Kougar'].category = 'platformer';
+
+gameCatalog['TARG'] = new Game();
+gameCatalog['TARG'].name = 'TARG';
+gameCatalog['TARG'].developer = 'Exidy';
+gameCatalog['TARG'].release = '1980';
+gameCatalog['TARG'].players = '2';
+gameCatalog['TARG'].category = 'maze';
+
+gameCatalog['Reactor'] = new Game();
+gameCatalog['Reactor'].name = 'Reactor';
+gameCatalog['Reactor'].developer = 'Gottlieb';
+gameCatalog['Reactor'].release = '1982';
+gameCatalog['Reactor'].players = '2';
+gameCatalog['Reactor'].category = 'shooter';
+
+gameCatalog['Turbo'] = new Game();
+gameCatalog['Turbo'].name = 'Turbo';
+gameCatalog['Turbo'].developer = 'Sega';
+gameCatalog['Turbo'].release = '1981';
+gameCatalog['Turbo'].players = '1';
+gameCatalog['Turbo'].category = 'racing';
+
+gameCatalog['TX-1'] = new Game();
+gameCatalog['TX-1'].name = 'TX-1';
+gameCatalog['TX-1'].developer = 'Atari';
+gameCatalog['TX-1'].release = '1984';
+gameCatalog['TX-1'].players = '2';
+gameCatalog['TX-1'].category = 'racing';
+
+gameCatalog['Liberator'] = new Game();
+gameCatalog['Liberator'].name = 'Liberator';
+gameCatalog['Liberator'].developer = 'Atari';
+gameCatalog['Liberator'].release = '1982';
+gameCatalog['Liberator'].players = '2';
+gameCatalog['Liberator'].category = 'shooter';
+
+gameCatalog['The Main Event'] = new Game();
+gameCatalog['The Main Event'].name = 'The Main Event';
+gameCatalog['The Main Event'].developer = 'Komani';
+gameCatalog['The Main Event'].release = '1988';
+gameCatalog['The Main Event'].players = '4';
+gameCatalog['The Main Event'].category = 'sports';
+
+gameCatalog['Vs Hogans Alley'] = new Game();
+gameCatalog['Vs Hogans Alley'].name = 'Vs Hogans Alley';
+gameCatalog['Vs Hogans Alley'].developer = 'Nintendo';
+gameCatalog['Vs Hogans Alley'].release = '1984';
+gameCatalog['Vs Hogans Alley'].players = '2';
+gameCatalog['Vs Hogans Alley'].category = 'guns';
+
+gameCatalog['Leprechaun'] = new Game();
+gameCatalog['Leprechaun'].name = 'Leprechaun';
+gameCatalog['Leprechaun'].developer = 'Moppet Video';
+gameCatalog['Leprechaun'].release = '1982';
+gameCatalog['Leprechaun'].players = '2';
+gameCatalog['Leprechaun'].category = 'misc';
+
+gameCatalog['Trivial Pursuit'] = new Game();
+gameCatalog['Trivial Pursuit'].name = 'Trivial Pursuit';
+gameCatalog['Trivial Pursuit'].developer = 'Bally Sente';
+gameCatalog['Trivial Pursuit'].release = '1984';
+gameCatalog['Trivial Pursuit'].players = '4';
+gameCatalog['Trivial Pursuit'].category = 'misc';
+
+gameCatalog['Nibbler'] = new Game();
+gameCatalog['Nibbler'].name = 'Nibbler';
+gameCatalog['Nibbler'].developer = 'Rock-Ola Mfg. Corp';
+gameCatalog['Nibbler'].release = '1983';
+gameCatalog['Nibbler'].players = '2';
+gameCatalog['Nibbler'].category = 'maze';
+
+gameCatalog['Armored Scrum Object'] = new Game();
+gameCatalog['Armored Scrum Object'].name = 'Armored Scrum Object';
+gameCatalog['Armored Scrum Object'].developer = 'SNK';
+gameCatalog['Armored Scrum Object'].release = '1985';
+gameCatalog['Armored Scrum Object'].players = '2';
+gameCatalog['Armored Scrum Object'].category = 'shooter';
+
+gameCatalog['Section Z'] = new Game();
+gameCatalog['Section Z'].name = 'Section Z';
+gameCatalog['Section Z'].developer = 'Capcom';
+gameCatalog['Section Z'].release = '1985';
+gameCatalog['Section Z'].players = '2';
+gameCatalog['Section Z'].category = 'shooter';
+
+gameCatalog['Intrepid'] = new Game();
+gameCatalog['Intrepid'].name = 'Intrepid';
+gameCatalog['Intrepid'].developer = 'Nova Games Ltd';
+gameCatalog['Intrepid'].release = '1983';
+gameCatalog['Intrepid'].players = '2';
+gameCatalog['Intrepid'].category = 'maze';
+
+gameCatalog['Magic Sword'] = new Game();
+gameCatalog['Magic Sword'].name = 'Magic Sword';
+gameCatalog['Magic Sword'].developer = 'Capcom';
+gameCatalog['Magic Sword'].release = '1990';
+gameCatalog['Magic Sword'].players = '2';
+gameCatalog['Magic Sword'].category = 'hackandslash';
+
+gameCatalog['Narc'] = new Game();
+gameCatalog['Narc'].name = 'Narc';
+gameCatalog['Narc'].developer = 'Williams Electronics';
+gameCatalog['Narc'].release = '1988';
+gameCatalog['Narc'].players = '2';
+gameCatalog['Narc'].category = 'runandgun';
+
+gameCatalog['Street Fighter 2'] = new Game();
+gameCatalog['Street Fighter 2'].name = 'Street Fighter 2';
+gameCatalog['Street Fighter 2'].developer = 'Capcom';
+gameCatalog['Street Fighter 2'].release = '1991';
+gameCatalog['Street Fighter 2'].players = '2';
+gameCatalog['Street Fighter 2'].category = 'fighting';
+
+gameCatalog['Initial D: Arcade Stage'] = new Game();
+gameCatalog['Initial D: Arcade Stage'].name = 'Initial D: Arcade Stage';
+gameCatalog['Initial D: Arcade Stage'].developer = 'Sega';
+gameCatalog['Initial D: Arcade Stage'].release = '2001';
+gameCatalog['Initial D: Arcade Stage'].players = '2';
+gameCatalog['Initial D: Arcade Stage'].category = 'racing';
+
+gameCatalog['Initial D Ver. 2'] = new Game();
+gameCatalog['Initial D Ver. 2'].name = 'Initial D Ver. 2';
+gameCatalog['Initial D Ver. 2'].developer = 'Sega';
+gameCatalog['Initial D Ver. 2'].release = '2003';
+gameCatalog['Initial D Ver. 2'].players = '2';
+gameCatalog['Initial D Ver. 2'].category = 'racing';
+
+gameCatalog['Initial D Ver. 3'] = new Game();
+gameCatalog['Initial D Ver. 3'].name = 'Initial D Ver. 3';
+gameCatalog['Initial D Ver. 3'].developer = 'Sega';
+gameCatalog['Initial D Ver. 3'].release = '2005';
+gameCatalog['Initial D Ver. 3'].players = '2';
+gameCatalog['Initial D Ver. 3'].category = 'racing';
+
+gameCatalog['Initial D Ver. 4'] = new Game();
+gameCatalog['Initial D Ver. 4'].name = 'Initial D Ver. 4';
+gameCatalog['Initial D Ver. 4'].developer = 'Sega';
+gameCatalog['Initial D Ver. 4'].release = '2007';
+gameCatalog['Initial D Ver. 4'].players = '2';
+gameCatalog['Initial D Ver. 4'].category = 'racing';
+
+gameCatalog['Gee Bee'] = new Game();
+gameCatalog['Gee Bee'].name = 'Gee Bee';
+gameCatalog['Gee Bee'].developer = 'Namco';
+gameCatalog['Gee Bee'].release = '1978';
+gameCatalog['Gee Bee'].players = '2';
+gameCatalog['Gee Bee'].category = 'misc';
+
+gameCatalog['Battlantis'] = new Game();
+gameCatalog['Battlantis'].name = 'Battlantis';
+gameCatalog['Battlantis'].developer = 'Konami';
+gameCatalog['Battlantis'].release = '1987';
+gameCatalog['Battlantis'].players = '2';
+gameCatalog['Battlantis'].category = 'shooter';
+
+gameCatalog['Wonder Boy 3: Monster Lair'] = new Game();
+gameCatalog['Wonder Boy 3: Monster Lair'].name = 'Wonder Boy 3: Monster Lair';
+gameCatalog['Wonder Boy 3: Monster Lair'].developer = 'Sega';
+gameCatalog['Wonder Boy 3: Monster Lair'].release = '1989';
+gameCatalog['Wonder Boy 3: Monster Lair'].players = '2';
+gameCatalog['Wonder Boy 3: Monster Lair'].category = 'platformer';
+
+gameCatalog['Magical Spot'] = new Game();
+gameCatalog['Magical Spot'].name = 'Magical Spot';
+gameCatalog['Magical Spot'].developer = 'Universal';
+gameCatalog['Magical Spot'].release = '1980';
+gameCatalog['Magical Spot'].players = '2';
+gameCatalog['Magical Spot'].category = 'shooter';
+
+gameCatalog['Magical Spot II'] = new Game();
+gameCatalog['Magical Spot II'].name = 'Magical Spot II';
+gameCatalog['Magical Spot II'].developer = 'Universal';
+gameCatalog['Magical Spot II'].release = '1980';
+gameCatalog['Magical Spot II'].players = '2';
+gameCatalog['Magical Spot II'].category = 'shooter';
+
+gameCatalog['Ghostlop'] = new Game();
+gameCatalog['Ghostlop'].name = 'Ghostlop';
+gameCatalog['Ghostlop'].developer = 'Data East';
+gameCatalog['Ghostlop'].release = '1996';
+gameCatalog['Ghostlop'].players = '2';
+gameCatalog['Ghostlop'].category = 'puzzle';
+
+gameCatalog['Xexex'] = new Game();
+gameCatalog['Xexex'].name = 'Xexex';
+gameCatalog['Xexex'].developer = 'Konami';
+gameCatalog['Xexex'].release = '1991';
+gameCatalog['Xexex'].players = '2';
+gameCatalog['Xexex'].category = 'shooter';
+
+gameCatalog['Puzzle Exchanger'] = new Game();
+gameCatalog['Puzzle Exchanger'].name = 'Puzzle Exchanger';
+gameCatalog['Puzzle Exchanger'].developer = 'Face';
+gameCatalog['Puzzle Exchanger'].release = '1997';
+gameCatalog['Puzzle Exchanger'].players = '2';
+gameCatalog['Puzzle Exchanger'].category = 'puzzle';
+
+gameCatalog['Scrambled Egg'] = new Game();
+gameCatalog['Scrambled Egg'].name = 'Scrambled Egg';
+gameCatalog['Scrambled Egg'].developer = 'Technos';
+gameCatalog['Scrambled Egg'].release = '1983';
+gameCatalog['Scrambled Egg'].players = '2';
+gameCatalog['Scrambled Egg'].category = 'maze';
+
+gameCatalog['Eggs'] = new Game();
+gameCatalog['Eggs'].name = 'Eggs';
+gameCatalog['Eggs'].developer = 'Universal';
+gameCatalog['Eggs'].release = '1983';
+gameCatalog['Eggs'].players = '2';
+gameCatalog['Eggs'].category = 'maze';
+
+gameCatalog['Fast Freddie'] = new Game();
+gameCatalog['Fast Freddie'].name = 'Fast Freddie';
+gameCatalog['Fast Freddie'].developer = 'Atari';
+gameCatalog['Fast Freddie'].release = '1982';
+gameCatalog['Fast Freddie'].players = '2';
+gameCatalog['Fast Freddie'].category = 'misc';
+
+gameCatalog['Eggor'] = new Game();
+gameCatalog['Eggor'].name = 'Eggor';
+gameCatalog['Eggor'].developer = 'Zaccaria';
+gameCatalog['Eggor'].release = '1983';
+gameCatalog['Eggor'].players = '1';
+gameCatalog['Eggor'].category = 'maze';
+
+gameCatalog['Future Spy'] = new Game();
+gameCatalog['Future Spy'].name = 'Future Spy';
+gameCatalog['Future Spy'].developer = 'Sega';
+gameCatalog['Future Spy'].release = '1984';
+gameCatalog['Future Spy'].players = '2';
+gameCatalog['Future Spy'].category = 'shooter';
+
+gameCatalog['Moguchan'] = new Game();
+gameCatalog['Moguchan'].name = 'Moguchan';
+gameCatalog['Moguchan'].developer = 'Orca';
+gameCatalog['Moguchan'].release = '1982';
+gameCatalog['Moguchan'].players = '2';
+gameCatalog['Moguchan'].category = 'platformer';
+
+gameCatalog['Mouser'] = new Game();
+gameCatalog['Mouser'].name = 'Mouser';
+gameCatalog['Mouser'].developer = 'UPL';
+gameCatalog['Mouser'].release = '1983';
+gameCatalog['Mouser'].players = '2';
+gameCatalog['Mouser'].category = 'platformer';
+
+gameCatalog['Performan'] = new Game();
+gameCatalog['Performan'].name = 'Performan';
+gameCatalog['Performan'].developer = 'Nihon Bussan AVJapan';
+gameCatalog['Performan'].release = '1985';
+gameCatalog['Performan'].players = '2';
+gameCatalog['Performan'].category = 'shooter';
+
+gameCatalog['Pop Flamer'] = new Game();
+gameCatalog['Pop Flamer'].name = 'Pop Flamer';
+gameCatalog['Pop Flamer'].developer = 'Jaleco';
+gameCatalog['Pop Flamer'].release = '1982';
+gameCatalog['Pop Flamer'].players = '2';
+gameCatalog['Pop Flamer'].category = 'platformer';
+
+gameCatalog['Wily Tower'] = new Game();
+gameCatalog['Wily Tower'].name = 'Wily Tower';
+gameCatalog['Wily Tower'].developer = 'Irem';
+gameCatalog['Wily Tower'].release = '1984';
+gameCatalog['Wily Tower'].players = '2';
+gameCatalog['Wily Tower'].category = 'platformer';
+gameCatalog['Wily Tower'].alternativeName = 'Atomic Boy';
+
+gameCatalog['Dr. Toppels Adventure'] = new Game();
+gameCatalog['Dr. Toppels Adventure'].name = 'Dr. Toppels Adventure';
+gameCatalog['Dr. Toppels Adventure'].developer = 'Taito';
+gameCatalog['Dr. Toppels Adventure'].release = '1986';
+gameCatalog['Dr. Toppels Adventure'].players = '2';
+gameCatalog['Dr. Toppels Adventure'].category = 'shooter';
+
+gameCatalog['Hopper Robo'] = new Game();
+gameCatalog['Hopper Robo'].name = 'Hopper Robo';
+gameCatalog['Hopper Robo'].developer = 'Sega';
+gameCatalog['Hopper Robo'].release = '1983';
+gameCatalog['Hopper Robo'].players = '2';
+gameCatalog['Hopper Robo'].category = 'platformer';
+
+gameCatalog['Ponpoko'] = new Game();
+gameCatalog['Ponpoko'].name = 'Ponpoko';
+gameCatalog['Ponpoko'].developer = 'Venture Line';
+gameCatalog['Ponpoko'].release = '1982';
+gameCatalog['Ponpoko'].players = '2';
+gameCatalog['Ponpoko'].category = 'platformer';
+
+gameCatalog['Time Tunnel'] = new Game();
+gameCatalog['Time Tunnel'].name = 'Time Tunnel';
+gameCatalog['Time Tunnel'].developer = 'Taito';
+gameCatalog['Time Tunnel'].release = '1982';
+gameCatalog['Time Tunnel'].players = '2';
+gameCatalog['Time Tunnel'].category = 'platformer';
+
+gameCatalog['The Bounty'] = new Game();
+gameCatalog['The Bounty'].name = 'The Bounty';
+gameCatalog['The Bounty'].developer = 'Orca';
+gameCatalog['The Bounty'].release = '1982';
+gameCatalog['The Bounty'].players = '2';
+gameCatalog['The Bounty'].category = 'shooter';
+
+gameCatalog['Triple Punch'] = new Game();
+gameCatalog['Triple Punch'].name = 'Triple Punch';
+gameCatalog['Triple Punch'].developer = 'KKI';
+gameCatalog['Triple Punch'].release = '1982';
+gameCatalog['Triple Punch'].players = '2';
+gameCatalog['Triple Punch'].category = 'maze';
+gameCatalog['Triple Punch'].alternativeName = 'Knock out';
+
+gameCatalog['Mr. TNT'] = new Game();
+gameCatalog['Mr. TNT'].name = 'Mr. TNT';
+gameCatalog['Mr. TNT'].developer = 'Telco';
+gameCatalog['Mr. TNT'].release = '1983';
+gameCatalog['Mr. TNT'].players = '2';
+gameCatalog['Mr. TNT'].category = 'maze';
+
+gameCatalog['Pig Newton'] = new Game();
+gameCatalog['Pig Newton'].name = 'Pig Newton';
+gameCatalog['Pig Newton'].developer = 'Sega';
+gameCatalog['Pig Newton'].release = '1983';
+gameCatalog['Pig Newton'].players = '2';
+gameCatalog['Pig Newton'].category = 'fighting';
+
+gameCatalog['River Patrol'] = new Game();
+gameCatalog['River Patrol'].name = 'River Patrol';
+gameCatalog['River Patrol'].developer = 'Kersten';
+gameCatalog['River Patrol'].release = '1981';
+gameCatalog['River Patrol'].players = '2';
+gameCatalog['River Patrol'].category = 'platformer';
+
+gameCatalog['Changes'] = new Game();
+gameCatalog['Changes'].name = 'Changes';
+gameCatalog['Changes'].developer = 'Orca';
+gameCatalog['Changes'].release = '1982';
+gameCatalog['Changes'].players = '2';
+gameCatalog['Changes'].category = 'maze';
+
+gameCatalog['Dock Man'] = new Game();
+gameCatalog['Dock Man'].name = 'Dock Man';
+gameCatalog['Dock Man'].developer = 'Taito';
+gameCatalog['Dock Man'].release = '1982';
+gameCatalog['Dock Man'].players = '2';
+gameCatalog['Dock Man'].category = 'platformer';
+
+gameCatalog['Dommy'] = new Game();
+gameCatalog['Dommy'].name = 'Dommy';
+gameCatalog['Dommy'].developer = 'Technos';
+gameCatalog['Dommy'].release = '1983';
+gameCatalog['Dommy'].players = '2';
+gameCatalog['Dommy'].category = 'maze';
+
+gameCatalog['Jump Coaster'] = new Game();
+gameCatalog['Jump Coaster'].name = 'Jump Coaster';
+gameCatalog['Jump Coaster'].developer = 'Kaneko';
+gameCatalog['Jump Coaster'].release = '1983';
+gameCatalog['Jump Coaster'].players = '2';
+gameCatalog['Jump Coaster'].category = 'platformer';
+
+gameCatalog['Polaris'] = new Game();
+gameCatalog['Polaris'].name = 'Polaris';
+gameCatalog['Polaris'].developer = 'Taito';
+gameCatalog['Polaris'].release = '1980';
+gameCatalog['Polaris'].players = '2';
+gameCatalog['Polaris'].category = 'shooter';
+
+gameCatalog['Toobin'] = new Game();
+gameCatalog['Toobin'].name = 'Toobin';
+gameCatalog['Toobin'].developer = 'Atari';
+gameCatalog['Toobin'].release = '1988';
+gameCatalog['Toobin'].players = '2';
+gameCatalog['Toobin'].category = 'racing';
+
+gameCatalog['Avalanche'] = new Game();
+gameCatalog['Avalanche'].name = 'Avalanche';
+gameCatalog['Avalanche'].developer = 'Atari';
+gameCatalog['Avalanche'].release = '1978';
+gameCatalog['Avalanche'].players = '2';
+gameCatalog['Avalanche'].category = 'misc';
+
+gameCatalog['Dingo'] = new Game();
+gameCatalog['Dingo'].name = 'Dingo';
+gameCatalog['Dingo'].developer = 'Jaleco';
+gameCatalog['Dingo'].release = '1983';
+gameCatalog['Dingo'].players = '2';
+gameCatalog['Dingo'].category = 'maze';
+
+gameCatalog['The Battle Road'] = new Game();
+gameCatalog['The Battle Road'].name = 'The Battle Road';
+gameCatalog['The Battle Road'].developer = 'Irem';
+gameCatalog['The Battle Road'].release = '1984';
+gameCatalog['The Battle Road'].players = '2';
+gameCatalog['The Battle Road'].category = 'shooter';
+
+gameCatalog['Hard Hat'] = new Game();
+gameCatalog['Hard Hat'].name = 'Hard Hat';
+gameCatalog['Hard Hat'].developer = 'Exidy';
+gameCatalog['Hard Hat'].release = '1982';
+gameCatalog['Hard Hat'].players = '2';
+gameCatalog['Hard Hat'].category = 'platformer';
+
+gameCatalog['City Bomber'] = new Game();
+gameCatalog['City Bomber'].name = 'City Bomber';
+gameCatalog['City Bomber'].developer = 'Konami';
+gameCatalog['City Bomber'].release = '1987';
+gameCatalog['City Bomber'].players = '2';
+gameCatalog['City Bomber'].category = 'racing';
+
+gameCatalog['Devil Fish'] = new Game();
+gameCatalog['Devil Fish'].name = 'Devil Fish';
+gameCatalog['Devil Fish'].developer = 'Artic';
+gameCatalog['Devil Fish'].release = '1982';
+gameCatalog['Devil Fish'].players = '2';
+gameCatalog['Devil Fish'].category = 'maze';
+
+gameCatalog['Funky Fish'] = new Game();
+gameCatalog['Funky Fish'].name = 'Funky Fish';
+gameCatalog['Funky Fish'].developer = 'Sun Electronics';
+gameCatalog['Funky Fish'].release = '1981';
+gameCatalog['Funky Fish'].players = '2';
+gameCatalog['Funky Fish'].category = 'platformer';
+
+gameCatalog['Funny Mouse'] = new Game();
+gameCatalog['Funny Mouse'].name = 'Funny Mouse';
+gameCatalog['Funny Mouse'].developer = 'Chuo Co Ltd';
+gameCatalog['Funny Mouse'].release = '1982';
+gameCatalog['Funny Mouse'].players = '2';
+gameCatalog['Funny Mouse'].category = 'platformer';
+
+gameCatalog['Join Em'] = new Game();
+gameCatalog['Join Em'].name = 'Join Em';
+gameCatalog['Join Em'].developer = 'Global Corporation';
+gameCatalog['Join Em'].release = '1983';
+gameCatalog['Join Em'].players = '2';
+gameCatalog['Join Em'].category = 'maze';
+
+gameCatalog['Oli-Boo Chu'] = new Game();
+gameCatalog['Oli-Boo Chu'].name = 'Oli-Boo Chu';
+gameCatalog['Oli-Boo Chu'].developer = 'Thomas Automatics Inc';
+gameCatalog['Oli-Boo Chu'].release = '1983';
+gameCatalog['Oli-Boo Chu'].players = '2';
+gameCatalog['Oli-Boo Chu'].category = 'platformer';
+
+gameCatalog['R2D Tank'] = new Game();
+gameCatalog['R2D Tank'].name = 'R2D Tank';
+gameCatalog['R2D Tank'].developer = 'Sigma';
+gameCatalog['R2D Tank'].release = '1980';
+gameCatalog['R2D Tank'].players = '2';
+gameCatalog['R2D Tank'].category = 'shooter';
+
+gameCatalog['Razzmatazz'] = new Game();
+gameCatalog['Razzmatazz'].name = 'Razzmatazz';
+gameCatalog['Razzmatazz'].developer = 'Sega';
+gameCatalog['Razzmatazz'].release = '1983';
+gameCatalog['Razzmatazz'].players = '2';
+gameCatalog['Razzmatazz'].category = 'shooter';
+
+gameCatalog['Tugboat'] = new Game();
+gameCatalog['Tugboat'].name = 'Tugboat';
+gameCatalog['Tugboat'].developer = 'Moppet Video';
+gameCatalog['Tugboat'].release = '1982';
+gameCatalog['Tugboat'].players = '2';
+gameCatalog['Tugboat'].category = 'platformer';
+
+gameCatalog['Super Tank'] = new Game();
+gameCatalog['Super Tank'].name = 'Super Tank';
+gameCatalog['Super Tank'].developer = 'Computran';
+gameCatalog['Super Tank'].release = '1981';
+gameCatalog['Super Tank'].players = '2';
+gameCatalog['Super Tank'].category = 'shooter';
+
+gameCatalog['Wiping'] = new Game();
+gameCatalog['Wiping'].name = 'Wiping';
+gameCatalog['Wiping'].developer = 'Nichibutsu';
+gameCatalog['Wiping'].release = '1982';
+gameCatalog['Wiping'].players = '2';
+gameCatalog['Wiping'].category = 'maze';
+
+gameCatalog['Dorodon'] = new Game();
+gameCatalog['Dorodon'].name = 'Dorodon';
+gameCatalog['Dorodon'].developer = 'UPL';
+gameCatalog['Dorodon'].release = '1982';
+gameCatalog['Dorodon'].players = '2';
+gameCatalog['Dorodon'].category = 'maze';
+
+gameCatalog['Hopping Mappy'] = new Game();
+gameCatalog['Hopping Mappy'].name = 'Hopping Mappy';
+gameCatalog['Hopping Mappy'].developer = 'Namco';
+gameCatalog['Hopping Mappy'].release = '1986';
+gameCatalog['Hopping Mappy'].players = '2';
+gameCatalog['Hopping Mappy'].category = 'platformer';
+
+//
+
+gameCatalog['Ibara'] = new Game();
+gameCatalog['Ibara'].name = 'Ibara';
+gameCatalog['Ibara'].developer = 'Cave';
+gameCatalog['Ibara'].release = '2005';
+gameCatalog['Ibara'].players = '2';
+gameCatalog['Ibara'].category = 'shooter';
+
+gameCatalog['Ibara Kuro Black Label'] = new Game();
+gameCatalog['Ibara Kuro Black Label'].name = 'Ibara Kuro Black Label';
+gameCatalog['Ibara Kuro Black Label'].developer = 'Cave';
+gameCatalog['Ibara Kuro Black Label'].release = '2006';
+gameCatalog['Ibara Kuro Black Label'].players = '2';
+gameCatalog['Ibara Kuro Black Label'].category = 'shooter';
+
+gameCatalog['Pink Sweets Ibara II'] = new Game();
+gameCatalog['Pink Sweets Ibara II'].name = 'Pink Sweets Ibara II';
+gameCatalog['Pink Sweets Ibara II'].developer = 'Cave';
+gameCatalog['Pink Sweets Ibara II'].release = '2006';
+gameCatalog['Pink Sweets Ibara II'].players = '2';
+gameCatalog['Pink Sweets Ibara II'].category = 'shooter';
+try {
+    //gameCatalog['Pink Sweets Ibara II'].displayName = 'Pink Sweets';   
+}
+catch (err) {
+    console.log(err);
+}
+
+gameCatalog['Pink Sweets Ibara Sorekara'] = new Game();
+gameCatalog['Pink Sweets Ibara Sorekara'].name = 'Pink Sweets Ibara Sorekara';
+gameCatalog['Pink Sweets Ibara Sorekara'].developer = 'Cave';
+gameCatalog['Pink Sweets Ibara Sorekara'].release = '2006';
+gameCatalog['Pink Sweets Ibara Sorekara'].players = '2';
+gameCatalog['Pink Sweets Ibara Sorekara'].category = 'shooter';
+
+gameCatalog['DoDonPachi Dai-Ou-Jou Black Label'] = new Game();
+gameCatalog['DoDonPachi Dai-Ou-Jou Black Label'].name = 'DoDonPachi Dai-Ou-Jou Black Label';
+gameCatalog['DoDonPachi Dai-Ou-Jou Black Label'].developer = 'Cave';
+gameCatalog['DoDonPachi Dai-Ou-Jou Black Label'].release = '2002';
+gameCatalog['DoDonPachi Dai-Ou-Jou Black Label'].players = '2';
+gameCatalog['DoDonPachi Dai-Ou-Jou Black Label'].category = 'shooter';
+
+gameCatalog['DoDonPachi Dai-Fukkatsu'] = new Game();
+gameCatalog['DoDonPachi Dai-Fukkatsu'].name = 'DoDonPachi Dai-Fukkatsu';
+gameCatalog['DoDonPachi Dai-Fukkatsu'].developer = 'Cave';
+gameCatalog['DoDonPachi Dai-Fukkatsu'].release = '2008';
+gameCatalog['DoDonPachi Dai-Fukkatsu'].players = '2';
+gameCatalog['DoDonPachi Dai-Fukkatsu'].category = 'shooter';
+gameCatalog['DoDonPachi Dai-Fukkatsu'].alternativeName = 'DoDonPachi Resurrection';
+
+gameCatalog['DoDonPachi Dai-Fukkatsu Black Label'] = new Game();
+gameCatalog['DoDonPachi Dai-Fukkatsu Black Label'].name = 'DoDonPachi Dai-Fukkatsu Black Label';
+gameCatalog['DoDonPachi Dai-Fukkatsu Black Label'].developer = 'Cave';
+gameCatalog['DoDonPachi Dai-Fukkatsu Black Label'].release = '2008';
+gameCatalog['DoDonPachi Dai-Fukkatsu Black Label'].players = '2';
+gameCatalog['DoDonPachi Dai-Fukkatsu Black Label'].category = 'shooter';
+
+gameCatalog['Mushihime-Sama'] = new Game();
+gameCatalog['Mushihime-Sama'].name = 'Mushihime-Sama';
+gameCatalog['Mushihime-Sama'].developer = 'Cave';
+gameCatalog['Mushihime-Sama'].release = '2004';
+gameCatalog['Mushihime-Sama'].players = '2';
+gameCatalog['Mushihime-Sama'].category = 'shooter';
+
+gameCatalog['Mushihime-Sama Futari'] = new Game();
+gameCatalog['Mushihime-Sama Futari'].name = 'Mushihime-Sama Futari';
+gameCatalog['Mushihime-Sama Futari'].developer = 'Cave';
+gameCatalog['Mushihime-Sama Futari'].release = '2005';
+gameCatalog['Mushihime-Sama Futari'].players = '2';
+gameCatalog['Mushihime-Sama Futari'].category = 'shooter';
+
+gameCatalog['Mushihime-Sama Futari Black Label'] = new Game();
+gameCatalog['Mushihime-Sama Futari Black Label'].name = 'Mushihime-Sama Futari Black Label';
+gameCatalog['Mushihime-Sama Futari Black Label'].developer = 'Cave';
+gameCatalog['Mushihime-Sama Futari Black Label'].release = '2005';
+gameCatalog['Mushihime-Sama Futari Black Label'].players = '2';
+gameCatalog['Mushihime-Sama Futari Black Label'].category = 'shooter';
+gameCatalog['Mushihime-Sama Futari Black Label'].alternativeName = 'Mushihime-Sama 2 Black Label';
+
+gameCatalog['Akai Katana'] = new Game();
+gameCatalog['Akai Katana'].name = 'Akai Katana';
+gameCatalog['Akai Katana'].developer = 'Cave';
+gameCatalog['Akai Katana'].release = '2010';
+gameCatalog['Akai Katana'].players = '2';
+gameCatalog['Akai Katana'].category = 'shooter';
+
+gameCatalog['DeathSmiles'] = new Game();
+gameCatalog['DeathSmiles'].name = 'DeathSmiles';
+gameCatalog['DeathSmiles'].developer = 'Cave';
+gameCatalog['DeathSmiles'].release = '2007';
+gameCatalog['DeathSmiles'].players = '2';
+gameCatalog['DeathSmiles'].category = 'shooter';
+
+gameCatalog['DeathSmiles Mega Black Label'] = new Game();
+gameCatalog['DeathSmiles Mega Black Label'].name = 'DeathSmiles Mega Black Label';
+gameCatalog['DeathSmiles Mega Black Label'].developer = 'Save';
+gameCatalog['DeathSmiles Mega Black Label'].release = '2007';
+gameCatalog['DeathSmiles Mega Black Label'].players = '2';
+gameCatalog['DeathSmiles Mega Black Label'].category = 'shooter';
+
+gameCatalog['DeathSmiles II'] = new Game();
+gameCatalog['DeathSmiles II'].name = 'DeathSmiles II';
+gameCatalog['DeathSmiles II'].developer = 'Cave';
+gameCatalog['DeathSmiles II'].release = '2009';
+gameCatalog['DeathSmiles II'].players = '2';
+gameCatalog['DeathSmiles II'].category = 'shooter';
+
+gameCatalog['Mahou Daisakusen'] = new Game();
+gameCatalog['Mahou Daisakusen'].name = 'Mahou Daisakusen';
+gameCatalog['Mahou Daisakusen'].developer = '8ing/Raizing';
+gameCatalog['Mahou Daisakusen'].release = '1993';
+gameCatalog['Mahou Daisakusen'].players = '2';
+gameCatalog['Mahou Daisakusen'].category = 'shooter';
+
+gameCatalog['Sorcer Striker'] = new Game();
+gameCatalog['Sorcer Striker'].name = 'Sorcer Striker';
+gameCatalog['Sorcer Striker'].developer = '8ing/Raizing';
+gameCatalog['Sorcer Striker'].release = '1993';
+gameCatalog['Sorcer Striker'].players = '2';
+gameCatalog['Sorcer Striker'].category = 'shooter';
+
+gameCatalog['Shippu Mahou Daisakusen'] = new Game();
+gameCatalog['Shippu Mahou Daisakusen'].name = 'Shippu Mahou Daisakusen';
+gameCatalog['Shippu Mahou Daisakusen'].developer = '8ing/Raizing';
+gameCatalog['Shippu Mahou Daisakusen'].release = '1994';
+gameCatalog['Shippu Mahou Daisakusen'].players = '2';
+gameCatalog['Shippu Mahou Daisakusen'].category = 'shooter';
+gameCatalog['Shippu Mahou Daisakusen'].alternativeName = 'Kingdom Grand Prix';
+
+gameCatalog['Brave Blade'] = new Game();
+gameCatalog['Brave Blade'].name = 'Brave Blade';
+gameCatalog['Brave Blade'].developer = '8ing/Raizing';
+gameCatalog['Brave Blade'].release = '2000';
+gameCatalog['Brave Blade'].players = '2';
+gameCatalog['Brave Blade'].category = 'shooter';
+
+gameCatalog['Great Mahou Daisakusen'] = new Game();
+gameCatalog['Great Mahou Daisakusen'].name = 'Great Mahou Daisakusen';
+gameCatalog['Great Mahou Daisakusen'].developer = '8ing/Raizing';
+gameCatalog['Great Mahou Daisakusen'].release = '2000';
+gameCatalog['Great Mahou Daisakusen'].players = '2';
+gameCatalog['Great Mahou Daisakusen'].category = 'shooter';
+gameCatalog['Great Mahou Daisakusen'].alternativeName = 'Dimahoo';
+
+gameCatalog['Soukyugurentai'] = new Game();
+gameCatalog['Soukyugurentai'].name = 'Soukyugurentai';
+gameCatalog['Soukyugurentai'].developer = '8ing/Raizing';
+gameCatalog['Soukyugurentai'].release = '1996';
+gameCatalog['Soukyugurentai'].players = '2';
+gameCatalog['Soukyugurentai'].category = 'shooter';
+gameCatalog['Soukyugurentai'].alternativeName = 'Terra Diver';
+
+gameCatalog['Raiden II'] = new Game();
+gameCatalog['Raiden II'].name = 'Raiden II';
+gameCatalog['Raiden II'].developer = 'Seibu Kaihatsu';
+gameCatalog['Raiden II'].release = '1993';
+gameCatalog['Raiden II'].players = '2';
+gameCatalog['Raiden II'].category = 'shooter';
+
+gameCatalog['Raiden DX'] = new Game();
+gameCatalog['Raiden DX'].name = 'Raiden DX';
+gameCatalog['Raiden DX'].developer = 'Seibu Kaihatsu';
+gameCatalog['Raiden DX'].release = '1994';
+gameCatalog['Raiden DX'].players = '2';
+gameCatalog['Raiden DX'].category = 'shooter';
+
+gameCatalog['Raiden IV'] = new Game();
+gameCatalog['Raiden IV'].name = 'Raiden IV';
+gameCatalog['Raiden IV'].developer = 'Taito';
+gameCatalog['Raiden IV'].release = '2007';
+gameCatalog['Raiden IV'].players = '2';
+gameCatalog['Raiden IV'].category = 'shooter';
+
+gameCatalog['Raiden Fighters 2'] = new Game();
+gameCatalog['Raiden Fighters 2'].name = 'Raiden Fighters 2';
+gameCatalog['Raiden Fighters 2'].developer = 'Seibu Kaihatsu';
+gameCatalog['Raiden Fighters 2'].release = '1997';
+gameCatalog['Raiden Fighters 2'].players = '2';
+gameCatalog['Raiden Fighters 2'].category = 'shooter';
+
+gameCatalog['Raiden Fighters Jet'] = new Game();
+gameCatalog['Raiden Fighters Jet'].name = 'Raiden Fighters Jet';
+gameCatalog['Raiden Fighters Jet'].developer = 'Seibu Kaihatsu';
+gameCatalog['Raiden Fighters Jet'].release = '1998';
+gameCatalog['Raiden Fighters Jet'].players = '2';
+gameCatalog['Raiden Fighters Jet'].category = 'shooter';
+
+gameCatalog['Viper Phase 1'] = new Game();
+gameCatalog['Viper Phase 1'].name = 'Viper Phase 1';
+gameCatalog['Viper Phase 1'].developer = 'Seibu Kaihatsu';
+gameCatalog['Viper Phase 1'].release = '1995';
+gameCatalog['Viper Phase 1'].players = '2';
+gameCatalog['Viper Phase 1'].category = 'shooter';
+
+gameCatalog['Fire Shark'] = new Game();
+gameCatalog['Fire Shark'].name = 'Fire Shark';
+gameCatalog['Fire Shark'].developer = 'Romstar';
+gameCatalog['Fire Shark'].release = '1990';
+gameCatalog['Fire Shark'].players = '2';
+gameCatalog['Fire Shark'].category = 'shooter';
+
+gameCatalog['Twin Cobra 2'] = new Game();
+gameCatalog['Twin Cobra 2'].name = 'Twin Cobra 2';
+gameCatalog['Twin Cobra 2'].developer = 'Taito';
+gameCatalog['Twin Cobra 2'].release = '1995';
+gameCatalog['Twin Cobra 2'].players = '2';
+gameCatalog['Twin Cobra 2'].category = 'shooter';
+
+gameCatalog['Batsugan Special'] = new Game();
+gameCatalog['Batsugan Special'].name = 'Batsugan Special';
+gameCatalog['Batsugan Special'].developer = 'Toaplan';
+gameCatalog['Batsugan Special'].release = '1996';
+gameCatalog['Batsugan Special'].players = '2';
+gameCatalog['Batsugan Special'].category = 'shooter';
+try {
+    //gameCatalog['Batsugan Special'].displayName = 'Batsugun Special';    
+}
+catch (err) {
+    console.log(err);
+}
+
+gameCatalog['Strikers 1945 II'] = new Game();
+gameCatalog['Strikers 1945 II'].name = 'Strikers 1945 II';
+gameCatalog['Strikers 1945 II'].developer = 'Psikyo';
+gameCatalog['Strikers 1945 II'].release = '1997';
+gameCatalog['Strikers 1945 II'].players = '2';
+gameCatalog['Strikers 1945 II'].category = 'shooter';
+
+gameCatalog['Strikers 1945 Plus'] = new Game();
+gameCatalog['Strikers 1945 Plus'].name = 'Strikers 1945 Plus';
+gameCatalog['Strikers 1945 Plus'].developer = 'Psikyo';
+gameCatalog['Strikers 1945 Plus'].release = '1999';
+gameCatalog['Strikers 1945 Plus'].players = '2';
+gameCatalog['Strikers 1945 Plus'].category = 'shooter';
+
+gameCatalog['Gunbarich'] = new Game();
+gameCatalog['Gunbarich'].name = 'Gunbarich';
+gameCatalog['Gunbarich'].developer = 'Psikyo';
+gameCatalog['Gunbarich'].release = '2001';
+gameCatalog['Gunbarich'].players = '2';
+gameCatalog['Gunbarich'].category = 'shooter';
+
+gameCatalog['Sengoku Ace'] = new Game();
+gameCatalog['Sengoku Ace'].name = 'Sengoku Ace';
+gameCatalog['Sengoku Ace'].developer = 'Psikyo';
+gameCatalog['Sengoku Ace'].release = '1993';
+gameCatalog['Sengoku Ace'].players = '2';
+gameCatalog['Sengoku Ace'].category = 'shooter';
+
+gameCatalog['Tengai'] = new Game();
+gameCatalog['Tengai'].name = 'Tengai';
+gameCatalog['Tengai'].developer = 'Psikyo';
+gameCatalog['Tengai'].release = '1996';
+gameCatalog['Tengai'].players = '2';
+gameCatalog['Tengai'].category = 'shooter';
+
+gameCatalog['Sol Divide'] = new Game();
+gameCatalog['Sol Divide'].name = 'Sol Divide';
+gameCatalog['Sol Divide'].developer = 'Psikyo';
+gameCatalog['Sol Divide'].release = '1997';
+gameCatalog['Sol Divide'].players = '2';
+gameCatalog['Sol Divide'].category = 'shooter';
+
+gameCatalog['Zero Gunner'] = new Game();
+gameCatalog['Zero Gunner'].name = 'Zero Gunner';
+gameCatalog['Zero Gunner'].developer = 'Psikyo';
+gameCatalog['Zero Gunner'].release = '1997';
+gameCatalog['Zero Gunner'].players = '2';
+gameCatalog['Zero Gunner'].category = 'shooter';
+
+gameCatalog['Zero Gunner 2'] = new Game();
+gameCatalog['Zero Gunner 2'].name = 'Zero Gunner 2';
+gameCatalog['Zero Gunner 2'].developer = 'Psikyo';
+gameCatalog['Zero Gunner 2'].release = '2001';
+gameCatalog['Zero Gunner 2'].players = '2';
+gameCatalog['Zero Gunner 2'].category = 'shooter';
+
+gameCatalog['Fire Barrel'] = new Game();
+gameCatalog['Fire Barrel'].name = 'Fire Barrel';
+gameCatalog['Fire Barrel'].developer = 'Irem';
+gameCatalog['Fire Barrel'].release = '1993';
+gameCatalog['Fire Barrel'].players = '2';
+gameCatalog['Fire Barrel'].category = 'shooter';
+
+gameCatalog['Gekirindan'] = new Game();
+gameCatalog['Gekirindan'].name = 'Gekirindan';
+gameCatalog['Gekirindan'].developer = 'Taito';
+gameCatalog['Gekirindan'].release = '1995';
+gameCatalog['Gekirindan'].players = '2';
+gameCatalog['Gekirindan'].category = 'shooter';
+
+gameCatalog['Hotdog Storm'] = new Game();
+gameCatalog['Hotdog Storm'].name = 'Hotdog Storm';
+gameCatalog['Hotdog Storm'].developer = 'Marble';
+gameCatalog['Hotdog Storm'].release = '1996';
+gameCatalog['Hotdog Storm'].players = '2';
+gameCatalog['Hotdog Storm'].category = 'shooter';
+
+gameCatalog['Nostradamus'] = new Game();
+gameCatalog['Nostradamus'].name = 'Nostradamus';
+gameCatalog['Nostradamus'].developer = 'Face';
+gameCatalog['Nostradamus'].release = '1993';
+gameCatalog['Nostradamus'].players = '2';
+gameCatalog['Nostradamus'].category = 'shooter';
+
+gameCatalog['P-47 Aces'] = new Game();
+gameCatalog['P-47 Aces'].name = 'P-47 Aces';
+gameCatalog['P-47 Aces'].developer = 'Jaleco';
+gameCatalog['P-47 Aces'].release = '1995';
+gameCatalog['P-47 Aces'].players = '2';
+gameCatalog['P-47 Aces'].category = 'shooter';
+
+gameCatalog['Rapid Hero'] = new Game();
+gameCatalog['Rapid Hero'].name = 'Rapid Hero';
+gameCatalog['Rapid Hero'].developer = 'Media Trading Corp.';
+gameCatalog['Rapid Hero'].release = '1994';
+gameCatalog['Rapid Hero'].players = '2';
+gameCatalog['Rapid Hero'].category = 'shooter';
+
+gameCatalog['Sand Scorpion'] = new Game();
+gameCatalog['Sand Scorpion'].name = 'Sand Scorpion';
+gameCatalog['Sand Scorpion'].developer = 'Face';
+gameCatalog['Sand Scorpion'].release = '1992';
+gameCatalog['Sand Scorpion'].players = '2';
+gameCatalog['Sand Scorpion'].category = 'shooter';
+
+gameCatalog['Trizeal'] = new Game();
+gameCatalog['Trizeal'].name = 'Trizeal';
+gameCatalog['Trizeal'].developer = 'Triangle Service';
+gameCatalog['Trizeal'].release = '2005';
+gameCatalog['Trizeal'].players = '2';
+gameCatalog['Trizeal'].category = 'shooter';
+
+gameCatalog['Thunder Dragon'] = new Game();
+gameCatalog['Thunder Dragon'].name = 'Thunder Dragon';
+gameCatalog['Thunder Dragon'].developer = 'NMK';
+gameCatalog['Thunder Dragon'].release = '1991';
+gameCatalog['Thunder Dragon'].players = '2';
+gameCatalog['Thunder Dragon'].category = 'shooter';
+
+gameCatalog['Thunder Dragon 2'] = new Game();
+gameCatalog['Thunder Dragon 2'].name = 'Thunder Dragon 2';
+gameCatalog['Thunder Dragon 2'].developer = 'NMK';
+gameCatalog['Thunder Dragon 2'].release = '1993';
+gameCatalog['Thunder Dragon 2'].players = '2';
+gameCatalog['Thunder Dragon 2'].category = 'shooter';
+
+gameCatalog['US AAF Mustang'] = new Game();
+gameCatalog['US AAF Mustang'].name = 'US AAF Mustang';
+gameCatalog['US AAF Mustang'].developer = 'UPL';
+gameCatalog['US AAF Mustang'].release = '1990';
+gameCatalog['US AAF Mustang'].players = '2';
+gameCatalog['US AAF Mustang'].category = 'shooter';
+
+gameCatalog['Super Dimensional Fortress Macross II'] = new Game();
+gameCatalog['Super Dimensional Fortress Macross II'].name = 'Super Dimensional Fortress Macross II';
+gameCatalog['Super Dimensional Fortress Macross II'].developer = 'Banpresto';
+gameCatalog['Super Dimensional Fortress Macross II'].release = '1993';
+gameCatalog['Super Dimensional Fortress Macross II'].players = '2';
+gameCatalog['Super Dimensional Fortress Macross II'].category = 'shooter';
+gameCatalog['Super Dimensional Fortress Macross II'].alternativeName = 'Chouzikuu Yousai Macross - Macross II';
+
+gameCatalog['Lasso'] = new Game();
+gameCatalog['Lasso'].name = 'Lasso';
+gameCatalog['Lasso'].developer = 'SNK';
+gameCatalog['Lasso'].release = '1982';
+gameCatalog['Lasso'].players = '2';
+gameCatalog['Lasso'].category = 'misc';
+
+gameCatalog['Snapper'] = new Game();
+gameCatalog['Snapper'].name = 'Snapper';
+gameCatalog['Snapper'].developer = 'Exidy';
+gameCatalog['Snapper'].release = '1982';
+gameCatalog['Snapper'].players = '1';
+gameCatalog['Snapper'].category = 'maze';
+
+gameCatalog['Cadillacs And Dinosaurs'] = new Game();
+gameCatalog['Cadillacs And Dinosaurs'].name = 'Cadillacs And Dinosaurs';
+gameCatalog['Cadillacs And Dinosaurs'].developer = 'Capcom';
+gameCatalog['Cadillacs And Dinosaurs'].release = '1992';
+gameCatalog['Cadillacs And Dinosaurs'].players = '3';
+gameCatalog['Cadillacs And Dinosaurs'].category = 'beatemup';
+
+gameCatalog['Levers'] = new Game();
+gameCatalog['Levers'].name = 'Levers';
+gameCatalog['Levers'].developer = 'Rock-Ola Mfg. Corp.';
+gameCatalog['Levers'].release = '1983';
+gameCatalog['Levers'].players = '2';
+gameCatalog['Levers'].category = 'platformer';
+
+gameCatalog['Bongo'] = new Game();
+gameCatalog['Bongo'].name = 'Bongo';
+gameCatalog['Bongo'].developer = 'Jetsoft';
+gameCatalog['Bongo'].release = '1983';
+gameCatalog['Bongo'].players = '1';
+gameCatalog['Bongo'].category = 'platformer';
+
+gameCatalog['Monster Bash'] = new Game();
+gameCatalog['Monster Bash'].name = 'Monster Bash';
+gameCatalog['Monster Bash'].developer = 'Sega';
+gameCatalog['Monster Bash'].release = '1982';
+gameCatalog['Monster Bash'].players = '2';
+gameCatalog['Monster Bash'].category = 'platformer';
+
+gameCatalog['Mariner'] = new Game();
+gameCatalog['Mariner'].name = 'Mariner';
+gameCatalog['Mariner'].developer = 'Amenip';
+gameCatalog['Mariner'].release = '1981';
+gameCatalog['Mariner'].players = '2';
+gameCatalog['Mariner'].category = 'shooter';
+
+gameCatalog['Mermaid'] = new Game();
+gameCatalog['Mermaid'].name = 'Mermaid';
+gameCatalog['Mermaid'].developer = 'Rock-Ola Mfg. Corp.';
+gameCatalog['Mermaid'].release = '1982';
+gameCatalog['Mermaid'].players = '2';
+gameCatalog['Mermaid'].category = 'misc';
+
+gameCatalog['Route 16'] = new Game();
+gameCatalog['Route 16'].name = 'Route 16';
+gameCatalog['Route 16'].developer = 'Centuri';
+gameCatalog['Route 16'].release = '1981';
+gameCatalog['Route 16'].players = '2';
+gameCatalog['Route 16'].category = 'maze';
+
+gameCatalog['Marine Boy'] = new Game();
+gameCatalog['Marine Boy'].name = 'Marine Boy';
+gameCatalog['Marine Boy'].developer = 'Orca';
+gameCatalog['Marine Boy'].release = '1982';
+gameCatalog['Marine Boy'].players = '1';
+gameCatalog['Marine Boy'].category = 'misc';
+
+gameCatalog['Net Wars'] = new Game();
+gameCatalog['Net Wars'].name = 'Net Wars';
+gameCatalog['Net Wars'].developer = 'Orca';
+gameCatalog['Net Wars'].release = '1983';
+gameCatalog['Net Wars'].players = '2';
+gameCatalog['Net Wars'].category = 'shooter';
+
+gameCatalog['Spiders'] = new Game();
+gameCatalog['Spiders'].name = 'Spiders';
+gameCatalog['Spiders'].developer = 'Sigma Ent. Inc.';
+gameCatalog['Spiders'].release = '1981';
+gameCatalog['Spiders'].players = '2';
+gameCatalog['Spiders'].category = 'shooter';
+
+gameCatalog['Chuka Taisen'] = new Game();
+gameCatalog['Chuka Taisen'].name = 'Chuka Taisen';
+gameCatalog['Chuka Taisen'].developer = 'Taito';
+gameCatalog['Chuka Taisen'].release = '1988';
+gameCatalog['Chuka Taisen'].players = '2';
+gameCatalog['Chuka Taisen'].category = 'shooter';
+
+gameCatalog['Guzzler'] = new Game();
+gameCatalog['Guzzler'].name = 'Guzzler';
+gameCatalog['Guzzler'].developer = 'Tehkan';
+gameCatalog['Guzzler'].release = '1983';
+gameCatalog['Guzzler'].players = '2';
+gameCatalog['Guzzler'].category = 'maze';
+
+gameCatalog['Hot Shocker'] = new Game();
+gameCatalog['Hot Shocker'].name = 'Hot Shocker';
+gameCatalog['Hot Shocker'].developer = 'E.G. Felaco';
+gameCatalog['Hot Shocker'].release = '1982';
+gameCatalog['Hot Shocker'].players = '2';
+gameCatalog['Hot Shocker'].category = 'platformer';
+
+gameCatalog['Tranquilizer Gun'] = new Game();
+gameCatalog['Tranquilizer Gun'].name = 'Tranquilizer Gun';
+gameCatalog['Tranquilizer Gun'].developer = 'Sega';
+gameCatalog['Tranquilizer Gun'].release = '1980';
+gameCatalog['Tranquilizer Gun'].players = '2';
+gameCatalog['Tranquilizer Gun'].category = 'shooter';
+
+gameCatalog['Plump Pop'] = new Game();
+gameCatalog['Plump Pop'].name = 'Plump Pop';
+gameCatalog['Plump Pop'].developer = 'Taito';
+gameCatalog['Plump Pop'].release = '1987';
+gameCatalog['Plump Pop'].players = '2';
+gameCatalog['Plump Pop'].category = 'misc';
+
+gameCatalog['Atomic Robo-Kid'] = new Game();
+gameCatalog['Atomic Robo-Kid'].name = 'Atomic Robo-Kid';
+gameCatalog['Atomic Robo-Kid'].developer = 'UPL';
+gameCatalog['Atomic Robo-Kid'].release = '1989';
+gameCatalog['Atomic Robo-Kid'].players = '2';
+gameCatalog['Atomic Robo-Kid'].category = 'shooter';
+
+gameCatalog['Speak And Rescue'] = new Game();
+gameCatalog['Speak And Rescue'].name = 'Speak And Rescue';
+gameCatalog['Speak And Rescue'].developer = 'Sun Electronics';
+gameCatalog['Speak And Rescue'].release = '1980';
+gameCatalog['Speak And Rescue'].players = '2';
+gameCatalog['Speak And Rescue'].category = 'shooter';
+
+gameCatalog['Side Arms Hyper Dyne'] = new Game();
+gameCatalog['Side Arms Hyper Dyne'].name = 'Side Arms Hyper Dyne';
+gameCatalog['Side Arms Hyper Dyne'].developer = 'Capcom';
+gameCatalog['Side Arms Hyper Dyne'].release = '1986';
+gameCatalog['Side Arms Hyper Dyne'].players = '2';
+gameCatalog['Side Arms Hyper Dyne'].category = 'shooter';
+
+gameCatalog['Marvel Super Heroes Vs Street Fighter'] = new Game();
+gameCatalog['Marvel Super Heroes Vs Street Fighter'].name = 'Marvel Super Heroes Vs Street Fighter';
+gameCatalog['Marvel Super Heroes Vs Street Fighter'].developer = 'Capcom';
+gameCatalog['Marvel Super Heroes Vs Street Fighter'].release = '1997';
+gameCatalog['Marvel Super Heroes Vs Street Fighter'].players = '2';
+gameCatalog['Marvel Super Heroes Vs Street Fighter'].category = 'fighting';
+
+gameCatalog['Marvel Vs Capcom'] = new Game();
+gameCatalog['Marvel Vs Capcom'].name = 'Marvel Vs Capcom';
+gameCatalog['Marvel Vs Capcom'].developer = 'Capcom';
+gameCatalog['Marvel Vs Capcom'].release = '1998';
+gameCatalog['Marvel Vs Capcom'].players = '2';
+gameCatalog['Marvel Vs Capcom'].category = 'fighting';
+
+gameCatalog['Street Fighter Zero'] = new Game();
+gameCatalog['Street Fighter Zero'].name = 'Street Fighter Zero';
+gameCatalog['Street Fighter Zero'].developer = 'Capcom';
+gameCatalog['Street Fighter Zero'].release = '1995';
+gameCatalog['Street Fighter Zero'].players = '2';
+gameCatalog['Street Fighter Zero'].category = 'fighting';
+gameCatalog['Street Fighter Zero'].alternativeName = 'Street Fighter Alpha';
+
+gameCatalog['Street Fighter Zero 3'] = new Game();
+gameCatalog['Street Fighter Zero 3'].name = 'Street Fighter Zero 3';
+gameCatalog['Street Fighter Zero 3'].developer = 'Capcom';
+gameCatalog['Street Fighter Zero 3'].release = '1998';
+gameCatalog['Street Fighter Zero 3'].players = '2';
+gameCatalog['Street Fighter Zero 3'].category = 'fighting';
+gameCatalog['Street Fighter Zero 3'].alternativeName = 'Street Fighter Alpha 3';
+
+gameCatalog['Super Gem Fighter Mini Mix'] = new Game();
+gameCatalog['Super Gem Fighter Mini Mix'].name = 'Super Gem Fighter Mini Mix';
+gameCatalog['Super Gem Fighter Mini Mix'].developer = 'Capcom';
+gameCatalog['Super Gem Fighter Mini Mix'].release = '1997';
+gameCatalog['Super Gem Fighter Mini Mix'].players = '2';
+gameCatalog['Super Gem Fighter Mini Mix'].category = 'fighting';
+
+gameCatalog['Fantasy Zone'] = new Game();
+gameCatalog['Fantasy Zone'].name = 'Fantasy Zone';
+gameCatalog['Fantasy Zone'].developer = 'Sega';
+gameCatalog['Fantasy Zone'].release = '1986';
+gameCatalog['Fantasy Zone'].players = '2';
+gameCatalog['Fantasy Zone'].category = 'shooter';
+
+gameCatalog['Naughty Mouse'] = new Game();
+gameCatalog['Naughty Mouse'].name = 'Naughty Mouse';
+gameCatalog['Naughty Mouse'].developer = 'Nova Games';
+gameCatalog['Naughty Mouse'].release = '1981';
+gameCatalog['Naughty Mouse'].players = '2';
+gameCatalog['Naughty Mouse'].category = 'platformer';
+gameCatalog['Naughty Mouse'].alternativeName = 'Woodpecker';
+
+gameCatalog['Vs Duck Hunt'] = new Game();
+gameCatalog['Vs Duck Hunt'].name = 'Vs Duck Hunt';
+gameCatalog['Vs Duck Hunt'].developer = 'Nintendo';
+gameCatalog['Vs Duck Hunt'].release = '1984';
+gameCatalog['Vs Duck Hunt'].players = '2';
+gameCatalog['Vs Duck Hunt'].category = 'guns';
+
+gameCatalog['Gemini Wing'] = new Game();
+gameCatalog['Gemini Wing'].name = 'Gemini Wing';
+gameCatalog['Gemini Wing'].developer = 'Tecmo';
+gameCatalog['Gemini Wing'].release = '1987';
+gameCatalog['Gemini Wing'].players = '2';
+gameCatalog['Gemini Wing'].category = 'shooter';
+
+gameCatalog['Hero'] = new Game();
+gameCatalog['Hero'].name = 'Hero';
+gameCatalog['Hero'].developer = 'CVS';
+gameCatalog['Hero'].release = '1984';
+gameCatalog['Hero'].players = '2';
+gameCatalog['Hero'].category = 'maze';
+
+gameCatalog['Astyanax'] = new Game();
+gameCatalog['Astyanax'].name = 'Astyanax';
+gameCatalog['Astyanax'].developer = 'Jaleco';
+gameCatalog['Astyanax'].release = '1989';
+gameCatalog['Astyanax'].players = '2';
+gameCatalog['Astyanax'].category = 'platformer';
+
+gameCatalog['Dark Adventure'] = new Game();
+gameCatalog['Dark Adventure'].name = 'Dark Adventure';
+gameCatalog['Dark Adventure'].developer = 'Konami';
+gameCatalog['Dark Adventure'].release = '1987';
+gameCatalog['Dark Adventure'].players = '3';
+gameCatalog['Dark Adventure'].category = 'misc';
+
+gameCatalog['Dark Seal'] = new Game();
+gameCatalog['Dark Seal'].name = 'Dark Seal';
+gameCatalog['Dark Seal'].developer = 'Data East';
+gameCatalog['Dark Seal'].release = '1990';
+gameCatalog['Dark Seal'].players = '4';
+gameCatalog['Dark Seal'].category = 'beatemup';
+
+gameCatalog['Indian Battle'] = new Game();
+gameCatalog['Indian Battle'].name = 'Indian Battle';
+gameCatalog['Indian Battle'].developer = 'Taito';
+gameCatalog['Indian Battle'].release = '1980';
+gameCatalog['Indian Battle'].players = '2';
+gameCatalog['Indian Battle'].category = 'shooter';
+
+gameCatalog['Ken-Go'] = new Game();
+gameCatalog['Ken-Go'].name = 'Ken-Go';
+gameCatalog['Ken-Go'].developer = 'Irem';
+gameCatalog['Ken-Go'].release = '1991';
+gameCatalog['Ken-Go'].players = '2';
+gameCatalog['Ken-Go'].category = 'beatemup';
+
+gameCatalog['Borderline'] = new Game();
+gameCatalog['Borderline'].name = 'Borderline';
+gameCatalog['Borderline'].developer = 'Sega';
+gameCatalog['Borderline'].release = '1981';
+gameCatalog['Borderline'].players = '2';
+gameCatalog['Borderline'].category = 'shooter';
+
+gameCatalog['Zzyzzyxx'] = new Game();
+gameCatalog['Zzyzzyxx'].name = 'Zzyzzyxx';
+gameCatalog['Zzyzzyxx'].developer = 'Advanced Microcomputer Systems';
+gameCatalog['Zzyzzyxx'].release = '1982';
+gameCatalog['Zzyzzyxx'].players = '2';
+gameCatalog['Zzyzzyxx'].category = 'platformer';
+
+gameCatalog['Twin Bee'] = new Game();
+gameCatalog['Twin Bee'].name = 'Twin Bee';
+gameCatalog['Twin Bee'].developer = 'Konami';
+gameCatalog['Twin Bee'].release = '1985';
+gameCatalog['Twin Bee'].players = '2';
+gameCatalog['Twin Bee'].category = 'shooter';
+
+gameCatalog['Super Basketball'] = new Game();
+gameCatalog['Super Basketball'].name = 'Super Basketball';
+gameCatalog['Super Basketball'].developer = 'Konami';
+gameCatalog['Super Basketball'].release = '1984';
+gameCatalog['Super Basketball'].players = '2';
+gameCatalog['Super Basketball'].category = 'sports';
+
+gameCatalog['Horizon'] = new Game();
+gameCatalog['Horizon'].name = 'Horizon';
+gameCatalog['Horizon'].developer = 'Irem';
+gameCatalog['Horizon'].release = '1985';
+gameCatalog['Horizon'].players = '1';
+gameCatalog['Horizon'].category = 'shooter';
+
+gameCatalog['Loco-Motion'] = new Game();
+gameCatalog['Loco-Motion'].name = 'Loco-Motion';
+gameCatalog['Loco-Motion'].developer = 'Konami';
+gameCatalog['Loco-Motion'].release = '1982';
+gameCatalog['Loco-Motion'].players = '2';
+gameCatalog['Loco-Motion'].category = 'puzzle';
+gameCatalog['Loco-Motion'].alternativeName = 'Guttang Gottong';
+
+gameCatalog['Two Tigers'] = new Game();
+gameCatalog['Two Tigers'].name = 'Two Tigers';
+gameCatalog['Two Tigers'].developer = 'Bally Midway';
+gameCatalog['Two Tigers'].release = '1984';
+gameCatalog['Two Tigers'].players = '2';
+gameCatalog['Two Tigers'].category = 'shooter';
+
+gameCatalog['In The Hunt'] = new Game();
+gameCatalog['In The Hunt'].name = 'In The Hunt';
+gameCatalog['In The Hunt'].developer = 'Irem';
+gameCatalog['In The Hunt'].release = '1993';
+gameCatalog['In The Hunt'].players = '2';
+gameCatalog['In The Hunt'].category = 'shooter';
+
+gameCatalog['Great Swordsman'] = new Game();
+gameCatalog['Great Swordsman'].name = 'Great Swordsman';
+gameCatalog['Great Swordsman'].developer = 'Taito';
+gameCatalog['Great Swordsman'].release = '1984';
+gameCatalog['Great Swordsman'].players = '2';
+gameCatalog['Great Swordsman'].category = 'fighting';
+
+gameCatalog['Giga Wing 2'] = new Game();
+gameCatalog['Giga Wing 2'].name = 'Giga Wing 2';
+gameCatalog['Giga Wing 2'].developer = 'Capcom';
+gameCatalog['Giga Wing 2'].release = '2000';
+gameCatalog['Giga Wing 2'].players = '2';
+gameCatalog['Giga Wing 2'].category = 'shooter';
+
+gameCatalog['Giga Wing Generations'] = new Game();
+gameCatalog['Giga Wing Generations'].name = 'Giga Wing Generations';
+gameCatalog['Giga Wing Generations'].developer = 'Takumi Corporation';
+gameCatalog['Giga Wing Generations'].release = '2004';
+gameCatalog['Giga Wing Generations'].players = '2';
+gameCatalog['Giga Wing Generations'].category = 'shooter';
+
+gameCatalog['Kamikaze'] = new Game();
+gameCatalog['Kamikaze'].name = 'Kamikaze';
+gameCatalog['Kamikaze'].developer = 'Konami';
+gameCatalog['Kamikaze'].release = '1979';
+gameCatalog['Kamikaze'].players = '2';
+gameCatalog['Kamikaze'].category = 'shooter';
+
+//New
+
+gameCatalog['Crater Raider'] = new Game();
+gameCatalog['Crater Raider'].name = 'Crater Raider';
+gameCatalog['Crater Raider'].developer = 'Bally Midway';
+gameCatalog['Crater Raider'].release = '1984';
+gameCatalog['Crater Raider'].players = '2';
+gameCatalog['Crater Raider'].category = 'shooter';
+
+gameCatalog['Blood Bros.'] = new Game();
+gameCatalog['Blood Bros.'].name = 'Blood Bros.';
+gameCatalog['Blood Bros.'].developer = 'TAD Corporation';
+gameCatalog['Blood Bros.'].release = '1990';
+gameCatalog['Blood Bros.'].players = '2';
+gameCatalog['Blood Bros.'].category = 'shooter';
+
+gameCatalog['Scrum Try'] = new Game();
+gameCatalog['Scrum Try'].name = 'Scrum Try';
+gameCatalog['Scrum Try'].developer = 'Data East';
+gameCatalog['Scrum Try'].release = '1984';
+gameCatalog['Scrum Try'].players = '2';
+gameCatalog['Scrum Try'].category = 'sports';
+
+gameCatalog['Dead Connection'] = new Game();
+gameCatalog['Dead Connection'].name = 'Dead Connection';
+gameCatalog['Dead Connection'].developer = 'Taito';
+gameCatalog['Dead Connection'].release = '1992';
+gameCatalog['Dead Connection'].players = '4';
+gameCatalog['Dead Connection'].category = 'shooter';
+
+gameCatalog['Chicken Shift'] = new Game();
+gameCatalog['Chicken Shift'].name = 'Chicken Shift';
+gameCatalog['Chicken Shift'].developer = 'Bally Sente';
+gameCatalog['Chicken Shift'].release = '1984';
+gameCatalog['Chicken Shift'].players = '2';
+gameCatalog['Chicken Shift'].category = 'maze';
+
+gameCatalog['Action Fighter'] = new Game();
+gameCatalog['Action Fighter'].name = 'Action Fighter';
+gameCatalog['Action Fighter'].developer = 'Sega';
+gameCatalog['Action Fighter'].release = '1986';
+gameCatalog['Action Fighter'].players = '2';
+gameCatalog['Action Fighter'].category = 'shooter';
+
+gameCatalog['Speed Rumbler'] = new Game();
+gameCatalog['Speed Rumbler'].name = 'Speed Rumbler';
+gameCatalog['Speed Rumbler'].developer = 'Capcom';
+gameCatalog['Speed Rumbler'].release = '1986';
+gameCatalog['Speed Rumbler'].players = '2';
+gameCatalog['Speed Rumbler'].category = 'platformer';
+
+gameCatalog['Shaolins Road'] = new Game();
+gameCatalog['Shaolins Road'].name = 'Shaolins Road';
+gameCatalog['Shaolins Road'].developer = 'Konami';
+gameCatalog['Shaolins Road'].release = '1985';
+gameCatalog['Shaolins Road'].players = '2';
+gameCatalog['Shaolins Road'].category = 'platformer';
+
+gameCatalog['Ghost Squad'] = new Game();
+gameCatalog['Ghost Squad'].name = 'Ghost Squad';
+gameCatalog['Ghost Squad'].developer = 'Sega';
+gameCatalog['Ghost Squad'].release = '2004';
+gameCatalog['Ghost Squad'].players = '2';
+gameCatalog['Ghost Squad'].category = 'guns';
+
+gameCatalog['Black Dragon'] = new Game();
+gameCatalog['Black Dragon'].name = 'Black Dragon';
+gameCatalog['Black Dragon'].developer = 'Capcom';
+gameCatalog['Black Dragon'].release = '1987';
+gameCatalog['Black Dragon'].players = '2';
+gameCatalog['Black Dragon'].category = 'hackandslash';
+
+gameCatalog['X Multiply'] = new Game();
+gameCatalog['X Multiply'].name = 'X Multiply';
+gameCatalog['X Multiply'].developer = 'Irem';
+gameCatalog['X Multiply'].release = '1989';
+gameCatalog['X Multiply'].players = '2';
+gameCatalog['X Multiply'].category = 'shooter';
+
+gameCatalog['City Connection'] = new Game();
+gameCatalog['City Connection'].name = 'City Connection';
+gameCatalog['City Connection'].developer = 'Jaleco';
+gameCatalog['City Connection'].release = '1985';
+gameCatalog['City Connection'].players = '2';
+gameCatalog['City Connection'].category = 'platformer';
+
+gameCatalog['Puyo Puyo'] = new Game();
+gameCatalog['Puyo Puyo'].name = 'Puyo Puyo';
+gameCatalog['Puyo Puyo'].developer = 'Compile';
+gameCatalog['Puyo Puyo'].release = '1992';
+gameCatalog['Puyo Puyo'].players = '2';
+gameCatalog['Puyo Puyo'].category = 'puzzle';
+
+gameCatalog['Puyo Puyo Sun'] = new Game();
+gameCatalog['Puyo Puyo Sun'].name = 'Puyo Puyo Sun';
+gameCatalog['Puyo Puyo Sun'].developer = 'Compile';
+gameCatalog['Puyo Puyo Sun'].release = '1996';
+gameCatalog['Puyo Puyo Sun'].players = '2';
+gameCatalog['Puyo Puyo Sun'].category = 'puzzle';
+
+gameCatalog['Puyo Puyo Tsuu'] = new Game();
+gameCatalog['Puyo Puyo Tsuu'].name = 'Puyo Puyo Tsuu';
+gameCatalog['Puyo Puyo Tsuu'].developer = 'Compile';
+gameCatalog['Puyo Puyo Tsuu'].release = '1994';
+gameCatalog['Puyo Puyo Tsuu'].players = '2';
+gameCatalog['Puyo Puyo Tsuu'].category = 'puzzle';
+gameCatalog['Puyo Puyo Tsuu'].alternativeName = 'Puyo Puyo 2';
+
+gameCatalog['Breakout'] = new Game();
+gameCatalog['Breakout'].name = 'Breakout';
+gameCatalog['Breakout'].developer = 'Atari';
+gameCatalog['Breakout'].release = '1976';
+gameCatalog['Breakout'].players = '2';
+gameCatalog['Breakout'].category = 'misc';
+
+gameCatalog['Super Breakout'] = new Game();
+gameCatalog['Super Breakout'].name = 'Super Breakout';
+gameCatalog['Super Breakout'].developer = 'Atari';
+gameCatalog['Super Breakout'].release = '1978';
+gameCatalog['Super Breakout'].players = '2';
+gameCatalog['Super Breakout'].category = 'misc';
+
+gameCatalog['Field Goal'] = new Game();
+gameCatalog['Field Goal'].name = 'Field Goal';
+gameCatalog['Field Goal'].developer = 'Taito';
+gameCatalog['Field Goal'].release = '1979';
+gameCatalog['Field Goal'].players = '2';
+gameCatalog['Field Goal'].category = 'sports';
+
+gameCatalog['King And Balloon'] = new Game();
+gameCatalog['King And Balloon'].name = 'King And Balloon';
+gameCatalog['King And Balloon'].developer = 'Namco';
+gameCatalog['King And Balloon'].release = '1981';
+gameCatalog['King And Balloon'].players = '2';
+gameCatalog['King And Balloon'].category = 'shooter';
+
+gameCatalog['Super Trio'] = new Game();
+gameCatalog['Super Trio'].name = 'Super Trio';
+gameCatalog['Super Trio'].developer = 'Game Ace';
+gameCatalog['Super Trio'].release = '1994';
+gameCatalog['Super Trio'].players = '2';
+gameCatalog['Super Trio'].category = 'platformer';
+
+gameCatalog['64th Street'] = new Game();
+gameCatalog['64th Street'].name = '64th Street';
+gameCatalog['64th Street'].developer = 'Jaleco';
+gameCatalog['64th Street'].release = '1991';
+gameCatalog['64th Street'].players = '2';
+gameCatalog['64th Street'].category = 'beatemup';
+
+gameCatalog['Alien Crush'] = new Game();
+gameCatalog['Alien Crush'].name = 'Alien Crush';
+gameCatalog['Alien Crush'].developer = 'NEC';
+gameCatalog['Alien Crush'].release = '1988';
+gameCatalog['Alien Crush'].players = '2';
+gameCatalog['Alien Crush'].category = 'misc';
+
+gameCatalog['Cavelon'] = new Game();
+gameCatalog['Cavelon'].name = 'Cavelon';
+gameCatalog['Cavelon'].developer = 'Jetsoft';
+gameCatalog['Cavelon'].release = '1983';
+gameCatalog['Cavelon'].players = '2';
+gameCatalog['Cavelon'].category = 'maze';
+
+gameCatalog['Dazzler'] = new Game();
+gameCatalog['Dazzler'].name = 'Dazzler';
+gameCatalog['Dazzler'].developer = 'Century Electronics';
+gameCatalog['Dazzler'].release = '1982';
+gameCatalog['Dazzler'].players = '2';
+gameCatalog['Dazzler'].category = 'platformer';
+
+gameCatalog['Eightman'] = new Game();
+gameCatalog['Eightman'].name = 'Eightman';
+gameCatalog['Eightman'].developer = 'SNK';
+gameCatalog['Eightman'].release = '1991';
+gameCatalog['Eightman'].players = '2';
+gameCatalog['Eightman'].category = 'beatemup';
+
+gameCatalog['Grobda'] = new Game();
+gameCatalog['Grobda'].name = 'Grobda';
+gameCatalog['Grobda'].developer = 'Namco';
+gameCatalog['Grobda'].release = '1984';
+gameCatalog['Grobda'].players = '2';
+gameCatalog['Grobda'].category = 'shooter';
+
+gameCatalog['Magical Crystals'] = new Game();
+gameCatalog['Magical Crystals'].name = 'Magical Crystals';
+gameCatalog['Magical Crystals'].developer = 'Kaneko';
+gameCatalog['Magical Crystals'].release = '1991';
+gameCatalog['Magical Crystals'].players = '2';
+gameCatalog['Magical Crystals'].category = 'misc';
+
+gameCatalog['Marvins Maze'] = new Game();
+gameCatalog['Marvins Maze'].name = 'Marvins Maze';
+gameCatalog['Marvins Maze'].developer = 'SNK';
+gameCatalog['Marvins Maze'].release = '1983';
+gameCatalog['Marvins Maze'].players = '2';
+gameCatalog['Marvins Maze'].category = 'maze';
+
+gameCatalog['Mystic Riders'] = new Game();
+gameCatalog['Mystic Riders'].name = 'Mystic Riders';
+gameCatalog['Mystic Riders'].developer = 'Irem';
+gameCatalog['Mystic Riders'].release = '1992';
+gameCatalog['Mystic Riders'].players = '2';
+gameCatalog['Mystic Riders'].category = 'shooter';
+
+gameCatalog['Mystic Warriors'] = new Game();
+gameCatalog['Mystic Warriors'].name = 'Mystic Warriors';
+gameCatalog['Mystic Warriors'].developer = 'Konami';
+gameCatalog['Mystic Warriors'].release = '1993';
+gameCatalog['Mystic Warriors'].players = '4';
+gameCatalog['Mystic Warriors'].category = 'beatemup';
+
+gameCatalog['Nightmare In The Dark'] = new Game();
+gameCatalog['Nightmare In The Dark'].name = 'Nightmare In The Dark';
+gameCatalog['Nightmare In The Dark'].developer = 'Gavaking / Eleven';
+gameCatalog['Nightmare In The Dark'].release = '2000';
+gameCatalog['Nightmare In The Dark'].players = '2';
+gameCatalog['Nightmare In The Dark'].category = 'platformer';
+
+gameCatalog['Nitroball'] = new Game();
+gameCatalog['Nitroball'].name = 'Nitroball';
+gameCatalog['Nitroball'].developer = 'Nihon Bussan/AV Japan';
+gameCatalog['Nitroball'].release = '1992';
+gameCatalog['Nitroball'].players = '3';
+gameCatalog['Nitroball'].category = 'shooter';
+
+gameCatalog['Noboranka'] = new Game();
+gameCatalog['Noboranka'].name = 'Noboranka';
+gameCatalog['Noboranka'].developer = 'Data East';
+gameCatalog['Noboranka'].release = '1986';
+gameCatalog['Noboranka'].players = '2';
+gameCatalog['Noboranka'].category = 'shooter';
+
+gameCatalog['Outline'] = new Game();
+gameCatalog['Outline'].name = 'Outline';
+gameCatalog['Outline'].developer = 'Century Electronics';
+gameCatalog['Outline'].release = '1982';
+gameCatalog['Outline'].players = '2';
+gameCatalog['Outline'].category = 'maze';
+
+gameCatalog['Prehistoric Isle In 1930'] = new Game();
+gameCatalog['Prehistoric Isle In 1930'].name = 'Prehistoric Isle In 1930';
+gameCatalog['Prehistoric Isle In 1930'].developer = 'SNK';
+gameCatalog['Prehistoric Isle In 1930'].release = '1989';
+gameCatalog['Prehistoric Isle In 1930'].players = '2';
+gameCatalog['Prehistoric Isle In 1930'].category = 'shooter';
+
+gameCatalog['R-Type III'] = new Game();
+gameCatalog['R-Type III'].name = 'R-Type III';
+gameCatalog['R-Type III'].developer = 'Irem';
+gameCatalog['R-Type III'].release = '1994';
+gameCatalog['R-Type III'].players = '2';
+gameCatalog['R-Type III'].category = 'shooter';
+
+gameCatalog['Shadow Dancer'] = new Game();
+gameCatalog['Shadow Dancer'].name = 'Shadow Dancer';
+gameCatalog['Shadow Dancer'].developer = 'Sega';
+gameCatalog['Shadow Dancer'].release = '1989';
+gameCatalog['Shadow Dancer'].players = '2';
+gameCatalog['Shadow Dancer'].category = 'beatemup';
+
+gameCatalog['Twinkle Star Sprites'] = new Game();
+gameCatalog['Twinkle Star Sprites'].name = 'Twinkle Star Sprites';
+gameCatalog['Twinkle Star Sprites'].developer = 'SNK';
+gameCatalog['Twinkle Star Sprites'].release = '1996';
+gameCatalog['Twinkle Star Sprites'].players = '2';
+gameCatalog['Twinkle Star Sprites'].category = 'shooter';
+
+gameCatalog['Wild West Cowboys Of Moo Moo Mesa'] = new Game();
+gameCatalog['Wild West Cowboys Of Moo Moo Mesa'].name = 'Wild West Cowboys Of Moo Moo Mesa';
+gameCatalog['Wild West Cowboys Of Moo Moo Mesa'].developer = 'Konami';
+gameCatalog['Wild West Cowboys Of Moo Moo Mesa'].release = '1992';
+gameCatalog['Wild West Cowboys Of Moo Moo Mesa'].players = '4';
+gameCatalog['Wild West Cowboys Of Moo Moo Mesa'].category = 'beatemup';
+
+gameCatalog['House Of The Dead - Scarlet Dawn'] = new Game();
+gameCatalog['House Of The Dead - Scarlet Dawn'].name = 'House Of The Dead - Scarlet Dawn';
+gameCatalog['House Of The Dead - Scarlet Dawn'].developer = 'Sega';
+gameCatalog['House Of The Dead - Scarlet Dawn'].release = '2018';
+gameCatalog['House Of The Dead - Scarlet Dawn'].players = '2';
+gameCatalog['House Of The Dead - Scarlet Dawn'].category = 'guns';
+
+gameCatalog['Time Crisis 3'] = new Game();
+gameCatalog['Time Crisis 3'].name = 'Time Crisis 3';
+gameCatalog['Time Crisis 3'].developer = 'Namco';
+gameCatalog['Time Crisis 3'].release = '2003';
+gameCatalog['Time Crisis 3'].players = '2';
+gameCatalog['Time Crisis 3'].category = 'guns';
+
+gameCatalog['Dragon Saber'] = new Game();
+gameCatalog['Dragon Saber'].name = 'Dragon Saber';
+gameCatalog['Dragon Saber'].developer = 'Namco';
+gameCatalog['Dragon Saber'].release = '1990';
+gameCatalog['Dragon Saber'].players = '2';
+gameCatalog['Dragon Saber'].category = 'shooter';
+
+gameCatalog['Omega Race'] = new Game();
+gameCatalog['Omega Race'].name = 'Omega Race';
+gameCatalog['Omega Race'].developer = 'Midway Manufacturing Co';
+gameCatalog['Omega Race'].release = '1981';
+gameCatalog['Omega Race'].players = '2';
+gameCatalog['Omega Race'].category = 'shooter';
+
+gameCatalog['Aliens Armageddon'] = new Game();
+gameCatalog['Aliens Armageddon'].name = 'Aliens Armageddon';
+gameCatalog['Aliens Armageddon'].developer = 'Raw Thrills';
+gameCatalog['Aliens Armageddon'].release = '2014';
+gameCatalog['Aliens Armageddon'].players = '2';
+gameCatalog['Aliens Armageddon'].category = 'guns';
+
+gameCatalog['The Spectre Files - Deathstalker'] = new Game();
+gameCatalog['The Spectre Files - Deathstalker'].name = 'The Spectre Files - Deathstalker';
+gameCatalog['The Spectre Files - Deathstalker'].developer = 'Brian Colin/Galloping Ghost Arcade';
+gameCatalog['The Spectre Files - Deathstalker'].release = '1985/2018';
+gameCatalog['The Spectre Files - Deathstalker'].players = '1';
+gameCatalog['The Spectre Files - Deathstalker'].category = 'misc';
+
+gameCatalog['Street Fighter'] = new Game();
+gameCatalog['Street Fighter'].name = 'Street Fighter';
+gameCatalog['Street Fighter'].developer = 'Capcom';
+gameCatalog['Street Fighter'].release = '1987';
+gameCatalog['Street Fighter'].players = '2';
+gameCatalog['Street Fighter'].category = 'fighting';
+
+gameCatalog['Street Fighter II - The World Warrior'] = new Game();
+gameCatalog['Street Fighter II - The World Warrior'].name = 'Street Fighter II - The World Warrior';
+gameCatalog['Street Fighter II - The World Warrior'].developer = 'Capcom';
+gameCatalog['Street Fighter II - The World Warrior'].release = '1991';
+gameCatalog['Street Fighter II - The World Warrior'].players = '2';
+gameCatalog['Street Fighter II - The World Warrior'].category = 'fighting';
+
+gameCatalog['Street Fighter II - Champion Edition'] = new Game();
+gameCatalog['Street Fighter II - Champion Edition'].name = 'Street Fighter II - Champion Edition';
+gameCatalog['Street Fighter II - Champion Edition'].developer = 'Capcom';
+gameCatalog['Street Fighter II - Champion Edition'].release = '1991';
+gameCatalog['Street Fighter II - Champion Edition'].players = '2';
+gameCatalog['Street Fighter II - Champion Edition'].category = 'fighting';
+
+gameCatalog['Super Street Fighter II - The New Challengers'] = new Game();
+gameCatalog['Super Street Fighter II - The New Challengers'].name = 'Super Street Fighter II - The New Challengers';
+gameCatalog['Super Street Fighter II - The New Challengers'].developer = 'Capcom';
+gameCatalog['Super Street Fighter II - The New Challengers'].release = '1993';
+gameCatalog['Super Street Fighter II - The New Challengers'].players = '2';
+gameCatalog['Super Street Fighter II - The New Challengers'].category = 'fighting';
+
+gameCatalog['Space Chaser'] = new Game();
+gameCatalog['Space Chaser'].name = 'Space Chaser';
+gameCatalog['Space Chaser'].developer = 'Taito';
+gameCatalog['Space Chaser'].release = '1979';
+gameCatalog['Space Chaser'].players = '2';
+gameCatalog['Space Chaser'].category = 'maze';
+
+gameCatalog['Aliens Extermination'] = new Game();
+gameCatalog['Aliens Extermination'].name = 'Aliens Extermination';
+gameCatalog['Aliens Extermination'].developer = 'Global VR';
+gameCatalog['Aliens Extermination'].release = '2006';
+gameCatalog['Aliens Extermination'].players = '2';
+gameCatalog['Aliens Extermination'].category = 'guns';
+
+gameCatalog['Phelios'] = new Game();
+gameCatalog['Phelios'].name = 'Phelios';
+gameCatalog['Phelios'].developer = 'Namco';
+gameCatalog['Phelios'].release = '1988';
+gameCatalog['Phelios'].players = '2';
+gameCatalog['Phelios'].category = 'shooter';
+
+gameCatalog['New Sinbad 7'] = new Game();
+gameCatalog['New Sinbad 7'].name = 'New Sinbad 7';
+gameCatalog['New Sinbad 7'].developer = 'ATW USA';
+gameCatalog['New Sinbad 7'].release = '1983';
+gameCatalog['New Sinbad 7'].players = '2';
+gameCatalog['New Sinbad 7'].category = 'maze';
+
+gameCatalog['Mysterious Stones'] = new Game();
+gameCatalog['Mysterious Stones'].name = 'Mysterious Stones';
+gameCatalog['Mysterious Stones'].developer = 'Technos';
+gameCatalog['Mysterious Stones'].release = '1984';
+gameCatalog['Mysterious Stones'].players = '2';
+gameCatalog['Mysterious Stones'].category = 'misc';
+
+gameCatalog['Ozma Wars'] = new Game();
+gameCatalog['Ozma Wars'].name = 'Ozma Wars';
+gameCatalog['Ozma Wars'].developer = 'SNK';
+gameCatalog['Ozma Wars'].release = '1979';
+gameCatalog['Ozma Wars'].players = '2';
+gameCatalog['Ozma Wars'].category = 'shooter';
+
+gameCatalog['Kiki Kaikai'] = new Game();
+gameCatalog['Kiki Kaikai'].name = 'Kiki Kaikai';
+gameCatalog['Kiki Kaikai'].developer = 'Taito';
+gameCatalog['Kiki Kaikai'].release = '1986';
+gameCatalog['Kiki Kaikai'].players = '2';
+gameCatalog['Kiki Kaikai'].category = 'shooter';
+
+gameCatalog['Kid No Hore Hore Daisakusen'] = new Game();
+gameCatalog['Kid No Hore Hore Daisakusen'].name = 'Kid No Hore Hore Daisakusen';
+gameCatalog['Kid No Hore Hore Daisakusen'].developer = 'Nichibutsu';
+gameCatalog['Kid No Hore Hore Daisakusen'].release = '1987';
+gameCatalog['Kid No Hore Hore Daisakusen'].players = '2';
+gameCatalog['Kid No Hore Hore Daisakusen'].category = 'misc';
+
+gameCatalog['Ashura Blaster'] = new Game();
+gameCatalog['Ashura Blaster'].name = 'Ashura Blaster';
+gameCatalog['Ashura Blaster'].developer = 'Taito/Visco';
+gameCatalog['Ashura Blaster'].release = '1990';
+gameCatalog['Ashura Blaster'].players = '2';
+gameCatalog['Ashura Blaster'].category = 'shooter';
+
+gameCatalog['Jurassic Park Arcade'] = new Game();
+gameCatalog['Jurassic Park Arcade'].name = 'Jurassic Park Arcade';
+gameCatalog['Jurassic Park Arcade'].developer = 'Raw Thrills';
+gameCatalog['Jurassic Park Arcade'].release = '2015';
+gameCatalog['Jurassic Park Arcade'].players = '2';
+gameCatalog['Jurassic Park Arcade'].category = 'guns';
+
+gameCatalog['The Walking Dead (Shooter)'] = new Game();
+gameCatalog['The Walking Dead (Shooter)'].name = 'The Walking Dead (Shooter)';
+gameCatalog['The Walking Dead (Shooter)'].developer = 'Raw Thrills';
+gameCatalog['The Walking Dead (Shooter)'].release = '2016';
+gameCatalog['The Walking Dead (Shooter)'].players = '1';
+gameCatalog['The Walking Dead (Shooter)'].category = 'guns';
+
+gameCatalog['Transformers Human Alliance'] = new Game();
+gameCatalog['Transformers Human Alliance'].name = 'Transformers Human Alliance';
+gameCatalog['Transformers Human Alliance'].developer = 'Sega';
+gameCatalog['Transformers Human Alliance'].release = '2013';
+gameCatalog['Transformers Human Alliance'].players = '2';
+gameCatalog['Transformers Human Alliance'].category = 'guns';
+
+gameCatalog['Chase H Q 2'] = new Game();
+gameCatalog['Chase H Q 2'].name = 'Chase H Q 2';
+gameCatalog['Chase H Q 2'].developer = 'Taito';
+gameCatalog['Chase H Q 2'].release = '2007';
+gameCatalog['Chase H Q 2'].players = '2';
+gameCatalog['Chase H Q 2'].category = 'racing';
+
+gameCatalog['Rampage (2018)'] = new Game();
+gameCatalog['Rampage (2018)'].name = 'Rampage (2018)';
+gameCatalog['Rampage (2018)'].developer = 'Raw Thrills';
+gameCatalog['Rampage (2018)'].release = '2018';
+gameCatalog['Rampage (2018)'].players = '3';
+gameCatalog['Rampage (2018)'].category = 'guns';
+
+gameCatalog['Balloon Bomber'] = new Game();
+gameCatalog['Balloon Bomber'].name = 'Balloon Bomber';
+gameCatalog['Balloon Bomber'].developer = 'Taito';
+gameCatalog['Balloon Bomber'].release = '1980';
+gameCatalog['Balloon Bomber'].players = '2';
+gameCatalog['Balloon Bomber'].category = 'shooter';
+
+// Videos
+// These have to be here as when this data goes live on the server the users may not have the latest version
+// of the code and datatype in the app so we need to wrpa this for now until everyone updates
+try {
+    gameCatalog['Frisky Tom'].videoURL = 'https://www.youtube.com/embed/NwuuFkS90-I?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Rootin Tootin'].videoURL = 'https://www.youtube.com/embed/RYZFHPwHOnU?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Dr Micro'].videoURL = 'https://www.youtube.com/embed/GVA6rGjAe4g?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Hunchback'].videoURL = 'https://www.youtube.com/embed/MbQenShrsxk?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['10-Yard Fight'].videoURL = 'https://www.youtube.com/embed/jd4VTGmKmxM?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Bank Panic'].videoURL = 'https://www.youtube.com/embed/o9pgsT2_Aqs?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Blue Print'].videoURL = 'https://www.youtube.com/embed/8JuPu4FzNNc?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Changes'].videoURL = 'https://www.youtube.com/embed/mxBinVhVLh4?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Crazy Kong'].videoURL = 'https://www.youtube.com/embed/dXK5HJ1dLn0?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Crazy Kong (Galaxian Hardware)'].videoURL = 'https://www.youtube.com/embed/dXK5HJ1dLn0?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Dock Man'].videoURL = 'https://www.youtube.com/embed/BPP66txt5P4?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Jr Pac-Man - Speed up hack'].videoURL = 'https://www.youtube.com/embed/3BZlfNW1xQ0?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Jr Pac-Man'].videoURL = 'https://www.youtube.com/embed/q3MXZdQczks?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Jump Bug'].videoURL = 'https://www.youtube.com/embed/a-fRo_vQGgI?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Moon Patrol'].videoURL = 'https://www.youtube.com/embed/VkvdKeXQkss?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Mr. Do!s Wild Ride'].videoURL = 'https://www.youtube.com/embed/fu9XJi2F6_w?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Naughty Mouse'].videoURL = 'https://www.youtube.com/embed/jgl94MUjzL8?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Ponpoko'].videoURL = 'https://www.youtube.com/embed/pOK1f233Uyk?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Popeye'].videoURL = 'https://www.youtube.com/embed/XXFrOIt8d2U?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Raiden'].videoURL = 'https://www.youtube.com/embed/4_dHlZmRO6M?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Space Zap'].videoURL = 'https://www.youtube.com/embed/k11r_yV837I?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Super Pac-Man'].videoURL = 'https://www.youtube.com/embed/3K6MqiGDwlM?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Swimmer'].videoURL = 'https://www.youtube.com/embed/r9AZ5TOExtY?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Tranquilizer Gun'].videoURL = 'https://www.youtube.com/embed/BlIit6S6WmI?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+}
+catch (err) {
+    console.log(err);
+}
+
+// Date Added
+// These have to be here as when this data goes live on the server the users may not have the latest version
+// of the code and datatype in the app so we need to wrap this for now until everyone updates
+try {
+    gameCatalog['Zzyzzyxx'].dateAdded = new Date(Date.UTC(2019, 10, 22)).toUTCString();
+    gameCatalog['Horizon'].dateAdded = new Date(Date.UTC(2019, 11, 2)).toUTCString();
+    gameCatalog['Super Basketball'].dateAdded = new Date(Date.UTC(2019, 11, 2)).toUTCString();
+    gameCatalog['Twin Bee'].dateAdded = new Date(Date.UTC(2019, 11, 2)).toUTCString();
+    gameCatalog['Loco-Motion'].dateAdded = new Date(Date.UTC(2019, 11, 2)).toUTCString();
+    gameCatalog['Two Tigers'].dateAdded = new Date(Date.UTC(2019, 11, 4)).toUTCString();
+    gameCatalog['In The Hunt'].dateAdded = new Date(Date.UTC(2019, 11, 11)).toUTCString();
+    gameCatalog['Great Swordsman'].dateAdded = new Date(Date.UTC(2019, 11, 11)).toUTCString();
+    gameCatalog['Giga Wing 2'].dateAdded = new Date(Date.UTC(2019, 11, 12)).toUTCString();
+    gameCatalog['Giga Wing Generations'].dateAdded = new Date(Date.UTC(2019, 11, 12)).toUTCString();
+    gameCatalog['Kamikaze'].dateAdded = new Date(Date.UTC(2019, 11, 16)).toUTCString();
+    gameCatalog['Crater Raider'].dateAdded = new Date(Date.UTC(2020, 0, 6)).toUTCString();
+    gameCatalog['Blood Bros.'].dateAdded = new Date(Date.UTC(2020, 0, 6)).toUTCString();
+    gameCatalog['Scrum Try'].dateAdded = new Date(Date.UTC(2020, 0, 6)).toUTCString();
+    gameCatalog['Dead Connection'].dateAdded = new Date(Date.UTC(2020, 0, 6)).toUTCString();
+    gameCatalog['Chicken Shift'].dateAdded = new Date(Date.UTC(2020, 0, 6)).toUTCString();
+    gameCatalog['Action Fighter'].dateAdded = new Date(Date.UTC(2020, 0, 6)).toUTCString();
+    gameCatalog['Speed Rumbler'].dateAdded = new Date(Date.UTC(2020, 0, 6)).toUTCString();
+    gameCatalog['Shaolins Road'].dateAdded = new Date(Date.UTC(2020, 0, 6)).toUTCString();
+    gameCatalog['Ghost Squad'].dateAdded = new Date(Date.UTC(2020, 0, 6)).toUTCString();
+    gameCatalog['Black Dragon'].dateAdded = new Date(Date.UTC(2020, 0, 9)).toUTCString();
+    gameCatalog['X Multiply'].dateAdded = new Date(Date.UTC(2020, 0, 9)).toUTCString();
+    gameCatalog['City Connection'].dateAdded = new Date(Date.UTC(2020, 0, 10)).toUTCString();
+    gameCatalog['Puyo Puyo'].dateAdded = new Date(Date.UTC(2020, 0, 11)).toUTCString();
+    gameCatalog['Puyo Puyo Sun'].dateAdded = new Date(Date.UTC(2020, 0, 11)).toUTCString();
+    gameCatalog['Puyo Puyo Tsuu'].dateAdded = new Date(Date.UTC(2020, 0, 11)).toUTCString();
+    gameCatalog['Breakout'].dateAdded = new Date(Date.UTC(2020, 0, 21)).toUTCString();
+    gameCatalog['Super Breakout'].dateAdded = new Date(Date.UTC(2020, 0, 21)).toUTCString();
+    gameCatalog['Field Goal'].dateAdded = new Date(Date.UTC(2020, 0, 21)).toUTCString();
+    gameCatalog['King And Balloon'].dateAdded = new Date(Date.UTC(2020, 0, 21)).toUTCString();
+    gameCatalog['Super Trio'].dateAdded = new Date(Date.UTC(2020, 0, 21)).toUTCString();
+    gameCatalog['64th Street'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Alien Crush'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Cavelon'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Dazzler'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Eightman'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Grobda'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Magical Crystals'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Marvins Maze'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Mystic Riders'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Mystic Warriors'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Nightmare In The Dark'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Nitroball'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Noboranka'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Outline'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Prehistoric Isle In 1930'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['R-Type III'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Shadow Dancer'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Twinkle Star Sprites'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Wild West Cowboys Of Moo Moo Mesa'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['House Of The Dead - Scarlet Dawn'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Time Crisis 3'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Dragon Saber'].dateAdded = new Date(Date.UTC(2020, 0, 26)).toUTCString();
+    gameCatalog['Omega Race'].dateAdded = new Date(Date.UTC(2020, 0, 28)).toUTCString();
+    gameCatalog['Aliens Armageddon'].dateAdded = new Date(Date.UTC(2020, 0, 28)).toUTCString();
+    gameCatalog['The Spectre Files - Deathstalker'].dateAdded = new Date(Date.UTC(2020, 0, 28)).toUTCString();
+    gameCatalog['Street Fighter'].dateAdded = new Date(Date.UTC(2020, 0, 29)).toUTCString();
+    gameCatalog['Street Fighter II - The World Warrior'].dateAdded = new Date(Date.UTC(2020, 0, 29)).toUTCString();
+    gameCatalog['Street Fighter II - Champion Edition'].dateAdded = new Date(Date.UTC(2020, 0, 29)).toUTCString();
+    gameCatalog['Super Street Fighter II - The New Challengers'].dateAdded = new Date(Date.UTC(2020, 0, 29)).toUTCString();
+    gameCatalog['Space Chaser'].dateAdded = new Date(Date.UTC(2020, 0, 30)).toUTCString();
+    gameCatalog['Aliens Extermination'].dateAdded = new Date(Date.UTC(2020, 1, 3)).toUTCString();
+    gameCatalog['Phelios'].dateAdded = new Date(Date.UTC(2020, 1, 10)).toUTCString();
+    gameCatalog['New Sinbad 7'].dateAdded = new Date(Date.UTC(2020, 1, 10)).toUTCString();
+    gameCatalog['Mysterious Stones'].dateAdded = new Date(Date.UTC(2020, 1, 10)).toUTCString();
+    gameCatalog['Ozma Wars'].dateAdded = new Date(Date.UTC(2020, 1, 10)).toUTCString();
+    gameCatalog['Kiki Kaikai'].dateAdded = new Date(Date.UTC(2020, 1, 10)).toUTCString();
+    gameCatalog['Kid No Hore Hore Daisakusen'].dateAdded = new Date(Date.UTC(2020, 1, 10)).toUTCString();
+    gameCatalog['Ashura Blaster'].dateAdded = new Date(Date.UTC(2020, 1, 11)).toUTCString();
+    gameCatalog['Jurassic Park Arcade'].dateAdded = new Date(Date.UTC(2020, 2, 1)).toUTCString();
+    gameCatalog['The Walking Dead (Shooter)'].dateAdded = new Date(Date.UTC(2020, 2, 1)).toUTCString();
+    gameCatalog['Transformers Human Alliance'].dateAdded = new Date(Date.UTC(2020, 2, 1)).toUTCString();
+    gameCatalog['Chase H Q 2'].dateAdded = new Date(Date.UTC(2020, 2, 1)).toUTCString();
+    gameCatalog['Rampage (2018)'].dateAdded = new Date(Date.UTC(2020, 2, 1)).toUTCString();
+    gameCatalog['Balloon Bomber'].dateAdded = new Date(Date.UTC(2020, 2, 4)).toUTCString();
+}
+catch (err) {
+    console.log(err);
+}
