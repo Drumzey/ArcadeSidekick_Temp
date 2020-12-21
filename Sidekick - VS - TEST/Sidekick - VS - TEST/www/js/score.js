@@ -248,6 +248,9 @@ function OnSuccessfulLoadOfGame() {
     else {
         document.getElementById('myrecord').value = score;
         document.getElementById('myrecordText').value = addComma(score);
+
+        PopulateHighestDetailedScoreInGame();
+
         $('#myrecord').parent().addClass('ui-screen-hidden');
         $('#myrecordText').parent().removeClass('ui-screen-hidden');
         $('#myrecord').parent().addClass('ui-corner-bottom');

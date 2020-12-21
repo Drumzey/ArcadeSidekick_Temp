@@ -107,6 +107,7 @@ function preloadimages(arr) {
     function imageLoadBanner() {
         Hide('#gamebannertitle');
         Hide('#gamebannertitlehs');
+        Hide('#detailedGameName');
         var imageName = currentGameName.toLowerCase();
         if (parentGame) {
             imageName = parentGame.toLowerCase();
@@ -115,6 +116,7 @@ function preloadimages(arr) {
         var imagesrc = websiteAddress + "/images/banners/" + currentGameCategoryId + "/" + imageName + ".png";
         SetImageSrc('gamebanner', imagesrc);
         SetImageSrc('gamebannerhs', imagesrc);
+        SetImageSrc('detailedGameNameBanner', imagesrc);
         imageloadpost();
     }
 
@@ -126,15 +128,19 @@ function preloadimages(arr) {
     function loadDefaultBanner() {
         $('#gamebanner').attr("src", null);
         $('#gamebannerhs').attr("src", null);
+        $('#detailedGameNameBanner').attr("src", null);
 
         var titleElement = document.getElementById('gamebannertitle');
         var titleElementHS = document.getElementById('gamebannertitlehs');
+        var titleElementDC = document.getElementById('detailedGameName');
 
         titleElement.innerText = currentGameName.toLowerCase();
         titleElementHS.innerText = currentGameName.toLowerCase();
+        titleElementDC.innerText = currentGameName.toLowerCase();
 
         Show('#gamebannertitle');
         Show('#gamebannertitlehs');
+        Show('#detailedGameName');
 
         imageloadpost();
     }

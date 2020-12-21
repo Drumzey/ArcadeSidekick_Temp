@@ -21,7 +21,6 @@ function GetTimedGames() {
 
 function GoToMyScores() {
 
-    GetTimedGames();
     SetLocalScoresUI();
     NavigateToInternalPage("#MyScores");
     AlterScoreHeights();
@@ -108,6 +107,18 @@ function SetLocalScoresUI() {
             var gameName = property.replace(/_/g, ' ').toLowerCase();
             var score = scoreArray[property].score;
             var uploaded = scoreArray[property].uploaded;
+
+            //To show the highest detailed score instead of the basic score if it exists
+            var hasDetailedScores = false;
+            if (detailedScoreCollection[TransformGameName(gameName)]) {
+                hasDetailedScores = true;
+                highestDetailedScore = GetTopDetailedScore(TransformGameName(gameName));
+
+                if (parseInt(highestDetailedScore) > parseInt(score))
+                {
+                    score = highestDetailedScore;
+                }
+            }
 
             if (timed.indexOf(property) !== -1) {
                 score = MillisecondsToMinutesSecondsMilliseconds(parseInt(score));

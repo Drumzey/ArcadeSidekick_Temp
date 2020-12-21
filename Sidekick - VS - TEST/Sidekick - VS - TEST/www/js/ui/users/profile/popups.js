@@ -3,8 +3,14 @@
         <h3>Update User info</h3> \
         <h6>Please supply/update the following extra information. We\'d like this so that we can include you in our social media and learn a little more about you.</h6> \
         <form style="font-size:70%;" action="javascript:DoNothing()" onsubmit="PostUpdateOnline()"> \
-            <label for="mytwitter_setup"> Twitter Handle</label> \
+            <label for="mydob_setup" >Year of Birth</label > \
+            <input type="number" name="mydob_setup" pattern="[0-9]{1,4}" title="1-4 characters 0-9 only" id="mydob_setup" /> \
+            <label for="mytwitter_setup" >Twitter Handle</label > \
             <input type="text" name="mytwitter_setup" pattern="[A-Za-z0-9_]{1,15}" title="1-15 characters A-Z 0-9 _ only" id="mytwitter_setup" /> \
+            <label for="mylocation_setup">Location</label> \
+            <input type="text" name="mylocation_setup" id="mylocation_setup" /> \
+            <label for="myyoutube_setup">YouTube Channel</label> \
+            <input type="text" name="myyoutube_setup" id="myyoutube_setup" /> \
             <input type="submit" value="Update" id="myusernamesubmit""> \
         </form> \
         <a onclick= "ClosePopup();" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"> \

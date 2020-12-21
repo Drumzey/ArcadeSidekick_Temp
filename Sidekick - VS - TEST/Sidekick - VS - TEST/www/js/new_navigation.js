@@ -33,6 +33,20 @@ function NavigateBack() {
             refreshMyScores = 0;
         }
 
+        if (pageFrom === "#Venues")
+        {
+            if (lastPage === "#SubmitDetailedScore")
+            {
+                //We are going from Venues back to SubmitDetailedScore
+                //We want to refresh the list of venues available as they may have been changed
+                $('#location').find('option').remove();
+                PopulateVenues();
+                //Set drop downs
+                $("#location").val($("#location option:first").val());
+                DoPresentationChange();
+            }
+        }
+
         if (pageFrom === "#Game")
         {
             var videoElement = document.getElementById("gamevideo");

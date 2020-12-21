@@ -1,6 +1,4 @@
 ﻿var allGames;
-var categoryList = ["beatemup", "fighting", "guns", "hackandslash", "maze", "misc", "platformer", "puzzle", "racing", "runandgun", "shooter", "sports", "rhythm", "pinball"];
-var categoryDisplayNameList = ["Beat-em-up", "Fighting", "Light Guns", "Hack and Slash", "Maze", "Misc", "Platformer", "Puzzle", "Racing", "Run and gun", "Shooter", "Sports", "Rhythm", "Pinball"];
 
 function ReturnCorrectData(categoryName) {
 

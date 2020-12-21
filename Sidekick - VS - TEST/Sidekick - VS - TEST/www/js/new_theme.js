@@ -52,6 +52,9 @@ $.mobile.changeGlobalTheme = function (themeL) {
     setTheme('#FRIENDSSCORESTAB', "ui-btn", themeL);
     setTheme('#ALLSCORESTAB', "ui-btn", themeL);
 
+    setTheme('#MYVENUES', "ui-btn", themeL);
+    setTheme('#ALLVENUES', "ui-btn", themeL);
+
     setTheme("#70s", "ui-btn", themeL);
     setTheme("#80s", "ui-btn", themeL);
     setTheme("#90s", "ui-btn", themeL);

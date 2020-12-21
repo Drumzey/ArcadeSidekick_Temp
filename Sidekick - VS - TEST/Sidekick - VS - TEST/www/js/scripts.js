@@ -23,6 +23,9 @@ var clientUserName = '';
 var emailAddress = '';
 var secret = '';
 var twitterHandle = '';
+var playerdob = '';
+var playeryoutubeChannel = '';
+var playerlocation = '';
 
 var currentGameNode = null;
 

@@ -543,7 +543,22 @@ function PopulateGameControls()
 }
 
 var allGameNames = [];
-function GetGameNames(property,property2,property3) {
+
+function GetGameNames(categoryType) {
+    allGameNames = [];
+    
+    for (var prop in gameCatalog) {
+        if (gameCatalog.hasOwnProperty(prop)) {
+            if (gameCatalog[prop].category === categoryType) {
+                allGameNames.push(TransformGameName(prop));
+            }
+        }
+    }
+
+    console.log(allGameNames.sort().join("\",\r\n\""));
+}
+
+function GetGameNamesWithProperties(property,property2,property3) {
     allGameNames = [];
 
     for (var prop in gameCatalog) {

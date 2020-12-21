@@ -90,7 +90,9 @@ function UpdateProfileUI(level, points) {
             }
 
             var countElement = document.getElementById(category + "stats");
-            countElement.innerText = played + "/" + gameCategoryCount[category];
+            if (countElement) {
+                countElement.innerText = played + "/" + gameCategoryCount[category];
+            }
         }
     }
 

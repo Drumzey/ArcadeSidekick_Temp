@@ -1,5 +1,5 @@
 ﻿var defaultDataErrors = true;
-var defaultSetting = 23;
+var defaultSetting = 28;
 var appVersion = "3.0.01";
 var currentVersion = "";
 var enemiesCollection = [];
@@ -396,6 +396,78 @@ function SetDefaultData() {
     }
 
     if (test) {
+        localStorage.setItem("dob", "");
+        Success();
+    }
+    else {
+        document.getElementById('mydobsetup').innerText = 'Year Of Birth';
+        GetItemFromStorageWithSuccessAndFailureCallBack('dob',
+            function (value) {
+                playerdob = value;
+                if (playerdob === null) {
+                    playerdob = '';
+                }
+                if (playerdob !== '' && playerdob !== null) {
+                    document.getElementById('mydobsetup').innerText = playerdob;
+                }
+                Success();
+            },
+            function (err) {
+                playerdob = '';
+                SetItemInStorageWithCallBack('dob', '', Success);
+            }
+        );
+    }
+
+    if (test) {
+        localStorage.setItem("location", "");
+        Success();
+    }
+    else {
+        document.getElementById('mylocationsetup').innerText = 'Location';
+        GetItemFromStorageWithSuccessAndFailureCallBack('location',
+            function (value) {
+                playerlocation = value;
+                if (playerlocation === null) {
+                    playerlocation = '';
+                }
+                if (playerlocation !== '' && playerlocation !== null) {
+                    document.getElementById('mylocationsetup').innerText = playerlocation;
+                }
+                Success();
+            },
+            function (err) {
+                playerlocation = '';
+                SetItemInStorageWithCallBack('location', '', Success);
+            }
+        );
+    }
+
+    if (test) {
+        localStorage.setItem("youtubechannel", "");
+        Success();
+    }
+    else {
+        document.getElementById('myyoutubesetup').innerText = 'YouTube Channel';
+        GetItemFromStorageWithSuccessAndFailureCallBack('youtubechannel',
+            function (value) {
+                playeryoutubechannel = value;
+                if (playeryoutubechannel === null) {
+                    playeryoutubechannel = '';
+                }
+                if (playeryoutubechannel !== '' && playeryoutubechannel !== null) {
+                    document.getElementById('myyoutubesetup').innerText = playeryoutubechannel;
+                }
+                Success();
+            },
+            function (err) {
+                playeryoutubechannel = '';
+                SetItemInStorageWithCallBack('youtubechannel', '', Success);
+            }
+        );
+    }
+
+    if (test) {
         localStorage.setItem("notify", "on");
         Success();
     }
@@ -493,6 +565,47 @@ function SetDefaultData() {
             function (err) {
                 enemiesCollection = [];
                 SetItemInStorageWithCallBack('enemies', [], Success);
+            }
+        );
+    }
+
+    if (test) {
+        localStorage.setItem("firstTimeVenues", "yes");
+        Success();
+    }
+    else {
+        GetItemFromStorageWithSuccessAndFailureCallBack('firstTimeVenues',
+            function (value) {
+                firstTimeVenues = value;
+                if (firstTimeVenues === null || firstTimeVenues === '') {
+                    firstTimeVenues = 'yes';
+                }
+                Success();
+            },
+            function (err) {
+                firstTimeVenues = 'yes';
+                SetItemInStorageWithCallBack('firstTimeVenues', 'yes', Success);
+            }
+        );
+    }
+
+    if (test) {
+        myVenues = [];
+        localStorage.setItem("myVenues", JSON.stringify([]));
+        Success();
+    }
+    else {
+        GetItemFromStorageWithSuccessAndFailureCallBack('myVenues',
+            function (value) {
+                myVenues = value;
+                if (myVenues === null || myVenues === '') {
+                    myVenues = [];
+                }
+                Success();
+            },
+            function (err) {
+                myVenues = [];
+                SetItemInStorageWithCallBack('myVenues', [], Success);
             }
         );
     }

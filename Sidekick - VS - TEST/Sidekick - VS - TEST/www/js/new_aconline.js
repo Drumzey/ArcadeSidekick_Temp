@@ -437,10 +437,7 @@ var currentGameCategoryId = '';
 
 function LoadOnlyBannerFromLinkTo(tab, clubOverride) {
 
-    if (currentGameCategoryId === "")
-    {
-        currentGameCategoryId = gameCatalog[currentGameName].category;
-    }
+    currentGameCategoryId = gameCatalog[currentGameName].category;
 
     var imageName = currentGameName.toLowerCase();
     if (parentGame) {
@@ -450,22 +447,8 @@ function LoadOnlyBannerFromLinkTo(tab, clubOverride) {
     var array = [];
     array.push(websiteAddress + "/images/banners/" + currentGameCategoryId + "/" + imageName + ".png");
     preloadimages(array).done(function (images) {
-        if (tab === 'ALLSCORES') {
-            SetCurrentTab('ALLSCORES');
-            NavigateToInternalPage("#GameHighScores");
-            loadGlobalLeaderboard = true;
-            LoadGlobalLeaderboard();
-        }
-        else if (tab === 'CLUBS') {
-            SetCurrentTab('CLUBS');
-            nextClub = clubOverride;
-            //Navigation to gamehighscores with tab set to clubs automatically loads leaderboard
-            NavigateToInternalPage("#GameHighScores");
-            //LoadClubLeaderboard(clubOverride);
-        }
-        else {
-            LoadGameLeaderboard(true);
-        }
+        //WHAT ABOUT CLUB???
+        LoadGameLeaderboard(tab,clubOverride);
     });
 }
 

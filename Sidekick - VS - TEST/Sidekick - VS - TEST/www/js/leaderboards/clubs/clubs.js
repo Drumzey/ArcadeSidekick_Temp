@@ -3,16 +3,18 @@
 $(document).on('pageshow', "div[data-role='page']", function () {
     //We are navigating back from a page to the clubs tab on the leaderboards
     if (CurrentPage() === "#GameHighScores" && currentTab === 'CLUBS') {
-        //NextClub comes from the links in the notifications
-        //If this is set then we will navigate to a non default (1st place)
-        //club and automatically show the results for that club.
-        if (nextClub && nextClub !== '') {
-            LoadClubLeaderboard(nextClub);
-            nextClub = '';
-        }
-        else {
-            LoadClubLeaderboard();
-        }
+        
+        ////NextClub comes from the links in the notifications
+        ////If this is set then we will navigate to a non default (1st place)
+        ////club and automatically show the results for that club.
+        //if (nextClub && nextClub !== '') {
+        //    //TODO WHAT
+        //    LoadClubLeaderboard(nextClub);
+        //    nextClub = '';
+        //}
+        //else {
+        //    LoadClubLeaderboardUI();
+        //}
     }
 });
 
@@ -22,15 +24,17 @@ function LoadClubLeaderboard(clubOverride) {
         Hide('#clubleaderboards');
         Hide('#club-select');
         Hide('#mypositionClub');
+        Hide('#clubsScoreSettingsParent');
         return;
     }
 
+    Show('#clubsScoreSettingsParent');
     Hide('#noclubmembership');
     Show('#clubleaderboards');
 
     PopulateClubsDropDown();
     Show('#club-select');
-    RefreshClubLeaderboard(clubOverride);
+    ChangeLeaderboardClub(clubOverride);
 }
 
 function PopulateClubsDropDown() {
@@ -45,32 +49,35 @@ function PopulateClubsDropDown() {
     $('#select-clubs').selectmenu("refresh", true);
 }
 
-function RefreshClubLeaderboard(clubOverride) {
+function ChangeLeaderboardClub(clubOverride) {
     var clubName = $("#select-clubs :selected").val();
 
-    if (clubOverride) {
-        var index = myclubs.indexOf(clubOverride);
-
-        if (index !== -1) {
-            clubName = clubOverride;
-            var myselect = $('#select-clubs');
-            myselect.prop('selectedIndex', index);
-            myselect.selectmenu("refresh");
-        }
+    if (clubOverride)
+    {
+        clubName = clubOverride;
     }
-    //If we had to load a new page to show the list of clubs
-    //then we need to set the nextclub so that it doesnt refresh on startup
-    nextClub = clubName;
-    SideKickOnline_GetClubLeaderboard(clubName);
-}
 
-function SuccessfulGetClubLeaderboard() {
+    //We are changing the club
+    //Get all the scores for that club
+    var allScores = GetClubScores(allClubsScores, clubName, false);
+    //var detailedScores = GetClubScores(allClubsDetailedScores, clubName, true);
+    //Find out what settings Id's are used for this club
+    HideSettings(allClubsDetailedScores, clubName);
+    //Change the drop down to All
+    $('#clubsScoreSettings').val($('#clubsScoreSettings option:first').val());
+    $('#clubsScoreSettings').selectmenu("refresh", true);
+    $('#clubsScoreSettings-listbox-popup').find('a').addClass('multilineLi');
+    //Display Scores
+    HideLevels(allClubsDetailedScores, clubName);
+    $('#clubsScoreLevels').val($('#clubsScoreLevels option:first').val());
+    $('#clubsScoreLevels').selectmenu("refresh", true);
+    $('#clubsScoreLevels-listbox-popup').find('a').addClass('multilineLi');
+    var levelScores = GetLevelScores(allScores, "FULL GAME");
+    OrderScores(levelScores, false);
+    levelScores = RemoveDuplicateNames(levelScores);
 
-    var scores = GetScores(latestXHTTP.responseText);
-    scores = RemoveEnemies(scores);
-    OrderScores(scores);
-
-    DisplayAllScores(scores, "clubpositionblockul", "clubuserblockul", "clubscoreblockul",
+    //By default we show all the scores first
+    DisplayAllScores(levelScores, "clubpositionblockul", "clubuserblockul", "clubscoreblockul",
         "#clubpositionblock", "#clubuserblock", "#clubscoreblock", "mypositionClubspan");
-    AlterControlHeights(scores, "", "");
+    AlterControlHeights(levelScores, "", "");
 }

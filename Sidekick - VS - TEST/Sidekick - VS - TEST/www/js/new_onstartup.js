@@ -43,10 +43,16 @@ function init() {
 
     navigator.splashscreen.hide();
     SetNewThemeInUI();
+    GetTimedGames();
     pageHistory.push("#MainMenu");
-    if (CheckForFirstTime()) {
-        CreatePopup(firstTimePopup);
+    if (CheckForFirstTime()) {        
         FindInitialPoints();
+        popupsOnStartup.push(firstTimePopup); // push the first time pop up into the queue.
+        onlineCalls++; // We are going to loads all club data on start up
+        onlineCalls++; // We are going to loads all location data on start up
+        SideKickOnline_AllClubsStartup();
+        GetAllLocationsOnStartUp();
+        //CreatePopup(firstTimePopup);
     }
     else {
         CallOnlineOnStartUp();
@@ -75,19 +81,19 @@ function CallOnlineOnStartUp() {
         onlineCalls++; //Get Messages
     }
     onlineCalls++; //GetClubsOnStartup
+    onlineCalls++; //GetAllLocationsOnStartUp
 
-    if (onlineCalls > 0) {
-        //only call friends scores if we have friends
-        if (friendsCollection !== null && friendsCollection.length !== 0) {
-            LoadFriendsGames();
-        }
-
-        if (AllowedOnline()) {
-            SideKickOnline_GetProfileStatsOnStartUp();
-            SideKickOnline_MyMessagesStartup();
-        }
-        SideKickOnline_AllClubsStartup();
+    //only call friends scores if we have friends
+    if (friendsCollection !== null && friendsCollection.length !== 0) {
+        LoadFriendsGames();
     }
+
+    if (AllowedOnline()) {
+        SideKickOnline_GetProfileStatsOnStartUp();
+        SideKickOnline_MyMessagesStartup();
+    }
+    SideKickOnline_AllClubsStartup();
+    GetAllLocationsOnStartUp();
 }
 
 function CheckForPopups() {

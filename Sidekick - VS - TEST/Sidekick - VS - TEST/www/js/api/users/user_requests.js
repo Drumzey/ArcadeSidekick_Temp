@@ -6,16 +6,22 @@ function PostUpdateOnline() {
     var url = newBaseUrl + userUrl + 'update';
 
     var handle = document.getElementById('mytwitter_setup').value;
+    var dob = document.getElementById('mydob_setup').value;
+    var location = document.getElementById('mylocation_setup').value;
+    var youtube = document.getElementById('myyoutube_setup').value;
 
     var body = {
         'Username': clientUserName,
-        'TwitterHandle': handle
+        'TwitterHandle': handle,
+        'DOB': dob,
+        'Location': location,
+        'YouTubeChannel': youtube,
     };
 
     Call_ArcadeSidekick_Online_Post(
         url,
         body,
-        function () { Successful_SideKickOnline_PostUpdate(handle); },
+        function () { Successful_SideKickOnline_PostUpdate(handle,dob,location,youtube); },
         UnsuccessfulOnlineCall,
         StandardCompleteACOnline,
         'Updating info...');
@@ -66,11 +72,24 @@ function SideKickOnline_RestoreUser(username, email, secret) {
             SuccessfulGetProfileStats();
             SetNextPopUp(successOnlinePopup);
             var response = JSON.parse(latestXHTTP.responseText);
-            SetUserNameAndEmailInSetup(username, emailAddress, response.TwitterHandle);
+            SetUserNameAndEmailInSetup(username, emailAddress, response.TwitterHandle, response.DOB, response.YouTubeChannel, response.Location);
             twitterHandle = response.TwitterHandle;
+            playerdob = response.DOB;
+            playeryoutubeChannel = response.YouTubeChannel;
+            playerlocation = response.Location;
             friendsCollection = response.Friends;
+            if (friendsCollection === null)
+            {
+                friendsCollection = [];
+            }
+            //Add me back into friends list
+            friendsCollection.push(username);
             SetItemInStorage("friends", friendsCollection);
             SetItemInStorage("twitterHandle", response.TwitterHandle);
+            SetItemInStorage("dob", response.DOB);
+            SetItemInStorage("location", response.location);
+            SetItemInStorage("youtubechannel", response.YouTubeChannel);
+            ProcessRestoredDetailedScores(response.DetailedScores, response.DetailedSettings);
             Hide('#verifyuserbutton'); //Show verified button in setup
         },
         UnsuccessfulOnlineCall,

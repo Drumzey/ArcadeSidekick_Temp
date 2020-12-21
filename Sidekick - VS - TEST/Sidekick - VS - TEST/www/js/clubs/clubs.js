@@ -226,35 +226,6 @@ function JoinClub(clubName) {
     }
 }
 
-//function SuccessfulJoinClub(clubName) {
-//    if (latestXHTTP.status === 200) {
-
-//        var response = JSON.parse(latestXHTTP.responseText);
-
-//        for (var c = 0; c < allClubs.length; c++) {
-//            if (allClubs[c].Name === response.Name) {
-//                allClubs[c].Members = response.Members;
-//            }
-//        }
-
-//        if (privateClubs.indexOf(clubName) !== -1) {
-//            var welcome = welcomeToClubPopUp.replace("***CLUBTEXT***", response.LongDescription);
-//            SetNextPopUp(welcome);
-//            ClosePopup();
-//        }
-
-//        myclubs.push(clubName);
-//        SetItemInStorage("myclubs", myclubs);
-//        ShowAllClubs();
-//    } else if (latestXHTTP.status === 403) {
-//        SetNextPopUp(clubBadPasswordPopUp);
-//        ClosePopup();
-//    }
-//    else {
-//        UnsuccessfulOnlineCall();
-//    }
-//}
-
 function LeaveClub(clubName) {
     if (!AllowedOnline()) {
         CreatePopup(cannotJoinClubPopup);
@@ -263,27 +234,6 @@ function LeaveClub(clubName) {
 
     SideKickOnline_LeaveClub(clubName);
 }
-
-//function SuccessfulLeaveClub(clubName) {
-//    if (latestXHTTP.status === 200) {
-//        var response = JSON.parse(latestXHTTP.responseText);
-//        for (var c = 0; c < allClubs.length; c++) {
-//            if (allClubs[c].Name === response.Name) {
-//                allClubs[c].Members = response.Members;
-//            }
-//        }
-
-//        var index = myclubs.indexOf(clubName);
-//        if (index > -1) {
-//            myclubs.splice(index, 1);
-//        }
-
-//        SetItemInStorage("myclubs", myclubs);
-//        ShowAllClubs();
-//    } else {
-//        UnsuccessfulOnlineCall();
-//    }
-//}
 
 function SendClubRequest() {
     var emailContents = '';

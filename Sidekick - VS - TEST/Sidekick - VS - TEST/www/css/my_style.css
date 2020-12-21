@@ -364,6 +364,10 @@ div.timeinput .ui-input-text {
     height: 35px;
 }
 
+#detailedTimedMicroDiv .ui-input-text {
+    border-style: none;
+}
+
 textarea {
     -webkit-border-radius: 0em !important;
     border-radius: 0em !important;

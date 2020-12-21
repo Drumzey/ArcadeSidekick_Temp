@@ -52,6 +52,14 @@ body {
     background: transparent;
 }
 
+.vectrex {
+    background: url(../img/category_icons/vectrex.png), url(themes/images/buttons/arkanoid_btn1.png);
+}
+
+.venues {
+    background: url(../img/category_icons/venues.png), url(themes/images/buttons/arkanoid_btn2.png);
+}
+
 .quiz {
     background: url(../img/category_icons/quiz.png), url(themes/images/buttons/arkanoid_btn2.png);
 }

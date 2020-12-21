@@ -203,6 +203,9 @@
     gameCatalog['Avalanche'].fact1 = ''
     gameCatalog['Avalanche'].fact2 = ''
     gameCatalog['Avalanche'].fact3 = ''
+    gameCatalog['Avengers'].fact1 = 'What is the name of the setting in Capcoms 1987 beat-em-up Avengers?,Paradise City,Vice City,Metro City'
+    gameCatalog['Avengers'].fact2 = 'Who are the two playable characters in Capcoms 1987 beat-em-up Avengers?,Ryu and Ko,Ken and Tomo,Dan and Eito'
+    gameCatalog['Avengers'].fact3 = 'Hissatsu Buraiken (the games Japanese name) was later used as the name of one of Dans Super Combos. Deadly Ruffian Fist'
     gameCatalog['B.Rap Boys'].fact1 = ''
     gameCatalog['B.Rap Boys'].fact2 = ''
     gameCatalog['B.Rap Boys'].fact3 = ''
@@ -788,6 +791,9 @@
     gameCatalog['Final Lap'].fact1 = ''
     gameCatalog['Final Lap'].fact2 = ''
     gameCatalog['Final Lap'].fact3 = ''
+    gameCatalog['Final Star Force'].fact1 = ''
+    gameCatalog['Final Star Force'].fact2 = ''
+    gameCatalog['Final Star Force'].fact3 = ''
     gameCatalog['Fire Barrel'].fact1 = ''
     gameCatalog['Fire Barrel'].fact2 = ''
     gameCatalog['Fire Barrel'].fact3 = ''
@@ -1439,6 +1445,9 @@
     gameCatalog['Mystic Warriors'].fact1 = ''
     gameCatalog['Mystic Warriors'].fact2 = ''
     gameCatalog['Mystic Warriors'].fact3 = ''
+    gameCatalog['N-Sub'].fact1 = ''
+    gameCatalog['N-Sub'].fact2 = ''
+    gameCatalog['N-Sub'].fact3 = ''
     gameCatalog['NBA Jam Tournament Edition'].fact1 = ''
     gameCatalog['NBA Jam Tournament Edition'].fact2 = ''
     gameCatalog['NBA Jam Tournament Edition'].fact3 = ''
@@ -2682,7 +2691,7 @@
     gameCatalog['Zzyzzyxx'].fact2 = ''
     gameCatalog['Zzyzzyxx'].fact3 = ''
 }
-catch ()
+catch (ex)
 {
-
+    console.log(ex);
 }

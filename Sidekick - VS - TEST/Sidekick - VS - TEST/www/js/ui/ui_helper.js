@@ -90,7 +90,19 @@ function FindGameInCatalog(gameName) {
     if (gameMapping.length === 0) {
         for (var game in gameCatalog) {
             if (gameCatalog.hasOwnProperty(game)) {
-                gameMapping[gameCatalog[game].name.toLowerCase()] = game;
+
+                var lower = gameCatalog[game].name.toLowerCase();
+                var transformed = TransformGameName(gameCatalog[game].name);
+
+                if (lower === transformed)
+                {
+                    gameMapping[lower] = game;
+                }
+                else
+                {
+                    gameMapping[lower] = game;
+                    gameMapping[transformed] = game;
+                }
             }
         }
     }
@@ -114,6 +126,14 @@ function Toggle() {
             $('#gamebannerhs').addClass('tiny');
         } else {
             $('#gamebannerhs').removeClass('tiny');
+            $(window).trigger('resize');
+        }
+    }
+    if (CurrentPage() === "#MyDetailedScores") {
+        if ($(document).scrollTop() > 1) {
+            $('#detailedGameNameBanner').addClass('tiny');
+        } else {
+            $('#detailedGameNameBanner').removeClass('tiny');
             $(window).trigger('resize');
         }
     }

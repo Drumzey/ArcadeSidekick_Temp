@@ -18,10 +18,13 @@
 
         for (var i = 0; i < response.Levels.length; i++) {
             var newSetting = response.Levels[i];
-            $('#existinglevels').append($('<option>', {
-                value: newSetting,
-                text: newSetting
-            }));
+            if (newSetting !== "FULL GAME")
+            {
+                $('#existinglevels').append($('<option>', {
+                    value: newSetting,
+                    text: newSetting
+                }));
+            }
         }
         Hide('#levelnamediv');
     }

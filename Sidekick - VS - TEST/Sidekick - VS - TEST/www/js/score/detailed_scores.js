@@ -17,6 +17,9 @@ function AddDetailedScore()
 
     //Set text fields
     document.getElementById('score').value = '';
+    document.getElementById('minutesDetailed').value = '';
+    document.getElementById('secondsDetailed').value = '';
+    document.getElementById('microDetailed').value = '';
     document.getElementById('levelname').value = '';
     document.getElementById('difficulty').value = '';
     document.getElementById('lives').value = '';
@@ -42,13 +45,50 @@ function SetGameLevel()
     }
     else {
         Hide('#levelnamediv');
-    }  
+    }
+
+    //If our level a level that has a different type that the main game? i.e track and field 100M?
+    //If we are a timed game we want to show the timed div, otherwise normal
+    var override = IsLevelLeaderboardOverridden(currentGameName, selectedLevel);
+    if (timed.indexOf(TransformedCurrentGameName()) === -1)
+    {
+        //We are not a timed game, but what if the level is?
+        if(override)
+        {
+            Show('#detailedTimedDiv');
+            Hide('#detailedScoreDiv');
+        }
+        else
+        {
+            Hide('#detailedTimedDiv');
+            Show('#detailedScoreDiv');
+        }
+    }
+    else
+    {
+        //We are a timed game, but what if the level is?
+        if(override)
+        {
+            Hide('#detailedTimedDiv');
+            Show('#detailedScoreDiv');
+        }
+        else
+        {
+            Hide('#detailedScoreDiv');
+            Show('#detailedTimedDiv');
+        }
+    }
 }
 
 function SetArcadeLocation()
 {
     detailedLocation = $("#location option:selected").val();
-    if (detailedLocation !== 'Home Arcade') {
+
+    if (detailedLocation === "Select Venues")
+    {
+        GotoVenues();
+    }
+    else if (detailedLocation !== 'Home Arcade') {
         Hide('#ExistingSettings');
     }
     else {
@@ -66,15 +106,6 @@ var detailedLevelName = '';
 var detailedCredits = '';
 var detailedMameOrPCB = '';
 var detailedEvent = '';
-
-function DetailedScoreFirstSubmit()
-{
-    detailedScore = document.getElementById('score').value;
-    detailedLocation = $("#location option:selected").val();
-    detailedLevelName = document.getElementById('levelname').value;
-    SetNextPopUpId('#PickDate');
-    ClosePopupWithNextPopoup();
-}
 
 var clubsWithEvents = [];
 function DoClubsHaveEvents()
@@ -102,9 +133,6 @@ function DoClubsHaveEvents()
 
 function DetailedScoreSubmit()
 {
-    //TODO Validate the settings
-    detailedScore = document.getElementById('score').value;
-    detailedLocation = $("#location option:selected").val();
     var selectedLevel = $("#existinglevels option:selected").val();
     if (selectedLevel === 'NEW LEVEL') {
         detailedLevelName = document.getElementById('levelname').value;
@@ -114,6 +142,34 @@ function DetailedScoreSubmit()
         detailedLevelName = selectedLevel;
     }
 
+    var override = IsLevelLeaderboardOverridden(currentGameName, detailedLevelName);
+    if (timed.indexOf(TransformedCurrentGameName()) === -1)
+    {
+        //We are not a timed game
+        if (override)
+        {
+            detailedScore = GetDetailedTime();
+        }
+        else
+        {
+            detailedScore = document.getElementById('score').value;
+        }
+    }
+    else
+    {
+        //We are a timed game but are override to be a score level
+        if (override)
+        {
+            detailedScore = document.getElementById('score').value;
+        }
+        else
+        {
+            detailedScore = GetDetailedTime();
+        }
+    }
+    
+    detailedLocation = $("#location option:selected").val();
+    
     var setting = $("#existingsetting option:selected").val();
     if (setting === "I dont know") {
         detailedDifficulty = '';
@@ -130,9 +186,35 @@ function DetailedScoreSubmit()
         detailedMameOrPCB = $("#mameorpcb option:selected").val();
     }      
 
+    var dateObject = $('#detailedDateBox').datebox('getTheDate'),
+        theDate = $('#detailedDateBox').datebox('callFormat', '%m/%d/%Y', dateObject);
+    detailedDate = theDate;
+
     //Pre-pend the name of the club to the event
     detailedEvent = $("#clubsSelect option:selected").val() + "___" + $("#clubsevents option:selected").val();
     Submit();
+}
+
+function GetDetailedTime()
+{
+    var minutes = document.getElementById('minutesDetailed').value;
+    var seconds = document.getElementById('secondsDetailed').value;
+    var micro = document.getElementById('microDetailed').value;
+
+    if (minutes === '') {
+        minutes = '0';
+    }
+
+    if (seconds === '') {
+        seconds = '00';
+    }
+
+    if (micro === '') {
+        micro = '000';
+    }
+
+    var score = parseInt(micro) + (parseInt(seconds) * 1000) + (parseInt(minutes) * 60000);
+    return score;
 }
 
 function Submit()
@@ -148,7 +230,40 @@ function Submit()
         PostDetailedScoreSubmission();
     }
 
-    ClosePopupWithNextPopoup();
+    PopulateHighestDetailedScoreInGame();
+    NavigateBack();
+}
+
+function PopulateHighestDetailedScoreInGame()
+{
+    var topScore = GetTopDetailedScore();
+    document.getElementById('topDetailedScore').value = addComma(topScore);
+}
+
+function GetTopDetailedScore(gameName)
+{
+    var topScore = "0";
+
+    if (!gameName)
+    {
+        gameName = TransformedCurrentGameName();
+    }
+
+    if (detailedScoreCollection[gameName]) {
+        //Refresh the game screen to show the highest detailed score
+        for (i = 0; i < detailedScoreCollection[gameName].length; i++) {
+            var savedScore = detailedScoreCollection[gameName][i];
+            //Only pick out a Full Game score
+            if (savedScore.LevelName === "FULL GAME")
+            {
+                if (parseInt(savedScore.Score) > parseInt(topScore)) {
+                    topScore = savedScore.Score;
+                }
+            }
+        }
+    }
+
+    return topScore;
 }
 
 function ValidateScoreSubmission()
@@ -190,7 +305,7 @@ function ToSettingString(setting)
         settingParts.push('Credits: ' + setting.Credits);
     }
     if (setting.MameOrPCB !== null) {
-        settingParts.push('Mame Or PCB: ' + setting.MameOrPCB);
+        settingParts.push(setting.MameOrPCB);
     }
 
     return settingParts.join(' - ');
@@ -220,8 +335,8 @@ function FromSettingString(string)
         if (str[i].startsWith("Credits: ")) {
             credits = str[i].replace("Credits: ", "");
         }
-        if (str[i].startsWith("Mame Or PCB: ")) {
-            mame = str[i].replace("Mame Or PCB: ", "");
+        if (str[i] === "EMULATED" || str[i] === "PCB") {
+            mame = str[i];
         }
     }
     
@@ -235,19 +350,56 @@ function PopulateExistingSettings()
     $('#existingsetting').find('option').remove();
     $('#location').find('option').remove();
     $('#mameorpcb').find('option').remove();
-    onlineCalls = 3;
+    onlineCalls = 2;
     detailedhaserrored = false;
     PopulateMameOrPCB();
     PopulateClubs();
+    PopulateVenues();
     GetExistingLevels();
     GetExistingSettings();
-    GetExistingLocations();
+    
+    //If we are a timed game we want to show the timed div, otherwise normal
+    if (timed.indexOf(TransformedCurrentGameName()) === -1)
+    {
+        Hide('#detailedTimedDiv');
+        Show('#detailedScoreDiv');
+    }
+    else
+    {
+        Hide('#detailedScoreDiv');
+        Show('#detailedTimedDiv');
+    }
+}
+
+function PopulateVenues()
+{
+    $('#location').append($('<option>', {
+        value: 'Home Arcade',
+        text: 'Home Arcade'
+    }));
+
+    if (myVenues.length === 0) {
+        var location = myVenues[i];
+        $('#location').append($('<option>', {
+            value: "Select Venues",
+            text: "Select Venues"
+        }));
+    }
+    else {
+        for (var i = 0; i < myVenues.length; i++) {
+            var location = myVenues[i];
+            $('#location').append($('<option>', {
+                value: location,
+                text: location
+            }));
+        }
+    }
 }
 
 function PopulateMameOrPCB() {
     $('#mameorpcb').append($('<option>', {
-        value: "MAME",
-        text: "MAME"
+        value: "EMULATED",
+        text: "EMULATED"
     }));
 
     $('#mameorpcb').append($('<option>', {
@@ -324,7 +476,7 @@ function SetSettingValues()
         document.getElementById('lives').value = '';
         document.getElementById('extralives').value = '';
         document.getElementById('credits').value = '';         
-        mame.val('MAME').attr('selected', true).siblings('option').removeAttr('selected');
+        mame.val('EMULATED').attr('selected', true).siblings('option').removeAttr('selected');
         mame.selectmenu("refresh", true);
         document.getElementById('difficulty').disabled = false;
         document.getElementById('lives').disabled = false;
@@ -373,7 +525,7 @@ function SaveScoreLocally()
     newScore.Event = detailedEvent;
     newScore.MameOrPCB = detailedMameOrPCB;
 
-    if (detailedScoreCollection.indexOf(TransformedCurrentGameName()) === -1)
+    if (!detailedScoreCollection[TransformedCurrentGameName()])
     {
         detailedScoreCollection[TransformedCurrentGameName()] = [];
     }

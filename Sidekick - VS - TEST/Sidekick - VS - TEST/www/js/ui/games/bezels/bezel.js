@@ -621,6 +621,15 @@ mercs.image = 'mercs.png';
 bezelDimensions['mercs'] = mercs;
 
 //Shooter
+var lazarian = new Bezel();
+lazarian.id = 'lazarian';
+lazarian.topOffset = 16;
+lazarian.leftOffset = 16;
+lazarian.screenWidth = 68;
+lazarian.screenHeight = 62;
+lazarian.image = 'lazarian.png';
+bezelDimensions['lazarian'] = lazarian;
+
 var strikers1945iii = new Bezel();
 strikers1945iii.id = 'strikers 1945 iii';
 strikers1945iii.topOffset = 16;

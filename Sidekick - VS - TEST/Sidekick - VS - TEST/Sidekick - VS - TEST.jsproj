@@ -85,6 +85,14 @@
     <Content Include="**\**" Exclude="**\platforms\**;**\bin\**;**\bld\**;**\node_modules\**;**\simulation\**;**\plugins\**;.gitignore;SidekickVSTEST.*" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="C:\Personal\pinball.js">
+      <Link>pinball.js</Link>
+    </Content>
+    <Content Include="C:\Personal\vectrex.js">
+      <Link>vectrex.js</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <Content Update="config.xml">
       <SubType>Designer</SubType>
     </Content>

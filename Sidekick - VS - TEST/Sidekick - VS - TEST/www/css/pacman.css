@@ -52,6 +52,14 @@ body {
     background: transparent;
 }
 
+.vectrex {
+    background: url(../img/category_icons/vectrex.png), url(themes/images/buttons/pacman_btn.png);
+}
+
+.venues {
+    background: url(../img/category_icons/venues.png), url(themes/images/buttons/pacman_btn.png);
+}
+
 .quiz {
     background: url(../img/category_icons/quiz.png), url(themes/images/buttons/pacman_btn.png);
 }

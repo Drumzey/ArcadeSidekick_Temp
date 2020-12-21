@@ -93,14 +93,20 @@ function VerifyUser(element) {
     SideKickOnline_VerifyUser(secretvalue);
 }
 
-function SetUserNameAndEmailInSetup(userName, email, twitter) {
+function SetUserNameAndEmailInSetup(userName, email, twitter, dob, youtube, location) {
     document.getElementById('myusernamesetup').readOnly = true;
     document.getElementById('myemailsetup').readOnly = true;    
     document.getElementById('mytwitterhandlesetup').readOnly = true;
+    document.getElementById('mydobsetup').readOnly = true;
+    document.getElementById('myyoutubesetup').readOnly = true;
+    document.getElementById('mylocationsetup').readOnly = true;
     
     document.getElementById('myusernamesetup').innerText = 'Username ' + clientUserName;
     document.getElementById('myemailsetup').innerText = 'Email ' + emailAddress;
     document.getElementById('mytwitterhandlesetup').innerText = 'Twitter Handle ' + twitter;
+    document.getElementById('mydobsetup').innerText = 'Year of brith ' + dob;
+    document.getElementById('myyoutubesetup').innerText = 'YouTube Channel ' + youtube;
+    document.getElementById('mylocationsetup').innerText = 'Country/Location ' + location;
     Hide('#newuserbutton');
     Hide('#existinguserbutton');
     Show('#verifyuserbutton'); //Show verified button in setup

@@ -17,60 +17,68 @@
     <!-- Load Local Versions First-->
     <script type="text/javascript" src="js/gamelists/declare.js"></script>
     <script type="text/javascript" src="js/gamelists/catalog.js"></script>
+    <script type="text/javascript" src="js/gamelists/vectrex.js"></script>
     <script type="text/javascript" src="js/gamelists/pinball.js"></script>
     <script type="text/javascript" src="js/gamelists/timegames.js"></script>
     <script type="text/javascript" src="js/gamelists/controls.js"></script>
     <script type="text/javascript" src="js/gamelists/funfacts.js"></script>
+    <script type="text/javascript" src="js/gamelists/levelOverrides.js"></script>
+
     <!-- Attempt To Load Web Versions-->
-    <script type="text/javascript" src="https://arcadesidekick.s3.eu-west-2.amazonaws.com/gamelists/catalog.js"></script>
+    <!--<script type="text/javascript" src="https://arcadesidekick.s3.eu-west-2.amazonaws.com/gamelists/catalog.js"></script>
     <script type="text/javascript" src="https://arcadesidekick.s3.eu-west-2.amazonaws.com/gamelists/pinball.js"></script>
     <script type="text/javascript" src="https://arcadesidekick.s3.eu-west-2.amazonaws.com/gamelists/timegames.js"></script>
     <script type="text/javascript" src="https://arcadesidekick.s3.eu-west-2.amazonaws.com/gamelists/controls.js"></script>
-    <script type="text/javascript" src="https://arcadesidekick.s3.eu-west-2.amazonaws.com/gamelists/funfacts.js"></script>
-    <!-- API Scripts -->
-    <script type="text/javascript" src="js/api/shared.js"></script>
+    <script type="text/javascript" src="https://arcadesidekick.s3.eu-west-2.amazonaws.com/gamelists/funfacts.js"></script>-->
+    <!-- API SCRIPTS -->
+    <!-- VENUES-->
+    <script type="text/javascript" src="js/api/venues/venue_requests.js"></script>
+    <script type="text/javascript" src="js/api/venues/venue_response.js"></script>
+    <script type="text/javascript" src="js/ui/venues/venues.js"></script>
+    <script type="text/javascript" src="js/ui/venues/popups.js"></script>
 
+    <!-- GAMES -->
+    <script type="text/javascript" src="js/api/games/scores/get/leaderboard_requests.js"></script>
+    <script type="text/javascript" src="js/api/games/scores/get/leaderboard_responses.js"></script>
+    <script type="text/javascript" src="js/api/games/scores/post/score_requests.js"></script>
+    <!-- UI SCRIPTS -->
+    <script type="text/javascript" src="js/ui/games/leaderboards/leaderboards.js"></script>
+    <!-- API Scripts -->
+    <script type="text/javascript" src="js/api/common/common_responses.js"></script>
+    <script type="text/javascript" src="js/api/shared.js"></script>
     <script type="text/javascript" src="js/api/system/recent/system_requests.js"></script>
     <script type="text/javascript" src="js/api/system/recent/online_response.js"></script>
-
     <script type="text/javascript" src="js/api/clubs/club_requests.js"></script>
     <script type="text/javascript" src="js/api/clubs/club_response.js"></script>
-
     <script type="text/javascript" src="js/api/users/user_requests.js"></script>
     <script type="text/javascript" src="js/api/users/user_response.js"></script>
     <script type="text/javascript" src="js/api/users/all/all_users_requests.js"></script>
     <script type="text/javascript" src="js/api/users/create/create_requests.js"></script>
     <script type="text/javascript" src="js/api/users/forgot/forgot_requests.js"></script>
-
+    <script type="text/javascript" src="js/api/friends/friends_requests.js"></script>
     <script type="text/javascript" src="js/api/games/games_requests.js"></script>
     <script type="text/javascript" src="js/api/games/game_response.js"></script>
     <script type="text/javascript" src="js/api/games/top50/online_response.js"></script>
-
-    <script type="text/javascript" src="js/api/venues/venue_requests.js"></script>
-    <script type="text/javascript" src="js/api/venues/venue_response.js"></script>
     <!-- UI Scripts -->
+    <script type="text/javascript" src="js/new_types.js"></script>
     <script type="text/javascript" src="js/ui/ui_helper.js"></script>
-
     <script type="text/javascript" src="js/ui/games/bezels/bezel.js"></script>
     <script type="text/javascript" src="js/ui/games/custom/customgames.js"></script>
     <script type="text/javascript" src="js/ui/games/export/export_record.js"></script>
     <script type="text/javascript" src="js/ui/games/top50/top50.js"></script>
     <script type="text/javascript" src="js/ui/games/record/notes/notes.js"></script>
-
     <script type="text/javascript" src="js/ui/system/recent/recent.js"></script>
     <script type="text/javascript" src="js/ui/system/security/jwt.js"></script>
     <script type="text/javascript" src="js/ui/system/security/hmac-sha256.js"></script>
     <script type="text/javascript" src="js/ui/system/security/enc-base64-min.js"></script>
     <script type="text/javascript" src="js/ui/system/help/help.js"></script>
     <script type="text/javascript" src="js/ui/system/help/help_popups.js"></script>
-
     <script type="text/javascript" src="js/ui/users/create/create_user.js"></script>
     <script type="text/javascript" src="js/ui/users/restore/restoreuser.js"></script>
     <script type="text/javascript" src="js/ui/users/profile/popups.js"></script>
     <script type="text/javascript" src="js/ui/users/profile/userinfo.js"></script>
     <script type="text/javascript" src="js/ui/users/friends/friends.js"></script>
     <script type="text/javascript" src="js/ui/users/friends/head2head.js"></script>
-
     <script type="text/javascript" src="js/ui/quiz/quiz.js"></script>
     <script type="text/javascript" src="js/ui/quiz/popups.js"></script>
     <!-- CUSTOM SCRIPTS-->
@@ -90,7 +98,6 @@
     <script type="text/javascript" src="js/new_starrating.js"></script>
     <script type="text/javascript" src="js/new_storage.js"></script>
     <script type="text/javascript" src="js/new_theme.js"></script>
-    <script type="text/javascript" src="js/new_types.js"></script>
     <script type="text/javascript" src="js/new_welcome.js"></script>
     <script type="text/javascript" src="js/score.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
@@ -99,6 +106,8 @@
     <script type="text/javascript" src="js/score/detailed_scores.js"></script>
     <script type="text/javascript" src="js/score/detailed_scores_online.js"></script>
     <script type="text/javascript" src="js/score/popups.js"></script>
+    <script type="text/javascript" src="js/score/detailspage/detailspage.js"></script>
+    <script type="text/javascript" src="js/score/detailspage/popups.js"></script>
     <!-- Genres -->
     <script type="text/javascript" src="js/genres/genres.js"></script>
     <!-- Social -->
@@ -106,6 +115,7 @@
     <script type="text/javascript" src="js/social/popups.js"></script>
     <!-- Leaderboards -->
     <script type="text/javascript" src="js/leaderboards/shared/shared.js"></script>
+    <script type="text/javascript" src="js/leaderboards/friends/friends.js"></script>
     <script type="text/javascript" src="js/leaderboards/clubs/clubs.js"></script>
     <script type="text/javascript" src="js/leaderboards/clubs/clubs_online.js"></script>
     <script type="text/javascript" src="js/leaderboards/global/global.js"></script>
@@ -160,23 +170,27 @@
                     <td style="padding-top: 10px" align="right"><div onclick="MyScores()" id="scores" class="tile myscores" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="Friends()" id="setupfriendsTile" class="tile friends" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="GoToNotifications()" id="notifications" class="tile notifications badge" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                </tr>
-                <tr>
                     <td style="padding-top: 10px"><div onclick="GotoGenre()" id="videogames" class="tile videogames" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                     <td style="padding-top: 10px" align="right"><div onclick="Category(this)" id="pinball" class="tile pinball" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="CustomGames()" id="custom" class="tile custom" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px"><div onclick="Category(this)" id="vectrex" class="tile vectrex" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="CustomGames()" id="custom" class="tile custom" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 10px"><div onclick="Friends()" id="setupfriendsTile" class="tile friends" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="GoToNotifications()" id="notifications" class="tile notifications badge" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 10px"><div onclick="GotoQuiz()" id="quiz" class="tile quiz" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                     <td style="padding-top: 10px" align="right"><div onclick="Head2Head()" id="head2head" class="tile head2head" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
                     <td style="padding-top: 10px"><div onclick="GotoClubs()" id="clubs" class="tile clubs" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="ArcadeTop50()" id="top10" class="tile topfifty" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="GotoVenues()" id="venues" class="tile venues" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="GotoQuiz(0)" id="quiz" class="tile quiz" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px"><div onclick="ArcadeTop50()" id="top10" class="tile topfifty" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                     <td style="padding-top: 10px" align="right"><div onclick="GetRecentActivity(0)" id="recentActivity" class="tile recent" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
             </table>
@@ -351,6 +365,9 @@
                 <li data-role="list-divider" id="myusernamesetup" style="white-space: normal;" class="ui-li ui-li-static ui-btn-up-c">User name</li>
                 <li data-role="list-divider" id="myemailsetup" style="white-space: normal;" class="ui-li ui-li-static ui-btn-up-c">Email</li>
                 <li data-role="list-divider" id="mytwitterhandlesetup" style="white-space: normal;" class="ui-li ui-li-static ui-btn-up-c">Twitter Handle</li>
+                <li data-role="list-divider" id="mydobsetup" style="white-space: normal;" class="ui-li ui-li-static ui-btn-up-c">Year of Birth</li>
+                <li data-role="list-divider" id="mylocationsetup" style="white-space: normal;" class="ui-li ui-li-static ui-btn-up-c">Country/Location</li>
+                <li data-role="list-divider" id="myyoutubesetup" style="white-space: normal;" class="ui-li ui-li-static ui-btn-up-c">YouTube Channel</li>
             </ul>
             <a id="updateuserinfo" style="font-size:70%" onclick="UpdateUserInfo();" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Update User Info</span></span></a>
             <a id="newuserbutton" style="font-size:70%" onclick="ShowNewUser();" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">New User</span></span></a>
@@ -1202,7 +1219,6 @@
     </div>
     <!-- Manage Clubs -->
     <div data-role="page" data-theme="a" id="Clubs" class="MainMenu">
-
         <div id="selectUsers" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" class="ui-corner-bottom ui-content" role="main">
                 <h3>Select User</h3>
@@ -1211,14 +1227,12 @@
                 <a onclick="ClosePopup()" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Cancel</span></span></a>
             </div>
         </div>
-
         <div id="inviteUsersSuccess" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">
             <div data-role="content" class="ui-corner-bottom ui-content" role="main">
                 <h3>Invites Sent</h3>
                 <a onclick="ClosePopup('#inviteUsersSuccess')" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">OK</span></span></a>
             </div>
         </div>
-
         <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <h1 style="font-weight: bold; font-size:100%" ;>Clubs</h1>
             <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
@@ -1581,7 +1595,10 @@
     <!-- My Detailed Scores -->
     <div data-role="page" data-theme="a" id="MyDetailedScores" class="MainMenu">
         <div data-role="header" data-position="fixed" data-tap-toggle="false">
-            <h1 id="detailedGameName" style="font-weight: bold; font-size:100%" ;></h1>
+            <div style="width: 100%;text-align: center;">
+                <h1 id="detailedGameName" style="font-weight: bold; font-size:100%"></h1>
+                <img id="detailedGameNameBanner" class="banner" style="font-weight: bold; font-size:100%" />
+            </div>
             <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
             <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
         </div>
@@ -1739,6 +1756,8 @@
                         <li id="release" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Release</li>
                         <li id="developer" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Developer</li>
                         <li id="players" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Players</li>
+                        <li id="officialOrHomebrew" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Official or Homebrew</li>
+                        <li id="subCategory" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Category</li>
                     </ul>
                 </div>
                 <div id="myrecordcontainer">
@@ -1798,15 +1817,14 @@
                         <form action="javascript:DoNothing" onsubmit="DoNothing()">
                             <div class="ui-grid-a ui-corner-bottom">
                                 <div class="ui-block-a ui-corner-bottom" style="width:100%">
-                                    <input id="topDetailedScore" class="ui-corner-bottom" style="margin: 0;" type="number" readonly />
+                                    <input id="topDetailedScore" class="ui-corner-bottom" style="margin: 0;" type="text" readonly />
                                 </div>
                             </div>
                         </form>
                     </div>
-
                     <div class="ui-grid-a">
                         <div class="ui-block-a" style="width:50%">
-                            <a onclick="ViewDetailedScores()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" style="margin-top: 16px">
+                            <a onclick="ShowDetailedScoresPage()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" style="margin-top: 16px">
                                 <span class="ui-btn-inner ui-btn-corner-all">
                                     <span class="ui-btn-text">More details</span>
                                 </span>
@@ -1907,20 +1925,13 @@
                 </li>
             </ul>
 
-            <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
-                <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Score</li>
-            </ul>
-            <div style="margin: 0; padding: 0;">
-                <input type="number" class="ui-corner-bottom" style="margin: 0;" id="score" />
-            </div>
-
+            <!-- LEVEL -->
             <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
                 <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Level</li>
             </ul>
             <div style="margin: 0; padding: 0;">
                 <select onchange="SetGameLevel()" id="existinglevels" data-mini="true" class="ui-corner-bottom" style="margin: 0;" data-native-menu="false"></select>
             </div>
-
             <div style="margin: 0; padding: 0;" id="levelnamediv">
                 <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
                     <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Level Name</li>
@@ -1930,6 +1941,29 @@
                 </div>
             </div>
 
+            <!-- SCORE -->
+            <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
+                <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Score</li>
+            </ul>
+            <div id="detailedTimedDiv" style="margin: 0; padding: 0;" class="ui-grid-a ui-body-a ui-corner-bottom">
+                <div class="timeinput ui-block-a" id="detailedTimedMinuteDiv" style="width:33%">
+                    <label for="minutesDetailed" class="fieldLabel" style="font-size:50%"> Minutes</label>
+                    <input type="number" id="minutesDetailed" maxlength="3" pattern="\d*" />
+                </div>
+                <div class="ui-block-b" id="detailedTimedSecondDiv" style="width:33%">
+                    <label for="secondsDetailed" class="fieldLabel" style="font-size:50%"> Seconds</label>
+                    <input type="number" id="secondsDetailed" maxlength="2" pattern="\d*" />
+                </div>
+                <div class="ui-block-c" id="detailedTimedMicroDiv" style="width:34%">
+                    <label for="microDetailed" class="fieldLabel" style="font-size:50%"> Micro</label>
+                    <input type="number" id="microDetailed" maxlength="3" pattern="\d*" />
+                </div>
+            </div>
+            <div id="detailedScoreDiv" style="margin: 0; padding: 0;">
+                <input type="number" class="ui-corner-bottom" style="margin: 0;" id="score" />
+            </div>
+
+            <!-- OTHER -->
             <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
                 <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Location</li>
             </ul>
@@ -1938,15 +1972,13 @@
                     <option>Home Arcade</option>
                 </select>
             </div>
-
             <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
                 <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Date</li>
             </ul>
             <div data-role="fieldcontain" style="margin: 0; padding: 0;">
-                <input type="text" class="ui-corner-bottom" data-role="datebox"
+                <input id="detailedDateBox" type="text" class="ui-corner-bottom" data-role="datebox"
                        data-options='{"mode":"datebox", "useInline" :true, "hideInput" :true, "beforeToday" :true, "useSetButton" :false}'>
             </div>
-
             <div id="ExistingSettings">
                 <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
                     <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Game settings</li>
@@ -1954,7 +1986,6 @@
                 <div data-role="fieldcontain" style="margin: 0; padding: 0;">
                     <select id="existingsetting" data-mini="true" data-native-menu="false" onchange="SetSettingValues();"></select>
                 </div>
-
                 <div id="SettingsGroup">
                     <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
                         <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Difficulty</li>
@@ -1962,30 +1993,26 @@
                     <div data-role="fieldcontain" style="margin: 0; padding: 0;">
                         <input type="text" class="ui-corner-bottom" style="margin: 0;" id="difficulty" />
                     </div>
-
                     <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
                         <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Lives</li>
                     </ul>
                     <div data-role="fieldcontain" style="margin: 0; padding: 0;">
                         <input type="text" class="ui-corner-bottom" style="margin: 0;" id="lives" />
                     </div>
-
                     <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
                         <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Extra Lives At</li>
                     </ul>
                     <div data-role="fieldcontain" style="margin: 0; padding: 0;">
                         <input type="text" class="ui-corner-bottom" style="margin: 0;" id="extralives" />
                     </div>
-
                     <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
                         <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Credits</li>
                     </ul>
                     <div data-role="fieldcontain" style="margin: 0; padding: 0;">
                         <input type="text" class="ui-corner-bottom" style="margin: 0;" id="credits" />
                     </div>
-
                     <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
-                        <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">MAME or PCB</li>
+                        <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">EMULATED or PCB</li>
                     </ul>
                     <div id="mameorpcbparent" data-role="fieldcontain" style="margin: 0; padding: 0;">
                         <select id="mameorpcb" data-native-menu="false" data-mini="true"></select>
@@ -1995,7 +2022,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="ClubEvent">
                 <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
                     <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Club</li>
@@ -2012,13 +2038,11 @@
                     </div>
                 </div>
             </div>
-
             <a onclick="DetailedScoreSubmit()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" style="margin-top: 16px">
                 <span class="ui-btn-inner ui-btn-corner-all">
                     <span class="ui-btn-text">Submit</span>
                 </span>
             </a>
-
         </div>
     </div>
     <!-- Game High Scores -->
@@ -2031,16 +2055,24 @@
             <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
             <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
         </div>
-        <div role="main" class="ui-content Page" style="padding:0.1em !important">
+        <div role="main" class="ui-content Page detailedMainPage" style="padding:0.1em !important">
             <div data-role="tabs" class="tabs">
                 <div data-role="navbar">
                     <ul>
-                        <li><a id="FRIENDSSCORES" onclick="LoadGameLeaderboard();SetCurrentTab('FRIENDSSCORES')" href="#FRIENDSSCORESTAB" data-theme="a" data-ajax="false" class="ui-btn-active"><span style="font-size:70%">Friends</span></a></li>
-                        <li><a id="CLUBS" onclick="LoadClubLeaderboard();SetCurrentTab('CLUBS')" href="#CLUBSSCORETAB" data-theme="a" data-ajax="false"><span style="font-size:70%">Clubs</span></a></li>
-                        <li><a id="ALLSCORES" onclick="LoadGlobalLeaderboard();SetCurrentTab('ALLSCORES')" href="#ALLSCORESTAB" data-theme="a" data-ajax="false"><span style="font-size:70%">All Submitted</span></a></li>
+                        <li><a id="FRIENDSSCORES" onclick="SetCurrentTab('FRIENDSSCORES')" href="#FRIENDSSCORESTAB" data-theme="a" data-ajax="false" class="ui-btn-active"><span style="font-size:70%">Friends</span></a></li>
+                        <li><a id="CLUBS" onclick="SetCurrentTab('CLUBS')" href="#CLUBSSCORETAB" data-theme="a" data-ajax="false"><span style="font-size:70%">Clubs</span></a></li>
+                        <li><a id="ALLSCORES" onclick="SetCurrentTab('ALLSCORES')" href="#ALLSCORESTAB" data-theme="a" data-ajax="false"><span style="font-size:70%">All Submitted</span></a></li>
                     </ul>
                 </div>
                 <div id="FRIENDSSCORESTAB" class="ui-content" style="padding:0.1em !important">
+
+                    <div data-role="fieldcontain" style="margin: 0; padding: 0;" id="friendsScoreSettingsParent">
+                        <select onchange="ChangeLeaderboardSettings('friends')" id="friendsScoreSettings" data-mini="true" class="ui-corner-bottom" style="margin: 0;" data-native-menu="false"></select>
+                    </div>
+                    <div data-role="fieldcontain" style="margin: 0; padding: 0;" id="friendsScoreLevelsParent">
+                        <select onchange="ChangeLeaderboardSettings('friends')" id="friendsScoreLevels" data-mini="true" class="ui-corner-bottom" style="margin: 0;" data-native-menu="false"></select>
+                    </div>
+
                     <ul id="myposition" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all">
                         <li id="mypositionli" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">
                             <span id="myfriendspositionspan" style="white-space: normal;text-overflow: clip;font-size:70%"></span>
@@ -2066,10 +2098,19 @@
                             </span>
                         </a>
                     </div>
+
                     <div id="club-select">
                         <select name="select-clubs" id="select-clubs" data-native-menu="false"
-                                data-mini="true" onchange="RefreshClubLeaderboard()"></select>
+                                data-mini="true" onchange="ChangeLeaderboardClub()"></select>
                     </div>
+
+                    <div data-role="fieldcontain" style="margin: 0; padding: 0;" id="clubsScoreSettingsParent">
+                        <select onchange="ChangeLeaderboardSettings('clubs')" id="clubsScoreSettings" data-mini="true" class="ui-corner-bottom" style="margin: 0;" data-native-menu="false"></select>
+                    </div>
+                    <div data-role="fieldcontain" style="margin: 0; padding: 0;" id="clubsScoreLevelsParent">
+                        <select onchange="ChangeLeaderboardSettings('clubs')" id="clubsScoreLevels" data-mini="true" class="ui-corner-bottom" style="margin: 0;" data-native-menu="false"></select>
+                    </div>
+
                     <ul id="mypositionClub" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all">
                         <li id="mypositionClubli" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">
                             <span id="mypositionClubspan" style="white-space: normal;text-overflow: clip;font-size:70%"></span>
@@ -2088,6 +2129,14 @@
                     </div>
                 </div>
                 <div id="ALLSCORESTAB" class="ui-content" style="padding:0.1em !important">
+
+                    <div data-role="fieldcontain" style="margin: 0; padding: 0;" id="globalScoreSettingsParent">
+                        <select onchange="ChangeLeaderboardSettings('global')" id="globalScoreSettings" data-mini="true" class="ui-corner-bottom" style="margin: 0;" data-native-menu="false"></select>
+                    </div>
+                    <div data-role="fieldcontain" style="margin: 0; padding: 0;" id="globalScoreLevelsParent">
+                        <select onchange="ChangeLeaderboardSettings('global')" id="globalScoreLevels" data-mini="true" class="ui-corner-bottom" style="margin: 0;" data-native-menu="false"></select>
+                    </div>
+
                     <ul id="mypositionAll" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all">
                         <li id="mypositionAllli" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">
                             <span id="myAllpositionspan" style="white-space: normal;text-overflow: clip;font-size:70%"></span>
@@ -2171,24 +2220,90 @@
     <div data-role="page" data-theme="a" id="Quiz" class="MainMenu">
         <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <h1 style="font-weight: bold; font-size:100%" ;>Arcade Quiz</h1>
-            <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>            
+            <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
         </div>
         <div role="main" class="ui-content Page">
-
             <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
                 <li id="quizBest" data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Current Record 0 in a row</li>
-                <li id="inARow" data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c ui-corner-bottom">Current Score 0 in a row</li>                
+                <li id="inARow" data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c ui-corner-bottom">Current Score 0 in a row</li>
             </ul>
-
-            <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">                
+            <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
                 <li id="questionId" data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Question 1.</li>
                 <li id="question" class="ui-li ui-li-static ui-btn-up-c ui-corner-bottom" style="white-space: normal;text-overflow: clip;"></li>
             </ul>
-
             <a onclick="SubmitAnswer(this);" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span id="answer1" class="ui-btn-inner ui-btn-corner-all ui-btn-text" style="white-space: normal;text-overflow: clip;"></span></a>
             <a onclick="SubmitAnswer(this);" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span id="answer2" class="ui-btn-inner ui-btn-corner-all ui-btn-text" style="white-space: normal;text-overflow: clip;"></span></a>
             <a onclick="SubmitAnswer(this);" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span id="answer3" class="ui-btn-inner ui-btn-corner-all ui-btn-text" style="white-space: normal;text-overflow: clip;"></span></a>
-
+        </div>
+    </div>
+    <!-- Venues-->
+    <div data-role="page" data-theme="a" id="Venues" class="MainMenu">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 style="font-weight: bold; font-size:100%" ;>Venues</h1>
+            <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+        </div>
+        <div role="main" class="ui-content Page">
+            <div data-role="tabs" class="tabs">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a id="MYVENUES" onclick="SetCurrentTab('MYVENUES')" href="#myVenues" data-theme="a" data-ajax="false"><span style="font-size:70%">My Venues</span></a></li>
+                        <li><a id="ALLVENUES" onclick="SetCurrentTab('ALLVENUES')" href="#allVenues" data-theme="a" data-ajax="false" class="ui-btn-active"><span style="font-size:70%">All Venues</span></a></li>
+                    </ul>
+                </div>
+                <div id="myVenues" class="ui-content" style="padding: 0">
+                    <ul id="myVenuesul" data-split-icon="check" data-role="listview" data-filter="true" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                </div>
+                <div id="allVenues" class="ui-content" style="padding: 0">
+                    <a style="font-size:70%" onclick="SendVenueRequest()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Send Create Venue Request</span></span></a>
+                    <a style="font-size:70%" onclick="JoinPrivateVenue()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Join Private Venue</span></span></a>
+                    <ul id="allVenuesul" data-split-icon="check" data-role="listview" data-filter="true" data-filter-placeholder="Find public venue..." data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Venue Details -->
+    <div data-role="page" data-theme="a" id="Venue" class="MainMenu">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 style="font-weight: bold; font-size:100%" id="VenueTitle"></h1>
+            <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+            <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
+        </div>
+        <div role="main" class="ui-content Page">
+            <div style="text-align: center;">
+                <img style="background: white; border-radius: .6em" id="venueimage" src="img/venues/VENUENAME.png" onerror="SetDefaultVenueImage(this);">
+            </div>
+            <a id="venueWebsite" href="" style="font-size:70%" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c">
+                <span class="ui-btn-inner ui-btn-corner-all">
+                    <span class="ui-btn-text"></span>
+                </span>
+            </a>
+            <a id="venueTwitter" href="" style="font-size:70%" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c">
+                <span class="ui-btn-inner ui-btn-corner-all">
+                    <span class="ui-btn-text"></span>
+                </span>
+            </a>
+            <a id="venueFacebook" href="" style="font-size:70%" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c">
+                <span class="ui-btn-inner ui-btn-corner-all">
+                    <span class="ui-btn-text"></span>
+                </span>
+            </a>
+            <a id="venueInstagram" href="" style="font-size:70%" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c">
+                <span class="ui-btn-inner ui-btn-corner-all">
+                    <span class="ui-btn-text"></span>
+                </span>
+            </a>
+            <a id="joinVenue" href="#" onclick="JoinCurrentVenue()" style="font-size:70%" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c">
+                <span class="ui-btn-inner ui-btn-corner-all">
+                    <span class="ui-btn-text">Add To My Venues</span>
+                </span>
+            </a>
+            <a id="leaveVenue" href="#" onclick="LeaveCurrentVenue()" style="font-size:70%" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c">
+                <span class="ui-btn-inner ui-btn-corner-all">
+                    <span class="ui-btn-text">Remove From My Venues</span>
+                </span>
+            </a>
+            <ul id="venueDescriptionul" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+            <ul id="venueGamessul" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
         </div>
     </div>
 </body>

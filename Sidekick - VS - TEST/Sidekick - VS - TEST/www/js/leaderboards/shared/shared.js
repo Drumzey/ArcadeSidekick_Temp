@@ -15,28 +15,74 @@ function GetScores(responseText) {
 }
 
 //Taking in an array of scores if that score is an enemies score then remove them
-function RemoveEnemies(scores) {
+function RemoveEnemies(scores, withCategories) {
     if (enemiesCollection.length === 0)
         return scores;
 
     var processedScores = [];
 
     for (var i = 0; i < scores.length; i++) {
-        var username = scores[i][0];
-        var score = scores[i][1];
 
-        if (enemiesCollection.indexOf(username) === -1) {
-            processedScores.push([username, score]);
+        if (withCategories) {
+            var category = scores[i][0];
+            var username = scores[i][1];
+            var score = scores[i][2];
+
+            if (enemiesCollection.indexOf(username) === -1) {
+                processedScores.push([category, username, score]);
+            }
+        }
+        else
+        {
+            var username = scores[i][0];
+            var score = scores[i][1];
+
+            if (enemiesCollection.indexOf(username) === -1) {
+                processedScores.push([username, score]);
+            }
         }
     }
 
     return processedScores;
 }
 
-function OrderScores(scores) {
-    if (timed.indexOf(TransformedCurrentGameName()) === -1) {
+function RemoveNonFriends(scores, withCategories) {
+    if (friendsCollection.length === 0)
+        return [];
+
+    var processedScores = [];
+
+    for (var i = 0; i < scores.length; i++) {
+
+        if (withCategories) {
+            var category = scores[i][0];
+            var username = scores[i][1];
+            var score = scores[i][2];
+            var level = scores[i][3];
+
+            if (friendsCollection.indexOf(username) !== -1) {
+                processedScores.push([category, username, score, level]);
+            }
+        }
+        else {
+            var username = scores[i][0];
+            var score = scores[i][1];
+            var level = scores[i][2];
+
+            if (friendsCollection.indexOf(username) !== -1) {
+                processedScores.push([username, score, level]);
+            }
+        }
+    }
+
+    return processedScores;
+}
+
+function SortTimes(scores, withCategories)
+{
+    if (withCategories) {
         scores.sort(function (a, b) {
-            return b[1] - a[1];
+            return a[2] - b[2];
         });
     }
     else {
@@ -44,9 +90,139 @@ function OrderScores(scores) {
             return a[1] - b[1];
         });
     }
+
+    return scores;
 }
 
-function DisplayAllScores(sortable, block1, block2, block3, block1Outer, block2Outer, block3Outer, position) {
+function SortScores(scores, withCategories)
+{
+    if (withCategories) {
+        scores.sort(function (a, b) {
+            return b[2] - a[2];
+        });
+    }
+    else {
+        scores.sort(function (a, b) {
+            return b[1] - a[1];
+        });
+    }
+
+    return scores;
+}
+
+function OrderScores(scores, withCategories, levelName) {
+    var oppositeToMainGame = false;
+    if (levelName)
+    {
+        oppositeToMainGame = IsLevelLeaderboardOverridden(currentGameName, levelName);
+    }
+
+    if (timed.indexOf(TransformedCurrentGameName()) === -1 ||
+        (timed.indexOf(TransformedCurrentGameName()) === 1 && oppositeToMainGame)) {
+
+        SortScores(scores, withCategories);
+    }
+    else if (timed.indexOf(TransformedCurrentGameName()) === 1 ||
+        (timed.indexOf(TransformedCurrentGameName()) === -1 && oppositeToMainGame))
+    {
+
+        SortTimes(scores, withCategories);
+    }
+}
+
+function RemoveDuplicateNames(scores)
+{
+    var namesFound = [];
+    var scoresToReturn = [];
+
+    for (var i = 0; i < scores.length; i++) {
+
+        if (namesFound.indexOf(scores[i][0]) === -1)
+        {
+            namesFound.push(scores[i][0]);
+            scoresToReturn.push([scores[i][0], scores[i][1]]);
+        }
+    }
+
+    return scoresToReturn;
+}
+
+function PopulateLeaderboardScoreSettingDropDown(settings, section)
+{
+    var dropdown = '';
+
+    switch(section)
+    {
+        case "global":
+            dropdown = '#globalScoreSettings';
+            break;
+        case "friends":
+            dropdown = '#friendsScoreSettings';
+            break;
+        case "clubs":
+            dropdown = '#clubsScoreSettings';
+            break;
+    }
+
+    $(dropdown).find('option').remove();
+
+    $(dropdown).append($('<option>', {
+        value: "Unknown",
+        text: "All"
+    }));
+
+    for (var i = 0; i < settings.length; i++) {
+        $(dropdown).append($('<option>', {
+            value: settings[i][0],
+            text: settings[i][1]
+        }));
+    }
+
+    $(dropdown).selectmenu('refresh', true);
+    $(dropdown + '-listbox-popup').find('a').addClass('multilineLi');
+
+    $(dropdown).val($(dropdown + " option:first").val());
+}
+
+function PopulateLeaderboardScoreLevelDropDown(levels, section) {
+    var dropdown = '';
+
+    switch (section) {
+        case "global":
+            dropdown = '#globalScoreLevels';
+            break;
+        case "friends":
+            dropdown = '#friendsScoreLevels';
+            break;
+        case "clubs":
+            dropdown = '#clubsScoreLevels';
+            break;
+    }
+
+    $(dropdown).find('option').remove();
+
+    $(dropdown).append($('<option>', {
+        value: "FULL GAME",
+        text: "FULL GAME"
+    }));
+
+    for (var i = 0; i < levels.length; i++) {
+        if(levels[i] === "FULL GAME")
+            continue;
+
+        $(dropdown).append($('<option>', {
+            value: levels[i],
+            text: levels[i]
+        }));
+    }
+
+    $(dropdown).selectmenu('refresh', true);
+    $(dropdown + '-listbox-popup').find('a').addClass('multilineLi');
+
+    $(dropdown).val($(dropdown + " option:first").val());
+}
+
+function DisplayAllScores(sortable, block1, block2, block3, block1Outer, block2Outer, block3Outer, position, overrideScoreDisplay) {
 
     ClearScoreBlocks(block1, block2, block3);
 
@@ -61,10 +237,24 @@ function DisplayAllScores(sortable, block1, block2, block3, block1Outer, block2O
         var score = sortable[i][1];
 
         if (currentGameType === "time") {
-            score = MillisecondsToMinutesSecondsMilliseconds(parseInt(score));
+            if(overrideScoreDisplay) //We are timed but a score level
+            {
+                score = addComma(score.toString());
+            }
+            else
+            {
+                score = MillisecondsToMinutesSecondsMilliseconds(parseInt(score));
+            }
         }
         else {
-            score = addComma(score.toString());
+            if(overrideScoreDisplay) //We are a score game but a timed level
+            {
+                score = MillisecondsToMinutesSecondsMilliseconds(parseInt(score));
+            }
+            else
+            {
+                score = addComma(score.toString());
+            }
         }
 
         if (player === clientUserName || player === "me") {

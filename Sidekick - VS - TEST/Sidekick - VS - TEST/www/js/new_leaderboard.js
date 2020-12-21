@@ -1,44 +1,6 @@
-﻿function LoadGameLeaderboard() {
-
-    loadGlobalLeaderboard = true;
-
-    if (friendsCollection === null ||
-        friendsCollection === [] ||
-        friendsCollection.length === 0) {
-
-        ClearLeaderboardUI();
-
-        if (friendsCollection === null ||
-            friendsCollection === [] ||
-            friendsCollection.length === 0) {
-            document.getElementById('myfriendspositionspan').innerText = "You have no friends";
-            SetCurrentTab('FRIENDSSCORES');
-            NavigateToInternalPage('#GameHighScores');
-            return;
-        }
-    }
-    else {
-        //For each friend make sure we have an entry in the friends games that is up to date.        
-        var friendsToGet = [];
-        for (var i = 0; i < friendsCollection.length; i++) {
-            if (friendsCollection[i] !== clientUserName) {
-                friendsToGet.push(friendsCollection[i]);
-            }
-        }
-
-        //Make a call to get the most upto date scores for all friends
-        if (friendsToGet.length !== 0) {
-            SideKickOnline_GetFriendsScores(friendsToGet.join(','), 'Getting scores....', true);
-        }
-        else {
-            //We have all the scores for our friends already            
-            ProcessScoresForLeaderboard();
-        }
-    }
-}
-
+﻿
 function ProcessScoresForLeaderboard() {
-    GetTimedGames();
+    //GetTimedGames();
     //Now we have all friends and all scores so we can find each friend that has a score for the 
     //current game.
     var scores = [];

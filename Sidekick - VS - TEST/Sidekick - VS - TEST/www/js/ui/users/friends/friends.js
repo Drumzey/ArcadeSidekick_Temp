@@ -434,7 +434,7 @@ function DrawFriendsGamesAndScores(games) {
     RemoveAllChildren("allfriendgameblocklocal");
     RemoveAllChildren("allfriendscoresblocklocal");
 
-    GetTimedGames();
+    //GetTimedGames();
 
     var nameArray = [];
     var scoreArray = [];

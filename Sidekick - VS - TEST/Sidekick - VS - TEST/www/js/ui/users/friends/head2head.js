@@ -7,7 +7,7 @@ function Head2Head() {
     }
 
     //Load Timed Games
-    GetTimedGames();
+    //GetTimedGames();
 
     //Set my name on page
     var name = "Me";

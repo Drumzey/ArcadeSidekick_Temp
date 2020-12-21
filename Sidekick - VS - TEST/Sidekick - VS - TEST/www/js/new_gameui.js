@@ -35,6 +35,9 @@ function Rehighlight() {
     $('#MYCLUBS').removeClass('ui-btn-active');
     $('#ALLCLUBS').removeClass('ui-btn-active');
 
+    $('#MYVENUES').removeClass('ui-btn-active');
+    $('#ALLVENUES').removeClass('ui-btn-active');
+
     $('#ARCADEGAMES').removeClass('ui-btn-active');
     $('#PINBALLGAMES').removeClass('ui-btn-active');
     
@@ -46,6 +49,7 @@ function Rehighlight() {
         case "ALLRECENT":
         case "MYCLUBS":
         case "ARCADEGAMES":
+        case "MYVENUES":
             $(".tabs").tabs().tabs("option", "active", 0);
             break;
         case "AllNotPlayedTab":
@@ -55,6 +59,7 @@ function Rehighlight() {
         case "CLUBS":
         case "ALLCLUBS":
         case "PINBALLGAMES":
+        case "ALLVENUES":
             $(".tabs").tabs().tabs("option", "active", 1);
             break;
         default:
@@ -138,6 +143,10 @@ function SetGameUI(nameOfGame, trueName, gameData) {
         } else {
             SetGameSection(players + " players", 'players');
         }
+
+        //For the vectrex
+        SetGameSection(gameData.officialOrHomebrew, 'officialOrHomebrew');
+        SetGameSection(gameData.subCategory, 'subCategory');
 
         if (type === "time") {
             timeOrder = order;
@@ -417,7 +426,7 @@ function DisplayEveryGame() {
 
     for (var game in gameCatalog) {
         if (gameCatalog.hasOwnProperty(game)) {
-            if (gameCatalog[game].category === 'pinball')
+            if (gameCatalog[game].category === 'pinball' || gameCatalog[game].category === 'vectrex')
                 continue;
 
             if (!gameCache[gameCatalog[game].category]) {

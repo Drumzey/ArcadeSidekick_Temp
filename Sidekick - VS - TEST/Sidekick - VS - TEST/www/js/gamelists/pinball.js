@@ -3559,3 +3559,15 @@ gameCatalog['Ground Shaker'].name = 'Ground Shaker';
 gameCatalog['Ground Shaker'].developer = 'American Home Entertainment';
 gameCatalog['Ground Shaker'].release = 'Unknown';
 gameCatalog['Ground Shaker'].category = 'pinball';
+
+gameCatalog['The Beatles - Beatlemania'] = new Game();
+gameCatalog['The Beatles - Beatlemania'].name = 'The Beatles - Beatlemania';
+gameCatalog['The Beatles - Beatlemania'].developer = 'Stern';
+gameCatalog['The Beatles - Beatlemania'].release = '2018';
+gameCatalog['The Beatles - Beatlemania'].category = 'pinball';
+
+gameCatalog['Stranger Things'] = new Game();
+gameCatalog['Stranger Things'].name = 'Stranger Things';
+gameCatalog['Stranger Things'].developer = 'Stern';
+gameCatalog['Stranger Things'].release = '2020';
+gameCatalog['Stranger Things'].category = 'pinball';

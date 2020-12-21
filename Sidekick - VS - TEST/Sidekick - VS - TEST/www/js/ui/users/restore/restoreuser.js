@@ -89,3 +89,55 @@ function ProcessMyGames() {
         UnsuccessfulOnlineCall();
     }
 }
+
+function ProcessRestoredDetailedScores(games, settings) {
+    for (var game in games)
+    {
+        if (games.hasOwnProperty(game))
+        for (var j = 0; j < games[game].length; j++) {
+            var newScore = new DetailedScore();
+            newScore.Score = games[game][j].Score;
+            newScore.Date = games[game][j].Date;
+            newScore.LevelName = games[game][j].LevelName;
+            newScore.Location = games[game][j].Location;
+            newScore.Event = games[game][j].EventName;
+
+            var setting = GetSetting(game, settings, games[game][j].SettingsId);
+
+            if (setting !== null) {
+                newScore.MameOrPCB = setting.MameOrPCB;
+                newScore.Difficulty = setting.Difficulty;
+                newScore.Lives = setting.Lives;
+                newScore.ExtraLives = setting.ExtraLivesAt;
+                newScore.Credits = setting.Credits;
+                if (!detailedScoreCollection[game]) {
+                    detailedScoreCollection[game] = [];
+                }
+
+                detailedScoreCollection[game].push(newScore);
+            }
+        }
+    }
+    SetItemInStorage("detailedScoreCollection", detailedScoreCollection);
+}
+
+function GetSetting(game, settings, settingsId)
+{
+    var setting = {};
+
+    for (var i = 0; i < settings[game].length; i++)
+    {
+        if (settingsId === settings[game][i].SettingsId)
+        {
+            setting.Difficulty = settings[game][i].Difficulty;
+            setting.Lives = settings[game][i].Lives;
+            setting.ExtraLivesAt = settings[game][i].ExtraLivesAt;
+            setting.Credits = settings[game][i].Credits;
+            setting.MameOrPCB = settings[game][i].MameOrPCB;
+
+            return setting;
+        }
+    }
+
+    return null;
+}
