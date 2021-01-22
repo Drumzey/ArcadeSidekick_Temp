@@ -7751,6 +7751,105 @@ gameCatalog['The King Of Dragons'].release = '1991';
 gameCatalog['The King Of Dragons'].players = '3';
 gameCatalog['The King Of Dragons'].category = 'beatemup';
 
+gameCatalog['Great 1000 Miles Rally'] = new Game();
+gameCatalog['Great 1000 Miles Rally'].name = 'Great 1000 Miles Rally';
+gameCatalog['Great 1000 Miles Rally'].developer = 'Kaneko';
+gameCatalog['Great 1000 Miles Rally'].release = '1994';
+gameCatalog['Great 1000 Miles Rally'].players = '2';
+gameCatalog['Great 1000 Miles Rally'].category = 'racing';
+
+gameCatalog['Bay Route'] = new Game();
+gameCatalog['Bay Route'].name = 'Bay Route';
+gameCatalog['Bay Route'].developer = 'Sunsoft';
+gameCatalog['Bay Route'].release = '1989';
+gameCatalog['Bay Route'].players = '2';
+gameCatalog['Bay Route'].category = 'runandgun';
+
+gameCatalog['Get Star'] = new Game();
+gameCatalog['Get Star'].name = 'Get Star';
+gameCatalog['Get Star'].developer = 'Taito';
+gameCatalog['Get Star'].release = '1986';
+gameCatalog['Get Star'].players = '2';
+gameCatalog['Get Star'].category = 'beatemup';
+gameCatalog['Get Star'].alternativeName = 'Guardian';
+
+gameCatalog['Night Slashers'] = new Game();
+gameCatalog['Night Slashers'].name = 'Night Slashers';
+gameCatalog['Night Slashers'].developer = 'Dataeast';
+gameCatalog['Night Slashers'].release = '1993';
+gameCatalog['Night Slashers'].players = '3';
+gameCatalog['Night Slashers'].category = 'beatemup';
+
+gameCatalog['Pulstar'] = new Game();
+gameCatalog['Pulstar'].name = 'Pulstar';
+gameCatalog['Pulstar'].developer = 'Aicon';
+gameCatalog['Pulstar'].release = '1995';
+gameCatalog['Pulstar'].players = '2';
+gameCatalog['Pulstar'].category = 'shooter';
+
+gameCatalog['Surprise Attack'] = new Game();
+gameCatalog['Surprise Attack'].name = 'Surprise Attack';
+gameCatalog['Surprise Attack'].developer = 'Komani';
+gameCatalog['Surprise Attack'].release = '1990';
+gameCatalog['Surprise Attack'].players = '2';
+gameCatalog['Surprise Attack'].category = 'beatemup';
+
+gameCatalog['Warrior Blade - Rastan Saga Episode III'] = new Game();
+gameCatalog['Warrior Blade - Rastan Saga Episode III'].name = 'Warrior Blade - Rastan Saga Episode III';
+gameCatalog['Warrior Blade - Rastan Saga Episode III'].developer = 'Taito';
+gameCatalog['Warrior Blade - Rastan Saga Episode III'].release = '1991';
+gameCatalog['Warrior Blade - Rastan Saga Episode III'].players = '2';
+gameCatalog['Warrior Blade - Rastan Saga Episode III'].category = 'hackandslash';
+
+gameCatalog['Zero Team'] = new Game();
+gameCatalog['Zero Team'].name = 'Zero Team';
+gameCatalog['Zero Team'].developer = 'Seibu Kaihatsu';
+gameCatalog['Zero Team'].release = '1993';
+gameCatalog['Zero Team'].players = '4';
+gameCatalog['Zero Team'].category = 'beatemup';
+
+gameCatalog['Blasto'] = new Game();
+gameCatalog['Blasto'].name = 'Blasto';
+gameCatalog['Blasto'].developer = 'UPL';
+gameCatalog['Blasto'].release = '1978';
+gameCatalog['Blasto'].players = '2';
+gameCatalog['Blasto'].category = 'shooter';
+
+gameCatalog['SWAT'] = new Game();
+gameCatalog['SWAT'].name = 'SWAT';
+gameCatalog['SWAT'].developer = 'Bally-Midway';
+gameCatalog['SWAT'].release = '1984';
+gameCatalog['SWAT'].players = '2';
+gameCatalog['SWAT'].category = 'shooter';
+
+gameCatalog['Flash Gal'] = new Game();
+gameCatalog['Flash Gal'].name = 'Flash Gal';
+gameCatalog['Flash Gal'].developer = 'Sega';
+gameCatalog['Flash Gal'].release = '1985';
+gameCatalog['Flash Gal'].players = '2';
+gameCatalog['Flash Gal'].category = 'runandgun';
+
+gameCatalog['Street Heat'] = new Game();
+gameCatalog['Street Heat'].name = 'Street Heat';
+gameCatalog['Street Heat'].developer = 'Cardinal Amusement Products';
+gameCatalog['Street Heat'].release = '1985';
+gameCatalog['Street Heat'].players = '2';
+gameCatalog['Street Heat'].category = 'racing';
+
+gameCatalog['Starhawk'] = new Game();
+gameCatalog['Starhawk'].name = 'Starhawk';
+gameCatalog['Starhawk'].developer = 'Cinematronics';
+gameCatalog['Starhawk'].release = '1977';
+gameCatalog['Starhawk'].players = '2';
+gameCatalog['Starhawk'].category = 'shooter';
+
+gameCatalog['Treasure Island'] = new Game();
+gameCatalog['Treasure Island'].name = 'Treasure Island';
+gameCatalog['Treasure Island'].developer = 'Data East';
+gameCatalog['Treasure Island'].release = '1981';
+gameCatalog['Treasure Island'].players = '2';
+gameCatalog['Treasure Island'].category = 'platformer';
+
 // Videos
 // These have to be here as when this data goes live on the server the users may not have the latest version
 // of the code and datatype in the app so we need to wrpa this for now until everyone updates
@@ -8081,6 +8180,22 @@ try {
     gameCatalog['Vs Castlevania'].dateAdded = new Date(Date.UTC(2020, 11, 15)).toUTCString();
     gameCatalog['Invinco'].dateAdded = new Date(Date.UTC(2020, 11, 15)).toUTCString();
     gameCatalog['The King Of Dragons'].dateAdded = new Date(Date.UTC(2020, 11, 15)).toUTCString();
+
+    gameCatalog['Great 1000 Miles Rally'].dateAdded = new Date(Date.UTC(2020, 11, 28)).toUTCString();
+
+    gameCatalog['Bay Route'].dateAdded = new Date(Date.UTC(2021, 0, 11)).toUTCString();
+    gameCatalog['Get Star'].dateAdded = new Date(Date.UTC(2021, 0, 11)).toUTCString();
+    gameCatalog['Night Slashers'].dateAdded = new Date(Date.UTC(2021, 0, 11)).toUTCString();
+    gameCatalog['Pulstar'].dateAdded = new Date(Date.UTC(2021, 0, 11)).toUTCString();
+    gameCatalog['Surprise Attack'].dateAdded = new Date(Date.UTC(2021, 0, 11)).toUTCString();
+    gameCatalog['Warrior Blade - Rastan Saga Episode III'].dateAdded = new Date(Date.UTC(2021, 0, 11)).toUTCString();
+    gameCatalog['Zero Team'].dateAdded = new Date(Date.UTC(2021, 0, 11)).toUTCString();
+
+    gameCatalog['Blasto'].dateAdded = new Date(Date.UTC(2021, 0, 21)).toUTCString();
+    gameCatalog['SWAT'].dateAdded = new Date(Date.UTC(2021, 0, 21)).toUTCString();
+    gameCatalog['Flash Gal'].dateAdded = new Date(Date.UTC(2021, 0, 21)).toUTCString();
+    gameCatalog['Street Heat'].dateAdded = new Date(Date.UTC(2021, 0, 21)).toUTCString();
+    gameCatalog['Starhawk'].dateAdded = new Date(Date.UTC(2021, 0, 21)).toUTCString();
 }
 catch (err) {
     console.log(err);
