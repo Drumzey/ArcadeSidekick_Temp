@@ -21,12 +21,26 @@ function Failed_JoinVenue()
     }
 }
 
+function OrderByName(a, b) {
+    if (a.Name < b.Name) {
+        return -1;
+    }
+    if (a.Name > b.Name) {
+        return 1;
+    }
+    return 0;
+}
+
 function DrawVenues()
 {
     var venuesoutput = [];
     var myVenuesOutput = [];
     RemoveAllChildren('allVenuesul');
     RemoveAllChildren('myVenuesul');
+
+    // Order venues by alphabetical order
+    allVenues.sort(OrderByName);
+
     for (var i = 0; i < allVenues.length; i++) {
         var location = allVenues[i];
 

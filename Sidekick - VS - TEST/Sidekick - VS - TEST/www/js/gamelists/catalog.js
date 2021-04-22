@@ -7850,6 +7850,168 @@ gameCatalog['Treasure Island'].release = '1981';
 gameCatalog['Treasure Island'].players = '2';
 gameCatalog['Treasure Island'].category = 'platformer';
 
+gameCatalog['Sengoku 2'] = new Game();
+gameCatalog['Sengoku 2'].name = 'Sengoku 2';
+gameCatalog['Sengoku 2'].developer = 'SNK';
+gameCatalog['Sengoku 2'].release = '1993';
+gameCatalog['Sengoku 2'].players = '2';
+gameCatalog['Sengoku 2'].category = 'beatemup';
+
+gameCatalog['Knights Of Valour 2'] = new Game();
+gameCatalog['Knights Of Valour 2'].name = 'Knights Of Valour 2';
+gameCatalog['Knights Of Valour 2'].developer = 'IGS';
+gameCatalog['Knights Of Valour 2'].release = '2000';
+gameCatalog['Knights Of Valour 2'].players = '4';
+gameCatalog['Knights Of Valour 2'].category = 'beatemup';
+
+gameCatalog['Gallag'] = new Game();
+gameCatalog['Gallag'].name = 'Gallag';
+gameCatalog['Gallag'].developer = 'Unknown';
+gameCatalog['Gallag'].release = '1982';
+gameCatalog['Gallag'].players = '2';
+gameCatalog['Gallag'].category = 'shooter';
+
+gameCatalog['Pac Rabbit'] = new Game();
+gameCatalog['Pac Rabbit'].name = 'Pac Rabbit';
+gameCatalog['Pac Rabbit'].developer = '96-in-1 Mike Doyle Multi-Pac';
+gameCatalog['Pac Rabbit'].release = 'Unknown';
+gameCatalog['Pac Rabbit'].players = '2';
+gameCatalog['Pac Rabbit'].category = 'maze';
+
+gameCatalog['Empire City 1931'] = new Game();
+gameCatalog['Empire City 1931'].name = 'Empire City 1931';
+gameCatalog['Empire City 1931'].developer = 'Seibu Kaihatsu';
+gameCatalog['Empire City 1931'].release = '1986';
+gameCatalog['Empire City 1931'].players = '2';
+gameCatalog['Empire City 1931'].category = 'shooter';
+
+gameCatalog['Double Dragon II The Revenge'] = new Game();
+gameCatalog['Double Dragon II The Revenge'].name = 'Double Dragon II The Revenge';
+gameCatalog['Double Dragon II The Revenge'].developer = 'Technos';
+gameCatalog['Double Dragon II The Revenge'].release = '1988';
+gameCatalog['Double Dragon II The Revenge'].players = '2';
+gameCatalog['Double Dragon II The Revenge'].category = 'beatemup';
+
+gameCatalog['Ninja Gaiden'] = new Game();
+gameCatalog['Ninja Gaiden'].name = 'Ninja Gaiden';
+gameCatalog['Ninja Gaiden'].developer = 'Tecmo';
+gameCatalog['Ninja Gaiden'].release = '1988';
+gameCatalog['Ninja Gaiden'].players = '2';
+gameCatalog['Ninja Gaiden'].category = 'beatemup';
+
+gameCatalog['Chameleon'] = new Game();
+gameCatalog['Chameleon'].name = 'Chameleon';
+gameCatalog['Chameleon'].developer = 'Jaleco';
+gameCatalog['Chameleon'].release = '1983';
+gameCatalog['Chameleon'].players = '2';
+gameCatalog['Chameleon'].category = 'platformer';
+
+gameCatalog['Dodgem'] = new Game();
+gameCatalog['Dodgem'].name = 'Dodgem';
+gameCatalog['Dodgem'].developer = 'Zaccaria';
+gameCatalog['Dodgem'].release = '1979';
+gameCatalog['Dodgem'].players = '2';
+gameCatalog['Dodgem'].category = 'maze';
+
+gameCatalog['Mustache Boy'] = new Game();
+gameCatalog['Mustache Boy'].name = 'Mustache Boy';
+gameCatalog['Mustache Boy'].developer = 'March';
+gameCatalog['Mustache Boy'].release = '1987';
+gameCatalog['Mustache Boy'].players = '2';
+gameCatalog['Mustache Boy'].category = 'maze';
+
+gameCatalog['Peter Pack Rat'] = new Game();
+gameCatalog['Peter Pack Rat'].name = 'Peter Pack Rat';
+gameCatalog['Peter Pack Rat'].developer = 'Atari Games';
+gameCatalog['Peter Pack Rat'].release = '1985';
+gameCatalog['Peter Pack Rat'].players = '2';
+gameCatalog['Peter Pack Rat'].category = 'platformer';
+
+gameCatalog['Black Panther'] = new Game();
+gameCatalog['Black Panther'].name = 'Black Panther';
+gameCatalog['Black Panther'].developer = 'Konami';
+gameCatalog['Black Panther'].release = '1987';
+gameCatalog['Black Panther'].players = '2';
+gameCatalog['Black Panther'].category = 'beatemup';
+
+gameCatalog['Vs Platoon'] = new Game();
+gameCatalog['Vs Platoon'].name = 'Vs Platoon';
+gameCatalog['Vs Platoon'].developer = 'Nintendo';
+gameCatalog['Vs Platoon'].release = '1988';
+gameCatalog['Vs Platoon'].players = '1';
+gameCatalog['Vs Platoon'].category = 'runandgun';
+
+gameCatalog['The Lord Of King'] = new Game();
+gameCatalog['The Lord Of King'].name = 'The Lord Of King';
+gameCatalog['The Lord Of King'].developer = 'Jaleco';
+gameCatalog['The Lord Of King'].release = '1989';
+gameCatalog['The Lord Of King'].players = '2';
+gameCatalog['The Lord Of King'].category = 'hackandslash';
+
+gameCatalog['Trojan'] = new Game();
+gameCatalog['Trojan'].name = 'Trojan';
+gameCatalog['Trojan'].developer = 'Capcom';
+gameCatalog['Trojan'].release = '1986';
+gameCatalog['Trojan'].players = '2';
+gameCatalog['Trojan'].category = 'hackandslash';
+
+gameCatalog['Wizard Fire'] = new Game();
+gameCatalog['Wizard Fire'].name = 'Wizard Fire';
+gameCatalog['Wizard Fire'].developer = 'Data East';
+gameCatalog['Wizard Fire'].release = '1992';
+gameCatalog['Wizard Fire'].players = '2';
+gameCatalog['Wizard Fire'].category = 'beatemup';
+gameCatalog['Wizard Fire'].alternativeName = 'Dark Seal 2';
+
+gameCatalog['Zigzag'] = new Game();
+gameCatalog['Zigzag'].name = 'Zigzag';
+gameCatalog['Zigzag'].developer = 'Lax';
+gameCatalog['Zigzag'].release = '1982';
+gameCatalog['Zigzag'].players = '2';
+gameCatalog['Zigzag'].category = 'maze';
+
+gameCatalog['Youjyuden'] = new Game();
+gameCatalog['Youjyuden'].name = 'Youjyuden';
+gameCatalog['Youjyuden'].developer = 'Irem';
+gameCatalog['Youjyuden'].release = '1986';
+gameCatalog['Youjyuden'].players = '2';
+gameCatalog['Youjyuden'].category = 'shooter';
+
+gameCatalog['Jolly Jogger'] = new Game();
+gameCatalog['Jolly Jogger'].name = 'Jolly Jogger';
+gameCatalog['Jolly Jogger'].developer = 'Taito';
+gameCatalog['Jolly Jogger'].release = '1982';
+gameCatalog['Jolly Jogger'].players = '2';
+gameCatalog['Jolly Jogger'].category = 'maze';
+
+gameCatalog['Mighty Monkey'] = new Game();
+gameCatalog['Mighty Monkey'].name = 'Mighty Monkey';
+gameCatalog['Mighty Monkey'].developer = 'Yih Lung';
+gameCatalog['Mighty Monkey'].release = '1982';
+gameCatalog['Mighty Monkey'].players = '2';
+gameCatalog['Mighty Monkey'].category = 'shooter';
+
+gameCatalog['Super Street Fighter II Turbo'] = new Game();
+gameCatalog['Super Street Fighter II Turbo'].name = 'Super Street Fighter II Turbo';
+gameCatalog['Super Street Fighter II Turbo'].developer = 'Capcom';
+gameCatalog['Super Street Fighter II Turbo'].release = '1994';
+gameCatalog['Super Street Fighter II Turbo'].players = '2';
+gameCatalog['Super Street Fighter II Turbo'].category = 'fighting';
+
+gameCatalog['Speed Racer'] = new Game();
+gameCatalog['Speed Racer'].name = 'Speed Racer';
+gameCatalog['Speed Racer'].developer = 'Namco';
+gameCatalog['Speed Racer'].release = '1995';
+gameCatalog['Speed Racer'].players = '2';
+gameCatalog['Speed Racer'].category = 'racing';
+
+gameCatalog['Vs Excitebike'] = new Game();
+gameCatalog['Vs Excitebike'].name = 'Vs Excitebike';
+gameCatalog['Vs Excitebike'].developer = 'Nintendo';
+gameCatalog['Vs Excitebike'].release = '1984';
+gameCatalog['Vs Excitebike'].players = '2';
+gameCatalog['Vs Excitebike'].category = 'racing';
+
 // Videos
 // These have to be here as when this data goes live on the server the users may not have the latest version
 // of the code and datatype in the app so we need to wrpa this for now until everyone updates
@@ -7878,6 +8040,7 @@ try {
     gameCatalog['Super Pac-Man'].videoURL = 'https://www.youtube.com/embed/3K6MqiGDwlM?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
     gameCatalog['Swimmer'].videoURL = 'https://www.youtube.com/embed/r9AZ5TOExtY?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
     gameCatalog['Tranquilizer Gun'].videoURL = 'https://www.youtube.com/embed/BlIit6S6WmI?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
+    gameCatalog['Youjyuden'].videoURL = 'https://www.youtube.com/embed/3eou0vYaVxg?feature=player_embedded&showinfo=0&controls=0&autoplay=1&rel=0';
 }
 catch (err) {
     console.log(err);
@@ -8196,6 +8359,40 @@ try {
     gameCatalog['Flash Gal'].dateAdded = new Date(Date.UTC(2021, 0, 21)).toUTCString();
     gameCatalog['Street Heat'].dateAdded = new Date(Date.UTC(2021, 0, 21)).toUTCString();
     gameCatalog['Starhawk'].dateAdded = new Date(Date.UTC(2021, 0, 21)).toUTCString();
+
+    gameCatalog['Treasure Island'].dateAdded = new Date(Date.UTC(2021, 0, 22)).toUTCString();
+
+    gameCatalog['Sengoku 2'].dateAdded = new Date(Date.UTC(2021, 1, 1)).toUTCString();
+    gameCatalog['Knights Of Valour 2'].dateAdded = new Date(Date.UTC(2021, 1, 1)).toUTCString();
+
+    gameCatalog['Gallag'].dateAdded = new Date(Date.UTC(2021, 1, 17)).toUTCString();
+    gameCatalog['Pac Rabbit'].dateAdded = new Date(Date.UTC(2021, 1, 17)).toUTCString();
+
+    gameCatalog['Empire City 1931'].dateAdded = new Date(Date.UTC(2021, 2, 4)).toUTCString();
+
+    gameCatalog['Double Dragon II The Revenge'].dateAdded = new Date(Date.UTC(2021, 2, 7)).toUTCString();
+    gameCatalog['Ninja Gaiden'].dateAdded = new Date(Date.UTC(2021, 2, 7)).toUTCString();
+
+    gameCatalog['Chameleon'].dateAdded = new Date(Date.UTC(2021, 2, 22)).toUTCString();
+    gameCatalog['Dodgem'].dateAdded = new Date(Date.UTC(2021, 2, 22)).toUTCString();
+    gameCatalog['Mustache Boy'].dateAdded = new Date(Date.UTC(2021, 2, 22)).toUTCString();
+    gameCatalog['Peter Pack Rat'].dateAdded = new Date(Date.UTC(2021, 2, 22)).toUTCString();
+
+    gameCatalog['Black Panther'].dateAdded = new Date(Date.UTC(2021, 2, 23)).toUTCString();
+    gameCatalog['Vs Platoon'].dateAdded = new Date(Date.UTC(2021, 2, 23)).toUTCString();
+    gameCatalog['The Lord Of King'].dateAdded = new Date(Date.UTC(2021, 2, 23)).toUTCString();
+    gameCatalog['Trojan'].dateAdded = new Date(Date.UTC(2021, 2, 23)).toUTCString();
+    gameCatalog['Wizard Fire'].dateAdded = new Date(Date.UTC(2021, 2, 23)).toUTCString();
+    gameCatalog['Zigzag'].dateAdded = new Date(Date.UTC(2021, 2, 23)).toUTCString();
+
+    gameCatalog['Youjyuden'].dateAdded = new Date(Date.UTC(2021, 2, 24)).toUTCString();
+    gameCatalog['Jolly Jogger'].dateAdded = new Date(Date.UTC(2021, 2, 24)).toUTCString();
+    gameCatalog['Mighty Monkey'].dateAdded = new Date(Date.UTC(2021, 2, 24)).toUTCString();
+
+    gameCatalog['Super Street Fighter II Turbo'].dateAdded = new Date(Date.UTC(2021, 3, 12)).toUTCString();
+    gameCatalog['Speed Racer'].dateAdded = new Date(Date.UTC(2021, 3, 12)).toUTCString();
+
+    gameCatalog['Vs Excitebike'].dateAdded = new Date(Date.UTC(2021, 3, 22)).toUTCString();
 }
 catch (err) {
     console.log(err);
