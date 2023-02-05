@@ -1,29 +1,5 @@
 ﻿var venueUrl = 'app/venues/';
 
-function GetAllLocationsOnStartUp() {
-
-    var url = newBaseUrl + venueUrl + 'all';
-
-    Call_ArcadeSidekick_Online_Get(
-        url,
-        Successful_Sidekick_Online_GetAllLocationsOnStartUp,
-        UnsuccessfulOnlineMultiCall,
-        function () {
-            onlineCalls--;
-
-            if (onlineCalls === 0) {
-                if (startuphaserrored) {
-                    UnsuccessfulOnlineCall();
-                    StandardCompleteACOnline();
-                }
-                else {
-                    CompletedStartUp();
-                }
-            }
-        },
-        'Please wait...');
-}
-
 function JoinVenue(venuename, password)
 {
     var url = newBaseUrl + venueUrl + 'join';

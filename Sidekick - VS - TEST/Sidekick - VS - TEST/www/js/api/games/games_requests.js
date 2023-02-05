@@ -14,6 +14,19 @@ function SideKickOnline_GetTopFifty() {
         'Getting Top 50 Games...');
 }
 
+//GET Bottom 50
+function SideKickOnline_GetBottomFifty() {
+
+    var url = newBaseUrl + gameUrl + 'bottom50';
+
+    Call_ArcadeSidekick_Online_Get(
+        url,
+        SuccessfulArcadeBottom50,
+        UnsuccessfulOnlineCall,
+        StandardCompleteACOnline,
+        'Getting Worst 50 Games...');
+}
+
 //Used to get a rating for a game
 function SideKickOnline_GetRating(message) {
 

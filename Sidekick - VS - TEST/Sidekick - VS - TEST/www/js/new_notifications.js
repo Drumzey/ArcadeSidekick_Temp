@@ -2,22 +2,11 @@
 
 function TurnOnNotifications() {
     if (test === false) {
-        AppCenter.Push.setEnabled(true, enableSuccess, error);
-        if (AllowedOnline()) {            
-            try {
-                AppCenter.setUserId(clientUserName);
-            }
-            catch (err)
-            {
-                alert(err);
-            }
-        }
     }
 }
 
 function TurnOffNotifications() {
     if (test === false) {
-        AppCenter.Push.setEnabled(false, disableSuccess, error);
     }
 }
 

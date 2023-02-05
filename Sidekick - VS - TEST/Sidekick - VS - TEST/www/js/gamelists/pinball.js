@@ -3571,3 +3571,9 @@ gameCatalog['Stranger Things'].name = 'Stranger Things';
 gameCatalog['Stranger Things'].developer = 'Stern';
 gameCatalog['Stranger Things'].release = '2020';
 gameCatalog['Stranger Things'].category = 'pinball';
+
+gameCatalog['Iron Maiden Legacy Of The Beast'] = new Game();
+gameCatalog['Iron Maiden Legacy Of The Beast'].name = 'Iron Maiden Legacy Of The Beast';
+gameCatalog['Iron Maiden Legacy Of The Beast'].developer = 'Stern';
+gameCatalog['Iron Maiden Legacy Of The Beast'].release = '2018';
+gameCatalog['Iron Maiden Legacy Of The Beast'].category = 'pinball';

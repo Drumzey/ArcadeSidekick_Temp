@@ -43,7 +43,7 @@ function GetScore() {
     if (currentGameType === "time") {
         score = document.getElementById('minutes').value + ":" + document.getElementById('seconds').value + "." + document.getElementById('micro').value;
     } else {
-        score = document.getElementById('myrecord').value;
+        score = GetCurrentGameScore();
     }
     return score;
 }

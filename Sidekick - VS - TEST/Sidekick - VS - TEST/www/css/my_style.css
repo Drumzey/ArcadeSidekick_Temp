@@ -54,6 +54,10 @@
         content: none;
     }
 
+.disabledAchievement{
+    background-color: gainsboro !important
+}
+
 .disabled {
     pointer-events: none;
     opacity: 0.4;

@@ -9,64 +9,6 @@
 
 var clubUrl = 'app/clubs/';
 
-// Load the clubs information on restore of a user account
-function SideKickOnline_AllClubsFromRestore() {
-
-    var url = newBaseUrl + clubUrl + 'all';
-
-    Call_ArcadeSidekick_Online_Get(
-        url,
-        Successful_SidekickOnline_GetClubs,
-        UnsuccessfulOnlineCall,
-        function () {
-            ClosePopup();
-            StandardCompleteACOnline();
-        },
-        'Restoring data...');
-}
-
-// Load the clubs page on visiting the clubs page
-function SideKickOnline_AllClubs() {
-
-    var url = newBaseUrl + clubUrl + 'all';
-
-    Call_ArcadeSidekick_Online_Get(
-        url,
-        Successful_SidekickOnline_GetClubs,
-        UnsuccessfulOnlineCall,
-        function () {
-            StandardCompleteACOnline();
-            NavigateToInternalPage("#Clubs");
-            ShowFirstTimeClubsPopUp();
-        },
-        'Loading clubs...');
-}
-
-// Load the clubs page on startup
-function SideKickOnline_AllClubsStartup() {
-
-    var url = newBaseUrl + clubUrl + 'all';
-
-    Call_ArcadeSidekick_Online_Get(
-        url,
-        Successful_SidekickOnline_GetClubs,
-        UnsuccessfulOnlineCall,
-        function () {
-            onlineCalls--;
-
-            if (onlineCalls === 0) {
-                if (startuphaserrored) {
-                    UnsuccessfulOnlineCall();
-                    StandardCompleteACOnline();
-                }
-                else {
-                    CompletedStartUp();
-                }
-            }
-        },
-        'Please wait...');
-}
-
 // Request to join a club
 function SideKickOnline_JoinClub(clubName, password) {
 

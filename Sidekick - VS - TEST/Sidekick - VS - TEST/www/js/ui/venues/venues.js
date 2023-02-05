@@ -2,25 +2,6 @@
 var myVenues = [];
 var firstTimeVenues = 'yes';
 
-function GotoVenues() {
-
-    if (myVenues.length === 0)
-    {
-        SetCurrentTab("ALLVENUES");
-    }
-    else
-    {
-        SetCurrentTab("MYVENUES");
-    }
-
-    NavigateToInternalPage('#Venues');
-    if (firstTimeVenues === 'yes') {
-        firstTimeVenues = 'no';
-        SetItemInStorage('firstTimeVenues', 'no');
-        CreatePopup(venuesFirstTime);
-    }
-}
-
 function SendVenueRequest() {
     var emailContents = '';
 

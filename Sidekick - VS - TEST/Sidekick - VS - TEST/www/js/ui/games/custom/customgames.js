@@ -11,17 +11,18 @@ function HasCustomGames() {
 }
 
 function CustomGames() {
-    GetItemFromStorageWithCallBack("customGames", function (value) {
-        customGames = value;
+    //GetItemFromStorageWithCallBack("customGames", function (value) {
+        //customGames = value;
         PopulateCustomGames();
         NavigateToInternalPage("#Custom");
         CheckForFirstTimeCustom();
-    });
+    //});
 }
 
 function CheckForFirstTimeCustom() {
 
     if (firstTimeCustom !== "no") {
+        firstTimeCustom = "no";
         SetItemInStorage('firstTimeCustom', 'no');
         ShowPopup('#FirstTimeCustom');
     }
@@ -66,7 +67,13 @@ function SaveNewCustomGame() {
     SetItemInStorage("customGames", customGames);
     PopulateCustomGames();
 
-    return false;
+    if ($("#addAdditional").is(':checked')) {
+        return false;
+    }
+    else {
+        ClosePopup();
+        return false;
+    }
 }
 
 //Functions for popup from game screen
@@ -116,7 +123,10 @@ function PopulateCustomGames() {
     var customgameListUIArray = [];
 
     for (var i = 0; i < customGames.length; i++) {
-        customgameListUIArray.push([customGames[i][0], '<li name="' + customGames[i][0] + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a onclick="EditCustomGame(\'' + customGames[i][0] + '\')" style="font-size:70%;white-space: normal;text-overflow: clip;">' + customGames[i][0] + ' - ' + customGames[i][1] + '</a><a onclick="DeleteCustomGame(\'' + customGames[i][0] + '\')"></a></li>']);
+        var customGameName = customGames[i][0];
+
+        var alteredName = TransformGameName(customGameName);
+        customgameListUIArray.push([customGames[i][0], '<li name="' + alteredName + '" class="ui-li ui-btn-up-c" style="white-space: normal;text-overflow: clip;"><a onclick="EditCustomGame(\'' + alteredName + '\')" style="font-size:70%;white-space: normal;text-overflow: clip;">' + customGameName + ' - ' + customGames[i][1] + '</a><a onclick="DeleteCustomGame(\'' + alteredName + '\')"></a></li>']);
     }
 
     customgameListUIArray.sort(SortById);
@@ -134,14 +144,24 @@ var currentCustomGame = '';
 
 function EditCustomGame(gameName) {
     currentCustomGame = gameName;
-    document.getElementById("customGameTitle").innerText = gameName;
-    document.getElementById("customGameScore").value = customGames[gameName];
-    ShowPopup("#EditCustomGame");
+
+    //Need to transform the game name if it isnt found.
+    for (var i = 0; i < customGames.length; i++) {
+        if (customGames[i][0] === currentCustomGame ||
+            TransformGameName(customGames[i][0]) === currentCustomGame) {
+            document.getElementById("customGameTitle").innerText = customGames[i][0];
+            document.getElementById("customGameScore").value = customGames[i][1];
+            ShowPopup("#EditCustomGame");
+            break;
+        }
+    }
+
 }
 
 function SaveCustomScore() {
     for (var i = 0; i < customGames.length; i++) {
-        if (customGames[i][0] === currentCustomGame) {
+        if (customGames[i][0] === currentCustomGame ||
+            TransformGameName(customGames[i][0]) === currentCustomGame) {
             customGames[i][1] = document.getElementById("customGameScore").value;
             break;
         }
@@ -156,8 +176,10 @@ function DeleteCustomGame(gameName) {
     var index = -1;
 
     for (var i = 0; i < customGames.length; i++) {
-        if (customGames[i][0] === gameName) {
+        if (customGames[i][0] === gameName ||
+            TransformGameName(customGames[i][0]) === gameName) {
             index = i;
+            break;
         }
     }
 

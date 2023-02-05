@@ -8,13 +8,14 @@ var newGamesPopup =
 
 var whatsNewPopup =
     '<div data-role="content" class="ui-corner-bottom ui-content" role="main"> \
-        <h3>Whats new!?</h3> \
-        <h6>Added top 50 arcade and pinball games.</h6> \
-        <h6>Moved custom games to top level menu.</h6> \
-        <h6>Games recently added to the catalog will be highlighted in the game menus.</h6> \
-        <h6>Added upload button to main menu when scores available to upload.</h6> \
-        <h6>Sneaky gameplay videos added. Can you find them?</h6> \
-        <h6>Bug fixes including after verification user secret not correctly stored and application required a restart before submissions would be allowed.</h6> \
+        <h3>Level 3! (V3)</h3> \
+        <h6>It took a long time to level up didnt it? But its been worth the wait.</h6> \
+        <h6>Detailed score submissions. You can now say where and when you made your score along with storing the game settings. This means you can also see leaderboards of those individual game settings!</h6> \
+        <h6>Venues, select where you play your games for the detailed highscores and learn more about other arcade venues.</h6> \
+        <h6>The Vectrex! After a number of requests to add these \'mini arcade machines\' into the app its done! Get requesting more games to add to the vectrex catalog!</h6> \
+        <h6>The Arcade Quiz! Test your knowledge on our catalogue of games and share your scores on social.</h6> \
+        <h6>Speed improvements. We\'ve spend a lot of time working on the speed of our online services. Hopefully you\ll notice the difference.</h6> \
+        <h6>More user info! Please go to settings and fill in more info about yourself. It will help us learn more about you and our users.</h6> \
         <a onclick="PostWhatsNew();NextStartupPopup();" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">OK</span></span></a> \
      </div>';
 
@@ -22,12 +23,9 @@ var verifyLaunchPopup =
     '<div data-role="content" class="ui-corner-bottom ui-content" role="main"> \
         <h3 style="text-align: center">Enter your secret key</h3> \
         <h6>You\'ve created a user but not yet verified your account. We\'ve sent you a key to the email address provided. Please enter it here, you\'ll need it before you can save any online data.</h6> \
-        <span style="font-size:70%;" id="secretErrorText"></span> \
-        <form style="font-size:70%;" action="javascript:DoNothing()"> \
-            <label style="font-size:70%" for="secretkey">Secret Key</label> \
-            <input required="required" type="text" name="secretkeyinput" id="secretkeyinput" /> \
-            <input style="font-size:70%" type="submit" value="Verify" id="secretkeysubmit" onclick="VerifyUser()"> \
-        </form> \
+        <label style="font-size:70%" for="secretkey">Secret Key</label> \
+        <input type="text" name="secretkeyinput" id="secretkeyinput" /> \
+        <a onclick="VerifyUser();" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span style="font-size:70%" class="ui-btn-text">Verify</span></span></a> \
         <a onclick="NextStartupPopup();" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span style="font-size:70%" class="ui-btn-text">I\'ll do it later</span></span></a> \
     </div>';
 
@@ -70,25 +68,22 @@ var newUserPopup =
     '<div data-role="content" class="ui-corner-bottom ui-content" role="main"> \
         <h3 style="text-align: center">New User</h3> \
         <h6>Enter a username and email. This information will identify you in our online community so we can store your scores and ratings.</h6> \
-        <span style="font-size:70%;color:red;" id="userErrorText_newuser"></span> \
-        <form style="font-size:70%;" action="javascript:DoNothing()" onsubmit="SetupUserName()"> \
-            <label style="font-size:70%" for="myusername_newuser">Username</label> \
-            <input required="required" type="text" pattern="[A-Za-z0-9_]{3,20}" title="3-20 characters A-Z 0-9 _ only" name="myusername_newuser" id="myusername_newuser" style="text-transform:uppercase" /> \
-            <label style="font-size:70%" for="myemail_newuser">Email</label> \
-            <input required="required" type="text" name="myemail_newuser" id="myemail_newuser" /> \
-            <label style="font-size:70%" for="myconfirmemail_newuser">Confirm Email</label> \
-            <input required="required" type="text" name="myconfirmemail_newuser" id="myconfirmemail_newuser" /> \
-            <label style="font-size:70%" for="mytwitter_newuser">Twitter Handle (Optional)</label> \
-            <input type="text" name="mytwitter_newuser" pattern="[A-Za-z0-9_]{1,15}" title="1-15 characters A-Z 0-9 _ only" id="mytwitter_newuser" /> \
-            <input style="font-size:70%" type="submit" value="Create User" id="myusernamesubmit""> \
-        </form> \
-        <a onclick="ClosePopup();" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span style="font-size:70%" class="ui-btn-text">Cancel</span></span></a> \
+        <label style="font-size:70%" for="myusername_newuser">Username</label> \
+        <input type="text" pattern="[A-Za-z0-9_]{3,30}" title="3-30 characters A-Z 0-9 _ only" name="myusername_newuser" id="myusername_newuser" style="text-transform:uppercase" /> \
+        <label style="font-size:70%" for="myemail_newuser">Email</label> \
+        <input type="text" name="myemail_newuser" id="myemail_newuser" /> \
+        <label style="font-size:70%" for="myconfirmemail_newuser">Confirm Email</label> \
+        <input type="text" name="myconfirmemail_newuser" id="myconfirmemail_newuser" /> \
+        <label style="font-size:70%" for="mytwitter_newuser">Twitter Handle (Optional)</label> \
+        <input type="text" name="mytwitter_newuser" pattern="[A-Za-z0-9_]{1,15}" title="1-15 characters A-Z 0-9 _ only" id="mytwitter_newuser" /> \
+        <a onclick="SetupUserName();" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span style="font-size:70%" class="ui-btn-text">Create User</span></span></a> \
+        <a onclick="ClosePopup();"    data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span style="font-size:70%" class="ui-btn-text">Cancel</span></span></a> \
     </div>';
 
 var secretKeyPopup =
     '<div data-role="content" class="ui-corner-bottom ui-content" role="main"> \
         <h3 style="text-align: center">Enter your secret key</h3> \
-        <h6>We\'ve sent you a key to the email address provided. Please enter it here, you\'ll need it before you can save any online data.</h6> \
+        <h6>We\'ve sent you a key to the email address provided, please check your spam folder if you cannot see anything. Please enter the code here, you\'ll need it before you can save any online data. If you are having trouble then please contact us.</h6> \
         <span style="font-size:70%;" id="secretErrorText"></span> \
         <form style="font-size:70%;" action="javascript:DoNothing()"> \
             <label style="font-size:70%" for="secretkey">Secret Key</label> \
@@ -102,16 +97,21 @@ var existingUserPopup =
     '<div data-role="content" class="ui-corner-bottom ui-content" role="main"> \
          <h3 style="text-align: center">Existing User</h3> \
          <h6>Enter the username, email and secret previously used. If you can not remember this information please go to setup - help.</h6> \
-         <span style="font-size:70%;color:red;" id="userErrorText_existinguser"></span> \
-         <form style="font-size:70%;" action="javascript:DoNothing()" onsubmit="SetExistingUser()"> \
-             <label style="font-size:70%" for="myusername_existinguser">Username</label> \
-             <input required="required" type="text" pattern="[A-Za-z0-9_]{3,20}" title="3-20 characters A-Z 0-9 _ only" name="myusername_existinguser" id="myusername_existinguser" style="text-transform:uppercase" /> \
-             <label style="font-size:70%" for="myemail_existinguser">Email</label> \
-             <input required="required" type="text" name="myemail_existinguser" id="myemail_existinguser" /> \
-             <label style="font-size:70%" for="myfavouritegame_existinguser">Secret Code</label> \
-             <input required="required" type="text" name="myfavouritegame_existinguser" id="myfavouritegame_existinguser" /> \
-             <input style="font-size:70%" type="submit" value="Find user" id="myusernamesubmitRegistered"> \
-         </form> \
+         <label style="font-size:70%" for="myusername_existinguser">Username</label> \
+         <input type="text" pattern="[A-Za-z0-9_]{3,30}" title="3-30 characters A-Z 0-9 _ only" name="myusername_existinguser" id="myusername_existinguser" style="text-transform:uppercase" /> \
+         <label style="font-size:70%" for="myemail_existinguser">Email</label> \
+         <input type="text" name="myemail_existinguser" id="myemail_existinguser" /> \
+         <label style="font-size:70%" for="myfavouritegame_existinguser">Secret Code</label> \
+         <input type="text" name="myfavouritegame_existinguser" id="myfavouritegame_existinguser" /> \
+         <a onclick="SetExistingUser();" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span style="font-size:70%" class="ui-btn-text">Find user</span></span></a> \
+         <a onclick="ClosePopup();" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span style="font-size:70%" class="ui-btn-text">Cancel</span></span></a> \
+     </div>';
+
+var signInUserErrorPopup =
+    '<div data-role="content" class="ui-corner-bottom ui-content" role="main"> \
+         <h3 style="text-align: center">Error</h3> \
+         <h6>***</h6> \
+         <a onclick="RetryUser()" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span style="font-size:70%" class="ui-btn-text">Retry</span></span></a> \
          <a onclick="ClosePopup();" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span style="font-size:70%" class="ui-btn-text">Cancel</span></span></a> \
      </div>';
 
@@ -119,7 +119,7 @@ var successOnlinePopup =
     '<div data-role="content" class="ui-corner-bottom ui-content" role="main"> \
         <h3>Welcome back!</h3> \
         <h6>What are you waiting for? Go beat your friends records!</h6> \
-        <a onclick="PostSignup(false)" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">OK</span></span></a> \
+        <a onclick="PostRestoreUser()" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">OK</span></span></a> \
      </div>';
 
 //Used when creating a new user
@@ -127,7 +127,7 @@ var successVerify =
     '<div data-role="content" class="ui-corner-bottom ui-content" role="main"> \
         <h3>Success!</h3> \
         <h6>You are now ready to log games played, scores and challenge friends.</h6> \
-        <a onclick="PostSignup(true);" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">OK</span></span></a> \
+        <a onclick="PostSignup();" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">OK</span></span></a> \
      </div>';
 
 var shareSignup =
@@ -142,6 +142,15 @@ var noFriends =
     '<div data-role="content" class="ui-corner-bottom ui-content" role="main"> \
         <h3>You have no friends!</h3> \
         <h6>In app, not in real life.... Add them via friends in the main menu.</h6> \
+        <a onclick="ClosePopup()" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">OK</span></span></a> \
+    </div>';
+
+var errorStartupOnlinePopup =
+    '<div data-role="content" class="ui-corner-bottom ui-content" role="main"> \
+        <h3>I AM ERROR!</h3> \
+        <h6>Error communicating with our online services. Weve not been able to load the app data on startup. \
+        Make sure you are connected to the internet and please launch the app again.</h6 > \
+        <a onclick="EmailError()" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Email Crash Report</span></span></a> \
         <a onclick="ClosePopup()" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">OK</span></span></a> \
     </div>';
 

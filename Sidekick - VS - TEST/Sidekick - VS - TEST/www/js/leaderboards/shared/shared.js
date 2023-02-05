@@ -122,10 +122,9 @@ function OrderScores(scores, withCategories, levelName) {
 
         SortScores(scores, withCategories);
     }
-    else if (timed.indexOf(TransformedCurrentGameName()) === 1 ||
+    else if (timed.indexOf(TransformedCurrentGameName()) !== -1 ||
         (timed.indexOf(TransformedCurrentGameName()) === -1 && oppositeToMainGame))
     {
-
         SortTimes(scores, withCategories);
     }
 }

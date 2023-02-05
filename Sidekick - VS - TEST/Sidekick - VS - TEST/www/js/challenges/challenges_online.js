@@ -9,7 +9,7 @@
         'Message': message
     };
 
-    CallACOnlineWithBodyAndWait(baseUrl + '/challenges',
+    CallACOnlineWithBodyAndWait(newBaseUrl + accountUserUrl + 'messages',
         'POST',
         body,
         function () {

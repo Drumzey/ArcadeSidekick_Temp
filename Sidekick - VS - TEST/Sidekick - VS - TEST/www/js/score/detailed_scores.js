@@ -86,7 +86,7 @@ function SetArcadeLocation()
 
     if (detailedLocation === "Select Venues")
     {
-        GotoVenues();
+        CompleteNavigation("venues");
     }
     else if (detailedLocation !== 'Home Arcade') {
         Hide('#ExistingSettings');
@@ -225,45 +225,39 @@ function Submit()
         return;
     }
 
+    // Save the detailed score locally
     SaveScoreLocally();
-    if (AllowedOnline()) {
-        PostDetailedScoreSubmission();
-    }
 
-    PopulateHighestDetailedScoreInGame();
-    NavigateBack();
-}
-
-function PopulateHighestDetailedScoreInGame()
-{
-    var topScore = GetTopDetailedScore();
-    document.getElementById('topDetailedScore').value = addComma(topScore);
-}
-
-function GetTopDetailedScore(gameName)
-{
-    var topScore = "0";
-
-    if (!gameName)
-    {
-        gameName = TransformedCurrentGameName();
-    }
-
-    if (detailedScoreCollection[gameName]) {
-        //Refresh the game screen to show the highest detailed score
-        for (i = 0; i < detailedScoreCollection[gameName].length; i++) {
-            var savedScore = detailedScoreCollection[gameName][i];
-            //Only pick out a Full Game score
-            if (savedScore.LevelName === "FULL GAME")
-            {
-                if (parseInt(savedScore.Score) > parseInt(topScore)) {
-                    topScore = savedScore.Score;
-                }
-            }
+    var score = GetGameScoreEntry(TransformedCurrentGameName());
+    if (IsGameDetailedScoreBetterThanSimple(score, detailedScore)) {
+        // Automatically save the new top score and update UI to show new top score
+        SaveNewTopScoreLocally();
+        // Post the online detailed score and new top score
+        if (AllowedOnline()) {
+            onlineCalls = 1;
+            PostDetailedScoreSubmission();
         }
+        NavigateBack();
     }
+    else {
+        if (AllowedOnline()) {
+            onlineCalls = 1;
+            PostDetailedScoreSubmission();
+        }
+        NavigateBack();
+    }
+}
 
-    return topScore;
+function SaveNewTopScoreLocally() {
+    if (currentGameType === "time") {
+        document.getElementById('minutes').innerText = document.getElementById('minutesDetailed').value;
+        document.getElementById('seconds').innerText = document.getElementById('secondsDetailed').value;
+        document.getElementById('micro').innerText = document.getElementById('microDetailed').value;
+        SaveLocalTime(true);
+    }
+    else {
+        ProcessScore(detailedScore, true);
+    }
 }
 
 function ValidateScoreSubmission()
@@ -286,6 +280,28 @@ function ValidateScoreSubmission()
     }
 
     return true;
+}
+
+function ToSettingStringFromLocalDetails(score) {
+    var settingString = '';
+    var settingParts = [];
+    if (score.Difficulty !== null) {
+        settingParts.push('Difficulty: ' + score.Difficulty);
+    }
+    if (score.Lives !== null) {
+        settingParts.push('Lives: ' + score.Lives);
+    }
+    if (score.ExtraLivesAt !== null) {
+        settingParts.push('Extra Lives At: ' + score.ExtraLivesAt);
+    }
+    if (score.Credits !== null) {
+        settingParts.push('Credits: ' + score.Credits);
+    }
+    if (score.MameOrPCB !== null) {
+        settingParts.push(score.MameOrPCB);
+    }
+
+    return settingParts.join(' - ');
 }
 
 function ToSettingString(setting)
@@ -406,6 +422,16 @@ function PopulateMameOrPCB() {
         value: "PCB",
         text: "PCB"
     }));
+
+    $('#mameorpcb').append($('<option>', {
+        value: "FPGA",
+        text: "FPGA"
+    }));
+
+    $('#mameorpcb').append($('<option>', {
+        value: "XXXIN1",
+        text: "xxx in 1"
+    }));
 }
 
 function PopulateClubs()
@@ -499,27 +525,24 @@ function SetSettingValues()
     document.getElementById('credits').value = values[3];
     document.getElementById('mameorpcbinput').value = values[4];
     mame.val(values[4]).attr('selected', true).siblings('option').removeAttr('selected');
-    //mame.selectmenu("refresh", true);
 
     //Put them in readonly
     document.getElementById('difficulty').disabled = true;
     document.getElementById('lives').disabled = true;
-    document.getElementById('extralives').disabled = true;    
+    document.getElementById('extralives').disabled = true;
     document.getElementById('credits').disabled = true;
     document.getElementById('mameorpcbinput').disabled = true;
-    //$("#mameorpcb").prop("disabled", true);
-    //$("#mameorpcb").attr('disabled', true);
 }
 
 function SaveScoreLocally()
 {
     var newScore = new DetailedScore();
-    newScore.Score = detailedScore;
+    newScore.Score = detailedScore.toString();
     newScore.Date = detailedDate;
     newScore.LevelName = detailedLevelName;
     newScore.Difficulty = detailedDifficulty;
     newScore.Lives = detailedLives;
-    newScore.ExtraLives = detailedExtraLivesAt;
+    newScore.ExtraLivesAt = detailedExtraLivesAt;
     newScore.Credits = detailedCredits;
     newScore.Location = detailedLocation;
     newScore.Event = detailedEvent;
@@ -532,4 +555,47 @@ function SaveScoreLocally()
 
     detailedScoreCollection[TransformedCurrentGameName()].push(newScore);
     SetItemInStorage("detailedScoreCollection", detailedScoreCollection);
+}
+
+function RemoveGameFromPlayed() {
+
+    var url = newBaseUrl + 'app/games/alldetailedscore';
+
+    var body = {
+        'GameName': TransformedCurrentGameName(),
+        'UserName': clientUserName
+    };
+
+    Call_ArcadeSidekick_Online_Delete(
+        url,
+        body,
+        function (err) { SuccessRemovedAllScores(); },
+        function (err) { UnsuccessfulOnlineCall(); },
+        function (err) { StandardCompleteACOnline(); },
+        "Removing game"
+    );
+}
+
+function SuccessRemovedAllScores() {
+    var ratingresponse = JSON.parse(latestXHTTP.responseText);
+
+    var average = 0;
+    var numberOfRatings = 0;
+    var weightedAverage = 0;
+
+    average = ratingresponse.Average.toFixed(2);
+    numberOfRatings = ratingresponse.NumberOfRatings;
+    weightedAverage = ratingresponse.WeightedAverage.toFixed(2);
+
+    if (numberOfRatings === 0) {
+        document.getElementById("averagerating").innerText = "Game not yet rated. You can be the first";
+    }
+    else if (numberOfRatings === 1) {
+        document.getElementById("averagerating").innerText = "Average Rating " + average + " based upon " + numberOfRatings + " vote " +
+            "with a weighted average of " + weightedAverage;
+    }
+    else {
+        document.getElementById("averagerating").innerText = "Average Rating " + average + " based upon " + numberOfRatings + " votes " +
+            "with a weighted average of " + weightedAverage;
+    }
 }

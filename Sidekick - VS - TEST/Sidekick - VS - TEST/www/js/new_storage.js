@@ -1,4 +1,5 @@
-﻿var keyImLookingFor = '';
+﻿var cumulativeErrorText = '';
+var keyImLookingFor = '';
 var test = true;
 
 function SuccessCallback(obj) {
@@ -6,11 +7,15 @@ function SuccessCallback(obj) {
 }
 
 function FailedToGet(obj) {
+    cumulativeErrorText = cumulativeErrorText + "Failured to get " + keyImLookingFor + obj + ".";
     alert("Failured to get " + keyImLookingFor);
+    alert(obj);
 }
 
 function FailureCallBack(obj) {
+    cumulativeErrorText = cumulativeErrorText + "Failured to store " + keyImLookingFor + obj + ".";
     alert("Failured to store " + keyImLookingFor);
+    alert(obj);
 }
 
 function ClearStorage() {

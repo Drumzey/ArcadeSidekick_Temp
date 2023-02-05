@@ -14,6 +14,14 @@ function ShowFirstTimeProfilePopUp() {
     }
 }
 
+function SuccessfulGetProfileStatsFromRestore(userData) {
+    var points = CalculatePoints(userData);
+    var level = CalculateLevel(points);
+    currentlevel = level;
+    TurnOffImages(level);
+    UpdateProfileUI(level, points);
+}
+
 function SuccessfulGetProfileStats() {
     if (latestXHTTP.status === 200) {
         var userData = JSON.parse(latestXHTTP.responseText);

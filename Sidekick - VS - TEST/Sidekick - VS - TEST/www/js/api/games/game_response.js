@@ -49,12 +49,42 @@ function Successful_SidekickOnline_GetExistingSettings()
             text: "New Setting"
         }));
 
+        var onlineSettings = [];
+
         for (var i = 0; i < response.length; i++) {
             var newSetting = ToSettingString(response[i]);
+            onlineSettings.push(newSetting);
             $('#existingsetting').append($('<option>', {
                 value: newSetting,
                 text: newSetting
             }));
+        }
+
+        //If we are an offline user then we may have got our own settings that havent been added!
+        if (!AllowedOnline()) {
+            var offlineSettings = [];
+            //Get Unique score settings strings
+            if (detailedScoreCollection.hasOwnProperty(TransformedCurrentGameName())) {
+                var scores = detailedScoreCollection[TransformedCurrentGameName()];
+
+                for (var i = 0; i < scores.length; i++) {
+
+                    var newSettingString = ToSettingStringFromLocalDetails(scores[i]);
+
+                    if (offlineSettings.indexOf(newSettingString) === -1) {
+                        offlineSettings.push(newSettingString);
+                    }
+                }
+            }
+
+            for (var i = 0; i < offlineSettings.length; i++) {
+                if (onlineSettings.indexOf(offlineSettings[i]) === -1) {
+                    $('#existingsetting').append($('<option>', {
+                        value: offlineSettings[i],
+                        text: offlineSettings[i]
+                    }));
+                }
+            }
         }
 
         //Assign it to i don't know by default

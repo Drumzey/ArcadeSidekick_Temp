@@ -1,4 +1,5 @@
 var timed = [];
+var showZeroGames = false;
 
 function GetTimedGames() {
     if (timed.length === 0) {
@@ -56,8 +57,14 @@ function SetLocalScoresUI() {
             entry.score = scores[i].score;
         }
         else {
+
+            if (!showZeroGames) {
+                // We do not want to show games that have a 0 score
+                continue;
+            }
             entry.score = "0";
         }
+
         scoreArray[game] = entry;
 
         //Uploads are needed for any new game, played or score non zero
@@ -88,6 +95,8 @@ function SetLocalScoresUI() {
         Show("#uploadPlayed");
     }
 
+    // IF we have no scores then we show nothing on this page.
+    // Should we still show our friends scores?
     if (scorefound === 0) {
         Hide('#allscoreslocal');
         Show('#noScoreslocal');
@@ -129,7 +138,9 @@ function SetLocalScoresUI() {
 
             var id = FindGameInCatalog(gameName);
 
-            if (gamesByFriend.hasOwnProperty(TransformGameName(gameName)) && gamesByFriend[TransformGameName(gameName)].length !== 0) {
+            if (gamesByFriend.hasOwnProperty(TransformGameName(gameName)) &&
+                gamesByFriend[TransformGameName(gameName)].length !== 0 &&
+                !(gamesByFriend[TransformGameName(gameName)].length === 1 && gamesByFriend[TransformGameName(gameName)][0] === clientUserName)) {
                 hasFriendsGames = true;
                 gameNameArrayFriends.push([gameName, '<li onclick="GoToGame(this)" id="' + id + '" name="' + gameName + '" class="ui-li ui-btn-up-c" style="font-size:70%;white-space: normal;text-overflow: clip;"><a>' + gameName + '</a></li>']);
 

@@ -21,7 +21,19 @@
         url,
         body,
         function (err) { },
-        function (err) { SetNextPopUpId('#ErrorDetailed'); },
-        StandardCompleteACOnline,
+        function (err) { hasErrored = true; },
+        function (err) {
+            onlineCalls--;
+            if (onlineCalls < 1) {
+                if (hasErrored) {
+                    UnsuccessfulOnlineCall();
+                    StandardCompleteACOnline();
+                    hasErrored = false;
+                }
+                else {
+                    StandardCompleteACOnline();
+                }
+            }
+        }                ,
         'Posting Score...');
 }

@@ -19,9 +19,9 @@ function addComma(nStr) {
 }
 
 function GetTime() {
-    var minutes = document.getElementById('minutes').value;
-    var seconds = document.getElementById('seconds').value;
-    var micro = document.getElementById('micro').value;
+    var minutes = document.getElementById('minutes').innerText;
+    var seconds = document.getElementById('seconds').innerText;
+    var micro =   document.getElementById('micro').innerText;
 
     if (minutes === '') {
         minutes = '0';
@@ -39,18 +39,19 @@ function GetTime() {
     return score;
 }
 
-function SaveLocalTime() {
+function SaveLocalTime(uploaded) {
+    if (uploaded === undefined) {
+        uploaded = false;
+    }
 
     var scores = currentRecord.scores;
     for (var i = 0; i < scores.length; i++) {
         var gameid = scores[i].id;
 
         if (gameid === TransformedCurrentGameName()) {
-            scores[i].score = GetTime();
-            scores[i].uploaded = false;
-            if (AllowedOnline() && score !== 0 && score !== "0") {
-                Show("#uploadscorebtn");
-            }
+            var scoreTime = GetTime();
+            scores[i].score = scoreTime.toString();
+            scores[i].uploaded = uploaded;
             SetItemInStorage("my_record", currentRecord);
 
             //After we have added a score we update our local statistics
@@ -80,67 +81,38 @@ function CloseTime() {
     $("#micro").blur();
 }
 
-function SelectScore() {
-    $('#myrecord').parent().removeClass('ui-screen-hidden');
-    $('#myrecordText').parent().addClass('ui-screen-hidden');
-    $('#myrecord').focus();
-}
-
-function UndoScoreUpdate() {
-    document.getElementById('myrecord').value = previousscore;
-    document.getElementById('myrecordText').value = addComma(previousscore);
-    $('#myrecord').parent().addClass('ui-screen-hidden');
-    $('#myrecordText').parent().removeClass('ui-screen-hidden');
-}
-
-function ProcessScore(score) {
-    if (!score) {
-        score = document.getElementById('myrecord').value;
+function ProcessScore(score, uploaded) {
+    if (uploaded === undefined) {
+        uploaded = false;
     }
 
+    if (!score) {
+        score = document.getElementById('myrecord').innerText;
+    }
+    previousscore = score;
     var scores = currentRecord.scores;
     for (var i = 0; i < scores.length; i++) {
         var gameid = scores[i].id;
 
         if (gameid === TransformedCurrentGameName()) {
             scores[i].score = score;
-            scores[i].uploaded = false;
-            if (AllowedOnline() && score !== 0 && score !== "0") {
-                Show('#uploadScoresMainMenu');
-                Show("#uploadscorebtn");
-            }
+            scores[i].uploaded = uploaded;
             SetItemInStorage("my_record", currentRecord);
             break;
         }
     }
 
     //Add commas to the value entered.
-    addCommas(document.getElementById('myrecordText'), score);
-    $('#myrecord').parent().addClass('ui-screen-hidden');
-    $('#myrecordText').parent().removeClass('ui-screen-hidden');
+    document.getElementById('myrecord').innerText = addComma(score);
 
-    //After we have added a score we update our local statistics
+    // After we have added a score we update our local statistics
     if (!AllowedOnline()) {
         CalculateLocalStatistics();
     }
 }
 
 function SaveLocalScore() {
-    var score = document.getElementById('myrecord').value;
-
-    //Is the new score lower than your existing score?
-    if (parseInt(previousscore) > parseInt(score)) {
-        if (popupopen === 1) {
-            //if we are already in a popup then this is the event that is firing twice
-            //so return without doing anything. Which ever one wins will fire the previous pop
-            //up event
-            return;
-        }
-
-        CreatePopup(lowerHighscorePopup);
-        return;
-    }
-
+    var score = document.getElementById('myrecord').innerText;
     ProcessScore(score);
 }
 
@@ -194,9 +166,10 @@ function UploadSingleGameFromGameScreen() {
     }
     else {
         SaveLocalScore();
-        score = document.getElementById('myrecord').value;
+        score = document.getElementById('myrecord').innerText;
     }
 
+    onlineCalls = 1;
     UploadSingleGame(TransformedCurrentGameName(), score);
 }
 
@@ -209,13 +182,7 @@ function OnSuccessfulLoadOfGame() {
 
         if (gameid === TransformedCurrentGameName()) {
             score = scores[i].score;
-
-            if (scores[i].uploaded === false &&
-                score !== 0 && score !== "0" &&
-                AllowedOnline()) {
-                Show("#uploadscorebtn");
-            }
-
+            
             break;
         }
     }
@@ -241,31 +208,12 @@ function OnSuccessfulLoadOfGame() {
 
         score = local_minutes + ":" + ("00" + local_seconds).slice(-2) + "." + ("00" + local_micro).slice(-3);
 
-        document.getElementById('minutes').value = local_minutes;
-        document.getElementById('seconds').value = local_seconds;
-        document.getElementById('micro').value = local_micro;
+        document.getElementById('minutes').innerText = local_minutes;
+        document.getElementById('seconds').innerText = local_seconds;
+        document.getElementById('micro').innerText = local_micro;
     }
     else {
-        document.getElementById('myrecord').value = score;
-        document.getElementById('myrecordText').value = addComma(score);
-
-        PopulateHighestDetailedScoreInGame();
-
-        $('#myrecord').parent().addClass('ui-screen-hidden');
-        $('#myrecordText').parent().removeClass('ui-screen-hidden');
-        $('#myrecord').parent().addClass('ui-corner-bottom');
-        $('#myrecordText').parent().addClass('ui-corner-bottom');
-    }
-}
-
-var previousscore = '0';
-
-function BlankScore() {
-    var value = document.getElementById('myrecord').value;
-    previousscore = value;
-
-    if (value === '0') {
-        document.getElementById('myrecord').value = '';
+        SetGameScore(score);
     }
 }
 

@@ -49,6 +49,7 @@ function Rehighlight() {
         case "ALLRECENT":
         case "MYCLUBS":
         case "ARCADEGAMES":
+        case "ARCADEGAMESBOTTOM":
         case "MYVENUES":
             $(".tabs").tabs().tabs("option", "active", 0);
             break;
@@ -59,6 +60,7 @@ function Rehighlight() {
         case "CLUBS":
         case "ALLCLUBS":
         case "PINBALLGAMES":
+        case "PINBALLGAMESBOTTOM":
         case "ALLVENUES":
             $(".tabs").tabs().tabs("option", "active", 1);
             break;
@@ -71,7 +73,13 @@ function Rehighlight() {
 }
 
 function GoToCategory(category, doNotNavigate) {
-    AddAllGames(category, doNotNavigate);
+    try {
+        AddAllGames(category, doNotNavigate);
+    }
+    catch (err)
+    {
+        alert(err.message);
+    }
 }
 
 function LoadGameInfoWithoutNavigate(node, tab, clubOverride) {
@@ -101,8 +109,6 @@ function GoToGame(node) {
     currentGameNode = node;
     storePosition.topCoordinate = $(node).offset().top;
     PopulateInfoForGame(node.id, node.innerText);
-    $('#myrecord').parent().addClass('ui-corner-bottom');
-    $('#myrecordText').parent().addClass('ui-corner-bottom');
 }
 
 function SetGameUI(nameOfGame, trueName, gameData) {
@@ -112,11 +118,9 @@ function SetGameUI(nameOfGame, trueName, gameData) {
     currentGameName = nameOfGame;
     parentGame = gameData.parent;
     currentGameTrueName = trueName;
-    document.getElementById('myrecord').value = '0';
+    document.getElementById('myrecord').innerText = '0';
     ClearNotes();
     ClearRating('10');
-    Hide("#uploadscorebtn");
-    Hide('#detailedScoreButton');
 
     if (gameData) {
         var release = gameData.release;
@@ -151,17 +155,6 @@ function SetGameUI(nameOfGame, trueName, gameData) {
         if (type === "time") {
             timeOrder = order;
             currentGameType = "time";
-            Hide('#myrecord');
-            Show('#micro');
-            Show('#seconds');
-            Show('#minutes');
-        } else {
-            Show('#myrecord');
-            $('#myrecord').parent().addClass('ui-corner-bottom');
-            $('#myrecordText').parent().addClass('ui-corner-bottom');
-            Hide('#micro');
-            Hide('#seconds');
-            Hide('#minutes');
         }
 
         var gots = currentRecord.played;
@@ -189,12 +182,13 @@ function SetGameUI(nameOfGame, trueName, gameData) {
                     Show('#myrecordtimecontainer');
                     Hide('#myrecordcontainer');
                 } else {
-                    Show('#detailedScoreButton');
                     Show('#mrdivider');
                     Hide('#mrtimedivider');
                     Hide('#myrecordtimecontainer');
                     Show('#myrecordcontainer');
                 }
+
+                Show('#detailedScoreButton');
 
                 $('#ratings').removeClass('ui-screen-hidden');
                 LoadRating();
@@ -204,10 +198,11 @@ function SetGameUI(nameOfGame, trueName, gameData) {
         }
 
         if (foundgame === 0) {
-            document.getElementById('myrecord').value = '0';
-            document.getElementById('minutes').value = '-';
-            document.getElementById('seconds').value = '-';
-            document.getElementById('micro').value = '-';
+            document.getElementById('myrecord').innerText = '0';
+            document.getElementById('minutes').innerText = '0';
+            document.getElementById('seconds').innerText = '0';
+            document.getElementById('micro').innerText = '0';
+            Hide('#detailedScoreButton');
             Hide('#myrecordcontainer');
             Hide('#myrecordtimecontainer');
             Hide('#myrecordnotes');
@@ -269,7 +264,8 @@ function ConstructRatingArray()
     for (var i = 0; i < currentRecord.ratings.length; i++) {
         if (currentRecord.ratings[i].rating !== "" &&
             currentRecord.ratings[i].rating !== 0 &&
-            currentRecord.ratings[i].rating !== "0") {
+            currentRecord.ratings[i].rating !== "0" &&
+            currentRecord.ratings[i].rating !== undefined) {
             myRatings[currentRecord.ratings[i].id] = currentRecord.ratings[i].rating;
         }
     }
@@ -315,7 +311,9 @@ function CreateGameRow(name, alternativeName, displayName, alternative, names, a
         recordId = recordId.replace(/&/g, "");
     }
 
-    if (gamesByFriend.hasOwnProperty(TransformGameName(key)) && gamesByFriend[TransformGameName(key)].length !== 0) {
+    if (gamesByFriend.hasOwnProperty(TransformGameName(key)) &&
+        gamesByFriend[TransformGameName(key)].length !== 0 &&
+        !(gamesByFriend[TransformGameName(key)].length === 1 && gamesByFriend[TransformGameName(key)][0] === clientUserName)) {
         righticon = "ui-icon-user";
     }
 
@@ -441,7 +439,7 @@ function DisplayEveryGame() {
             id = id.replace("&", "");
             id = id.replace(/ /g, '_');
             id = id.toLowerCase();
-
+            
             if ($.inArray(id, currentRecord.played) !== -1) {
                 for (var i = 0; i < indexes.length; i++) {
                     arrayPlayed.push([array[indexes[i]][0], array[indexes[i]][1]]);
@@ -467,7 +465,7 @@ function DisplayEveryGame() {
             }
         }
     }
-    
+
     array.sort(SortById);
     arrayPlayed.sort(SortById);
     arrayNot.sort(SortById);
@@ -593,7 +591,7 @@ function AddGamesControls(name, id, doNotNavigate) {
 
     if (!gameCache['all']) {
         gameCache['all'] = [];
-    }    
+    }
 
     if (currentCategoryId in gameCache)
     {
@@ -652,7 +650,6 @@ function AddGamesControls(name, id, doNotNavigate) {
                 }
 
                 var indexes = CreateGameListItem(gameCatalog[game], gameCache[currentCategoryId], array);
-                //var indexes = CreateGameListItem(gameCatalog[game], currentCategoryId, array);
 
                 var id = gameCatalog[game].name.replace("'", "");
                 id = id.replace("&apos;", "");
@@ -678,7 +675,7 @@ function AddGamesControls(name, id, doNotNavigate) {
         }
 
         for (var category in gameCache) {
-            if (currentCategoryId === 'pinball') //Dont add pinball to the all games space
+            if (currentCategoryId === 'pinball' || currentCategoryId === 'vectrex')
                 continue;
 
             for (game in gameCache[category]) {
@@ -724,20 +721,18 @@ function AddAllGames(category, doNotNavigate) {
         text: "Loading...",
         textVisible: "true"
     });
-    currentCategoryId = category.id;
+    currentCategoryId = category;
     var name = categoryDisplayNameList[$.inArray(currentCategoryId, categoryList)];
 
-    GetItemFromStorageWithCallBack("my_record", function (value) {
-        currentRecord = value;
-        if (currentRecord === null || currentRecord === "[]") {
-            var category = new Record();
-            SetItemInStorageWithCallBack("my_record", category, function (result) {
-                AddGamesControls(name, currentCategoryId, doNotNavigate);
-            });
-        } else {
+    if (currentRecord === null || currentRecord === "[]") {
+        currentRecord = new Record();
+        currentRecord.verified = false;
+        SetItemInStorageWithCallBack("my_record", currentRecord, function (result) {
             AddGamesControls(name, currentCategoryId, doNotNavigate);
-        }
-    });
+        });
+    } else {
+        AddGamesControls(name, currentCategoryId, doNotNavigate);
+    }
 }
 
 function AddToPlayed() {
@@ -808,6 +803,20 @@ function RemoveFromPlayed() {
 
     SetItemInStorage("my_record", currentRecord);
 
+    // Remove the detailed scores for this game
+    if (detailedScoreCollection.hasOwnProperty(TransformedCurrentGameName())) {
+        delete detailedScoreCollection[TransformedCurrentGameName()];
+        SetItemInStorage('detailedScoreCollection', detailedScoreCollection);
+    }
+
+    //Remove the image on the list item
+    var elements = document.getElementsByName(TransformedCurrentGameName() + 'rating');
+    var j;
+    for (j = 0; j < elements.length; j++) {
+        elements[j].src = null;
+        elements[j].removeAttribute('src');
+    }
+
     if (!AllowedOnline()) {
         CalculateLocalStatistics();
     }
@@ -815,22 +824,13 @@ function RemoveFromPlayed() {
     {
         //When saying you have no longer played a game we need to make sure that 
         //your score is wiped from the online database
-        //Setting the value to 0 will remove it from any online leaderboards
-        //However we need to tell the database to remove the score....
-        UploadSingleGame(TransformedCurrentGameName(), "0");
+        RemoveGameFromPlayed();
     }
 
     ClosePopup();
 }
 
 function UpdatePlayed() {
-    var scoreElement = document.getElementById('myrecord');
-    $('#myrecord').parent().addClass('ui-corner-bottom');
-    $('#myrecordText').parent().addClass('ui-corner-bottom');
-    $('#GameInfo').listview('refresh');
-    $('#ScoreInfo').listview('refresh');
-    $('#ScoreInfoTime').listview('refresh');
-    $('#NoteInfo').listview('refresh');
     UpdatePlayedAndNotPlayed();
 }
 
@@ -840,10 +840,10 @@ function SuccessfulAddPlayed() {
     if (currentGameType === "time") {
         Show('#myrecordtimecontainer');
     } else {
-        Show('#detailedScoreButton');
         Show('#myrecordcontainer');
     }
 
+    Show('#detailedScoreButton');
     Show('#myrecordnotes');
     Show('#myrecordnotescontents');
     Show('#myrecord');
@@ -855,6 +855,7 @@ function SuccessfulAddPlayed() {
 
 function SuccessfulRemovePlayed() {
     RemoveFromPlayed();
+    Hide('#detailedScoreButton');
     Hide('#myrecordcontainer');
     Hide('#myrecordtimecontainer');
     Hide('#myrecord');

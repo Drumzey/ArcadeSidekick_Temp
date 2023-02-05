@@ -12,6 +12,7 @@ var multiCallHasFailed = false;
 
 //Method to perform a GET on any endpoint
 function Call_ArcadeSidekick_Online_Get(url, successCallBack, failureCallBack, CompleteCallBack, message) {
+
     CallACOnlineWithBodyAndWait(
         url,
         'GET',
@@ -44,6 +45,33 @@ function Call_ArcadeSidekick_Online_Post(url, body, successCallBack, failureCall
     CallACOnlineWithBodyAndWait(
         url,
         'POST',
+        body,
+        function () {
+            successCallBack();
+        },
+        function () {
+            failureCallBack();
+        },
+        function () {
+            CompleteCallBack();
+        },
+        message,
+        jwt);
+}
+
+function Call_ArcadeSidekick_Online_Delete(url, body, successCallBack, failureCallBack, CompleteCallBack, message, jwtoveride) {
+
+    var jwt = '';
+    if (jwtoveride) {
+        jwt = jwtoveride;
+    }
+    else {
+        jwt = CreateJWT(clientUserName, emailAddress, secret);
+    }
+
+    CallACOnlineWithBodyAndWait(
+        url,
+        'DELETE',
         body,
         function () {
             successCallBack();

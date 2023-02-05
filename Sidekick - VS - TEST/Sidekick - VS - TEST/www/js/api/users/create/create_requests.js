@@ -17,12 +17,4 @@
         StandardCompleteACOnline,
         "Checking user name..."
     );
-
-    //CallACOnlineWithBodyAndWait(baseUrl + '/createuser',
-    //    'POST',
-    //    body,
-    //    function () { SuccessfulGetOfNewUser(username, email, twitter); },
-    //    function () { UnsuccessfulNewUser(); },
-    //    function () { StandardCompleteACOnline(); },
-    //    "Checking user name ...");
 }

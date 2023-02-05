@@ -1,5 +1,6 @@
 ﻿var refreshMyScores = 0;
 var refreshGame = 0;
+var retryMode = "";
 
 function SetupUserName() {
     if (clientUserName !== '' && clientUserName !== null)
@@ -9,6 +10,8 @@ function SetupUserName() {
 }
 
 function TryAndSetupUserName() {
+
+    retryMode = "NEW";
 
     if (!CheckFieldValid('Username', 'myusername_newuser', true))
         return;
@@ -23,8 +26,9 @@ function TryAndSetupUserName() {
     var emailConfirm = document.getElementById("myconfirmemail_newuser").value.toLowerCase();
 
     if (email !== emailConfirm) {
-        $('span[id=userErrorText_newuser]').removeClass('ui-screen-hidden');
-        document.getElementById('userErrorText_newuser').innerText = "Emails do not match";
+        var popup = signInUserErrorPopup.replace("***", "Emails do not match.");
+        SetNextPopUp(popup);
+        ClosePopup();
         return;
     }
 
@@ -32,10 +36,11 @@ function TryAndSetupUserName() {
     var emailAddress = document.getElementById("myemail_newuser").value;
     var twitter = document.getElementById("mytwitter_newuser").value;
 
-    if (/\s/.test(twitter)) {
-        $('span[id=userErrorText_newuser]').removeClass('ui-screen-hidden');
-        document.getElementById('userErrorText_newuser').innerText = "Twitter Handle must not contain spaces";
-        return;
+    if (twitter.indexOf(' ') !== -1) {
+        var popup = signInUserErrorPopup.replace("***", "Twitter handle cannot include spaces");
+        SetNextPopUp(popup);
+        ClosePopup();
+        return false;
     }
 
     userName = userName.toUpperCase();
@@ -50,15 +55,17 @@ function CheckFieldValid(name, id, doSpaceCheck) {
     var field = document.getElementById(id).value;
 
     if (field === '') {
-        $('span[id=userErrorText_newuser]').removeClass('ui-screen-hidden');
-        document.getElementById("userErrorText_newuser").innerText = name + " cannot be blank";
+        var popup = signInUserErrorPopup.replace("***", name + " cannot be blank");
+        SetNextPopUp(popup);
+        ClosePopup();
         return false;
     }
 
     if (doSpaceCheck) {
         if (field.indexOf(' ') !== -1) {
-            $('span[id=userErrorText_newuser]').removeClass('ui-screen-hidden');
-            document.getElementById(userErrorText).innerText = name + " cannot include spaces";
+            var popup = signInUserErrorPopup.replace("***", name + " cannot include spaces");
+            SetNextPopUp(popup);
+            ClosePopup();
             return false;
         }
     }
@@ -84,18 +91,22 @@ function SuccessfulGetOfNewUser(userName, email, twitter) {
     }
 }
 
-function LaunchVerifyUserFromSetup() {
-    CreatePopup(secretKeyPopup);
-}
-
-function VerifyUser(element) {
-    var secretvalue = document.getElementById("secretkeyinput").value;
-    SideKickOnline_VerifyUser(secretvalue);
-}
-
 function SetUserNameAndEmailInSetup(userName, email, twitter, dob, youtube, location) {
+    if (twitter === undefined || twitter === null) {
+        twitter = "";
+    }
+    if (dob === undefined || dob === null) {
+        dob = "";
+    }
+    if (youtube === undefined || youtube === null) {
+        youtube = "";
+    }
+    if (location === undefined || location === null) {
+        location = "";
+    }
+
     document.getElementById('myusernamesetup').readOnly = true;
-    document.getElementById('myemailsetup').readOnly = true;    
+    document.getElementById('myemailsetup').readOnly = true;
     document.getElementById('mytwitterhandlesetup').readOnly = true;
     document.getElementById('mydobsetup').readOnly = true;
     document.getElementById('myyoutubesetup').readOnly = true;
@@ -112,22 +123,19 @@ function SetUserNameAndEmailInSetup(userName, email, twitter, dob, youtube, loca
     Show('#verifyuserbutton'); //Show verified button in setup
 }
 
-// EXISTING USER
-function SetExistingUser() {
+function RetryUser() {
 
-    if (clientUserName !== '' && clientUserName !== null)
-        return;
-
-    if (!CheckFieldValid('Username', 'myusername_existinguser', true))
-        return;
-
-    if (!CheckFieldValid('Email address', 'myemail_existinguser', true))
-        return;
-
-    if (!CheckFieldValid('Secret Code', 'myfavouritegame_existinguser', false))
-        return;
-
-    SideKickOnline_ReturningUser();
+    if (retryMode === "NEW") {
+        SetNextPopUp(newUserPopup);
+    }
+    else if (retryMode === "EXISTING") {
+        SetNextPopUp(existingUserPopup);
+    }
+    else if (retryMode === "VERIFYSTARTUP") {
+        // So we did something bad on the secret key verify...
+        // But for now we wont retry it...
+    }
+    ClosePopup();
 }
 
 // You have reregistered an existing user through setup
@@ -144,15 +152,6 @@ function RefreshGame() {
     }
 }
 
-function PostSignup(showshare) {
-    if (showshare === true) {
-        SetNextPopUp(shareSignup);
-    }
-
-    if (pushRatings === true) {
-        SideKickOnline_SaveRatings();
-    }
-    else {
-        ClosePopup();
-    }
+function PostRestoreUser() {
+    ClosePopup();
 }

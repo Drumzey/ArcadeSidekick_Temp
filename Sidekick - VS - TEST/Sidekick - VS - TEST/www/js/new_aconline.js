@@ -1,7 +1,8 @@
 ﻿//Used to find a friend in the system
 //Will also populate their games and scores
 function SideKickOnline_FindFriend(name, message) {
-    CallACOnlineWithBodyAndWait(baseUrl + '/getscore?usernames=' + name,
+
+    CallACOnlineWithBodyAndWait(newBaseUrl + 'app/games/simplescore?usernames=' + name,
         'GET',
         null,
         function () {
@@ -17,7 +18,7 @@ function SideKickOnline_FindFriend(name, message) {
 //Used to get an individual friends games and scores
 function SideKickOnline_GetFriendScores(name, message) {
 
-    CallACOnlineWithBodyAndWait(baseUrl + '/getscore?usernames=' + name,
+    CallACOnlineWithBodyAndWait(newBaseUrl + 'app/games/simplescore?usernames=' + name,
         'GET',
         null,
         function () { FindFriendGames(name); },
@@ -31,42 +32,14 @@ function SideKickOnline_GetFriendScores(name, message) {
         message);
 }
 
-function SideKickOnline_GetFriendsScoresOnStartUp(names, message) {
-    CallACOnlineWithBodyAndWait(baseUrl + '/getscore?usernames=' + names,
-        'GET',
-        null,
-        function () {
-            var oldFriendData = JSON.parse(JSON.stringify(friendData));
-            AddGamesToFriends();
-            DoFriendScoreComparison(oldFriendData);
-            PopulateFriendsUpdate();
-        },
-        function () {
-            startuphaserrored = true;
-        },
-        function () {
-            onlineCalls--;
-
-            if (onlineCalls === 0) {
-                if (startuphaserrored) {
-                    UnsuccessfulOnlineCall();
-                    StandardCompleteACOnline();
-                }
-                else {
-                    CompletedStartUp();
-                }
-            }
-        },
-        message);
-}
-
 //Used to retrieve multiple friends games and scores
 function SideKickOnline_GetFriendsScores(names, message, processScores) {
 
-    CallACOnlineWithBodyAndWait(baseUrl + '/getscore?usernames=' + names,
+    CallACOnlineWithBodyAndWait(newBaseUrl + 'app/games/simplescore?usernames=' + names,
         'GET',
         null,
         function () {
+            var response = JSON.parse(latestXHTTP.responseText);
             AddGamesToFriends();
 
             if (processScores === true) {
@@ -103,7 +76,7 @@ function SideKickOnline_SaveScores(scoreArray) {
             'Ratings': ratings
         };
 
-    CallACOnlineWithBodyAndWait(baseUrl + '/savescore/test',
+    CallACOnlineWithBodyAndWait(newBaseUrl + '/app/games/simplescore',
         'POST',
         body,
         function () {
@@ -119,9 +92,8 @@ function SideKickOnline_SaveScores(scoreArray) {
                 UpdateDataSubmitted();
             }
         },
-        function () { UnsuccessfulOnlineCall(); StandardCompleteACOnline(); },
-        function () {
-        },
+        function () { UnsuccessfulOnlineCall(); },
+        function () { StandardCompleteACOnline(); },
         "Uploading game data.....",
         jwt);
     //});
@@ -148,16 +120,25 @@ function SideKickOnline_SaveScore(gamename, score, rating) {
 
     var jwt = CreateJWT(clientUserName, emailAddress, secret);
 
-    CallACOnlineWithBodyAndWait(baseUrl + '/savescore/test',
+    CallACOnlineWithBodyAndWait(newBaseUrl + '/app/games/simplescore',
         'POST',
         body,
         function () {
             SetGameAsUploaded(gameNames);
-            Hide("#uploadscorebtn");
             UpdateDataSubmitted();
         },
-        function () { UnsuccessfulOnlineCall(); },
-        function () { SetLocalScoresUI(); AlterScoreHeights(); StandardCompleteACOnline(); },
+        function () { hasErrored = true; },
+        function () {
+            onlineCalls--;
+            if (onlineCalls < 1) {
+                if (hasErrored) {
+                    UnsuccessfulOnlineCall();
+                    hasErrored = false;
+                }
+                StandardCompleteACOnline();
+            }
+            SetLocalScoresUI(); AlterScoreHeights();
+        },
         "Uploading game data.....",
         jwt);
 }
@@ -192,7 +173,7 @@ function SideKickOnline_SaveRatings() {
 
     var jwt = CreateJWT(clientUserName, emailAddress, secret);
 
-    CallACOnlineWithBodyAndWait(baseUrl + '/saverating',
+    CallACOnlineWithBodyAndWait(newBaseUrl + 'app/games/ratings',
         'Post',
         body,
         function () { },
@@ -203,43 +184,7 @@ function SideKickOnline_SaveRatings() {
     //});
 }
 
-function SideKickOnline_VerifyUser(secretvalue) {
-    var jwt = CreateJWT(clientUserName, emailAddress, secretvalue);
 
-    var body =
-        {
-            'Username': clientUserName,
-            'EmailAddress': emailAddress
-        };
-
-    CallACOnlineWithBodyAndWait(baseUrl + '/verifyuser',
-        'POST',
-        body,
-        function () {
-            SetItemInStorage("secret", secretvalue);
-            secret = secretvalue;
-            SuccessfulVerifyUser();
-            StandardCompleteACOnline();
-            if (popupsOnStartup.length > 0) {
-                NextStartupPopup();
-            }
-        },
-        function () { UnsuccessfulVerifyUser(); StandardCompleteACOnline(); },
-        function () {
-        },
-        "Verifying user ...",
-        jwt);
-}
-
-//Used to re-register a user, say for moving device etc
-function SideKickOnline_ReturningUser() {
-    var userName = document.getElementById("myusername_existinguser").value;
-    var email = document.getElementById("myemail_existinguser").value;
-    var secret = document.getElementById("myfavouritegame_existinguser").value;
-
-    //Needs to make a call to verify user here....
-    SideKickOnline_VerifyReturningUser(userName.toUpperCase(), email.toLowerCase(), secret);
-}
 
 
 var currentURL = '';
@@ -406,27 +351,13 @@ function CallACOnlineWithBodyAndWait(url, type, body, successCallback, failureCa
     }
 }
 
-function SuccessfulVerifyUser() {
-    SetNextPopUp(successVerify);
-    ClosePopup();
-    Hide('#verifyuserbutton');
-    currentRecord.verified = true;
-    SetItemInStorage("my_record", currentRecord);
-    if (AllowedOnline() && test === false) {
-        AppCenter.SetUserId(clientUserName);
-    }
-}
-
-function UnsuccessfulVerifyUser() {
-    SetNextPopUp(errorVerify);
-    ClosePopup();
-}
 
 function UnsuccessfulNewUser() {
     if (latestXHTTP.status === 409) {
         //User already exists
-        $('span[id=userErrorText_newuser]').removeClass('ui-screen-hidden');
-        document.getElementById("userErrorText_newuser").innerText = "Username already exists, pick another";
+        var popup = signInUserErrorPopup.replace("***", "Username already exists, pick another");
+        SetNextPopUp(popup);
+        ClosePopup();
     }
     else {
         UnsuccessfulOnlineCall();
@@ -463,9 +394,6 @@ function CompleteACOnlineWithNavigate(pageToNavigateTo, successCallBack, failure
         if (parentGame) {
             imageName = parentGame.toLowerCase();
         }
-
-        //array.push("game_banners/" + currentCategoryId + "/" + imageName + ".png");
-        //array.push("game_images/" + currentCategoryId + "/" + imageName + ".gif");
 
         array.push(websiteAddress + "/images/banners/" + currentGameCategoryId + "/" + imageName + ".png");
         array.push(websiteAddress + "/images/screens/" + currentGameCategoryId + "/" + imageName + ".gif");

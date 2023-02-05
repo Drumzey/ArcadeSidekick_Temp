@@ -1,6 +1,6 @@
 ﻿var defaultDataErrors = true;
-var defaultSetting = 28;
-var appVersion = "3.0.01";
+var defaultSetting = 30;
+var appVersion = "3.0.20";
 var currentVersion = "";
 var enemiesCollection = [];
 var friendsCollection = [];
@@ -9,28 +9,6 @@ function Success() {
     defaultSetting--;
 
     if (defaultSetting === 0) {
-        if (test) {
-            var notify = localStorage.getItem("notify");
-            if (notify === "on") {
-                TurnOnNotifications();
-            }
-            else {
-                TurnOffNotifications();
-            }
-        }
-        else {
-            GetItemFromStorageWithCallBack('notify', function (notify) {
-                if (notify === null || notify === "on") {
-                    SetItemInStorage('notify', 'on');
-                    notify = "on";
-                    TurnOnNotifications();
-                }
-                else {
-                    TurnOffNotifications();
-                }
-            });
-        }
-
         init();
     }
 }
@@ -132,6 +110,7 @@ function SetDefaultData() {
             },
             function (err) {
                 currentRecord = new Record();
+                currentRecord.verified = false;
                 SetItemInStorageWithCallBack('my_record', new Record(), Success);
             }
         );
@@ -150,7 +129,7 @@ function SetDefaultData() {
                 detailedScoreCollection = value;
                 if (detailedScoreCollection === null || detailedScoreCollection === "[]"
                     || detailedScoreCollection === '') {
-                    detailedScoreCollection = new Record();
+                    detailedScoreCollection = [];
                 }
                 Success();
             },
@@ -198,6 +177,27 @@ function SetDefaultData() {
             function (err) {
                 firstTimeProfile = "yes";
                 SetItemInStorageWithCallBack('firstTimeProfile', 'yes', Success);
+            }
+        );
+    }
+
+    if (test) {
+        firstTimeAchievements = "yes";
+        localStorage.setItem("firstTimeAchievements", "yes");
+        Success();
+    }
+    else {
+        GetItemFromStorageWithSuccessAndFailureCallBack('firstTimeAchievements',
+            function (value) {
+                firstTimeAchievements = value;
+                if (firstTimeAchievements === null || firstTimeAchievements === '') {
+                    firstTimeAchievements = "yes";
+                }
+                Success();
+            },
+            function (err) {
+                firstTimeAchievements = "yes";
+                SetItemInStorageWithCallBack('firstTimeAchievements', 'yes', Success);
             }
         );
     }
@@ -669,6 +669,8 @@ function SetDefaultData() {
             }
         );
     }
+
+    SetHintsTipsStartUpValue();
 
     if (test) {
         myclubs = [];

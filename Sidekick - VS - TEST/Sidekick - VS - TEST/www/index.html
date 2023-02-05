@@ -13,6 +13,48 @@
     <script type="text/javascript" src="js/jquery.mobile.utils.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
     <script type="text/javascript" src="js/thirdparty/jqm-datebox-1.4.4.all.min.js"></script>
+
+    <!-- Version 4 JS-->
+    <!-- Shared -->
+    <script type="text/javascript" src="js/v4/Shared/Navigation.js"></script>
+    <script type="text/javascript" src="js/v4/Shared/Popups.js"></script>
+    <script type="text/javascript" src="js/v4/Shared/PageClass.js"></script>
+    <!-- Game -->
+    <script type="text/javascript" src="js/v4/Games/HintsAndTips/hintsandtips.js"></script>
+    <script type="text/javascript" src="js/v4/Games/HintsAndTips/Popups.js"></script>
+    <script type="text/javascript" src="js/v4/Games/HintsAndTips/StartUp.js"></script>
+    <script type="text/javascript" src="js/v4/Games/HintsAndTips/Types.js"></script>
+    <script type="text/javascript" src="js/v4/Games/HintsAndTips/AddTip/addTip.js"></script>
+    <script type="text/javascript" src="js/v4/Games/HintsAndTips/AddTip/Popups.js"></script>
+
+
+    <script type="text/javascript" src="js/v4/Debug/debug.js"></script>
+
+    <script type="text/javascript" src="js/v4/Startup/startup.js"></script>
+
+    <script type="text/javascript" src="js/v4/Scores/scores.js"></script>
+
+    <script type="text/javascript" src="js/v4/MainMenu/Navigation.js"></script>
+    <script type="text/javascript" src="js/v4/MainMenu/Popups.js"></script>
+    <script type="text/javascript" src="js/v4/MainMenu/CheckForUploads.js"></script>
+
+    <script type="text/javascript" src="js/v4/Account/shared.js"></script>
+    <script type="text/javascript" src="js/v4/Account/new_user.js"></script>
+    <script type="text/javascript" src="js/v4/Account/restore_user.js"></script>
+    <script type="text/javascript" src="js/v4/Account/verify_user.js"></script>
+
+    <script type="text/javascript" src="js/v4/Profile/Profile.js"></script>
+    <script type="text/javascript" src="js/v4/Profile/Achievements/Achievements.js"></script>
+    <script type="text/javascript" src="js/v4/Profile/Achievements/popups.js"></script>
+
+    <script type="text/javascript" src="js/v4/Users/users.js"></script>
+
+    <script type="text/javascript" src="js/v4/Venues/Venues.js"></script>
+
+    <script type="text/javascript" src="js/v4/Quiz/Quiz.js"></script>
+    <script type="text/javascript" src="js/v4/Quiz/quiz_question_categories.js"></script>
+    <script type="text/javascript" src="js/v4/Quiz/popups.js"></script>
+
     <!-- GAME LISTS-->
     <!-- Load Local Versions First-->
     <script type="text/javascript" src="js/gamelists/declare.js"></script>
@@ -25,15 +67,15 @@
     <script type="text/javascript" src="js/gamelists/levelOverrides.js"></script>
 
     <!-- Attempt To Load Web Versions-->
-    <!--<script type="text/javascript" src="https://arcadesidekick.s3.eu-west-2.amazonaws.com/gamelists/catalog.js"></script>
+    <script type="text/javascript" src="https://arcadesidekick.s3.eu-west-2.amazonaws.com/gamelists/catalog.js"></script>
     <script type="text/javascript" src="https://arcadesidekick.s3.eu-west-2.amazonaws.com/gamelists/pinball.js"></script>
+    <script type="text/javascript" src="https://arcadesidekick.s3.eu-west-2.amazonaws.com/gamelists/vectrex.js"></script>
     <script type="text/javascript" src="https://arcadesidekick.s3.eu-west-2.amazonaws.com/gamelists/timegames.js"></script>
     <script type="text/javascript" src="https://arcadesidekick.s3.eu-west-2.amazonaws.com/gamelists/controls.js"></script>
-    <script type="text/javascript" src="https://arcadesidekick.s3.eu-west-2.amazonaws.com/gamelists/funfacts.js"></script>-->
+    <script type="text/javascript" src="https://arcadesidekick.s3.eu-west-2.amazonaws.com/gamelists/funfacts.js"></script>
     <!-- API SCRIPTS -->
     <!-- VENUES-->
     <script type="text/javascript" src="js/api/venues/venue_requests.js"></script>
-    <script type="text/javascript" src="js/api/venues/venue_response.js"></script>
     <script type="text/javascript" src="js/ui/venues/venues.js"></script>
     <script type="text/javascript" src="js/ui/venues/popups.js"></script>
 
@@ -41,6 +83,7 @@
     <script type="text/javascript" src="js/api/games/scores/get/leaderboard_requests.js"></script>
     <script type="text/javascript" src="js/api/games/scores/get/leaderboard_responses.js"></script>
     <script type="text/javascript" src="js/api/games/scores/post/score_requests.js"></script>
+    <script type="text/javascript" src="js/api/games/scores/delete/score_requests.js"></script>
     <!-- UI SCRIPTS -->
     <script type="text/javascript" src="js/ui/games/leaderboards/leaderboards.js"></script>
     <!-- API Scripts -->
@@ -74,13 +117,10 @@
     <script type="text/javascript" src="js/ui/system/help/help.js"></script>
     <script type="text/javascript" src="js/ui/system/help/help_popups.js"></script>
     <script type="text/javascript" src="js/ui/users/create/create_user.js"></script>
-    <script type="text/javascript" src="js/ui/users/restore/restoreuser.js"></script>
     <script type="text/javascript" src="js/ui/users/profile/popups.js"></script>
     <script type="text/javascript" src="js/ui/users/profile/userinfo.js"></script>
     <script type="text/javascript" src="js/ui/users/friends/friends.js"></script>
     <script type="text/javascript" src="js/ui/users/friends/head2head.js"></script>
-    <script type="text/javascript" src="js/ui/quiz/quiz.js"></script>
-    <script type="text/javascript" src="js/ui/quiz/popups.js"></script>
     <!-- CUSTOM SCRIPTS-->
     <script type="text/javascript" src="js/new_aconline.js"></script>
     <script type="text/javascript" src="js/new_allmyscores.js"></script>
@@ -89,10 +129,7 @@
     <script type="text/javascript" src="js/new_gamedata.js"></script>
     <script type="text/javascript" src="js/new_gameui.js"></script>
     <script type="text/javascript" src="js/new_leaderboard.js"></script>
-    <script type="text/javascript" src="js/new_mainmenu.js"></script>
-    <script type="text/javascript" src="js/new_navigation.js"></script>
     <script type="text/javascript" src="js/new_notifications.js"></script>
-    <script type="text/javascript" src="js/new_onstartup.js"></script>
     <script type="text/javascript" src="js/new_setup.js"></script>
     <script type="text/javascript" src="js/new_shared_popups.js"></script>
     <script type="text/javascript" src="js/new_starrating.js"></script>
@@ -106,6 +143,7 @@
     <script type="text/javascript" src="js/score/detailed_scores.js"></script>
     <script type="text/javascript" src="js/score/detailed_scores_online.js"></script>
     <script type="text/javascript" src="js/score/popups.js"></script>
+    <script type="text/javascript" src="js/score/helpers.js"></script>
     <script type="text/javascript" src="js/score/detailspage/detailspage.js"></script>
     <script type="text/javascript" src="js/score/detailspage/popups.js"></script>
     <!-- Genres -->
@@ -166,32 +204,35 @@
             </a>
             <table id="CategoryPanel" style="width: 100%">
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="GotoProfile()" id="profile" class="tile profile" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="MyScores()" id="scores" class="tile myscores" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px"><div onclick="NavigateFromMainMenu(this.id)" id="profile" class="tile profile" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="NavigateFromMainMenu(this.id)" id="scores" class="tile myscores" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="GotoGenre()" id="videogames" class="tile videogames" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="Category(this)" id="pinball" class="tile pinball" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px"><div onclick="NavigateFromMainMenu(this.id)" id="videogames" class="tile videogames" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="NavigateFromMainMenu(this.id)" id="pinball" class="tile pinball" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="Category(this)" id="vectrex" class="tile vectrex" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="CustomGames()" id="custom" class="tile custom" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px"><div onclick="NavigateFromMainMenu(this.id)" id="vectrex" class="tile vectrex" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="NavigateFromMainMenu(this.id)" id="custom" class="tile custom" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="Friends()" id="setupfriendsTile" class="tile friends" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="GoToNotifications()" id="notifications" class="tile notifications badge" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px"><div onclick="NavigateFromMainMenu(this.id)" id="setupfriendsTile" class="tile friends" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="NavigateFromMainMenu(this.id)" id="notifications" class="tile notifications badge" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="GotoQuiz()" id="quiz" class="tile quiz" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="Head2Head()" id="head2head" class="tile head2head" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px"><div onclick="NavigateFromMainMenu(this.id)" id="quiz" class="tile quiz" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="NavigateFromMainMenu(this.id)" id="head2head" class="tile head2head" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="GotoClubs()" id="clubs" class="tile clubs" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="GotoVenues()" id="venues" class="tile venues" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px"><div onclick="NavigateFromMainMenu(this.id)" id="clubs" class="tile clubs" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="NavigateFromMainMenu(this.id)" id="venues" class="tile venues" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="ArcadeTop50()" id="top10" class="tile topfifty" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="GetRecentActivity(0)" id="recentActivity" class="tile recent" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px"><div onclick="NavigateFromMainMenu(this.id)" id="top10" class="tile topfifty" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="NavigateFromMainMenu(this.id)" id="bottom10" class="tile bottomfifty" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 10px"><div onclick="NavigateFromMainMenu(this.id)" id="recentActivity" class="tile recent" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
             </table>
         </div>
@@ -207,31 +248,31 @@
             <table id="CategoryPanel" style="width: 100%">
                 <tr>
                     <td style="padding-top: 10px"><div onclick="AllGames()" id="AllTemplate" class="tile allgames" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="Category(this)" id="misc" class="tile misc" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="GoToCategory(this.id)" id="misc" class="tile misc" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="Category(this)" id="beatemup" class="tile beatemup" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="Category(this)" id="fighting" class="tile fighting" data-badge="" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px"><div onclick="GoToCategory(this.id)" id="beatemup" class="tile beatemup" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="GoToCategory(this.id)" id="fighting" class="tile fighting" data-badge="" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="Category(this)" id="guns" class="tile guns" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="Category(this)" id="hackandslash" class="tile hackandslash" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px"><div onclick="GoToCategory(this.id)" id="guns" class="tile guns" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="GoToCategory(this.id)" id="hackandslash" class="tile hackandslash" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="Category(this)" id="maze" class="tile maze" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="Category(this)" id="platformer" class="tile platformer" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px"><div onclick="GoToCategory(this.id)" id="maze" class="tile maze" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="GoToCategory(this.id)" id="platformer" class="tile platformer" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="Category(this)" id="puzzle" class="tile puzzle" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="Category(this)" id="racing" class="tile racing" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px"><div onclick="GoToCategory(this.id)" id="puzzle" class="tile puzzle" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="GoToCategory(this.id)" id="racing" class="tile racing" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="Category(this)" id="rhythm" class="tile rhythm" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="Category(this)" id="runandgun" class="tile runandgun" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px"><div onclick="GoToCategory(this.id)" id="rhythm" class="tile rhythm" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="GoToCategory(this.id)" id="runandgun" class="tile runandgun" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 10px"><div onclick="Category(this)" id="shooter" class="tile shooter" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
-                    <td style="padding-top: 10px" align="right"><div onclick="Category(this)" id="sports" class="tile sports" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px"><div onclick="GoToCategory(this.id)" id="shooter" class="tile shooter" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
+                    <td style="padding-top: 10px" align="right"><div onclick="GoToCategory(this.id)" id="sports" class="tile sports" data-iconpos="notext" data-role="button" data-mini="true" data-icon="plus"></div></td>
                 </tr>
             </table>
         </div>
@@ -252,7 +293,7 @@
                 <h3 style="text-align: center">Welcome to Arcade Sidekick</h3>
                 <h6>I'm a huge fan of retro games and with the resurgence of the arcades I found myself wanting to keep track of my scores on my favourite machines. Thus Arcade Sidekick was born. Keep track of the games you have played, how you rate them, your top score and what the community think. Challenge your friends and enemies and publish your achievements on social media!</h6>
                 <h6>Created by Rich Rumsey</h6>
-                <h6>Version 2.3.01</h6>
+                <h6>Version 3.0.19</h6>
                 <a onclick="ClosePopup()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Lets go!</span></span></a>
             </div>
         </div>
@@ -377,11 +418,12 @@
             <a style="font-size:70%" onclick="FAQ()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">FAQs</span></span></a>
             <a style="font-size:70%" onclick="Help()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Help</span></span></a>
             <a style="font-size:70%" onclick="ExportRecord()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Export Scores and notes</span></span></a>
-            <a style="font-size:70%" onclick="ExportCSVRecord()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Export Scores is CSV format</span></span></a>
+            <a style="font-size:70%" onclick="ExportCSVRecord()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Export Scores in CSV format</span></span></a>
             <a style="font-size:70%" onclick="About()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">About</span></span></a>
             <a style="font-size:70%" onclick="Contact()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Contact</span></span></a>
             <a style="font-size:70%" onclick="ShowTheme()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Choose Theme</span></span></a>
             <a style="font-size:70%" onclick="Thanks()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Thankyous</span></span></a>
+            <a style="font-size:70%" onclick="EmailDebugReport()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Email Debug Report</span></span></a>
         </div>
     </div>
     <!-- Help -->
@@ -425,6 +467,35 @@
         </div>
         <div role="main" class="ui-content Page">
             <div data-role="collapsibleset" data-theme="a" data-inset="true">
+                <div data-role="collapsible">
+                    <h5>V 3.0.19</h5>
+                    <ul data-role="listview" class="ui-listview ui-corner-all">
+                        <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
+                            May 2022<br /><br />
+                            Its been a long time coming but Level 3 of Sidekick is here...<br />
+                            <b>New Features</b><br />
+                            <b>Detailed Score Submissions</b> - The BIG one. You are now able to submit scores with different game settings. Level, difficulty, lives, extra lives at, location, date etc. Make sure to give us as much information as you can about your submissions so we can create the leaderboards as correctly as possible. So multiple leaderboards per game! Want to record your individual records on rhythm game levels? Well now you can! Want to record your best score on individual levels of track and field? You got it!<br />
+                            <b>Venues</b> - Where do you play your games? When submitting a detailed score you will want to select the location in which you made it, so select your person arcade venues here. If you want an arcade adding, or want a specific private venue for your home arcade then get in touch.<br />
+                            <b>Vectrex</b> - Like mini arcade machines themselves, i've had a few requests to add vectrex into the app, so here it is! The catalog is small, but as before keep requesting the games and ill keep adding them.<br />
+                            <b>Arcade Quiz</b> - Inspired by my favourite biscuit eaters, the arcade quiz pays tribute to the great guys over @tenpencearcade. Fancy testing you knowledge and seeing how many questions yo ucan get right in a row? The questions are based off the catalog of games with a few extra things thrown in. As the catalog and games expand so will the quiz!<br />
+                            <b>Achievements</b> - A few achievements to encourage experiencing more thatn just your favourite games. More to come!<br />
+                            <br />
+                            <b>Enhancements</b><br />
+                            Speed. Weve been working hard to make the app work faster and the calls to the online database and services should now be much quicker.<br />
+                            The Main menu has been reworked to include the new options and bring Custom Games up to the main level. The UI for adding custom games has also changed slightly.<br />
+                            You can now supply us with more User Information, your twitter handle, youtube channel etc. All this will help us tag you more in high score posts and eventually allow other users to discover your gaming social media accounts.<br />
+                            The clubs screen now displays the social media accounts of that club, so find out the clubs twitter, facebook and other accounts.<br />
+                            Export Data as csv!<br />
+                            Friends are now stored online, so restoring a user should bring back all your friends list.<br />
+                            <br />
+                            <b>Bugs</b><br />
+                            Removal of games with 0 score from highscore comparisons.<br />
+                            (Hopefully) Fixed issues with sign up not giving information as to why details fail to verify.<br />
+                            Can store Custom games with hyphens in the name.<br />
+                            Edited game names where not quite correct.<br />
+                        </li>
+                    </ul>
+                </div>
                 <div data-role="collapsible">
                     <h5>V 2.3.01</h5>
                     <ul data-role="listview" class="ui-listview ui-corner-all">
@@ -958,6 +1029,13 @@
                     <p style="position: absolute;bottom:0;right:0.5em;font-size:70%" id="xp"></p>
                 </div>
             </section>
+            <div class="ui-content" style="padding: 0">
+                <a style="font-size:70%" onclick="NavigateFromMainMenu(this.id)" id="achievements" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c">
+                    <span class="ui-btn-inner ui-btn-corner-all">
+                        <span class="ui-btn-text">Achievements</span>
+                    </span>
+                </a>
+            </div>
             <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
                 <li><span style="float:left">Games played</span><span id="gamesplayed" style="float:right"></span></li>
                 <li><span style="float:left">Games rated</span><span id="gamesrated" style="float:right"></span></li>
@@ -979,6 +1057,7 @@
                 <li><span style="float:left">Run'n'gun</span><span id="runandgunstats" style="float:right"></span></li>
                 <li><span style="float:left">Sport</span><span id="sportsstats" style="float:right"></span></li>
                 <li><span style="float:left">Pinball</span><span id="pinballstats" style="float:right"></span></li>
+                <li><span style="float:left">Vectrex</span><span id="vectrexstats" style="float:right"></span></li>
             </ul>
         </div>
     </div>
@@ -1215,6 +1294,17 @@
                     <span class="ui-li-count">12,000</span>
                 </li>
             </ul>
+        </div>
+    </div>
+    <!-- Achievements-->
+    <div data-role="page" data-theme="a" id="Achievements" class="MainMenu">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 style="font-weight: bold; font-size:100%" ;>Achievements</h1>
+            <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+            <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
+        </div>
+        <div role="main" class="ui-content Page">
+            <ul id="achievementsUl" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all"></ul>
         </div>
     </div>
     <!-- Manage Clubs -->
@@ -1496,6 +1586,58 @@
             </div>
         </div>
     </div>
+    <!-- Arcade Bottom 50 -->
+    <div data-role="page" data-theme="a" id="BottomFifty" class="MainMenu">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 style="font-weight: bold; font-size:100%" ;>Bottom 50</h1>
+            <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+            <a onclick="Settings()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
+        </div>
+        <div role="main" class="ui-content Page">
+            <div data-role="tabs" class="tabs">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a id="ARCADEGAMESBOTTOM" onclick="SetCurrentTab('ARCADEGAMESBOTTOM'); ResizeTop50();" href="#arcadegamesbottom" data-theme="a" data-ajax="false"><span style="font-size:70%">Arcade</span></a></li>
+                        <li><a id="PINBALLGAMESBOTTOM" onclick="SetCurrentTab('PINBALLGAMESBOTTPM'); ResizeTop50();" href="#pinballgamesbottom" data-theme="a" data-ajax="false" class="ui-btn-active"><span style="font-size:70%">Pinball</span></a></li>
+                    </ul>
+                </div>
+                <div id="arcadegamesbottom" class="ui-content" style="padding: 0em">
+                    <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+                        <li style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
+                            <span>
+                                The worst games as voted for by our users (as calculated on a weighted average system). See something you like? give a it a rating and get it off the list:
+                            </span>
+                        </li>
+                    </ul>
+                    <div id="bottomtenratings" class="ui-grid-a">
+                        <div class="ui-block-a" id="ratinggameblockbottom" style="width:80%">
+                            <ul id="allratinggameblockbottom" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                        </div>
+                        <div class="ui-block-b" id="ratingscoreblockbottom" style="width:20%">
+                            <ul id="allratingscoresblockbottom" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="pinballgamesbottom" class="ui-content" style="padding: 0em">
+                    <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+                        <li style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
+                            <span>
+                                The worst pinball games as voted for by our users (as calculated on a weighted average system). See something you like? give a it a rating and get it off the list:
+                            </span>
+                        </li>
+                    </ul>
+                    <div id="bottomtenpinballratings" class="ui-grid-a">
+                        <div class="ui-block-a" id="pinballratinggameblockbottom" style="width:80%">
+                            <ul id="allpinballratinggameblockbottom" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                        </div>
+                        <div class="ui-block-b" id="pinballratingscoreblockbottom" style="width:20%">
+                            <ul id="allpinballratingscoresblockbottom" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Recent -->
     <div data-role="page" data-theme="a" id="Recent" class="MainMenu">
         <div data-role="header" data-position="fixed" data-tap-toggle="false">
@@ -1760,73 +1902,49 @@
                         <li id="subCategory" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Category</li>
                     </ul>
                 </div>
+                <div>
+                    <a onclick="LoadGameplayTips()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" style="margin-top: 16px">
+                        <span class="ui-btn-inner ui-btn-corner-all">
+                            <span class="ui-btn-text">Hints and Tips</span>
+                        </span>
+                    </a>
+                </div>
                 <div id="myrecordcontainer">
                     <ul id="ScoreInfo" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
-                        <li data-role="list-divider" id="mrdivider" style="white-space: normal;text-overflow: clip;" class="ui-corner-top ui-li ui-li-static ui-btn-up-c">Top Score (Simple):</li>
+                        <li data-role="list-divider" id="mrdivider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c ui-corner-top">Top Score:</li>
+                        <li id="myrecord" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c ui-corner-bottom">0</li>
                     </ul>
-                    <div class="scoreinput" id="savescorescore" style="margin: 0;padding: 0;">
-                        <form id="submitScoreForm" action="javascript:DoNothing" onsubmit="SaveLocalScore()">
-                            <div class="ui-grid-a">
-                                <div class="ui-block-a" style="width:100%">
-                                    <input class="ui-corner-bottom" style="margin: 0;" type="number" name="myrecord" id="myrecord" onfocus="BlankScore(); SelectScore();" onchange="SaveLocalScore()" onblur="SaveLocalScore()" />
-                                    <input class="ui-corner-bottom" style="margin: 0;" type="text" name="myrecordText" id="myrecordText" onfocus="BlankScore(); SelectScore();" />
-                                </div>
-                                <div class="ui-block-c" style="width:0%">
-                                    <input type="submit">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                 </div>
                 <div id="myrecordtimecontainer">
                     <ul id="ScoreInfoTime" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
                         <li data-role="list-divider" id="mrtimedivider" style="white-space: normal;text-overflow: clip;" class="ui-corner-top ui-li ui-li-static ui-btn-up-c">My record:</li>
-                    </ul>
-                    <form id="submitTimeForm" action="javascript:DoNothing()" onsubmit="SaveLocalTime();CloseTime();">
-                        <div id="timediv" class="ui-grid-a ui-body-a ui-corner-bottom" style="padding-left: 0.7em; padding-right: 0.7em">
-                            <div class="timeinput ui-block-a" id="minutediv" style="width:33%">
-                                <label for="minutes" class="fieldLabel" style="font-size:50%"> Minutes</label>
-                                <input type="number" id="minutes" maxlength="3" pattern="\d*" onchange="SaveLocalTime()" />
-                            </div>
-                            <div class="ui-block-b" id="seconddiv" style="width:33%">
-                                <label for="seconds" class="fieldLabel" style="font-size:50%"> Seconds</label>
-                                <input type="number" id="seconds" maxlength="2" pattern="\d*" onchange="SaveLocalTime();SaveSeconds()" />
-                            </div>
-                            <div class="ui-block-c" id="microdiv" style="width:34%">
-                                <label for="micro" class="fieldLabel" style="font-size:50%"> Micro</label>
-                                <input type="number" id="micro" maxlength="3" pattern="\d*" onchange="SaveLocalTime();SaveMicro();CloseTime();" />
-                            </div>
-                            <div class="ui-block-d" style="width:0%;display: none">
-                                <input type="submit">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div id="uploadscorebtn">
-                    <a onclick="UploadSingleGameFromGameScreen()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" style="margin-top: 16px">
-                        <span class="ui-btn-inner ui-btn-corner-all">
-                            <span class="ui-btn-text">Upload score</span>
-                        </span>
-                    </a>
-                </div>
-                <div id="detailedScoreButton">
-                    <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
-                        <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">Top Score (detailed):</li>
-                    </ul>
-                    <div class="scoreinput" style="margin: 0;padding: 0;">
-                        <form action="javascript:DoNothing" onsubmit="DoNothing()">
-                            <div class="ui-grid-a ui-corner-bottom">
-                                <div class="ui-block-a ui-corner-bottom" style="width:100%">
-                                    <input id="topDetailedScore" class="ui-corner-bottom" style="margin: 0;" type="text" readonly />
+                        <li class="ui-body-a ui-corner-bottom" style="padding: 0px !important">
+                            <div id="timediv" class="ui-grid-a" style="padding-left: 0.7em; padding-right: 0.7em">
+                                <div class="timeinput ui-block-a" id="minutediv" style="width:33%">
+                                    <label for="minutes" class="fieldLabel" style="font-size:50%"> Minutes</label>
+                                    <p id="minutes">0</p>
+                                </div>
+                                <div class="ui-block-b" id="seconddiv" style="width:33%">
+                                    <label for="seconds" class="fieldLabel" style="font-size:50%"> Seconds</label>
+                                    <p id="seconds">0</p>
+                                </div>
+                                <div class="ui-block-c" id="microdiv" style="width:34%">
+                                    <label for="micro" class="fieldLabel" style="font-size:50%"> Micro</label>
+                                    <p id="micro">0</p>
+                                </div>
+                                <div class="ui-block-d" style="width:0%;display: none">
+                                    <input type="submit">
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="detailedScoreButton">
                     <div class="ui-grid-a">
                         <div class="ui-block-a" style="width:50%">
                             <a onclick="ShowDetailedScoresPage()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" style="margin-top: 16px">
                                 <span class="ui-btn-inner ui-btn-corner-all">
-                                    <span class="ui-btn-text">More details</span>
+                                    <span class="ui-btn-text">More scores</span>
                                 </span>
                             </a>
                         </div>
@@ -1909,6 +2027,52 @@
             </div>
         </div>
     </div>
+    <!-- Gameplay Tips -->
+    <div data-role="page" data-theme="a" id="GameplayTips" class="MainMenu">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 style="font-weight: bold; font-size:100%" ;>Hints and Tips</h1>
+            <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+            <a onclick="AddGameplayTip()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="plus" data-transition="none"></a>
+        </div>
+        <div role="main" class="ui-content Page">
+            <div id="noTips" style="width:100%">
+                <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+                    <li style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
+                        <span>
+                            Im afraid there are no tips for this game just yet, be the first and help your fellow gamers out by leaving what you know!
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div id="gameplayTipsBlock" style="width:100%">
+                <ul id="gameplayTipslist" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+            </div>
+        </div>
+    </div>
+    <!-- New Game play Tip -->
+    <div data-role="page" data-theme="a" id="NewTip" class="MainMenu">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 style="font-weight: bold; font-size:100%" ;>Hints and Tips</h1>
+            <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+        </div>
+        <div role="main" class="ui-content Page">
+            <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+                <li style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
+                    <span>
+                        Enter your game play tip below. It will be available to other gamers once verified and your name posted against it. You have a maximum of 500 characters.
+                    </span>
+                </li>
+            </ul>
+            <div class="ui-field-contain" id="newTipcontents">
+                <textarea class="ui-corner-all" style="margin: 0;" id="newGameplayTip" maxlength="500" rows="10"></textarea>
+            </div>
+            <a onclick="SaveNewGameplayTip()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" style="margin-top: 16px">
+                <span class="ui-btn-inner ui-btn-corner-all">
+                    <span class="ui-btn-text">Submit</span>
+                </span>
+            </a>
+        </div>
+    </div>
     <!-- Submit Detailed Score -->
     <div data-role="page" data-theme="a" id="SubmitDetailedScore" class="MainMenu detailedWholePage">
         <div data-role="header" data-position="fixed" data-tap-toggle="false">
@@ -1977,7 +2141,7 @@
             </ul>
             <div data-role="fieldcontain" style="margin: 0; padding: 0;">
                 <input id="detailedDateBox" type="text" class="ui-corner-bottom" data-role="datebox"
-                       data-options='{"mode":"datebox", "useInline" :true, "hideInput" :true, "beforeToday" :true, "useSetButton" :false}'>
+                       data-options='{"mode":"datebox", "useInline" :true, "hideInput" :true, "beforeToday" :true, "useSetButton" :false, "overrideDateFormat":"%m/%-d/%Y"}'>
             </div>
             <div id="ExistingSettings">
                 <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
@@ -2012,7 +2176,7 @@
                         <input type="text" class="ui-corner-bottom" style="margin: 0;" id="credits" />
                     </div>
                     <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-top" style="margin-bottom: 0em !important">
-                        <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">EMULATED or PCB</li>
+                        <li data-role="list-divider" style="white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c">PCB/EMU/FPGA/XXX in 1</li>
                     </ul>
                     <div id="mameorpcbparent" data-role="fieldcontain" style="margin: 0; padding: 0;">
                         <select id="mameorpcb" data-native-menu="false" data-mini="true"></select>
@@ -2191,9 +2355,11 @@
                         <input type="text" name="newCustomGameName" id="newCustomGameName" value="" required onkeyup="ValidateCustomGameInput()" />
                     </div>
                     <div class="errorTxt" id="customGameError"></div>
-                    <input type="submit" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" value="Save and new" />
+                    <label><input type="checkbox" id="addAdditional" name="addAdditional">Add another</label>
+                    <input type="submit" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" value="Save" />
                 </form>
-                <a onclick="ClosePopup();" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Close without save</span></span></a>
+
+                <a onclick="ClosePopup();" data-role="button" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Close</span></span></a>
             </div>
         </div>
         <div id="EditCustomGame" data-overlay-theme="b" data-dismissible="false" data-role="popup" class="popup ui-corner-all ui-popup ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none" data-position-to="origin">

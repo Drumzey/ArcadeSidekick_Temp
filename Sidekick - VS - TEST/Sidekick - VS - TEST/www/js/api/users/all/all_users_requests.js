@@ -3,29 +3,7 @@
     Get_All_Users_Generic(
         SuccessfulAllUsers,
         UnsuccessfulOnlineCall,
-        function () { StandardCompleteACOnline(); ShowFriendsPopUp(); });
-
-    //var url = newBaseUrl + userUrl + 'all';
-
-    //Call_ArcadeSidekick_Online_Get(
-    //    url,
-    //    SuccessfulAllUsers,
-    //    UnsuccessfulOnlineCall,
-    //    function () { StandardCompleteACOnline(); ShowFriendsPopUp(); },
-    //    'Loading all users.....'
-    //);
-
-    //CallACOnlineWithBodyAndWait(baseUrl + '/getusers',
-    //    'GET',
-    //    null,
-    //    function () {
-    //        SuccessfulAllUsers();
-    //    },
-    //    function () {
-    //        UnsuccessfulOnlineCall();
-    //    },
-    //    function () { StandardCompleteACOnline(); ShowFriendsPopUp(); },
-    //    'Loading all users.....');
+        function () { StandardCompleteACOnline(); });
 }
 
 //All Users With no navigation

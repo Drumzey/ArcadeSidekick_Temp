@@ -12,15 +12,10 @@ function GotoClubs() {
     else {
         SetCurrentTab("MYCLUBS");
     }
-
-    if (allClubs.length === 0) {
-        SideKickOnline_AllClubs();
-    }
-    else {
-        ShowAllClubs(allClubs);
-        NavigateToInternalPage("#Clubs");
-        ShowFirstTimeClubsPopUp();
-    }
+    
+    ShowAllClubs(allClubs);
+    NavigateToInternalPage("#Clubs");
+    ShowFirstTimeClubsPopUp();
 }
 
 //If we cannot connect to the online clubs images then we can just get the default one from the img folder

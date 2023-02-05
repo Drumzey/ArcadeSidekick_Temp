@@ -1,5 +1,9 @@
 ﻿function SaveFriendsOnline() {
 
+    if (!AllowedOnline()) {
+        return;
+    }
+
     var url = newBaseUrl + userUrl + 'update';
 
     var jwt = CreateJWT(clientUserName, emailAddress, secret);
@@ -14,10 +18,9 @@
         'POST',
         body,
         function () {
-            SetNextPopUp(successfulUpdateFriendsPopup);
-            ClosePopup();
         },
         function (err) {
+            alert(err.message);
             UnsuccessfulOnlineCall();
         },
         function () {

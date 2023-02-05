@@ -17,6 +17,25 @@
     }
 }
 
+function SuccessfulArcadeBottom50() {
+    if (latestXHTTP.status === 200) {
+        var response = JSON.parse(latestXHTTP.responseText);
+
+        bottom50ArcadeRatings = GetRatings(response.Arcade);
+        bottom50PinballRatings = GetRatings(response.Pinball);
+
+        SetCurrentTab("ARCADEGAMESBOTTOM");
+        PopulateBottom50Arcade(bottom50ArcadeRatings);
+        PopulateBottom50Pinball(bottom50PinballRatings);
+        NavigateToInternalPage("#BottomFifty");
+        AlterRatingHeights(bottom50ArcadeRatings, "", "rating");
+        AlterRatingHeights(bottom50PinballRatings, "", "rating");
+    }
+    else {
+        UnsuccessfulOnlineCall();
+    }
+}
+
 function GetRatings(ratings)
 {
     var result = [];
@@ -50,6 +69,28 @@ function PopulateTop50Arcade(ratings) {
         "allratingscoresblock",
         "ratinggameblock",
         "ratingscoreblock",
+        ratings
+    );
+}
+
+function PopulateBottom50Pinball(ratings) {
+
+    PopulateTop50(
+        "allpinballratinggameblockbottom",
+        "allpinballratingscoresblockbottom",
+        "pinballratinggameblockbottom",
+        "pinballratingscoreblockbottom",
+        ratings
+    );
+}
+
+function PopulateBottom50Arcade(ratings) {
+
+    PopulateTop50(
+        "allratinggameblockbottom",
+        "allratingscoresblockbottom",
+        "ratinggameblockbottom",
+        "ratingscoreblockbottom",
         ratings
     );
 }

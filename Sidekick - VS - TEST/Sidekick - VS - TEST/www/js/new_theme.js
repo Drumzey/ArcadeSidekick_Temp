@@ -116,9 +116,9 @@ function UpdateTheme() {
 }
 
 function SetNewThemeInUI() {
-    GetItemFromStorageWithCallBack('theme', function (value) {
+    //GetItemFromStorageWithCallBack('theme', function (value) {
 
-        theme = value;
+    //    theme = value;
 
         set_jqm_radio_button_off("radio-choice", "default");
         set_jqm_radio_button_off("radio-choice", "frogger");
@@ -169,5 +169,5 @@ function SetNewThemeInUI() {
 
         Show("#MainMenu");
         $(window).trigger('resize');
-    });
+    //});
 }

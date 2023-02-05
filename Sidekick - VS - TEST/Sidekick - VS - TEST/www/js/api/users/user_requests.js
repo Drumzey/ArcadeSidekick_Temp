@@ -27,83 +27,13 @@ function PostUpdateOnline() {
         'Updating info...');
 }
 
-//VERIFY RETURNING USER
-function SideKickOnline_VerifyReturningUser(userName, email, proposedsecret) {
-    var jwt = CreateJWT(userName, email, proposedsecret);
-
-    var url = newBaseUrl + userUrl + 'verify';
-
-    var body =
-        {
-            'Username': userName,
-            'EmailAddress': email
-        };
-
-    Call_ArcadeSidekick_Online_Post(
-        url,
-        body,
-        function () {
-            clientUserName = userName;
-            emailAddress = email;
-            secret = proposedsecret;
-            SetItemInStorage("userName", userName);
-            SetItemInStorage("emailAddress", emailAddress);
-            SetItemInStorage("secret", proposedsecret);
-            SideKickOnline_RestoreUser(userName, emailAddress, proposedsecret);
-        },
-        function () {
-            StandardCompleteACOnline();
-            UnsuccessfulVerifyUser();
-        },
-        function () { /* DO NOTHING AS WE ARE WAITING ON ANOTHER CALL*/ },
-        "Verifying user...",
-        jwt);
-}
-
-// RESTORE USER - 
-function SideKickOnline_RestoreUser(username, email, secret) {
-
-    var url = newBaseUrl + userUrl + 'restore?username=' + username;
-
-    Call_ArcadeSidekick_Online_Get(
-        url,
-        function () {
-            ProcessMyGames();
-            SuccessfulGetProfileStats();
-            SetNextPopUp(successOnlinePopup);
-            var response = JSON.parse(latestXHTTP.responseText);
-            SetUserNameAndEmailInSetup(username, emailAddress, response.TwitterHandle, response.DOB, response.YouTubeChannel, response.Location);
-            twitterHandle = response.TwitterHandle;
-            playerdob = response.DOB;
-            playeryoutubeChannel = response.YouTubeChannel;
-            playerlocation = response.Location;
-            friendsCollection = response.Friends;
-            if (friendsCollection === null)
-            {
-                friendsCollection = [];
-            }
-            //Add me back into friends list
-            friendsCollection.push(username);
-            SetItemInStorage("friends", friendsCollection);
-            SetItemInStorage("twitterHandle", response.TwitterHandle);
-            SetItemInStorage("dob", response.DOB);
-            SetItemInStorage("location", response.location);
-            SetItemInStorage("youtubechannel", response.YouTubeChannel);
-            ProcessRestoredDetailedScores(response.DetailedScores, response.DetailedSettings);
-            Hide('#verifyuserbutton'); //Show verified button in setup
-        },
-        UnsuccessfulOnlineCall,
-        function () {
-            //If we have navigated to clubs then we can calculate our admin roles
-            if (allClubs.length !== 0) {
-                GetMyClubAdmins(allClubs);
-                ClosePopup();
-                StandardCompleteACOnline();
-            }
-            else {
-                //we need to call 
-                SideKickOnline_AllClubsFromRestore();
-            }
-        },
-        'Restoring data...');
+function SetItemsInStorage(username, friendsCollection, twitterHandle, dob, location, youtube) {
+    //Add me back into friends list
+    friendsCollection.push(username);
+    SetItemInStorage("friends", friendsCollection);
+    SetItemInStorage("twitterHandle", twitterHandle);
+    SetItemInStorage("dob", dob);
+    SetItemInStorage("location", location);
+    SetItemInStorage("youtubechannel", youtube);
+    Hide('#verifyuserbutton'); //Show verified button in setup
 }

@@ -1,4 +1,16 @@
-﻿function UnsuccessfulOnlineCall() {
+﻿function UnsuccessfulStartupOnlineCall() {
+    //Quit the current pop up routine if there is one
+    if (popupopen === 1) {
+        popupsOnStartup = [];
+        SetNextPopUp(errorStartupOnlinePopup);
+        ClosePopup();
+    }
+    else {
+        CreatePopup(errorStartupOnlinePopup);
+    }
+}
+
+function UnsuccessfulOnlineCall() {
     //Quit the current pop up routine if there is one
     if (popupopen === 1) {
         popupsOnStartup = [];

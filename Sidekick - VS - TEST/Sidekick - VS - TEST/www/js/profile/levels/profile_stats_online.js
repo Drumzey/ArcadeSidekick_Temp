@@ -1,35 +1,8 @@
-﻿function SideKickOnline_GetProfileStatsOnStartUp() {
-    CallACOnlineWithBodyAndWait(baseUrl + '/profile/stats?username=' + clientUserName,
-        'GET',
-        null,
-        function () {
-            SuccessfulGetProfileStats();
-        },
-        function () {
-            startuphaserrored = true;
-        },
-        function () {
-            onlineCalls--;
+﻿function SideKickOnline_SetProfileStats(body) {
 
-            if (onlineCalls === 0) {
-                if (startuphaserrored) {
-                    UnsuccessfulOnlineCall();
-                    StandardCompleteACOnline();
-                }
-                else {
-                    CompletedStartUp();
-                }
-            }
-        },
-        'Please wait.....');
-}
-
-function SideKickOnline_SetProfileStats(body) {
-
-    //GetItemFromStorageWithCallBack("secret", function (secretValue) {
     var jwt = CreateJWT(clientUserName, emailAddress, secret);
 
-    CallACOnlineWithBody(baseUrl + '/profile/stats',
+    CallACOnlineWithBody(newBaseUrl + accountUserUrl + 'profile',
         'POST',
         body,
         function () {
@@ -41,5 +14,4 @@ function SideKickOnline_SetProfileStats(body) {
         function () {
         },
         jwt);
-    //});
 }

@@ -204,5 +204,7 @@ function OnClickStar(datavote) {
                 break;
             }
         }
+
+        CalculateLocalStatistics();
     }
 }
