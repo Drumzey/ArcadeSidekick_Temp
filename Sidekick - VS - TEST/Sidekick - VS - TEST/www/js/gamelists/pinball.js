@@ -3577,3 +3577,63 @@ gameCatalog['Iron Maiden Legacy Of The Beast'].name = 'Iron Maiden Legacy Of The
 gameCatalog['Iron Maiden Legacy Of The Beast'].developer = 'Stern';
 gameCatalog['Iron Maiden Legacy Of The Beast'].release = '2018';
 gameCatalog['Iron Maiden Legacy Of The Beast'].category = 'pinball';
+
+gameCatalog['Willy Wonka and the Chocolate Factory'] = new Game();
+gameCatalog['Willy Wonka and the Chocolate Factory'].name = 'Willy Wonka and the Chocolate Factory';
+gameCatalog['Willy Wonka and the Chocolate Factory'].developer = 'Jersey Jack';
+gameCatalog['Willy Wonka and the Chocolate Factory'].release = '2019';
+gameCatalog['Willy Wonka and the Chocolate Factory'].category = 'pinball';
+
+gameCatalog['Guardians Of The Galaxy'] = new Game();
+gameCatalog['Guardians Of The Galaxy'].name = 'Guardians Of The Galaxy';
+gameCatalog['Guardians Of The Galaxy'].developer = 'Stern';
+gameCatalog['Guardians Of The Galaxy'].release = '2017';
+gameCatalog['Guardians Of The Galaxy'].category = 'pinball';
+
+gameCatalog['Devil Riders'] = new Game();
+gameCatalog['Devil Riders'].name = 'Devil Riders';
+gameCatalog['Devil Riders'].developer = 'Zaccaria';
+gameCatalog['Devil Riders'].release = '1984';
+gameCatalog['Devil Riders'].category = 'pinball';
+
+gameCatalog['Jacks Open'] = new Game();
+gameCatalog['Jacks Open'].name = 'Jacks Open';
+gameCatalog['Jacks Open'].developer = 'Gottlieb';
+gameCatalog['Jacks Open'].release = '1977';
+gameCatalog['Jacks Open'].category = 'pinball';
+
+gameCatalog['Pistol Poker'] = new Game();
+gameCatalog['Pistol Poker'].name = 'Pistol Poker';
+gameCatalog['Pistol Poker'].developer = 'Alvin G and Company';
+gameCatalog['Pistol Poker'].release = '1993';
+gameCatalog['Pistol Poker'].category = 'pinball';
+
+gameCatalog['Earthshaker'] = new Game();
+gameCatalog['Earthshaker'].name = 'Earthshaker';
+gameCatalog['Earthshaker'].developer = 'Williams';
+gameCatalog['Earthshaker'].release = '1989';
+gameCatalog['Earthshaker'].category = 'pinball';
+
+gameCatalog['Millionaire (Williams)'] = new Game();
+gameCatalog['Millionaire (Williams)'].name = 'Millionaire (Williams)';
+gameCatalog['Millionaire (Williams)'].developer = 'Williams';
+gameCatalog['Millionaire (Williams)'].release = '1987';
+gameCatalog['Millionaire (Williams)'].category = 'pinball';
+
+gameCatalog['Rick and Morty'] = new Game();
+gameCatalog['Rick and Morty'].name = 'Rick and Morty';
+gameCatalog['Rick and Morty'].developer = 'Spooky Pinball';
+gameCatalog['Rick and Morty'].release = '2020';
+gameCatalog['Rick and Morty'].category = 'pinball';
+
+gameCatalog['Scooby Doo'] = new Game();
+gameCatalog['Scooby Doo'].name = 'Scooby Doo';
+gameCatalog['Scooby Doo'].developer = 'Spooky Pinball';
+gameCatalog['Scooby Doo'].release = '2022';
+gameCatalog['Scooby Doo'].category = 'pinball';
+
+gameCatalog['Deadpool'] = new Game();
+gameCatalog['Deadpool'].name = 'Deadpool';
+gameCatalog['Deadpool'].developer = 'Stern';
+gameCatalog['Deadpool'].release = '2018';
+gameCatalog['Deadpool'].category = 'pinball';

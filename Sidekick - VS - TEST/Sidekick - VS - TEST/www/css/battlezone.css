@@ -133,6 +133,10 @@ body {
     background: url(../img/category_icons/topfifty.png), url(themes/images/buttons/battlezone_btn.png);
 }
 
+.bottomfifty {
+    background: url(../img/category_icons/bottomfifty.png), url(themes/images/buttons/battlezone_btn.png);
+}
+
 .friends {
     background: url(../img/category_icons/friends.png), url(themes/images/buttons/battlezone_btn.png);
 }

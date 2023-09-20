@@ -132,6 +132,10 @@ body {
     background: url(../img/category_icons/topfifty.png), url(themes/images/buttons/qix_btn1.png);
 }
 
+.bottomfifty {
+    background: url(../img/category_icons/bottomfifty.png), url(themes/images/buttons/qix_btn2.png);
+}
+
 .friends {
     background: url(../img/category_icons/friends.png), url(themes/images/buttons/qix_btn2.png);
 }

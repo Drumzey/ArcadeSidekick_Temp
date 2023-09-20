@@ -9772,6 +9772,135 @@ gameCatalog['Solar Fight'].developer = 'Unknown';
 gameCatalog['Solar Fight'].release = '1979';
 gameCatalog['Solar Fight'].players = '2';
 gameCatalog['Solar Fight'].category = 'shooter';
+
+gameCatalog['Bomb Jack Twin'] = new Game();
+gameCatalog['Bomb Jack Twin'].name = 'Bomb Jack Twin';
+gameCatalog['Bomb Jack Twin'].developer = 'NMK';
+gameCatalog['Bomb Jack Twin'].release = '1993';
+gameCatalog['Bomb Jack Twin'].players = '2';
+gameCatalog['Bomb Jack Twin'].category = 'platformer';
+
+gameCatalog['Air Duel'] = new Game();
+gameCatalog['Air Duel'].name = 'Air Duel';
+gameCatalog['Air Duel'].developer = 'Irem';
+gameCatalog['Air Duel'].release = '1990';
+gameCatalog['Air Duel'].players = '2';
+gameCatalog['Air Duel'].category = 'shooter';
+
+gameCatalog['Spin Master'] = new Game();
+gameCatalog['Spin Master'].name = 'Spin Master';
+gameCatalog['Spin Master'].developer = 'Dataeast';
+gameCatalog['Spin Master'].release = '1993';
+gameCatalog['Spin Master'].players = '2';
+gameCatalog['Spin Master'].category = 'platformer';
+gameCatalog['Spin Master'].alternativeName = 'Miracle Adventure';
+
+gameCatalog['Pnickies'] = new Game();
+gameCatalog['Pnickies'].name = 'Pnickies';
+gameCatalog['Pnickies'].developer = 'Capcom';
+gameCatalog['Pnickies'].release = '1994';
+gameCatalog['Pnickies'].players = '2';
+gameCatalog['Pnickies'].category = 'puzzle';
+
+gameCatalog['Radiant Silvergun'] = new Game();
+gameCatalog['Radiant Silvergun'].name = 'Radiant Silvergun';
+gameCatalog['Radiant Silvergun'].developer = 'Sega';
+gameCatalog['Radiant Silvergun'].release = '1998';
+gameCatalog['Radiant Silvergun'].players = '2';
+gameCatalog['Radiant Silvergun'].category = 'shooter';
+
+gameCatalog['Ring King'] = new Game();
+gameCatalog['Ring King'].name = 'Ring King';
+gameCatalog['Ring King'].developer = 'Nihon Bussan';
+gameCatalog['Ring King'].release = '1985';
+gameCatalog['Ring King'].players = '2';
+gameCatalog['Ring King'].category = 'sports';
+gameCatalog['Ring King'].alternativeName = 'King Of Boxer';
+
+gameCatalog['Neo Mr Do!'] = new Game();
+gameCatalog['Neo Mr Do!'].name = 'Neo Mr Do!';
+gameCatalog['Neo Mr Do!'].developer = 'Visco';
+gameCatalog['Neo Mr Do!'].release = '1995';
+gameCatalog['Neo Mr Do!'].players = '2';
+gameCatalog['Neo Mr Do!'].category = 'maze';
+
+gameCatalog['Dragon Breed'] = new Game();
+gameCatalog['Dragon Breed'].name = 'Dragon Breed';
+gameCatalog['Dragon Breed'].developer = 'Irem';
+gameCatalog['Dragon Breed'].release = '1989';
+gameCatalog['Dragon Breed'].players = '2';
+gameCatalog['Dragon Breed'].category = 'shooter';
+
+gameCatalog['Space Tactics'] = new Game();
+gameCatalog['Space Tactics'].name = 'Space Tactics';
+gameCatalog['Space Tactics'].developer = 'Sega';
+gameCatalog['Space Tactics'].release = '1980';
+gameCatalog['Space Tactics'].players = '1';
+gameCatalog['Space Tactics'].category = 'shooter';
+
+gameCatalog['Charlie Ninja'] = new Game();
+gameCatalog['Charlie Ninja'].name = 'Charlie Ninja';
+gameCatalog['Charlie Ninja'].developer = 'Mitchell';
+gameCatalog['Charlie Ninja'].release = '1994';
+gameCatalog['Charlie Ninja'].players = '2';
+gameCatalog['Charlie Ninja'].category = 'beatemup';
+
+gameCatalog['Mutant Night'] = new Game();
+gameCatalog['Mutant Night'].name = 'Mutant Night';
+gameCatalog['Mutant Night'].developer = 'UPL';
+gameCatalog['Mutant Night'].release = '1987';
+gameCatalog['Mutant Night'].players = '2';
+gameCatalog['Mutant Night'].category = 'runandgun';
+
+gameCatalog['Ben Bero Beh'] = new Game();
+gameCatalog['Ben Bero Beh'].name = 'Ben Bero Beh';
+gameCatalog['Ben Bero Beh'].developer = 'Taito';
+gameCatalog['Ben Bero Beh'].release = '1984';
+gameCatalog['Ben Bero Beh'].players = '2';
+gameCatalog['Ben Bero Beh'].category = 'platformer';
+
+gameCatalog['Exzisus'] = new Game();
+gameCatalog['Exzisus'].name = 'Exzisus';
+gameCatalog['Exzisus'].developer = 'Taito';
+gameCatalog['Exzisus'].release = '1987';
+gameCatalog['Exzisus'].players = '2';
+gameCatalog['Exzisus'].category = 'shooter';
+
+gameCatalog['Kick-Man'] = new Game();
+gameCatalog['Kick-Man'].name = 'Kick-Man';
+gameCatalog['Kick-Man'].developer = 'Midway';
+gameCatalog['Kick-Man'].release = '1981';
+gameCatalog['Kick-Man'].players = '2';
+gameCatalog['Kick-Man'].category = 'misc';
+
+gameCatalog['Shienryu'] = new Game();
+gameCatalog['Shienryu'].name = 'Shienryu';
+gameCatalog['Shienryu'].developer = 'Warashi';
+gameCatalog['Shienryu'].release = '1997';
+gameCatalog['Shienryu'].players = '2';
+gameCatalog['Shienryu'].category = 'shooter';
+
+gameCatalog['Star Wars The Empire Strikes Back'] = new Game();
+gameCatalog['Star Wars The Empire Strikes Back'].name = 'Star Wars The Empire Strikes Back';
+gameCatalog['Star Wars The Empire Strikes Back'].developer = 'Atari';
+gameCatalog['Star Wars The Empire Strikes Back'].release = '1985';
+gameCatalog['Star Wars The Empire Strikes Back'].players = '1';
+gameCatalog['Star Wars The Empire Strikes Back'].category = 'shooter';
+
+gameCatalog['Tac/Scan'] = new Game();
+gameCatalog['Tac/Scan'].name = 'Tac/Scan';
+gameCatalog['Tac/Scan'].developer = 'Sega';
+gameCatalog['Tac/Scan'].release = '1982';
+gameCatalog['Tac/Scan'].players = '2';
+gameCatalog['Tac/Scan'].category = 'shooter';
+
+gameCatalog['Saint Dragon'] = new Game();
+gameCatalog['Saint Dragon'].name = 'Saint Dragon';
+gameCatalog['Saint Dragon'].developer = 'Jaleco';
+gameCatalog['Saint Dragon'].release = '1989';
+gameCatalog['Saint Dragon'].players = '2';
+gameCatalog['Saint Dragon'].category = 'shooter';
+
 // Videos
 // These have to be here as when this data goes live on the server the users may not have the latest version
 // of the code and datatype in the app so we need to wrpa this for now until everyone updates
@@ -10434,6 +10563,32 @@ try {
     gameCatalog['Dual Assault'].dateAdded = new Date(Date.UTC(2022, 7, 26)).toUTCString();
     gameCatalog['Gorkans'].dateAdded = new Date(Date.UTC(2022, 7, 26)).toUTCString();
     gameCatalog['Solar Fight'].dateAdded = new Date(Date.UTC(2022, 7, 26)).toUTCString();
+
+    gameCatalog['Bomb Jack Twin'].dateAdded = new Date(Date.UTC(2022, 9, 24)).toUTCString();
+    gameCatalog['Air Duel'].dateAdded = new Date(Date.UTC(2022, 9, 24)).toUTCString();
+
+    gameCatalog['Spin Master'].dateAdded = new Date(Date.UTC(2022, 10, 14)).toUTCString();
+    gameCatalog['Pnickies'].dateAdded = new Date(Date.UTC(2022, 10, 14)).toUTCString();
+    gameCatalog['Radiant Silvergun'].dateAdded = new Date(Date.UTC(2022, 10, 14)).toUTCString();
+    gameCatalog['Ring King'].dateAdded = new Date(Date.UTC(2022, 10, 14)).toUTCString();
+    gameCatalog['Neo Mr Do!'].dateAdded = new Date(Date.UTC(2022, 10, 14)).toUTCString();
+
+    gameCatalog['Dragon Breed'].dateAdded = new Date(Date.UTC(2023, 0, 6)).toUTCString();
+
+    gameCatalog['Space Tactics'].dateAdded = new Date(Date.UTC(2023, 0, 19)).toUTCString();
+    gameCatalog['Charlie Ninja'].dateAdded = new Date(Date.UTC(2023, 0, 29)).toUTCString();
+
+    gameCatalog['Mutant Night'].dateAdded = new Date(Date.UTC(2023, 1, 27)).toUTCString();
+    gameCatalog['Ben Bero Beh'].dateAdded = new Date(Date.UTC(2023, 1, 27)).toUTCString();
+
+    gameCatalog['Exzisus'].dateAdded = new Date(Date.UTC(2023, 2, 18)).toUTCString();
+
+    gameCatalog['Kick-Man'].dateAdded = new Date(Date.UTC(2023, 3, 4)).toUTCString();
+    gameCatalog['Shienryu'].dateAdded = new Date(Date.UTC(2023, 3, 19)).toUTCString();
+
+    gameCatalog['Star Wars The Empire Strikes Back'].dateAdded = new Date(Date.UTC(2023, 7, 4)).toUTCString();
+    gameCatalog['Tac/Scan'].dateAdded = new Date(Date.UTC(2023, 7, 4)).toUTCString();
+    gameCatalog['Saint Dragon'].dateAdded = new Date(Date.UTC(2023, 7, 4)).toUTCString();
 }
 catch (err) {
     console.log(err);

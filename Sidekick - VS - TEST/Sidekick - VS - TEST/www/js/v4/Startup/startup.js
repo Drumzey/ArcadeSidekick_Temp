@@ -10,11 +10,15 @@ function init() {
     Hide('#uploadScoresMainMenu');
 
     // TEST ONLY
-    // clientUserName = "HAYLEYVOZ";
-    // emailAddress = "hayley.vosvenieks@gmail.com";
-    // secret = "29aVbiB4Ek4wdWbJtKxvlO7HYrE60tnX5cYF7z0HH90=";
-    // firstTime = "no";
-
+    //clientUserName = "HAYLEYVOZ";
+    //emailAddress = "hayley.vosvenieks@gmail.com";
+    //secret = "29aVbiB4Ek4wdWbJtKxvlO7HYrE60tnX5cYF7z0HH90=";
+    //firstTime = "no";
+    //currentRecord.verified = true;
+    //currentRecord.played.push("amidar");
+    //currentRecord.played.push("turtles");
+    //currentRecord.played.push("berzerk");
+    
     //friendsCollection.push("SHAUNHOLLEY");
     //friendsCollection.push("DRUMZEY");
     //friendsCollection.push("CHARLIEFAR");
