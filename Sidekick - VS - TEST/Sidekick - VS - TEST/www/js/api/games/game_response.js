@@ -38,10 +38,10 @@ function Successful_SidekickOnline_GetExistingSettings()
     if (latestXHTTP.status === 200) {
         var response = JSON.parse(latestXHTTP.responseText);
 
-        //We want to add a setting for those users who dont/want need a set up settings information
+        //The i dont know setting is the defautl for each game
         $('#existingsetting').append($('<option>', {
             value: "I dont know",
-            text: "I dont know"
+            text: "Default"
         }));
 
         $('#existingsetting').append($('<option>', {

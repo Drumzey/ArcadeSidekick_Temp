@@ -49,6 +49,9 @@
 
     <script type="text/javascript" src="js/v4/Users/users.js"></script>
 
+    <script type="text/javascript" src="js/v4/UserDetails/popups.js"></script>
+    <script type="text/javascript" src="js/v4/UserDetails/userdetails.js"></script>
+
     <script type="text/javascript" src="js/v4/Venues/Venues.js"></script>
 
     <script type="text/javascript" src="js/v4/Quiz/Quiz.js"></script>
@@ -93,8 +96,6 @@
     <script type="text/javascript" src="js/api/system/recent/online_response.js"></script>
     <script type="text/javascript" src="js/api/clubs/club_requests.js"></script>
     <script type="text/javascript" src="js/api/clubs/club_response.js"></script>
-    <script type="text/javascript" src="js/api/users/user_requests.js"></script>
-    <script type="text/javascript" src="js/api/users/user_response.js"></script>
     <script type="text/javascript" src="js/api/users/all/all_users_requests.js"></script>
     <script type="text/javascript" src="js/api/users/create/create_requests.js"></script>
     <script type="text/javascript" src="js/api/users/forgot/forgot_requests.js"></script>
@@ -117,8 +118,6 @@
     <script type="text/javascript" src="js/ui/system/help/help.js"></script>
     <script type="text/javascript" src="js/ui/system/help/help_popups.js"></script>
     <script type="text/javascript" src="js/ui/users/create/create_user.js"></script>
-    <script type="text/javascript" src="js/ui/users/profile/popups.js"></script>
-    <script type="text/javascript" src="js/ui/users/profile/userinfo.js"></script>
     <script type="text/javascript" src="js/ui/users/friends/friends.js"></script>
     <script type="text/javascript" src="js/ui/users/friends/head2head.js"></script>
     <!-- CUSTOM SCRIPTS-->
@@ -1880,7 +1879,7 @@
                 <h1 id="gamebannertitle" style="font-weight: bold; font-size:100%"></h1>
                 <img id="gamebanner" class="banner" style="font-weight: bold; font-size:100%" />
             </div>
-            <a onclick="NavigateBack();" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+            <a onclick="SetCurrentTab(lastCategoryGamesTab);NavigateBack();" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
             <a onclick="Settings();" data-iconpos="notext" data-mini="true" data-role="button" data-icon="gear" data-transition="none"></a>
         </div>
         <div role="main" class="ui-content Page">

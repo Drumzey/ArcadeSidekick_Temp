@@ -65,22 +65,21 @@ function AddDetailedScores(output, gamekey) {
     }
 
     for (var key in scoreCategories) {
-        if (key === "Unknown settings") //Put unknowns at the end
+        if (key === "Default settings") {
+            if (scoreCategories.hasOwnProperty(key)) {
+                output = GetDetailedItem(output, scoreCategories, "Default settings");
+            }
+        }
+    }
+
+    for (var key in scoreCategories) {
+        if (key === "Default settings")
             continue;
 
         if (scoreCategories.hasOwnProperty(key)) {
             output = GetDetailedItem(output, scoreCategories, key);
         }
-    }
-
-    for (var key in scoreCategories) {
-        if (key === "Unknown settings") //Put unknowns at the end
-        {
-            if (scoreCategories.hasOwnProperty(key)) {
-                output = GetDetailedItem(output, scoreCategories, key);
-            }
-        }
-    }
+    }    
 
     return output;
 }
@@ -433,7 +432,7 @@ function SettingName(scoreItem)
 
     if (settingParts.length === 0)
     {
-        return "Unknown settings";
+        return "Default settings";
     }
 
     return settingParts.join(' - ');

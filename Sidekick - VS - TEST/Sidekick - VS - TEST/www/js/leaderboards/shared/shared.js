@@ -165,11 +165,13 @@ function PopulateLeaderboardScoreSettingDropDown(settings, section)
 
     $(dropdown).find('option').remove();
 
+    // We will always have the all setting, highest score from any category
     $(dropdown).append($('<option>', {
         value: "Unknown",
         text: "All"
     }));
 
+    // For each other setting, including the default if its there
     for (var i = 0; i < settings.length; i++) {
         $(dropdown).append($('<option>', {
             value: settings[i][0],

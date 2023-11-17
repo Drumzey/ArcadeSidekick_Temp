@@ -1,5 +1,4 @@
 ﻿gameCatalog['Alien vs Predator'] = new Game();
-gameCatalog['Alien vs Predator'] = new Game();
 gameCatalog['Alien vs Predator'].name = 'Alien vs Predator';
 gameCatalog['Alien vs Predator'].developer = 'Capcom';
 gameCatalog['Alien vs Predator'].release = '1994';

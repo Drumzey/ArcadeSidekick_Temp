@@ -121,11 +121,11 @@ function ChangeLeaderboardSettings(section) {
         return;
     }
 
-    //Not an unknown setting
+    //Not an unknown setting - default or otherwise
     var scoresForNewSetting = [];
 
     for (var i = 0; i < scoresDetailed.length; i++) {
-        if (scoresDetailed[i][0] === setting) {
+        if (scoresDetailed[i][0] == setting) {
             scoresForNewSetting.push([scoresDetailed[i][1], scoresDetailed[i][2], scoresDetailed[i][3]]);
         }
     }

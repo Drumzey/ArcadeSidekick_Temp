@@ -62,7 +62,7 @@ function ChangeLeaderboardClub(clubOverride) {
     var allScores = GetClubScores(allClubsScores, clubName, false);
     //var detailedScores = GetClubScores(allClubsDetailedScores, clubName, true);
     //Find out what settings Id's are used for this club
-    HideSettings(allClubsDetailedScores, clubName);
+    //HideSettings(allClubsDetailedScores, clubName);
     //Change the drop down to All
     $('#clubsScoreSettings').val($('#clubsScoreSettings option:first').val());
     $('#clubsScoreSettings').selectmenu("refresh", true);

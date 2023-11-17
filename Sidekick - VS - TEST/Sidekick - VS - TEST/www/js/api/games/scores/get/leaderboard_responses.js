@@ -35,11 +35,23 @@ function ProcessDetailedScores(clubOverride)
 
     for (var categoryProp in response.SimpleScores) {
 
-        //If we are the unknown category then skip as we have done these already
-        if (categoryProp === "Unknown")
-            continue;
+        if (categoryProp === "Unknown") {
+            // If any of the submissions have a level name then we know they have been submitted as default scores
+            for (var scoreProp in response.SimpleScores[categoryProp]) {
+                if (response.SimpleScores[categoryProp].hasOwnProperty(scoreProp)) {
+                    if (response.SimpleScores[categoryProp][scoreProp].Score !== "0" &&
+                        response.SimpleScores[categoryProp][scoreProp].Score !== 0) {
 
-        if (response.SimpleScores.hasOwnProperty(categoryProp)) {
+                        // if we have a level name we know this was entered as a detailed score under the default category
+                        if (response.SimpleScores[categoryProp][scoreProp].LevelName !== "") {
+                            //Add to the scoreCategories Array - setting 0 is the default setting
+                            allDetailedScores.push([0, response.SimpleScores[categoryProp][scoreProp].UserName, response.SimpleScores[categoryProp][scoreProp].Score, response.SimpleScores[categoryProp][scoreProp].LevelName]);
+                        }
+                    }
+                }
+            }
+        }
+        else if (response.SimpleScores.hasOwnProperty(categoryProp)) {
             for (var scoreProp in response.SimpleScores[categoryProp]) {
                 if (response.SimpleScores[categoryProp].hasOwnProperty(scoreProp)) {
                     if (response.SimpleScores[categoryProp][scoreProp].Score !== "0" &&
@@ -191,25 +203,37 @@ function AssignSettings(response, detailedScores, section, key) {
     }
 
     //If we have more than 1 setting we need to show the drop down
-    var numberOfSettings = 0;
+    var numberOfAdditionalSettings = 0;
     var settingDescriptions = [];
     for (var settingProp in response.Setting) {
         if (response.Setting.hasOwnProperty(settingProp)) {
-
             //Do any of our friends scores have this settingId?
-            if (settingsFound.indexOf(settingProp) === -1) {
+            var settingProperty = settingProp;
+            if (settingProp === "Unknown")
+            {
+                settingProperty = 0;
+            }
+
+            if (settingsFound.indexOf(settingProperty) === -1) {
                 continue;
             }
 
-            //We have a setting
-            numberOfSettings++;
-            var description = ToSettingString(response.Setting[settingProp]);
-            settingDescriptions.push([response.Setting[settingProp].SettingsId, description]);
+            //We have a setting that is non default
+            numberOfAdditionalSettings++;
+
+            // If we have an unknown setting then we must have a score submitted with that setting
+            if (settingProp === "Unknown") {
+                settingDescriptions.unshift([response.Setting["Unknown"].SettingsId, "Default"]);
+            }
+            else {
+                var description = ToSettingString(response.Setting[settingProp]);
+                settingDescriptions.push([response.Setting[settingProp].SettingsId, description]);
+            }
         }
     }
 
     //Populate or remove the settings drop down box from the global leaderboards.
-    if (numberOfSettings === 0) {
+    if (numberOfAdditionalSettings === 0) {
         Hide(section);
     }
     else {
@@ -302,7 +326,7 @@ function DisplayClubsScores(clubOverride) {
     //Get all scores for the first club
     var clubScores = GetClubScores(allClubsScores, firstClub, false);
     //Get settings for the first clubs scores
-    HideSettings(allClubsDetailedScores, firstClub);
+    //HideSettings(allClubsDetailedScores, firstClub);
 
     //Only Full game scores
     var scores = GetLevelScores(clubScores, "FULL GAME");
@@ -425,6 +449,13 @@ function HideLevels(scores, clubName)
         {
             levels.push(tempScore[i][3]);
         }
+    }
+
+    if (levels.length === 1) {
+        //Set the drop down to FULL GAME
+        $('#clubsScoreLevels').val($('#clubsScoreLevels option:first').val());
+        Hide('#clubsScoreLevelsParent');
+        return;
     }
 
     Show('#clubsScoreLevelsParent');

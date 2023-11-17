@@ -208,6 +208,17 @@ function ProcessPersonalDetails(response) {
     SetItemsInStorage(response.Username, friendsCollection, twitterHandle, playerdob, playerlocation, playeryoutubeChannel);
 }
 
+function SetItemsInStorage(username, friendsCollection, twitterHandle, dob, location, youtube) {
+    //Add me back into friends list
+    friendsCollection.push(username);
+    SetItemInStorage("friends", friendsCollection);
+    SetItemInStorage("twitterHandle", twitterHandle);
+    SetItemInStorage("dob", dob);
+    SetItemInStorage("location", location);
+    SetItemInStorage("youtubechannel", youtube);
+    Hide('#verifyuserbutton'); //Show verified button in setup
+}
+
 function ProcessFriendsDetails(friendsDetails) {
     if (friendsCollection === null) {
         friendsCollection = [];
