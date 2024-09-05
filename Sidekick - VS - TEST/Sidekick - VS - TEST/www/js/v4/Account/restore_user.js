@@ -83,10 +83,19 @@ function SideKickOnline_RestoreUser() {
             var response = JSON.parse(latestXHTTP.responseText);
             var myProfile = response.Me;
             var friendsGames = response.Friends;
+            var newMessages = response.NewMessages;
+            var oldMessages = response.OldMessages;
 
+            ProcessMyMessages(newMessages, oldMessages);
             ProcessMyDetails(myProfile);
             ProcessFriendsDetails(friendsGames);
-            SetNextPopUp(successOnlinePopup);
+            if (myNotifications.length === 0) {
+                SetNextPopUp(successOnlinePopup);
+            }
+            else
+            {
+                SetNextPopUp(successOnlinePopupWithMessages);
+            }
             ClosePopup();
         },
         UnsuccessfulOnlineCall,
@@ -109,6 +118,23 @@ function ProcessMyDetails(responseBody) {
     ProcessClubs(responseBody);
     SuccessfulGetProfileStatsFromRestore(responseBody);
     ProcessPersonalDetails(responseBody);
+}
+
+function ProcessMyMessages(newMessages, oldMessages) {
+
+    if (latestXHTTP.status !== 200) {
+        UnsuccessfulOnlineCall();
+        return;
+    }
+    
+    myNotifications = newMessages;
+    myOldNotifications = oldMessages;
+    if (myNotifications.length === 0) {
+        $('#notifications').attr('data-badge', '');
+    }
+    else {
+        $('#notifications').attr('data-badge', myNotifications.length);
+    }
 }
 
 function ProcessGames(response) {

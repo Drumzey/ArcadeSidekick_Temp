@@ -59,13 +59,13 @@ function PopulateNotifications() {
         //Draw new notifications        
         GetNotificationCategories();
         DrawNotifications(generalNewsNotification);
-        DrawNotifications(scoreBeatenNotification);
-        DrawNotifications(challengeNotification);
         DrawNotifications(clubChallengeNotification);
         DrawNotifications(clubEventsNotification);
         DrawNotifications(clubNewsNotification);
         DrawNotifications(clubInviteNotification);
         DrawNotifications(clubJoinNotification);
+        DrawNotifications(scoreBeatenNotification);
+        DrawNotifications(challengeNotification);        
         DrawNotifications(otherNotification);
     }
 
@@ -161,6 +161,7 @@ function DrawNotifications(array, old) {
         }
 
         item = item.replace("***TEXT***", array[i].Text);
+        item = item.replace("***FROM***", array[i].From);
 
         output.push(item);
     }

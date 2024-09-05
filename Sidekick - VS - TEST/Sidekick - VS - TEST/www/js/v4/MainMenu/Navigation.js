@@ -23,6 +23,7 @@ function CompleteNavigation(section) {
         case "achievements":
         case "tips":
         case "addTip":
+        case "submitHelp":
             if (appPage.validateNavigate() === false) {
                 // We are not allowed to navigate to the page
                 CreatePopup(cannotNavigateAsNotOnline);

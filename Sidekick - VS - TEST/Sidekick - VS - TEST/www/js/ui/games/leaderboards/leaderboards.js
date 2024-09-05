@@ -126,7 +126,12 @@ function ChangeLeaderboardSettings(section) {
 
     for (var i = 0; i < scoresDetailed.length; i++) {
         if (scoresDetailed[i][0] == setting) {
-            scoresForNewSetting.push([scoresDetailed[i][1], scoresDetailed[i][2], scoresDetailed[i][3]]);
+
+            // Only add Home Arcade Scores to any list. If the location is any particular venue then we
+            // probably dont know the settings so only want to show it on the All leaderboard
+            if (scoresDetailed[i][4] === "Home Arcade") {
+                scoresForNewSetting.push([scoresDetailed[i][1], scoresDetailed[i][2], scoresDetailed[i][3]]);
+            }
         }
     }
 

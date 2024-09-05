@@ -4,8 +4,7 @@
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
-    <script type="text/javascript" src="cordova.js"></script>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />	
     <script type="text/javascript" src="scripts/index.js"></script>
     <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="js/new_init.js"></script>
@@ -57,6 +56,8 @@
     <script type="text/javascript" src="js/v4/Quiz/Quiz.js"></script>
     <script type="text/javascript" src="js/v4/Quiz/quiz_question_categories.js"></script>
     <script type="text/javascript" src="js/v4/Quiz/popups.js"></script>
+
+    <script type="text/javascript" src="js/v4/ScoreSubmission/ScoreSubmissionHelp.js"></script>
 
     <!-- GAME LISTS-->
     <!-- Load Local Versions First-->
@@ -292,7 +293,7 @@
                 <h3 style="text-align: center">Welcome to Arcade Sidekick</h3>
                 <h6>I'm a huge fan of retro games and with the resurgence of the arcades I found myself wanting to keep track of my scores on my favourite machines. Thus Arcade Sidekick was born. Keep track of the games you have played, how you rate them, your top score and what the community think. Challenge your friends and enemies and publish your achievements on social media!</h6>
                 <h6>Created by Rich Rumsey</h6>
-                <h6>Version 3.0.19</h6>
+                <h6>Version 3.0.25</h6>
                 <a onclick="ClosePopup()" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Lets go!</span></span></a>
             </div>
         </div>
@@ -467,10 +468,10 @@
         <div role="main" class="ui-content Page">
             <div data-role="collapsibleset" data-theme="a" data-inset="true">
                 <div data-role="collapsible">
-                    <h5>V 3.0.19</h5>
+                    <h5>V 3.0.35</h5>
                     <ul data-role="listview" class="ui-listview ui-corner-all">
                         <li style="white-space: normal;text-overflow: clip;font-size:70%" class="ui-li ui-li-static ui-btn-up-c">
-                            May 2022<br /><br />
+                            Decemeber 2023<br /><br />
                             Its been a long time coming but Level 3 of Sidekick is here...<br />
                             <b>New Features</b><br />
                             <b>Detailed Score Submissions</b> - The BIG one. You are now able to submit scores with different game settings. Level, difficulty, lives, extra lives at, location, date etc. Make sure to give us as much information as you can about your submissions so we can create the leaderboards as correctly as possible. So multiple leaderboards per game! Want to record your individual records on rhythm game levels? Well now you can! Want to record your best score on individual levels of track and field? You got it!<br />
@@ -478,6 +479,10 @@
                             <b>Vectrex</b> - Like mini arcade machines themselves, i've had a few requests to add vectrex into the app, so here it is! The catalog is small, but as before keep requesting the games and ill keep adding them.<br />
                             <b>Arcade Quiz</b> - Inspired by my favourite biscuit eaters, the arcade quiz pays tribute to the great guys over @tenpencearcade. Fancy testing you knowledge and seeing how many questions yo ucan get right in a row? The questions are based off the catalog of games with a few extra things thrown in. As the catalog and games expand so will the quiz!<br />
                             <b>Achievements</b> - A few achievements to encourage experiencing more thatn just your favourite games. More to come!<br />
+                            <br />
+                            <b>Bottom 50</b> - The worst games as voted for by you!<br />
+                            <br />
+                            <b>Game Tips</b> - Leave a tip and read tips for how to play the games.<br />
                             <br />
                             <b>Enhancements</b><br />
                             Speed. Weve been working hard to make the app work faster and the calls to the online database and services should now be much quicker.<br />
@@ -2077,13 +2082,14 @@
         <div data-role="header" data-position="fixed" data-tap-toggle="false">
             <h1 style="font-weight: bold; font-size:100%" ;>Submit Score</h1>
             <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+            <a onclick="SeeSubmitHelp()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="info" data-transition="none"></a>
         </div>
         <div role="main" class="ui-content Page detailedMainPage">
             <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
                 <li style="white-space: normal;text-overflow: clip;" class="ui-li ui-btn-up-c">
                     <span>
-                        Please enter all the details you can on your submission, this will help us create more accurate leader boards and
-                        give other users correct details for their submissions. Any information you do not know please leave blank.
+                        Please enter your score submission details here. If you are not sure what to do then please see the information page, a link 
+                        is located in the top right of the header.
                     </span>
                 </li>
             </ul>
@@ -2206,6 +2212,36 @@
                     <span class="ui-btn-text">Submit</span>
                 </span>
             </a>
+        </div>
+    </div>
+    <!-- Submit detailed score help -->
+    <div data-role="page" data-theme="a" id="SubmitHelp" class="MainMenu">
+        <div data-role="header" data-position="fixed" data-tap-toggle="false">
+            <h1 style="font-weight: bold; font-size:100%" ;>Submission Help</h1>
+            <a onclick="NavigateBack()" data-iconpos="notext" data-mini="true" data-role="button" data-icon="back" data-transition="none"></a>
+        </div>
+        <div role="main" class="ui-content Page">
+            <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all">
+                <li data-role="list-divider" id="myusernamesetup" style="white-space: normal;" class="ui-li ui-li-static ui-btn-up-c">
+                    Please enter all the details you can on your submission, this will help us create more accurate leader boards and
+                    give other users correct details for their submissions. Any information you do not know please leave blank.
+                </li>
+                <li data-role="list-divider" id="myusernamesetup" style="white-space: normal;" class="ui-li ui-li-static ui-btn-up-c">
+                    If you are playing a game at home without making any alterations to the settings then please select default as the likelyhood
+                    is that you will be playing on the default dip swtich settings.
+                </li>
+                <li data-role="list-divider" id="myusernamesetup" style="white-space: normal;" class="ui-li ui-li-static ui-btn-up-c">
+                    Scores submitted from Arcade venues cannot be supplied with setting information. These scores will appear under the All setting.
+                    This decision has been taken as most players will not know what settings apply to the games when at an arcade venue.
+                </li>
+                <li data-role="list-divider" id="myusernamesetup" style="white-space: normal;" class="ui-li ui-li-static ui-btn-up-c">
+                    You can make a submission for a particular level of a game, perfect for those rhythm action and dance levels!
+                </li>
+                <li data-role="list-divider" id="myusernamesetup" style="white-space: normal;" class="ui-li ui-li-static ui-btn-up-c">
+                    Individual leaderboards are supplied for all settings submitted. Why not look at someone elses submissions and attempt to beat
+                    their scores with that setup?
+                </li>
+            </ul>
         </div>
     </div>
     <!-- Game High Scores -->
@@ -2471,5 +2507,7 @@
             <ul id="venueGamessul" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
         </div>
     </div>
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

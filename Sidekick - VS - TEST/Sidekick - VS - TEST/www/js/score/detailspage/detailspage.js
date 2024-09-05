@@ -61,13 +61,15 @@ function AddDetailedScores(output, gamekey) {
             scoreCategories[settingName] = [];
         }
 
-        scoreCategories[settingName].push([detailedScoreCollection[gamekey][i].Date, detailedScoreCollection[gamekey][i].Score, detailedScoreCollection[gamekey][i].LevelName]);
+        scoreCategories[settingName].push([detailedScoreCollection[gamekey][i].Date, detailedScoreCollection[gamekey][i].Score, detailedScoreCollection[gamekey][i].LevelName, detailedScoreCollection[gamekey][i].Location]);
     }
 
+    // DONT ADD THE SCORES FROM VENUES IN HERE
+    // THEY NEED TO BE ADDED AT THE BOTTOM
     for (var key in scoreCategories) {
         if (key === "Default settings") {
             if (scoreCategories.hasOwnProperty(key)) {
-                output = GetDetailedItem(output, scoreCategories, "Default settings");
+                output = GetDetailedItem(output, scoreCategories, "Default settings", "Default settings", true);
             }
         }
     }
@@ -77,34 +79,47 @@ function AddDetailedScores(output, gamekey) {
             continue;
 
         if (scoreCategories.hasOwnProperty(key)) {
-            output = GetDetailedItem(output, scoreCategories, key);
+            output = GetDetailedItem(output, scoreCategories, key, key, true);
         }
-    }    
+    }
+
+    // ADD DEFAULT SCORES HERE THAT WERE MADE ON LOCATON
+    for (var key in scoreCategories) {
+        if (key === "Default settings") {
+            if (scoreCategories.hasOwnProperty(key)) {
+                output = GetDetailedItem(output, scoreCategories, "Default settings", "At Arcades (Unknown)", false);
+            }
+        }
+    }   
 
     return output;
 }
 
-function GetDetailedItem(output, scoreCategories, key)
+function GetDetailedItem(output, scoreCategories, key, description, excludeArcadeVenues)
 {
-    //Add the listdivider
-    output.push('<li data-role="list-divider" style="font-size:70%;white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c ui-li-divider ui-bar-inherit">' + key + '</li>');
-
     //Grab All Levels for this setting
     var levels = [];
     for (i = 0; i < scoreCategories[key].length; i++) {
         if (levels.indexOf(scoreCategories[key][i][2]) === -1)
         {
-            if(scoreCategories[key][i][2] !== "FULL GAME")
+            if (scoreCategories[key][i][2] !== "FULL GAME" &&
+                ((scoreCategories[key][i][3] === "Home Arcade" && excludeArcadeVenues) || (scoreCategories[key][i][3] !== "Home Arcade" && !excludeArcadeVenues)))
             {
                 levels.push(scoreCategories[key][i][2]);
             }
         }
     }
 
+    var listDivider = false;
+
     //Firstly we need to grab all the FULL GAME scores
-    var fullGameScores = GetScoresForLevel(scoreCategories, key, "FULL GAME");
+    var fullGameScores = GetScoresForLevel(scoreCategories, key, "FULL GAME", excludeArcadeVenues);
     if(fullGameScores.length > 0)
     {
+        //Add the listdivider
+        listDivider = true;
+        output.push('<li data-role="list-divider" style="font-size:70%;white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c ui-li-divider ui-bar-inherit">' + description + '</li>');
+
         output.push('<li data-role="list-divider" style="font-size:70%;white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c ui-li-divider ui-bar-inherit">FULL GAME</li>');
         
         var override = IsLevelLeaderboardOverridden(currentGameName, "FULL GAME");
@@ -131,7 +146,12 @@ function GetDetailedItem(output, scoreCategories, key)
     //Then for each other level do the scores
     for (l = 0; l < levels.length; l++)
     {
-        var scores = GetScoresForLevel(scoreCategories, key, levels[l]);
+        if (listDivider == false) {
+            listDivider = true;
+            output.push('<li data-role="list-divider" style="font-size:70%;white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c ui-li-divider ui-bar-inherit">' + description + '</li>');
+        }
+
+        var scores = GetScoresForLevel(scoreCategories, key, levels[l], excludeArcadeVenues);
         output.push('<li data-role="list-divider" style="font-size:70%;white-space: normal;text-overflow: clip;" class="ui-li ui-li-static ui-btn-up-c ui-li-divider ui-bar-inherit">' + levels[l] + '</li>');
         
         var override = IsLevelLeaderboardOverridden(currentGameName, levels[l]);
@@ -158,13 +178,14 @@ function GetDetailedItem(output, scoreCategories, key)
     return output;
 }
 
-function GetScoresForLevel(scoreCategories, key, levelName)
+function GetScoresForLevel(scoreCategories, key, levelName, excludeArcadeVenues)
 {
     // The data here is used as the key to the data when we want to delete it
     // so we want to include as much info in our scores as possible
     var scores = [];
         for (i = 0; i < scoreCategories[key].length; i++) {
-            if (scoreCategories[key][i][2] === levelName)
+            if (scoreCategories[key][i][2] === levelName &&
+               ((scoreCategories[key][i][3] === "Home Arcade" && excludeArcadeVenues) || (scoreCategories[key][i][3] !== "Home Arcade" && !excludeArcadeVenues)))
             {
                 var score = scoreCategories[key][i][0];
                 var date = scoreCategories[key][i][1];

@@ -59,9 +59,10 @@ function RemoveNonFriends(scores, withCategories) {
             var username = scores[i][1];
             var score = scores[i][2];
             var level = scores[i][3];
+            var location = scores[i][4];
 
             if (friendsCollection.indexOf(username) !== -1) {
-                processedScores.push([category, username, score, level]);
+                processedScores.push([category, username, score, level, location]);
             }
         }
         else {

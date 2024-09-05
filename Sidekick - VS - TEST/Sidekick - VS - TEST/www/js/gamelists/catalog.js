@@ -9900,6 +9900,62 @@ gameCatalog['Saint Dragon'].release = '1989';
 gameCatalog['Saint Dragon'].players = '2';
 gameCatalog['Saint Dragon'].category = 'shooter';
 
+gameCatalog['Alligator Hunt'] = new Game();
+gameCatalog['Alligator Hunt'].name = 'Alligator Hunt';
+gameCatalog['Alligator Hunt'].developer = 'Gaelco';
+gameCatalog['Alligator Hunt'].release = '1994';
+gameCatalog['Alligator Hunt'].players = '2';
+gameCatalog['Alligator Hunt'].category = 'shooter';
+
+gameCatalog['Check Man'] = new Game();
+gameCatalog['Check Man'].name = 'Check Man';
+gameCatalog['Check Man'].developer = 'Zilec-Zenitone';
+gameCatalog['Check Man'].release = '1982';
+gameCatalog['Check Man'].players = '2';
+gameCatalog['Check Man'].category = 'misc';
+
+gameCatalog['Vimana'] = new Game();
+gameCatalog['Vimana'].name = 'Vimana';
+gameCatalog['Vimana'].developer = 'Toaplan';
+gameCatalog['Vimana'].release = '1991';
+gameCatalog['Vimana'].players = '2';
+gameCatalog['Vimana'].category = 'shooter';
+
+gameCatalog['Super Don Quixote'] = new Game();
+gameCatalog['Super Don Quixote'].name = 'Super Don Quixote';
+gameCatalog['Super Don Quixote'].developer = 'Universal';
+gameCatalog['Super Don Quixote'].release = '1984';
+gameCatalog['Super Don Quixote'].players = '2';
+gameCatalog['Super Don Quixote'].category = 'misc';
+
+gameCatalog['Kick Rider'] = new Game();
+gameCatalog['Kick Rider'].name = 'Kick Rider';
+gameCatalog['Kick Rider'].developer = 'Universal';
+gameCatalog['Kick Rider'].release = '1984';
+gameCatalog['Kick Rider'].players = '2';
+gameCatalog['Kick Rider'].category = 'racing';
+
+gameCatalog['Momoko 120'] = new Game();
+gameCatalog['Momoko 120'].name = 'Momoko 120';
+gameCatalog['Momoko 120'].developer = 'Jaleco';
+gameCatalog['Momoko 120'].release = '1986';
+gameCatalog['Momoko 120'].players = '2';
+gameCatalog['Momoko 120'].category = 'platformer';
+
+gameCatalog['Repulse'] = new Game();
+gameCatalog['Repulse'].name = 'Repulse';
+gameCatalog['Repulse'].developer = 'Sega';
+gameCatalog['Repulse'].release = '1985';
+gameCatalog['Repulse'].players = '2';
+gameCatalog['Repulse'].category = 'shooter';
+
+gameCatalog['Fire Escape'] = new Game();
+gameCatalog['Fire Escape'].name = 'Fire Escape';
+gameCatalog['Fire Escape'].developer = 'Mech-Tronic Games Inc';
+gameCatalog['Fire Escape'].release = '1984';
+gameCatalog['Fire Escape'].players = '1';
+gameCatalog['Fire Escape'].category = 'misc';
+
 // Videos
 // These have to be here as when this data goes live on the server the users may not have the latest version
 // of the code and datatype in the app so we need to wrpa this for now until everyone updates
@@ -10289,80 +10345,55 @@ try {
     gameCatalog['Mario Kart Arcade GP'].dateAdded = new Date(Date.UTC(2021, 4, 14)).toUTCString();
     gameCatalog['Mario Kart Arcade GP 2'].dateAdded = new Date(Date.UTC(2021, 4, 14)).toUTCString();
     gameCatalog['Mario Kart Arcade GP DX'].dateAdded = new Date(Date.UTC(2021, 4, 14)).toUTCString();
-
     gameCatalog['Kram'].dateAdded = new Date(Date.UTC(2021, 4, 18)).toUTCString();
     gameCatalog['Electric Yo-Yo'].dateAdded = new Date(Date.UTC(2021, 4, 18)).toUTCString();
-
     gameCatalog['Demon Front'].dateAdded = new Date(Date.UTC(2021, 4, 20)).toUTCString();
     gameCatalog['The Last Blade'].dateAdded = new Date(Date.UTC(2021, 4, 20)).toUTCString();
     gameCatalog['The Last Blade 2'].dateAdded = new Date(Date.UTC(2021, 4, 20)).toUTCString();
-
     gameCatalog['Tough Turf'].dateAdded = new Date(Date.UTC(2021, 4, 23)).toUTCString();
     gameCatalog['Steel Gunner'].dateAdded = new Date(Date.UTC(2021, 4, 23)).toUTCString();
     gameCatalog['Steel Gunner 2'].dateAdded = new Date(Date.UTC(2021, 4, 23)).toUTCString();
     gameCatalog['Steel Talons'].dateAdded = new Date(Date.UTC(2021, 4, 23)).toUTCString();
     gameCatalog['Street Fighter III - New Generation'].dateAdded = new Date(Date.UTC(2021, 4, 23)).toUTCString();
     gameCatalog['Armored Warriors'].dateAdded = new Date(Date.UTC(2021, 4, 23)).toUTCString();
-
     gameCatalog['Vs Gradius'].dateAdded = new Date(Date.UTC(2021, 4, 26)).toUTCString();
-
     gameCatalog['Mrs. Dynamite'].dateAdded = new Date(Date.UTC(2021, 5, 6)).toUTCString();
-
     gameCatalog['Mikie'].dateAdded = new Date(Date.UTC(2021, 5, 27)).toUTCString();
-
     gameCatalog['Elevator Action Death Parade'].dateAdded = new Date(Date.UTC(2021, 6, 20)).toUTCString();
-
     gameCatalog['Pop n Bounce'].dateAdded = new Date(Date.UTC(2021, 8, 7)).toUTCString();
-
     gameCatalog['Space Pilot'].dateAdded = new Date(Date.UTC(2021, 8, 14)).toUTCString();
     gameCatalog['Jungle King'].dateAdded = new Date(Date.UTC(2021, 8, 14)).toUTCString();
-
     gameCatalog['Virtua Cop'].dateAdded = new Date(Date.UTC(2021, 9, 1)).toUTCString();
     gameCatalog['Life Force'].dateAdded = new Date(Date.UTC(2021, 9, 5)).toUTCString();
     gameCatalog['Hangly Man'].dateAdded = new Date(Date.UTC(2021, 9, 5)).toUTCString();
-
     gameCatalog['Mayday'].dateAdded = new Date(Date.UTC(2021, 9, 11)).toUTCString();
-
     gameCatalog['Battle Circuit'].dateAdded = new Date(Date.UTC(2021, 9, 21)).toUTCString();
     gameCatalog['Garou Mark Of The Wolves'].dateAdded = new Date(Date.UTC(2021, 9, 21)).toUTCString();
     gameCatalog['Fighters History Dynamite'].dateAdded = new Date(Date.UTC(2021, 9, 21)).toUTCString();
-
     gameCatalog['Vs Ice Climber'].dateAdded = new Date(Date.UTC(2021, 9, 24)).toUTCString();
-
     gameCatalog['Grasspin'].dateAdded = new Date(Date.UTC(2021, 11, 7)).toUTCString();
     gameCatalog['Heated Barrel'].dateAdded = new Date(Date.UTC(2021, 11, 7)).toUTCString();
     gameCatalog['Heart Attack'].dateAdded = new Date(Date.UTC(2021, 11, 7)).toUTCString();
     gameCatalog['Freeze'].dateAdded = new Date(Date.UTC(2021, 11, 7)).toUTCString();
     gameCatalog['Desert Breaker'].dateAdded = new Date(Date.UTC(2021, 11, 7)).toUTCString();
-
     gameCatalog['Golly Ghost'].dateAdded = new Date(Date.UTC(2021, 11, 17)).toUTCString();
-
     gameCatalog['Mister Viking'].dateAdded = new Date(Date.UTC(2022, 0, 4)).toUTCString();
     gameCatalog['Arcadia'].dateAdded = new Date(Date.UTC(2022, 0, 4)).toUTCString();
     gameCatalog['Fast Lane'].dateAdded = new Date(Date.UTC(2022, 0, 4)).toUTCString();
-
     gameCatalog['Ninja Commando'].dateAdded = new Date(Date.UTC(2022, 0, 24)).toUTCString();
     gameCatalog['Flying Tiger'].dateAdded = new Date(Date.UTC(2022, 0, 24)).toUTCString();
     gameCatalog['The Ninja Kids'].dateAdded = new Date(Date.UTC(2022, 0, 24)).toUTCString();
     gameCatalog['Meikyuu Hunter G'].dateAdded = new Date(Date.UTC(2022, 0, 24)).toUTCString();
-
     gameCatalog['Eagle'].dateAdded = new Date(Date.UTC(2022, 0, 31)).toUTCString();
-
     gameCatalog['Pulirula'].dateAdded = new Date(Date.UTC(2022, 1, 15)).toUTCString();
-
     gameCatalog['Pang 3'].dateAdded = new Date(Date.UTC(2022, 1, 23)).toUTCString();
-
     gameCatalog['Riot City'].dateAdded = new Date(Date.UTC(2022, 2, 14)).toUTCString();
     gameCatalog['Vigilante'].dateAdded = new Date(Date.UTC(2022, 2, 14)).toUTCString();
-
     gameCatalog['Cameltry'].dateAdded = new Date(Date.UTC(2022, 2, 21)).toUTCString();
     gameCatalog['Capcom Bowling'].dateAdded = new Date(Date.UTC(2022, 2, 21)).toUTCString();
     gameCatalog['Vs. Pinball'].dateAdded = new Date(Date.UTC(2022, 2, 21)).toUTCString();
-
     gameCatalog['Chack n Pop'].dateAdded = new Date(Date.UTC(2022, 2, 29)).toUTCString();
-
     gameCatalog['1941: Counter Attack'].dateAdded = new Date(Date.UTC(2022, 2, 31)).toUTCString();
-
     gameCatalog['Boxy Boy'].dateAdded = new Date(Date.UTC(2022, 3, 13)).toUTCString();
     gameCatalog['Borench'].dateAdded = new Date(Date.UTC(2022, 3, 13)).toUTCString();
     gameCatalog['Championship Bowling'].dateAdded = new Date(Date.UTC(2022, 3, 13)).toUTCString();
@@ -10371,11 +10402,9 @@ try {
     gameCatalog['Omega Fighter Special'].dateAdded = new Date(Date.UTC(2022, 3, 13)).toUTCString();
     gameCatalog['Arbalester'].dateAdded = new Date(Date.UTC(2022, 3, 13)).toUTCString();
     gameCatalog['Wing Force'].dateAdded = new Date(Date.UTC(2022, 3, 13)).toUTCString();
-
     gameCatalog['Mega Force'].dateAdded = new Date(Date.UTC(2022, 3, 19)).toUTCString();
     gameCatalog['Galaxy Gunners'].dateAdded = new Date(Date.UTC(2022, 3, 19)).toUTCString();
     gameCatalog['Funky Bee'].dateAdded = new Date(Date.UTC(2022, 3, 19)).toUTCString();
-
     gameCatalog['Off the Wall'].dateAdded = new Date(Date.UTC(2022, 3, 24)).toUTCString();
     gameCatalog['Akka Arrh'].dateAdded = new Date(Date.UTC(2022, 3, 24)).toUTCString();
     gameCatalog['Cloud 9'].dateAdded = new Date(Date.UTC(2022, 3, 24)).toUTCString();
@@ -10403,8 +10432,7 @@ try {
     gameCatalog['Stompin'].dateAdded = new Date(Date.UTC(2022, 3, 24)).toUTCString();
     gameCatalog['Toggle'].dateAdded = new Date(Date.UTC(2022, 3, 24)).toUTCString();
     gameCatalog['Gunnail'].dateAdded = new Date(Date.UTC(2022, 3, 24)).toUTCString();
-    gameCatalog['Battle Of Atlantis'].dateAdded = new Date(Date.UTC(2022, 3, 24)).toUTCString();
-
+    gameCatalog['Battle Of Atlantis'].dateAdded = new Date(Date.UTC(2022, 3, 24)).toUTCString();    
     gameCatalog['Block Block'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();
     gameCatalog['Captain Commando'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();
     gameCatalog['Dynasty Wars'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();
@@ -10413,7 +10441,7 @@ try {
     gameCatalog['Last Duel'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();
     gameCatalog['Legendary Wings'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();
     gameCatalog['Mega Twins'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();
-    gameCatalog['X-Men Children of the Atom'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();
+    gameCatalog['X-Men Children of the Atom'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();    
     gameCatalog['B-Wings'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();
     gameCatalog['Captain Silver'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();
     gameCatalog['Cluster Buster'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();
@@ -10435,8 +10463,7 @@ try {
     gameCatalog['The Cliffhanger Edward Randy'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();
     gameCatalog['Tomahawk 777'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();
     gameCatalog['Zaviga'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();
-    gameCatalog['Zoar'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();
-
+    gameCatalog['Zoar'].dateAdded = new Date(Date.UTC(2022, 3, 26)).toUTCString();    
     gameCatalog['Cosmic Chasm'].dateAdded = new Date(Date.UTC(2022, 4, 4)).toUTCString();
     gameCatalog['Blue Shark'].dateAdded = new Date(Date.UTC(2022, 4, 4)).toUTCString();
     gameCatalog['Stunt Cycle'].dateAdded = new Date(Date.UTC(2022, 4, 4)).toUTCString();
@@ -10562,32 +10589,32 @@ try {
     gameCatalog['Dual Assault'].dateAdded = new Date(Date.UTC(2022, 7, 26)).toUTCString();
     gameCatalog['Gorkans'].dateAdded = new Date(Date.UTC(2022, 7, 26)).toUTCString();
     gameCatalog['Solar Fight'].dateAdded = new Date(Date.UTC(2022, 7, 26)).toUTCString();
-
     gameCatalog['Bomb Jack Twin'].dateAdded = new Date(Date.UTC(2022, 9, 24)).toUTCString();
-    gameCatalog['Air Duel'].dateAdded = new Date(Date.UTC(2022, 9, 24)).toUTCString();
-
+    gameCatalog['Air Duel'].dateAdded = new Date(Date.UTC(2022, 9, 24)).toUTCString();    
     gameCatalog['Spin Master'].dateAdded = new Date(Date.UTC(2022, 10, 14)).toUTCString();
     gameCatalog['Pnickies'].dateAdded = new Date(Date.UTC(2022, 10, 14)).toUTCString();
     gameCatalog['Radiant Silvergun'].dateAdded = new Date(Date.UTC(2022, 10, 14)).toUTCString();
     gameCatalog['Ring King'].dateAdded = new Date(Date.UTC(2022, 10, 14)).toUTCString();
     gameCatalog['Neo Mr Do!'].dateAdded = new Date(Date.UTC(2022, 10, 14)).toUTCString();
-
     gameCatalog['Dragon Breed'].dateAdded = new Date(Date.UTC(2023, 0, 6)).toUTCString();
-
     gameCatalog['Space Tactics'].dateAdded = new Date(Date.UTC(2023, 0, 19)).toUTCString();
     gameCatalog['Charlie Ninja'].dateAdded = new Date(Date.UTC(2023, 0, 29)).toUTCString();
-
     gameCatalog['Mutant Night'].dateAdded = new Date(Date.UTC(2023, 1, 27)).toUTCString();
     gameCatalog['Ben Bero Beh'].dateAdded = new Date(Date.UTC(2023, 1, 27)).toUTCString();
-
     gameCatalog['Exzisus'].dateAdded = new Date(Date.UTC(2023, 2, 18)).toUTCString();
-
     gameCatalog['Kick-Man'].dateAdded = new Date(Date.UTC(2023, 3, 4)).toUTCString();
     gameCatalog['Shienryu'].dateAdded = new Date(Date.UTC(2023, 3, 19)).toUTCString();
-
     gameCatalog['Star Wars The Empire Strikes Back'].dateAdded = new Date(Date.UTC(2023, 7, 4)).toUTCString();
     gameCatalog['Tac/Scan'].dateAdded = new Date(Date.UTC(2023, 7, 4)).toUTCString();
-    gameCatalog['Saint Dragon'].dateAdded = new Date(Date.UTC(2023, 7, 4)).toUTCString();
+    gameCatalog['Saint Dragon'].dateAdded = new Date(Date.UTC(2023, 7, 4)).toUTCString();	
+	  gameCatalog['Alligator Hunt'].dateAdded = new Date(Date.UTC(2023, 8, 9)).toUTCString();
+	  gameCatalog['Check Man'].dateAdded = new Date(Date.UTC(2023, 9, 7)).toUTCString();
+	  gameCatalog['Vimana'].dateAdded = new Date(Date.UTC(2023, 9, 27)).toUTCString();	
+  	gameCatalog['Super Don Quixote'].dateAdded = new Date(Date.UTC(2023, 10, 26)).toUTCString();	
+	  gameCatalog['Kick Rider'].dateAdded = new Date(Date.UTC(2024, 5, 14)).toUTCString();
+    gameCatalog['Momoko 120'].dateAdded = new Date(Date.UTC(2024, 5, 14)).toUTCString();
+    gameCatalog['Repulse'].dateAdded = new Date(Date.UTC(2024, 5, 14)).toUTCString();	
+  	gameCatalog['Fire Escape'].dateAdded = new Date(Date.UTC(2024, 7, 9)).toUTCString();
 }
 catch (err) {
     console.log(err);

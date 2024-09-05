@@ -45,7 +45,7 @@ function ProcessDetailedScores(clubOverride)
                         // if we have a level name we know this was entered as a detailed score under the default category
                         if (response.SimpleScores[categoryProp][scoreProp].LevelName !== "") {
                             //Add to the scoreCategories Array - setting 0 is the default setting
-                            allDetailedScores.push([0, response.SimpleScores[categoryProp][scoreProp].UserName, response.SimpleScores[categoryProp][scoreProp].Score, response.SimpleScores[categoryProp][scoreProp].LevelName]);
+                            allDetailedScores.push([0, response.SimpleScores[categoryProp][scoreProp].UserName, response.SimpleScores[categoryProp][scoreProp].Score, response.SimpleScores[categoryProp][scoreProp].LevelName, response.SimpleScores[categoryProp][scoreProp].Location]);
                         }
                     }
                 }
@@ -58,7 +58,7 @@ function ProcessDetailedScores(clubOverride)
                         response.SimpleScores[categoryProp][scoreProp].Score !== 0) {
 
                         //Add to the scoreCategories Array
-                        allDetailedScores.push([categoryProp, response.SimpleScores[categoryProp][scoreProp].UserName, response.SimpleScores[categoryProp][scoreProp].Score, response.SimpleScores[categoryProp][scoreProp].LevelName]);
+                        allDetailedScores.push([categoryProp, response.SimpleScores[categoryProp][scoreProp].UserName, response.SimpleScores[categoryProp][scoreProp].Score, response.SimpleScores[categoryProp][scoreProp].LevelName, response.SimpleScores[categoryProp][scoreProp].Location]);
 
                         //Add to all the scores
                         allScores.push([response.SimpleScores[categoryProp][scoreProp].UserName, response.SimpleScores[categoryProp][scoreProp].Score, response.SimpleScores[categoryProp][scoreProp].LevelName]);
@@ -141,7 +141,7 @@ function AssignClubsScores(currentGameDetailedScores, currentGameAllScores)
             {
                 //We are a member of this club and need to assign our score into our new array
                 tempAllClubsDetailedScores.push([currentGameDetailedScores[j][0],
-                    currentGameDetailedScores[j][1], currentGameDetailedScores[j][2], currentGameDetailedScores[j][3], myclubs[i]]);
+                    currentGameDetailedScores[j][1], currentGameDetailedScores[j][2], currentGameDetailedScores[j][3], currentGameDetailedScores[j][4], myclubs[i]]);
             }
         }
 
@@ -196,9 +196,13 @@ function AssignSettings(response, detailedScores, section, key) {
     //Get settings for friends games
     for (var i = 0; i < detailedScores.length; i++) {
 
-        var settingId = detailedScores[i][0];
-        if (settingsFound.indexOf(settingId) === -1) {
-            settingsFound.push(settingId);
+        //Only add the settings if we are a home arcade, specific settings set
+        //by the users. Location submissions will all have setting 0, but are not DEFAULT SCORES
+        if (detailedScores[i][4] === "Home Arcade") {
+            var settingId = detailedScores[i][0];
+            if (settingsFound.indexOf(settingId) === -1) {
+                settingsFound.push(settingId);
+            }
         }
     }
 
@@ -375,8 +379,8 @@ function GetClubScores(scores, club, detailed)
     for (var i = 0; i < scores.length; i++) {
 
         if (detailed) {
-            if (scores[i][4] === club) {
-                tempScores.push([scores[i][0], scores[i][1], scores[i][2], scores[i][3]]);
+            if (scores[i][5] === club) {
+                tempScores.push([scores[i][0], scores[i][1], scores[i][2], scores[i][3], scores[i][4]]);
             }
         }
         else {

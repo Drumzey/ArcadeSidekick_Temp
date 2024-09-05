@@ -27,7 +27,6 @@ function init() {
     //myclubs.push('European Gamers');
     //////////////////////////////////
 
-    navigator.splashscreen.hide();
     SetNewThemeInUI();
     GetTimedGames();
     pageHistory.push("#MainMenu");

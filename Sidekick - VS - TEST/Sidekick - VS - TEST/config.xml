@@ -104,7 +104,6 @@
     <splash src="res/screens/windows/SplashScreenPhone.scale-240.png" width="1152" height="1920" />
   </platform>
   <plugin name="cordova-plugin-nativestorage" spec="~2.3.2" />
-  <plugin name="cordova-plugin-splashscreen" spec="~5.0.2" />
   <plugin name="cordova-plugin-statusbar" spec="~2.4.2" />
   <plugin name="cordova-plugin-x-socialsharing" spec="~5.4.3" />
   <plugin name="cordova-plugin-email-composer" spec="~0.8.15" />

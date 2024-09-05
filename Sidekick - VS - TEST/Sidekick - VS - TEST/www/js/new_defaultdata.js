@@ -1,6 +1,6 @@
 ﻿var defaultDataErrors = true;
 var defaultSetting = 30;
-var appVersion = "3.0.20";
+var appVersion = "3.0.25";
 var currentVersion = "";
 var enemiesCollection = [];
 var friendsCollection = [];
@@ -376,7 +376,7 @@ function SetDefaultData() {
         Success();
     }
     else {
-        document.getElementById('mytwitterhandlesetup').innerText = 'Email';
+        document.getElementById('mytwitterhandlesetup').innerText = 'Twitter ';
         GetItemFromStorageWithSuccessAndFailureCallBack('twitterHandle',
             function (value) {
                 twitterHandle = value;
@@ -408,7 +408,7 @@ function SetDefaultData() {
                     playerdob = '';
                 }
                 if (playerdob !== '' && playerdob !== null) {
-                    document.getElementById('mydobsetup').innerText = playerdob;
+                    document.getElementById('mydobsetup').innerText = 'Year Of Birth ' + playerdob;
                 }
                 Success();
             },
@@ -432,7 +432,7 @@ function SetDefaultData() {
                     playerlocation = '';
                 }
                 if (playerlocation !== '' && playerlocation !== null) {
-                    document.getElementById('mylocationsetup').innerText = playerlocation;
+                    document.getElementById('mylocationsetup').innerText = 'Location ' + playerlocation;
                 }
                 Success();
             },
@@ -456,7 +456,7 @@ function SetDefaultData() {
                     playeryoutubechannel = '';
                 }
                 if (playeryoutubechannel !== '' && playeryoutubechannel !== null) {
-                    document.getElementById('myyoutubesetup').innerText = playeryoutubechannel;
+                    document.getElementById('myyoutubesetup').innerText = 'YouTube Channel ' + playeryoutubechannel;
                 }
                 Success();
             },
